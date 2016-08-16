@@ -1,0 +1,69 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2eeweb-app_2_4.xsd"
+		version="2.4">
+		
+	<!-- SESSION LISTENER GAME -->
+
+	<listener>
+		<listener-class>listeners.SessionCreationListener</listener-class>
+		<listener-class>listeners.SessionAttributeListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>The Session Listener Game</servlet-name>
+		<servlet-class>servlets.SessionListenerGame</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>The Session Listener Game</servlet-name>
+		<url-pattern>/sessionGame</url-pattern>
+	</servlet-mapping>
+
+		
+		
+
+	<!-- SESSION CALCULATOR -->
+		
+	<session-config>
+		<!-- In Minutes -->
+		<session-timeout>25</session-timeout>
+	</session-config>
+
+	<servlet>
+		<servlet-name>The Session Calculator</servlet-name>
+		<servlet-class>servlets.SessionCalculator</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>The Session Calculator</servlet-name>
+		<url-pattern>/calculator</url-pattern>
+	</servlet-mapping>
+
+		
+	<!-- GET COOKIE -->
+	
+	<servlet>
+		<servlet-name>Retrieve The Cookie</servlet-name>
+		<servlet-class>servlets.CookieChecker</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Retrieve The Cookie</servlet-name>
+		<url-pattern>/getCookie</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- SET COOKIE -->
+	
+	<servlet>
+		<servlet-name>Store The Cookie</servlet-name>
+		<servlet-class>servlets.CookieCreator</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Store The Cookie</servlet-name>
+		<url-pattern>/storeUser</url-pattern>
+	</servlet-mapping>
+
+</web-app>

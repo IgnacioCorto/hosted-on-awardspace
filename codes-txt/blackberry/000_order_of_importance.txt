@@ -1,0 +1,19 @@
+attitude
+environment
+screens
+forms
+files
+persistence
+connections
+canvas
+paintings
+events
+images
+sounds
+videos
+
+html links web
+logo icons
+language
+api + signing
+hardware

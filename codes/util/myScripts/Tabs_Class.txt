@@ -1,0 +1,50 @@
+<script type="text/javascript">
+
+//######## EN BODY ##########
+// 1. Default Tab
+// 2. Selected_Class
+// 3. Tabs_IDs
+
+
+//########## DEFAULT TAB ###########
+anterior = document.getElementById('tab_gaia');
+
+function cambiaTema2(tema2,event)
+	{
+  //-------- Object: targ --------
+ 	if (!event) var e = window.event
+  if (event.target) targ = event.target
+  else if (event.srcElement) targ = event.srcElement
+  if (targ.nodeType == 3) // defeat Safari bug
+  targ = targ.parentNode
+
+  //-------- variable = objeto --------
+  enlace = targ;
+ 
+	anterior.className="";
+
+//########## SELECTED CLASS ###########
+  enlace.className="tab_actual";  
+
+  anterior=enlace;
+  tema2=tema2.toLowerCase();
+
+//########## TABS ID ###########
+ var lostemas2 = ['historia','hidra_liso','fija_color',
+                  'nutricion_extrema','gaia_texto'];
+
+	
+	//document.getElementById('pestana2').src = '/images/mopay_taps.gif';
+	for (i=0; i<lostemas2.length; i++)
+		{
+		if (tema2==lostemas2[i])
+			{
+			document.getElementById(tema2).style.display = 'block';
+			}
+			else
+			{
+			document.getElementById(lostemas2[i]).style.display = 'none';
+			}
+		}
+	}
+</script>

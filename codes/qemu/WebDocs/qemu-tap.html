@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html" ;="" charset="ISO-8859-1"><title>Using Tap</title>
+
+<style>
+body { margin: 3%, 10% }
+</style></head><body>
+<div align="center">
+<h1>Using Tap</h1>
+</div>
+
+<ul>
+<li><a href="#option">1. Option</a><br>
+</li><li><a href="#card">2. Network card</a><br>
+</li><li><a href="#install">3. Installing a Tap adaptor</a><br>
+</li><li><a href="#hostguest">4. Connection between a host OS and a guest OS</a><br>
+</li><li><a href="#internet">5. Connection to the Internet when a host OS is Windows 2000</a><br>
+</li><li><a href="#vlan">6. Using Tap with VLAN</a><br>
+</li><li><a href="#notes">7. Notes</a><br>
+</li></ul>
+
+<h2><a name="option">1. Option</a></h2>
+
+<p>
+Options are:<br>
+-net nic -net tap,ifname=my-tap<br>
+Use ifname to set a name of Tap.<br>
+my-tap is the name of my TAP-Win32 Adapter.<br>
+<br>
+</p>
+
+<h2><a name="card">2. Network card</a></h2>
+
+<p>
+NE2000 PCI, RTL8139, PCNET and NE2000 ISA cards are available for the network card.<br>
+-net nic,model is used to set the model. See <a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#card">here.</a><br>
+<br>
+-net nic -net tap,ifname=my-tap<br>
+-net nic,model=rtl8139 -net tap,ifname=my-tap<br>
+-net nic,model=pcnet -net tap,ifname=my-tap<br>
+-M isapc -net nic -net tap,ifname=my-tap<br>
+<br>
+<br>
+</p>
+
+<h2><a name="install">3. Installing a Tap adapter</a></h2>
+
+<p>
+Please use a OpenVPN ver.2.0 from <a href="http://openvpn.net/">OpenVPN</a>.
+It supports on Windows 2000/XP. Windows 98/Me are not supported. name
+is a name of connection of TAP-Win32 Adapter V8 in Network and Dial-up
+connections in control panel. Please rename it if it is Local Area
+Connection 2 or 3.<br>
+You can also see it like this.<br>
+<br>
+[Dos Prompt] openvpn --show-adapters<br>
+Available TAP-WIN32 adapters [name, GUID]:<br>
+'my-tap' {xxx-yyy-zzz}<br>
+<br>
+Then set IP address from property of my-tap.<br>
+<br>
+<table>
+<tbody><tr><td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/tap-adapter.jpg"><img src="qemu-tap_files/tap-adapter.jpg" height="120" width="160"></a></td>
+<td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/tcp-ip.jpg"><img src="qemu-tap_files/tcp-ip.jpg" height="120" width="160"></a></td>
+<td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/tcp-ip-property.jpg"><img src="qemu-tap_files/tcp-ip-property.jpg" height="120" width="160"></a></td>
+</tr></tbody></table>
+<br>
+<b><font color="red">Don't use the same network address as a physical network!</font></b><br>
+For example, if the physical network is 192.168.0.x, use different IP address 192.168.<font color="red">200</font>.y for TAP-Win32 Adapter.<br>
+<b><font color="red">REBOOT!</font></b><br>
+<br>
+
+
+</p><h2><a name="hostguest">4. Connection between a host OS and a guest OS</a></h2>
+
+Then use :<br>
+<br>
+[Dos Prompt] qemu.exe -L .\pc-bios -hda .\linux.img -net nic -net tap,ifname=my-tap<br>
+<br>
+You can see a icon in task bar like this but it will disapear when you use a tap device. <br>
+<img src="qemu-tap_files/tap-icon.jpg"><br>
+<br>
+At this time, you can see a network configuration of your host OS (Windows 2000/XP) by ipconfig /all.<br>
+<a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/ipconfig.jpg"><img src="qemu-tap_files/ipconfig.jpg" height="160" width="160"></a><br>
+<br>
+When you use a linux guest, type:<br>
+<br>
+guest OS# modprobe ne2k-pci<br>
+guest OS# ifconfig eth0 192.168.200.11<br>
+guest OS# route add default gw 192.168.200.10 eth0<br>
+<br>
+guest OS$ ping 192.168.200.10<br>
+<br>
+You can use ping from the host OS.<br>
+<br>
+host OS$ ping 192.168.200.11<br>
+<br>
+You can enable/disable the Tap Adapter. Right-click on the Tap icon and
+select enable/disable. It isn't necessary to reboot your PC. Please
+enable before you start the program.<br>
+<p></p>
+
+
+<h2><a name="internet">5. Connection to the Internet when a host OS is Windows 2000</a></h2>
+
+<p>
+If you use Windows 2000 as a host OS, it is difficult a little to see
+the Internet. It is easier on Windows XP. Use Internet Connection
+Sharing(ICS). <br>
+<br>
+When you use ICS, an IP address of Tap is forced to 192.168.0.1. If you
+use a router in a real network and use 192.168.0.1 as the router's
+address, you can not use the network. Please set the router to use
+192.168.1.1 and 192.168.1.x as a network.<br>
+<br>
+Then right-click on a <b>real network adapter</b> and select property. Select sharing and check to use ICS. Then push OK. The IP address of Tap adapter is set to 192.168.0.1<br>
+<br>
+
+<table>
+<tbody><tr><td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/ics.jpg"><img src="qemu-tap_files/ics.jpg" height="120" width="160"></a></td>
+<td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/ics-set.jpg"><img src="qemu-tap_files/ics-set.jpg" height="120" width="160"></a></td>
+</tr></tbody></table>
+<br>
+Set an IP address of the guest OS to 192.168.0.2. You can ping to guest
+OS and host OS. Then set DNS server's address in the guest OS, you can
+browse the Internet.
+</p>
+
+
+<h2><a name="vlan">6. Using Tap with VLAN</a></h2>
+
+<p>
+Use one Tap for Win32 Adapter and two guest OSes.
+</p><pre>                                             ICS
+     Redhat1  NE2000 ----------- Host TAP --------- Host NIC -------- Router------ Internet
+        192.168.0.2       |    192.168.0.1       192.168.100.2      192.168.100.1
+                          |      (fixed)                            (DNS server)
+               Redhat2 NE2000
+                      192.168.0.3
+</pre>
+It is necessary to set ICS to browse the Internet. See above. IP address of Tap for Win32 is fixed to 192.168.0.1.<br>
+
+<br>
+Command line options are:<br>
+<pre>term1$ qemu -L ./pc-bios -hda redhat1.img -net nic -net tap,ifname=my-tap
+                  -net socket,listen=localhost:1234
+term2$ qemu -L ./pc-bios -hda redhat2.img -net nic,macaddr=52:54:00:12:34:01
+                  -net socket,connect=localhost:1234
+</pre>
+It is necessary to set macaddr for the second OS.<br>
+<br>
+Setting on guest OSes:<br>
+Linux guest<br>
+<pre>Redhat1 guest&gt; ifconfig eth0 192.168.0.2
+Redhat1 guest&gt; route add default gw 192.168.0.1 eth0
+
+Redaht2 guest&gt; ifconfig eth0 192.168.0.3
+Redhat3 guest&gt; route add default gw 192.168.0.1 eth0
+</pre>
+And set DNS servers to /etc/resolv.conf for each guest OS.<br>
+<pre>nameserver 192.168.100.1
+</pre>
+
+Windows 98 guest<br>
+Go to Control Panel -&gt; Network<br>
+TCP/IP-&gt;Realtek RTL8029(AS) PCI Ethernet NIC -&gt; Property<br>
+IP Address -&gt;192.168.0.2 &amp; 255.255.255.0<br>
+Gateway -&gt; 192.168.0.1 -&gt; Add<br>
+DNS -&gt; Use DNS -&gt; Host name -&gt;192.168.100.1(Your DNS server) -&gt; Add<br>
+<table>
+<tbody><tr><td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/tap-tcpip.jpg"><img src="qemu-tap_files/tap-tcpip.jpg" height="120" width="160"></a></td>
+<td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/tap-ipaddress.jpg"><img src="qemu-tap_files/tap-ipaddress.jpg" height="120" width="160"></a></td>
+<td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/tap-gateway.jpg"><img src="qemu-tap_files/tap-gateway.jpg" height="120" width="160"></a></td>
+<td><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/img/tap-dns.jpg"><img src="qemu-tap_files/tap-dns.jpg" height="120" width="160"></a></td>
+</tr></tbody></table>
+<br>
+
+
+<br>
+Results:<br>
+ping, ssh, telnet works fine.<br>
+lynx also works fine.<br>
+
+<p></p>
+
+
+<h2><a name="notes">7. Notes</a></h2>
+
+<p>
+When I use ZoneAlarm, ping doesn't work. A firewall software may block network packets.<br>
+<b><font color="red">Don't use the same network address as the physical network!</font></b><br>
+For example, if the physical network is 192.168.0.x, use different network 192.168.<font color="red">10</font>.y.<br>
+</p>
+<br>
+
+<a href="http://www.h7.dion.ne.jp/%7Eqemu-win/index.html">home</a>
+
+</body></html>

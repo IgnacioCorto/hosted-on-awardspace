@@ -1,0 +1,109 @@
+lectura, referencia, codear, ejecutar
+*************************************
+
+Container pane = myFrame1.getContentPane();
+____Layout myVar = new ____Layout()
+pane.setLayout( myVar );
+
+
+BorderLayout: NORTH, SOUTH, EAST, WEST AND CENTER
+=================================================
+  BorderLayout.CENTER
+  BorderLayout.PAGE_START
+  BorderLayout.PAGE_END
+  BorderLayout.LINE_START
+  BorderLayout.LINE_END
+
+  BorderLayout(int Hgap, int Hgap)
+  .setHgap(int)
+  .setVgap(int)
+
+
+BoxLayout: An Imaginary Horizontal/Vertical Line
+================================================
+  BoxLayout(Container, PAGE_AXIS)
+  BoxLayout.LINE_AXIS
+  BoxLayout.PAGE_AXIS
+
+  pane.add( Box.createRigidArea( new Dimension(30,20) ) );
+  pane.add(Box.createVerticalGlue());
+  pane.add( new Box.Filler(minSize, prefSize, maxSize));
+
+  button.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+
+CardLayout: Select which "Card" you want to show
+================================================
+  CardLayout()
+  pane.add ( aJPanel, "ID_String" );
+  .show( aJPanel, "ID_String");
+
+  CardLayout cl = (CardLayout) pane.getLayout();
+
+
+FlowLayout: Text-like Component Positioning
+===========================================
+  FlowLayout(align, Hgap, Vgap)
+  FlowLayout.LEADING
+  FlowLayout.CENTER
+  FlowLayout.TRAILING
+
+  pane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+  // Arabic [inverse] text positioning
+
+
+
+GridBagLayout: Components in *RESIZABLE* Grid Cells
+===================================================
+  GridBagLayout();
+  GridBagConstraints gbc1 = new GridBagConstraints();
+          
+    .gridx = 0;   // Component Colum Position in Grids
+    .gridy = 0;   //Component Row Position in Grids
+  
+    .gridwidth = 2;   // Component Width in Grid Units
+    .gridheight = 2;  // Component Height in Grid Units
+    
+    .fill = GridBagConstraints.NONE;  // Don't use Extra-Grids to resize Component
+            
+    .ipadx = 1; // Component Internal  X Padding
+    .ipady = 1; // Component Internal  Y Padding
+  
+    .insets = new Insets(5,5,5,5);  // Component Top, Left, Bottom, Right Margins
+    .anchor = GridBagConstraints.FIRST_LINE_END;  //Component Alignment inside a Grid
+          
+    .weightx = 20.0;
+    .weighty = 10.0;
+
+  pane.add(button, (Constraints) gbc1);
+
+
+GridLayout: A Real Fixed-Table for Components
+=============================================
+  GridLayout(rows,cols [,Hgap ,Vgap] ); 
+    // [rows||cols] can be zero
+    // [rows are *MORE* important
+
+
+GroupLayout: Grouping Algorithm for components
+==============================================
+  GroupLayout(pane);
+
+    .setAutoCreateGaps(true);
+    .setAutoCreateContainerGaps(true);
+
+    .setHorizontalGroup( ... )
+    .setVerticalGroup( ... )
+
+    .createSequentialGroup()
+    .addGroup( .createParallelGroup(GroupLayout.Alignment.LEADING) )
+
+    .addComponent(btn1);
+
+  
+
+SpringLayout: 
+==============================================
+  
+
+

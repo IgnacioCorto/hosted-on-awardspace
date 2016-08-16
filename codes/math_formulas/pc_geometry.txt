@@ -1,0 +1,3 @@
+//Cartesian Center on Screen
+// c=centre  s=scale
+( cx + x * s , cy - y * s )

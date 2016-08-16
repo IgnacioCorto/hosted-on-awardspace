@@ -1,0 +1,22 @@
+<!--// STANDARD CONFIGURATION -->
+
+<script language="javascript" type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script><script language="javascript" type="text/javascript">tinyMCE.init({ 	cleanup : true ,	apply_source_formatting : false , 	theme : "advanced" ,	mode : "textareas" , 	width: '500px'  ,		theme_advanced_buttons1_add : "forecolor" ,    theme_advanced_text_colors : "459C15,800000,FF0000"});</script>
+<!--// INDIVIDUAL TEXTAREAS -->
+
+
+tinyMCE.init({
+	mode : "exact",
+	elements : "elm1,elm2",  /* <input id="elm2" /> */
+	theme : "simple", 
+
+    editor_selector : /(mceEditor|mceRichText)/ ,
+    editor_deselector : /(NoEditor|NoRichText)/
+});
+
+
+<!--// CSS FOR EDIT AREA -->
+
+	Property  =>  content_css : "../css/content_white.css?"+ new Date().getTime(),
+	Style     =>  body.mceContentBody { background: red !important; }
+
+

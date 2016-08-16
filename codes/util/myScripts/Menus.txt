@@ -1,0 +1,16 @@
+TOP -> DOWN:
+============
+ inside a <TD>, use a <BR>, then <DIV 'POSITION:ABSOLUTE'>
+
+ <DIV 'FLOAT:LEFT; DISPLAY:TABLE-CELL'> CAPTION <BR> <DIV 'POSITION:ABSOLUTE'>
+
+ <CELL> <BR/> <INLINE,ABSOLUTE> </></>
+
+
+LEFT -> RIGHT:
+==============
+ inside a <DIV FLOAT=LEFT>, use a <DIV STYLE="POSITION:ABSOLUTE"> after captions
+
+ <DIV 'DISPLAY:INLINE; POSITION:ABSOLUTE'>
+
+  <INLINE> <CELL> </></> <INLINE,ABSOLUTE>

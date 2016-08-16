@@ -1,0 +1,26 @@
+
+
+##### View: SignUp  #####
+
+
+
+<?php __('purchase'); ?>
+
+<?=$form->create('Member', array('url'=>'/members/signup'))?>
+
+<h3>Login Information</h3>
+
+<?=$form->input('nick',array('label'=>'Enter Username: ') )?>
+<?=$form->input('passwd',array('label'=>'Enter Password: ') )?>
+<?=$form->input('password',array('label'=>'Confirm Password: ') )?>
+
+<h3>User Information</h3>
+
+<?=$form->input('email',array('label'=>'Email Address: ') )?>
+<?=$form->input('name',array('label'=>'Full Name: ') )?>
+<?=$form->input('location',array('label'=>'Location: ') )?>
+<?=$form->input('experience',array('label'=>'Experience: ') )?>
+
+<br />
+
+<?=$form->end('Submit')?>

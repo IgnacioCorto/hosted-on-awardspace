@@ -1,0 +1,19 @@
+
+  ###########################
+  ### VIEW OBJECT BROWSER ###
+  ###########################
+
+
+ [SQL SYSADMIN USER]  -->  \...NET2.0  -->  aspnet_regsql 
+ [OPEN SOLUTION]  -->  Project Menu -->  ASP .NET Configuration
+
+==========================
+
+ Session("varname")         // set or get data
+ User.IsInRole("SysAdmin")  // true or false
+ Membership.GetAllUsers()
+
+==========================
+
+ MultiView1.SetActiveView(View2)
+ DetailsView1.Visible = False

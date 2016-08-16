@@ -1,0 +1,786 @@
+/* @override 
+	http://www.racketboy.com/wp-content/themes/racketboy/style.css
+	http://racketboy.ronaldheft.com/wp-content/themes/racketboy/style.css
+*/
+
+/*
+THEME NAME: Racketboy
+THEME URI: http://racketboy.com/
+DESCRIPTION: Racketboy Theme
+VERSION: 1.0
+AUTHOR: Ronald Heft, Jr.
+AUTHOR URI: http://cavemonkey50.com/
+*/
+
+/* @group Basic Page Layout */
+
+body {
+	background: #000;
+}
+
+div#wrapper {
+	width: 95%;
+	min-width: 785px;
+	margin: 0 auto;
+}
+
+div#header {
+	height: 58px;
+}
+
+div#header h1 {
+	display: none;
+}
+
+div#header img {
+	border: 0;
+}
+
+div#page {
+	background: #fff;
+}
+
+div.index {
+	height: 295px;
+	padding: 20px 20px 20px 210px;
+	background: url("images/beat-corner2.jpg") 0% 50% no-repeat;
+}
+
+div#menu {
+	background: #0077c6 url("images/corner-tr.png") 100% 0% no-repeat;
+}
+
+div#menu ul {
+	background: url("images/corner-tl.png") 0% 0% no-repeat;
+	list-style: none;
+	margin: 0;
+	padding: 5px 5px 5px 5%;
+}
+
+div#menu ul li {
+	display: inline;
+	padding: 0 10px
+}
+
+div#menu ul li a {
+	color: #fff;
+	text-decoration: none;
+	text-transform: lowercase;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	font-size: .8em;
+}
+
+div#menu ul li a:hover {
+	text-decoration: underline;
+}
+
+div#content {
+	float: right;
+	width: 72%;
+}
+
+div.innercontent {
+	padding: 20px 15% 30px 0;
+}
+
+div#sidebar {
+	float: left;
+	width: 28%;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	font-size: .8em;
+}
+
+div.innersidebar {
+	width: 190px;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+div#sidebar div {
+	margin-bottom: 20px;
+}
+
+div#sidebar ul {
+	margin: 5px 0;
+	padding: 0;
+	list-style: none;
+}
+
+div#sidebar ul li {
+	padding-bottom: 1px;
+}
+
+div#content.page.search {
+	width: 98%;
+}
+
+/* @group Index */
+
+div#index {
+	
+}
+
+div#index div#main_left {
+	float: left;
+	width: 280px;
+	width: 27%;
+	padding: 20px;
+	padding-left: 7%;
+}
+
+div#index div#main_left div {
+	padding-left: 70px;
+	padding-right: 20px;
+}
+
+div#index div#main_left h2 {
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+div#index div#main_left p {
+	margin: 0;
+/*	padding-right: 20px; */
+	width: 150px;
+	font-size: .8em;
+	line-height: 1.1em;
+}
+
+div#index div#main_right {
+	float: left;
+	width: 45%;
+	margin: 0 0 20px 0;
+	padding-right: 20px;
+}
+
+div#index ul {
+	font-size: .9em;
+}
+
+div#index ul li {
+	padding-bottom: 2px;
+}
+
+div#index a {
+	text-decoration: none;
+}
+
+div#index ul a:hover {
+	text-decoration: underline;
+}
+
+div#index div#main_right ul.menu {
+	list-style-type: none;
+	margin-top: 15px;
+	padding-left: 0px;
+	position: relative;
+	top: 1px;
+}
+
+div#index div#main_right ul.menu li {
+	float: left;
+	margin: 0 10px;
+	padding: 0 5px;
+	border: 1px solid #f0f0f0;
+	border-bottom: 0;
+}
+
+div#index div#main_right ul.menu li.latest {
+	background: #fcfcfc;
+}
+
+div#index div#main_right ul.menu li.popular {
+	background: #f6f6f6;
+}
+
+div#index div#main_right ul.menu li.topic {
+	background: #f3f3f3;
+}
+
+div#index div#main_right ul {
+	margin: 0;
+}
+
+div#index div#main_right div#latest,
+div#index div#main_right div#popular,
+div#index div#main_right div#topic {
+	clear: both;
+	padding: 10px;
+	border: 1px solid #f0f0f0;
+	max-width: 600px;
+}
+
+div#index div#main_right div#popular,
+div#index div#main_right div#topic {
+	display: none;
+}
+
+div#index div#main_right div#latest {
+	background: #fcfcfc;
+}
+
+div#index div#main_right div#popular {
+	background: #f6f6f6;
+}
+
+div#index div#main_right div#topic {
+	background: #f3f3f3;
+	padding-left: 30px;
+}
+
+div#index div#main_right div#topic ul {
+	width: 33%;
+	float: left;
+	padding: 0;
+}
+
+div#index div#upper div#topic ul li {
+	margin-left: 20px;
+}
+
+div#index div#main_right div#topic ul li.first {
+	font-weight: bold;
+	list-style-type: none;
+	margin-left: 0;
+}
+
+div#index h2 {
+	font: 1.2em "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+	margin: 20px 0 10px;
+	padding-bottom: 3px;
+	border-bottom: 1px dotted #000;
+}
+
+div#index div#main_right ul {
+	padding-left: 35px;
+}
+
+div#index div#main_right ul li {
+	margin-right: 10px;
+}
+
+div#index div#main_right div.delicious ul {
+	list-style-type: disc;
+}
+
+div#index div#main_left div.gaming_101 {
+	background: url('images/gaming_101.jpg') 15px 5px no-repeat;
+}
+
+div#index div#main_left div.defining_games {
+	background: url('images/defining_games.jpg') 15px 5px no-repeat;
+}
+
+div#index div#main_left div.hidden_gems {
+	background: url('images/hidden_gems.jpg') 15px 5px no-repeat;
+}
+
+div#index div#main_left div.cheapest_games {
+	background: url('images/cheapest_games.jpg') 15px 5px no-repeat;
+}
+
+div#index div#main_left div.holy_grails {
+	background: url('images/holy_grails.jpg') 15px 5px no-repeat;
+}
+
+/* @end */
+
+/* @group Store */
+
+div#store {
+	font: .9em "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+}
+
+div#store div.left {
+	float: left;
+	width: 30%;
+}
+
+div#store div.middle {
+	float: left;
+	width: 40%;
+}
+
+div#store div.right {
+	float: left;
+	width: 30%;
+}
+
+div#store.store-item div.left {
+	width: 33%;
+}
+
+div#store.store-item div.middle {
+	width: 27%;
+}
+
+div#store.store-item div.right {
+	width: 40%;
+}
+
+div#store div.store-text {
+	padding: 10px;
+}
+
+div#store.store-item div.left div.store-text {
+	padding: 40px;
+	padding-top: 0;
+}
+
+div#store.store-item div.right div.store-text {
+	padding: 40px;
+	padding-top: 10px;
+}
+
+div#store.store-index div.left p {
+	padding-left: 20px;
+}
+
+div#store.store-index ul li, div#store.store-index ol li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+div#store.store-index div.right div.store-text {
+	padding-top: 170px;
+	padding-left: 40px;
+}
+
+div#store.cables {
+	padding: 20px 20px 0 20px;
+}
+
+div#store.cables table {
+	text-align: center;
+	font-size: .9em;
+	margin-bottom: -3px;
+}
+
+div#store.cables table tr td {
+	width: 220px;
+	padding-top: 10px;
+}
+
+div#store.store-index div.left ul {
+	padding-left: 25px;
+}
+
+div#store.store-index div.middle ol {
+	padding-left: 25px;
+}
+
+div#store.store-index div.left ul li {
+	list-style-type: none;
+	padding-left: 25px;
+}
+
+div#store li.saturn {
+	background: url("http://www.racketboy.com/icon_SAT.gif") 0 50% no-repeat;
+}
+
+div#store li.dreamcast {
+	background: url("http://www.racketboy.com/icon_DC.gif") 0 50% no-repeat;
+}
+
+div#store li.genesis {
+	background: url("http://www.racketboy.com/icon_GEN.gif") 0 50% no-repeat;
+}
+
+div#store li.snes {
+	background: url("http://www.racketboy.com/icon_SNES.gif") 0 50% no-repeat;
+}
+
+div#store li.n64 {
+	background: url("http://www.racketboy.com/icon_N64.gif") 0 50% no-repeat;
+}
+
+div#store li.gamecube {
+	background: url("http://www.racketboy.com/icon_GCN.gif") 0 50% no-repeat;
+}
+
+div#store li.psone {
+	background: url("http://www.racketboy.com/icon_PSX.gif") 0 50% no-repeat;
+}
+
+div#store li.ps2 {
+	background: url("http://www.racketboy.com/icon_PS2.gif") 0 50% no-repeat;
+}
+
+div#store li.xbox {
+	background: url("http://www.racketboy.com/icon_XBX.gif") 0 50% no-repeat;
+}
+
+div#store li.tdo {
+	background: url("http://www.racketboy.com/icon_3DO.gif") 0 50% no-repeat;
+}
+
+div#store h2 {
+	font: 1.4em "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+}
+
+div#store h2 a {
+	color: #050d24;
+	text-decoration: none;
+}
+
+/* @end */
+
+/* @group Extended Archives */
+
+div#extended-archives {
+	clear: both;
+	margin-top: 30px;
+	padding: 0px 7% 10px 7%;
+	color: #000;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	background: #FFFFFF;
+	border-top: 4px solid #FFFFFF;
+}
+
+div#extended-archives div.categories {
+	margin-right: 5%;
+}
+
+div#extended-archives div.categories h4 {
+	margin: 0 0 10px;
+	font: 1.1em "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+}
+
+div#extended-archives div.categories ul {
+	list-style: none;
+	padding: 0;
+}
+
+div#extended-archives div.categories ul li {
+	float: left;
+	display: block;
+	width: 150px;
+	padding: 2px;
+	margin: 2px 15px 2px 0;
+	font-size: .8em;
+	border-bottom: 1px solid #000;
+}
+
+div#extended-archives div.categories ul li:hover {
+	background: #069;
+	border-bottom: 1px solid #000;
+}
+
+div#extended-archives div.categories ul li:hover a {
+	color: #fff;
+}
+
+div#extended-archives div.categories a {
+	color: #000;
+	text-decoration: none;
+}
+
+div#extended-archives div.google-ads {
+	float: right;
+	width: 300px;
+	margin-bottom: 20px;
+}
+
+/* @end */
+
+div#footer {
+	clear: both;
+	background: #0077c6 url("images/corner-br.png") 100% 100% no-repeat;
+}
+
+div#footer div.corner {
+	height: 25px;
+	background: url("images/corner-bl.png") 0% 100% no-repeat;
+}
+
+/* @end */
+
+/* @group Page Layout */
+
+div#content div.google-search {
+	text-align: center;
+}
+
+div#content div.google-search form {
+	margin: 0;
+}
+
+div#content div.sub-menu ul {
+	display: table;
+	padding: 0;
+	margin: 0 auto 0; 
+	list-style-type: none;
+	white-space: nowrap;
+	line-height: 1em;
+	border-left: 1px solid #000;
+}
+	
+div#content div.sub-menu ul li {
+	display: table-cell;
+}
+	
+div#content div.sub-menu a {
+	width: auto;
+	display: block;
+	padding: 1px 10px;
+	color: #069;
+	text-decoration: none;
+	text-transform: lowercase;
+	font: .9em Arial, Helvetica, Geneva, sans-serif;
+	border-right: 1px solid #000;
+}
+	
+div#content div.sub-menu a:hover {
+	text-decoration: underline;
+	background: none;
+}
+
+div#content del.sub-menu {
+	clear: both;
+	text-decoration: none;
+}
+
+div#content div.sub-menu {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+div#content div.sub-menu ul li a.feed {
+	background: url("images/feed.png") 20px 0 no-repeat;
+	padding-left: 40px;
+	padding-right: 20px;
+	margin-left: 20px;
+	border-right: none;
+	float: right;
+}
+
+div#content div.feedfloat {
+	position: absolute;
+	right: 8%;
+	padding-left: 20px;
+	background: #fff url("images/feed.png") 0 0 no-repeat;
+	text-transform: lowercase;
+	font: .9em Arial, Helvetica, Geneva, sans-serif;
+}
+
+div#content div.feedfloat a {
+	text-decoration: none;
+	color: #069;
+}
+
+div#content div.feedfloat a:hover {
+	text-decoration: underline;
+}
+
+div#content div.navigation div.left {
+	float: left;
+}
+
+div#content div.navigation div.right {
+	float: right;
+}
+
+/* @end */
+
+/* @group Posts */
+
+div#content, div.index, div#index {
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+}
+
+div#content div.post {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+
+
+}
+
+div#content.page div.post {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+        width: 100%;
+}
+
+div#content h3 {
+	margin-top: 20px;
+	color: #69c;
+	font-size: .7em;
+	text-transform: uppercase;
+}
+
+div#content div.post h3 {
+	font: 1.2em "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+	color: #000;
+	text-transform: none;
+	font-weight: bold;
+}
+
+div#content div.post h2 {
+	font: 1.4em "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+}
+
+div#content.page div.post h2 {
+	margin-top: 0;
+}
+
+div#content div.post h2 a {
+	color: #050d24;
+	text-decoration: none;
+}
+
+div#content div.post div.text, div.index, div#index {
+	font-size: 85%;
+	line-height: 1.4em;
+}
+
+div#content div.post div.post-meta {
+	color: #2f63b3;
+	font-size: .8em;
+}
+
+div#content div.post div.post-meta a {
+	color: #2f63b3;
+}
+
+div#content div.post div.post-meta div.left {
+	float: left;
+}
+
+div#content div.post div.post-meta div.right {
+	float: right;
+}
+
+div#content div.post div.post-meta div.left span {
+	padding-right: 5px;
+}
+
+div#content div.post div.post-meta div.right span {
+	margin-left: 5px;
+	padding-left: 13px;
+	text-transform: lowercase;
+	background: url("images/icon_comment.gif") 0% 50% no-repeat;
+}
+
+/* @end */
+
+/* @group Comments */
+
+div#comments {
+	padding-top: 1px;
+}
+
+div#comments h3 {
+	font: 1.1em "Helvetica Neue", Helvetica, Arial, Tahoma, sans-serif;
+	margin-top: 20px;
+	color: #000;
+	text-transform: none;
+}
+
+div#comments ol {
+	list-style: none;
+	font-size: .8em;
+	padding: 0;
+}
+
+div#comments ol li {
+	padding: 5px 5px 5px 15px;
+}
+
+div#comments ol li.alt {
+	background: #F2F2F2;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+div#comments ol.comments div.comment-meta {
+	margin-top: 7px;
+}
+
+div#comments form#commentform {
+	width: 500px;
+	padding: 20px;
+	background: #f3f3f3;	
+	border-top: 4px solid #0077c6;
+}
+
+div#comments form#commentform div#loggedin {
+	font-size: .8em;
+	padding-bottom: 10px;
+}
+
+div#comments form#commentform label {
+	font-size: .8em;
+	display: block;
+}
+
+div#comments form#commentform input {
+	margin-bottom: 10px;
+}
+
+div#comments form#commentform textarea#comment {
+	width: 500px;
+}
+
+div#comments form#commentform input#submit {
+	margin: 20px 0 0;
+}
+
+div#comments ol#trackbacks li {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+div#comments ol#trackbacks div.trackback-title {
+}
+
+div#comments ol#trackbacks div.trackback-meta {
+	font-style: italic;
+}
+
+div#comments div.trackback-link {
+	color: #2f63b3;
+	font-size: .8em;
+	padding-left: 15px;
+	background: url("images/icon_comment.gif") 0% 50% no-repeat;
+}
+
+div#comments div.trackback-link a {
+	color: #2f63b3;
+}
+
+/* @end */
+
+/* @group Sidebar */
+
+div#sidebar div.categories {
+	
+}
+
+/* @end */
+
+/* @group Helpful Classes */
+
+.clear {
+	clear: both;
+}
+
+img.right {
+	float: right;
+	margin-left: 10px;
+}
+
+/* @end */
+
+/* @group Links */
+
+a {
+	color: #000;
+}
+
+a:hover {
+	color: #69c;
+}
+
+/* @end */

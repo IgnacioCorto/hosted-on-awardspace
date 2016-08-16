@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Practica RegExp</title>
+</head>
+<body>
+    
+	String: <input id="txtRegExpData" value="monja" /> <br />
+	Pattern: <input id="txtRegExpPattern"  value="(mon)(ja)" /> <br />
+	<input type="button" value="Search" id="btnSearch" />  <br />
+	<input type="button" value="Match" id="btnMatch" />  <br />
+	<input type="button" value="Split" id="btnSplit" />  <br />
+	<input id="txtReplace" value="$2$1" />
+	<input type="button" value="Replace" id="btnReplace" /> 
+	($$2$1$$) <br />
+
+<script>
+var cadena;
+var patron;
+var reemplazo;
+function actualizarVariables(){
+	cadena  = document.getElementById('txtRegExpData').value;
+	reemplazo  = document.getElementById('txtReplace').value;
+	strPtrn = document.getElementById('txtRegExpPattern').value;
+	patron  = new RegExp(strPtrn,'gi');
+}
+
+document.getElementById('btnSearch').onclick=function(){
+	actualizarVariables();
+	alert( 'Position: '+cadena.search(patron) +
+		   '\n\nNOTE: "-1" if pattern "Not Found"');
+}
+document.getElementById('btnMatch').onclick=function(){
+	actualizarVariables();
+	alert( 'Found: '+cadena.match(patron) +
+		   '\n\nNOTE: Use parentesis or "gi" on Pattern');
+}
+document.getElementById('btnSplit').onclick=function(){
+	actualizarVariables();
+	alert( 'Array: '+cadena.split(patron) +
+		   '\n\nNOTE: This returns an "Array"');
+}
+document.getElementById('btnReplace').onclick=function(){
+	actualizarVariables();
+	alert( 'Result: '+cadena.replace(patron,reemplazo) +
+		   '\n\nNOTE: Use "gi" to Replace All, not only First One');
+}
+
+
+</script>
+    
+</body>
+</html>

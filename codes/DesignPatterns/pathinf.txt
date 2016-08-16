@@ -1,0 +1,185 @@
+[26+52] Actual: 435
+
+SAFEST ATTRIBUTES:
+private: only accessed internally in the class
+Exception: ancestor of all exceptions
+Non-Static: can access 'static' methods
+double/SuperClass: Ancestors or Interfaces
+
+
+
+===================
+PROXY PATTERN (490)
+===================
+RMI: 495+498
+
+
+===================
+STATE PATTERN (460)
+===================
+
+AN STATE CAN BE AN OBJECT!!!
+
+TokenState(GumMachin machine) {..}
+
+the Machine has a enum of States,
+and a Gum Counter.
+
+
+========================================
+ITERATOR & COMPOSITE PATTERN (365)
+========================================
+
+Composite: { new Stack(); }
+---------------------------
+
+next():  if hasNext() 
+           peek().next()
+           if hasIterator(), push Iterator()
+           return Component()
+
+hasNext(): if stack.empty(), return false
+           if peek.hasNext(), return true
+           stack.pop()
+           return hasNext()
+         
+
+
+Iterator: { .createIterator() }
+-------------------------------
+
+return new DinnerMenuIterator ( Item [] i )
+
+  .hasNext()  // puntero < total ? true : false 
+  .next()     // return actual, puntero++
+  .remove()   // Not So Important
+
+
+==========================
+TEMPLATE PATTERN (337+340)
+==========================
+
+// a template should be "abstract"
+// also, all steps must be methods.
+
+// It can have a hook (a.k.a Condition)
+// in the form of a method returning 
+// a boolean value!!!
+
+
+
+====================================
+ADAPTER & FACADE PATTERN (294 & 309)
+====================================
+
+// Adapter is a **ConcreteClass** with a
+// constructor that accepts the Adaptee!
+// and implements the 'interface' that 
+// the client needs.
+
+// Adapter seems like Decorator (A Wrapper)
+
+Duck TurkAdap = new TurkeyAdapter(turkey);
+Duck -> Interface <- TurkeyAdapter <- Turkey
+
+=====================
+COMMAND PATTERN (267)
+=====================
+
+// CADA BOTON DE "RemoteControl" es un **OBJETO**
+// RemoteControl -> Command -> LightCommand -> Light
+
+// Cada Command tiene un "Undo" y se asigna 
+// a la "propiedad undoCommand" del Remotecontrol
+// el "UndoButton" ejecuta el Undo del Command
+// "almacenado en undoCommand"
+
+RemoteControl -> LightOnCommand -> Light -> RemoteLoader
+NewCommand(ceilFan);
+PartyCommand(cmd [] ceilFan);
+
+
+
+=======================
+SINGLETON PATTERN (232)
+=======================
+
+static volatile*  ___ uniqueInstance = new Singleton();
+static synchronized ___ getInstance()
+if ... syncronized(Singleton.class) ... if 
+
+
+=====================
+FACTORY PATTERN (169)
+=====================
+
+
+=======================
+DECORATOR PATTERN (143)
+=======================
+
+ --A.K.A. Wrappers--
+ Los metodos que un decorador modifica,
+ deben ser declarados *ABSTRACT* en la
+ SuperClase (o ser *INTERFACE*)
+
+abstract Componente
+abstract Decorador extends Componente
+//NOTE: Methods to Override *MUST* be abstract.
+        thus, forcing the override.
+
+Objeto extends Componente
+Adorno extends Decorador
+
+Objeto obj = new Objeto();
+obj = new Adorno(obj);
+
+
+======================
+OBSERVER PATTERN (103)
+======================
+
+Observable: update, add, remove observer
+Observer: update
+Observable HAS-AN array of Observers
+Observer request an Observable to add/remove him
+
+NOTE: Observer **HAS-ONE** Observable!!
+      (Usually with constructor)
+
+  java.util.Observable       java.util.Observer
+  ====================       ===================
+  addObserver()              update()
+  deleteObserver()
+  notifyObservers()          update(Observable o, Object arg)
+  setChanged()
+
+
+  notifyObservers(Object arg)
+  clearChanged()
+  hasChanged()
+       
+
+=====================
+STRATEGY PATTERN (74)
+=====================
+
+Each algorithm inside a class
+Each algorithm implements an interface
+The SuperClass HAS-A interface property (composition)
+The SuperClass property HAS-A setX() and performX()
+
+interface FlyBehavior { void fly(); }
+
+class FlyNoWay implements FlyBehavior { ... }
+
+class Duck { 
+  FlyBehavior myFB;
+  void setFlyBehavior(FlyBehavior fb) {...}
+  void performFly() { ... }
+}
+
+
+
+
+

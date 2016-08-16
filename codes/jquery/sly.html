@@ -1,0 +1,101 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+<style type="text/css">
+.frame { padding: 0; width: 300px; height: 400px; overflow:hidden; }
+.frame .slidee { margin: 0; padding: 1em; }
+
+.scrollbar { width: 10px; height: 400px; }
+.scrollbar .handle {
+    width: 100%;
+    height: 100px; /* overriden if dynamicHandle: 1 */
+    background: #222;
+}
+
+/**/
+.frame, .scrollbar { display:inline-block; }
+/**/
+
+
+/**/
+.frame { width:200px; height:300px; border:1px solid red; }
+.slidee div { width:200px; height:300px; border:1px solid green; }
+/**/
+
+</style>
+
+
+<a href="http://darsa.in/sly/examples/vertical.html" target="_blank">http://darsa.in/sly/examples/vertical.html</a><br />
+<a href="https://github.com/darsain/sly/wiki/Options" target="_blank">https://github.com/darsain/sly/wiki/Options</a><br />
+
+
+<div class="frame">
+    <div class="slidee">
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+        <div>...can be anything. <strong>Anything!</strong></p><p>...can be anything. <strong>Anything!</strong></p></div>
+    </div>
+</div>
+    
+<div class="scrollbar">
+    <div class="handle"></div>
+</div> 
+    
+<ul class="pages"></ul>
+<ul class="controls"></ul>
+        
+    
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.jsxxx"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Sly/1.2.1/sly.min.js"></script>
+<script type="text/javascript">
+var options = {
+    //interactive: '.controls',   //not draggable
+    //horizontal: true, 
+    itemNav: 'basic',
+        
+    pagesBar: null, //'.pages',
+    
+    
+    scrollBy: 1,  //pixels or items
+    speed: 200,   //millis
+    //easing: 'easeOutQuart',   //jquery.easing
+    scrollBar: '.scrollbar',
+    
+    //dynamicHandle: 1,    //resize handle
+    dragHandle: 1,
+    clickBar: 1,
+    
+    mouseDragging: 1,
+    touchDragging: 1,
+    releaseSwing: 1
+};
+    
+var sly = new Sly('.frame', options);  
+sly.init();
+sly.reload();
+</script>
+
+
+
+
+        
+        
+    </body>
+</html>

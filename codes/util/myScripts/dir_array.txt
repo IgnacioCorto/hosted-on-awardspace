@@ -1,0 +1,32 @@
+<?php
+
+
+function dir_array($directorio)
+	{
+		if ( $directory_handle = opendir($directorio) )
+			{
+//			echo $directory_handle;
+				while ( false !== ( $file = readdir( $directory_handle ) ) )
+					{
+						if(
+						       $file != '.'  
+								&& $file != '..'  
+								&& $file != '' 
+								&& !is_dir($file)
+							) $hold[] = $file;
+		
+					} 
+				closedir($directory_handle);
+				sort($hold,SORT_STRING);
+				return $hold;
+      }
+		else 
+			{
+				return false;
+			}
+	}
+
+
+// dir_array('images');
+
+?>

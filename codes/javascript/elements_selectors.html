@@ -1,0 +1,25 @@
+<script>
+var parametros = location.href.split('/');
+alert(parametros[parametros.length-1]);
+
+function alertar(){
+    
+
+alert('Mensaje:\n============='
+    + '\n getElementById :' + document.getElementById('select_alert').value
+    + '\n forms elements :' + document.forms['ignacio'].elements['select_alert'].value
+    + '\n using names    :' + document.ignacio.select_alert.value
+    + '\n selectedIndex  :' + document.ignacio.select_alert.options[document.ignacio.select_alert.selectedIndex].value 
+    ); //end
+
+};
+
+</script>
+
+
+<form name="ignacio">
+<select id="select_alert" name="select_alert" onchange="alertar()">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</form>

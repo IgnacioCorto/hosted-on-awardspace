@@ -1,0 +1,23 @@
+### OK ###
+	
+	List<Child> myList = new ArrayList<Child>();
+	
+	public void addAnimal( List<? extends Animal> animals )  //child of Animal
+	public void addAnimal( List<? super Dog> animals ) //ancestor of Dog
+	
+	Adding elements to array parameters:
+	 - to add or use, collection MUST BE EXACTLY THE SAME GENERIC TYPE
+	 - to add, <? super Dog>
+	 - to use, <? extends Animal>
+	
+	? = Any Type
+
+	
+
+### NOT LEGAL ###
+
+	List<Parent> myList = new ArrayList<Child>();  //Bad
+	List<Animal> animals = new ArrayList<Animal>().add( new Dog() ) ; //Bad
+
+    +  new List<?>() ;  // Bad:  "?" can't be used in object creation
+	+  do(ArrayList<? extends Animal super Dog> ani) ;  // Bad: not allowed!!	

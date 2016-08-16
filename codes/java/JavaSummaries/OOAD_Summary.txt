@@ -1,0 +1,49 @@
+8+33
+====
+
+
+
+##############################################################################
+##############################################################################
+
+
+1) Make sure your software does what the customer wants it to do
+2) Apply basic OO principles to add flexibility
+3) Strive for a extensible, maintainable, reusable design
+
+==============================================================================
+
+1.- Know exactly what the application needs to do
+2.- Use Cases + Actors = Diagram ; Aplicacion->Funciones->Pasos
+
+==============================================================================
+
+1) Feature List  
+     - Figure out what your app is supposed to do at a high level
+
+2) Use Case Diagrams  
+     - Nail down the big processes that your app performs, and any external forces that are involved
+
+3) Break Up the Problem
+     - ...into modules of functionality, and then decide on an order in which to tackle each of your modules
+
+4) Requirements         (### ITERATIVE ###)
+     - Figure out the individual requirements for each module, 
+     - and make sure those fit in with the big picture
+
+5) Domain Analysis      (### ITERATIVE ###)
+     - Figure out how your use case map to objects in your app,
+     - and make sure your customer is on the same page as you are
+
+6) Preliminary Design   (### ITERATIVE ###)
+     - Fill in details about your objects, define relationships 
+     - between the objects, and apply principles and patterns
+
+7) Implementation       (### ITERATIVE ###)
+     - Write code, test it and make sure it works.
+     - Do this for each behaviour, feature, use case or problem, until you are done
+
+8) Delivery
+     - You're done! Release your software, submit your invoices and get paid
+
+

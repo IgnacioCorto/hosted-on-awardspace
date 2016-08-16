@@ -1,0 +1,9 @@
+SELECT top 10
+  s.sec,m.mun,p.pro,c.ciu
+FROM s
+JOIN m USING c_mun
+JOIN p USING c_pro
+JOIN c USING c_ciu,c_mun
+WHERE s.sec = 'pwnd'
+
+

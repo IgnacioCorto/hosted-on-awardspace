@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Rocha Scroll</title>
+        <link  href="" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="../favico.ico" />
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+		<script type="text/javascript">
+		<!--
+		$(function(){
+			$('body div:first').html('<h3 class="green">jQuery Works!</h3>');
+		});
+		-->
+		</script>
+
+		<style type="text/css">
+		.red{color:red;}
+		.green{color:green;}
+		</style>
+
+	</head>
+    <body>
+	<div><h3 class="red">jQuery Failed</h3></div>
+    <!-- START BODY -->
+
+<style>
+.outer {width:300px; border:1px solid red; overflow:hidden;}
+.inner {width:2000px; border:1px solid blue;}
+.hidden {visibility:hidden;}
+.nocol {visibility:collapse;}
+</style>
+
+<p>Press TAB key</p>
+<p>Sin Hidden</p>
+<div class="outer">
+<div class="inner">
+a <input />
+b <input />
+c <input />
+d <input />
+e <input />
+f <input />
+g <input />
+</div>
+</div>
+
+<p>Con Hidden</p>
+<div class="outer">
+<div class="inner">
+a <input />
+b <input />
+<span class="hidden">
+c <input />
+d <input />
+e <input />
+f <input />
+g <input />
+</span>
+</div>
+</div>
+
+<p>Testing visibility:collapse;</p>
+<table>
+<tr><td>A</td><td>B</td><td class="nocol">C</td><td>D</td></tr>
+<tr><td>A</td><td>B</td><td class="nocol">C</td><td>D</td></tr>
+<tr class="nocol"><td>A</td><td>B</td><td class="nocol">C</td><td>D</td></tr>
+<tr><td>A</td><td>B</td><td class="nocol">C</td><td>D</td></tr>
+</table>
+	
+    <!-- END BODY -->
+    </body>
+</html>

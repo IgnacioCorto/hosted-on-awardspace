@@ -1,0 +1,54 @@
+<script type="text/javascript">
+	function ajaxUpdate(url,container,isEval) {
+	  
+	    isEval = isEval == true ? true : false ;
+	    
+	    /* ************** AJAX OBJECT ************** */
+
+	    var xmlHttp;
+	    try {
+	        // Firefox, Opera 8.0+, Safari
+	        xmlHttp=new XMLHttpRequest();
+	    } catch (e) {
+	        // Internet Explorer
+	        try {
+	            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+	        } catch (e) {
+	            try {
+	                xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+	            } catch (e) {
+	                alert("Your browser does not support AJAX!");
+	                return false;
+	            }
+	        }
+	    }
+	    
+	    /* ************** ON RESPONSE ************** */
+	    
+	    document.getElementById(container).innerHTML = '<img src="zip_sales/images/ajaxload.info.gif" />' ;
+	  
+	    xmlHttp.onreadystatechange=function() {
+	        if(xmlHttp.readyState==4) {
+		  
+		  if(isEval){
+		      eval(xmlHttp.responseText) ;
+		      document.getElementById(container).innerHTML = '' ;
+		  } else {
+		      document.getElementById(container).innerHTML = xmlHttp.responseText ;
+		  }
+	         
+	        }
+	    }
+	    
+	    /* ************** SUBMIT DATA ************** */
+
+	    xmlHttp.open("GET",url,true);
+	    xmlHttp.send(null);
+		
+		// ////POST VERSION////
+		// xmlHttp.open("POST","ajax_test.asp",true);
+		// xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		// xmlHttp.send("fname=Henry&lname=Ford");
+	  
+	}
+</script>

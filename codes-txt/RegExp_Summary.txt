@@ -1,0 +1,73 @@
+TEST WITH: http://gskinner.com/RegExr/
+
+<?php
+//////// PHP SECTION /////////
+
+$int_val = NULL;
+$html = "
+abc
+def
+ghi
+123
+456
+";
+
+//BRING ONE MATCH
+//$int_val = preg_match("/.(.)(.)", $html, $matches);
+
+//REPLACE ALL MATCHES
+$patterns = array('/[A-z]/','/([0-9])([0-9])([0-9])/');
+$replacements = array('@','${3}$2${1}');
+$matches = preg_replace($patterns, $replacements, $html);
+
+//BRING ALL MATCHES
+//preg_match_all("/.(.)(.)/", $html, $matches, PREG_SET_ORDER);
+
+//SPLIT MATCH
+//$matches = preg_split("/b|e|h|2/", $html);
+
+echo '<pre>',var_dump($matches),var_dump($int_val),'</pre>';
+?>
+
+
+<script>
+//////// JAVASCRIPT SECTION /////////
+
+var html = "\n\
+abc\n\
+def\n\
+ghi\n\
+123\n\
+456\n\
+";
+console.log(html);
+
+//BRING POSITION
+console.log('posicion: ',html.search(/a[0-9]{3}/)); //-1 = none
+
+//BRING ONE MATCH (gim = many)
+console.log('matchea: ',html.match(/[0-9]{3}/gim));
+
+//SPLIT TEXT
+console.log('split: ',html.split(/b|e|h|2/));
+
+//REPLACE TEXT
+console.log('replace: ',html.replace(/(\d)(\d)(\d)/gim,'--$3$2$1'));
+</script>
+
+
+<script>
+//////// BONUS: JAVASCRIPT /////////
+
+var text = "25 -- 44 ++ 91 == 42 * 5";
+var pattern = "\\d+";
+var regexpobj  = new RegExp(pattern,'gi');
+var count = 0;
+while(regexpobj.test(text)) count++;
+alert(count);
+
+//regexpobj.test(text)   returns   true or false
+//regexpobj.exec(text)   returns   'string' or null
+
+//REPLACING:  return v.replace(/(\s)(\w+)(\s)/, '$1<span>$2</span>$3');
+</script>

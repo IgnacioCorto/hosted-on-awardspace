@@ -1,0 +1,11 @@
+blackberry developer zone
+blackberry development approaches
+TabletOS, Web, J2ME, Themes
+
+eclipse plugin
+rim jde
+simulators
+
+stick to screens, canvas, math and logic programming
+try to separate heavy services
+abstract hardware integration. leave it for the last

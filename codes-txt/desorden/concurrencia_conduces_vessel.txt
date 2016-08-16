@@ -1,0 +1,61 @@
+SUMMARY:
+--------
+  synchronize(this)
+  SQL: UPDATE balance=balance-retiro
+  affected_rows==0 ? show_error : do_audit
+  is_valid > save > is_saved > audit >> else error
+
+------------------
+dos procesos grabando en un mismo registro
+ - actualizando el balance de un banco
+ - enviando un camion despues de cerrar un barco 
+    -> corregir esos errores
+
+PRIMERO: tres personas, dos se quieren comunicar
+         a escondida de la tercera
+
+ambos luchan por un proceso
+tiene que haber una cola
+aunque haya una cola, el que llegue primero es el que corre
+aun si bloqueo todo el proceso,
+si todavia no lo he hecho o no he dado click,
+como quiera se puede despachar un barco
+entonces, la solucion es tener un proceso
+que identifique esas anomalias
+
+anomalias? exacto. aunque hayan colas, el comando
+que llegue primero es el que se ejecuta.
+si se deja el barco abierto.
+
+el problema radica en despachar productos de mas
+al dejar el barco abierto.
+pero si el barco esta cerrado, no deberia permitirse
+otra orden u otro conduce fuera del mismo.
+ - para eso es el copy/paste de la validacion
+
+1. validacion primero que el cierre
+    - no hay forma. eso puede pasar
+    - evitarlo seria parar todo el proceso 
+      si se entra al formulario de cierre
+2. exceso de conduces
+    - como confirmar el exceso/deceso de producto?
+
+El sistema te facilitara los conteos, y el registro 
+de informacion, pero si ingresas disparates, no esperes
+que vas a tener joyas. Aun si un sistema maneja concurrencias,
+si el dato esta abierto, se puede incrementar la deuda
+de una cuenta, por ejemplo. incrementarla por encima de lo 
+que parece tolerable. El limite de 90TN puede ayudar, pero
+como sea, esa cantidad es el margen de error que hay que
+evitar. Por ejemplo, en una cuenta bancaria, seria $-5000
+el limite. El problema de la concurrencia solo se limita
+al caso en el que hay que actualizar un valor.
+
+cta=100; a=-30; b=-40;
+100-30=70;
+100-40=60;
+100-30-40=30; <-- this is it
+ - this is what synchronize(this) is used for,
+   not to verify that a transaction is correct.
+   it could do it if input is correct, certain, and closed.
+   but if data input is open, it depends on humans.

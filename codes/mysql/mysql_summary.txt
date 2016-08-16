@@ -1,0 +1,66 @@
+
+ ##################
+ ### DROP USERS ###
+ ##################
+
+
+DROP USER 'ignacio'@'%';
+
+DROP DATABASE IF EXISTS `ignacio` ;
+
+
+ #########################
+ ### REVOKE PRIVILEGES ###
+ #########################
+
+
+REVOKE ALL PRIVILEGES ON * . * FROM 'ignacio'@'%';
+
+REVOKE GRANT OPTION ON * . * FROM 'ignacio'@'%';
+
+GRANT SELECT ON * . *  TO 'ignacio'@'%'
+	WITH MAX_QUERIES_PER_HOUR 0
+	MAX_CONNECTIONS_PER_HOUR 0
+	MAX_UPDATES_PER_HOUR 0
+	MAX_USER_CONNECTIONS 0 ;
+
+
+ ###################
+ ### CREATE USER ###
+ ###################
+
+
+CREATE USER 'ignacio'@'%' IDENTIFIED BY '*******';
+
+GRANT ALL PRIVILEGES ON * . * TO 'ignacio'@'%' IDENTIFIED BY '*******' 
+	WITH GRANT OPTION 
+	MAX_QUERIES_PER_HOUR 0 
+	MAX_CONNECTIONS_PER_HOUR 0 
+	MAX_UPDATES_PER_HOUR 0 
+	MAX_USER_CONNECTIONS 0 ;
+
+CREATE DATABASE IF NOT EXISTS `ignacio` ;
+
+GRANT ALL PRIVILEGES ON `ignacio` . * TO 'ignacio'@'%';
+
+
+ ######################
+ ### MODIFY COLUMNS ###
+ ######################
+
+
+ALTER TABLE personas MODIFY COLUMN apellido1 VARCHAR(50) AFTER nombre1
+
+ALTER TABLE personas ADD COLUMN id INT NOT NULL AUTO_INCREMENT PRIMARY KEY  FIRST
+
+
+
+ ##################
+ ### TECHNIQUES ###
+ ##################
+ 
+ 
+ COALESCE, SUM(IF(...)), GROUP_CONCAT
+ 
+ 
+ 

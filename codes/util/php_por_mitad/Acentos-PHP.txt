@@ -1,0 +1,6 @@
+// ########## PHP ########## 
+
+$valores = array('á','é','ó','ú','ñ','�');
+$vocales = array('&aacute;','&eacute;','&oacute;','&uacute;','&ntilde;','&iacute;');
+$solicitud = str_replace($valores, $vocales, $portafolio['solicitud']);
+

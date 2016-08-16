@@ -1,0 +1,40 @@
+ 67: Start "BEER" Application
+
+ 70: Development Environment
+ ===========================
+
+MyProjects - datingApp
+           -  beerV1   - web     -  (html) (jsp)
+                       - lib - (jar)
+                       - etc - (web.xml)
+                       - classes - com - example - web   - (class)
+                                                 - model - (class) 
+                       - src     - com - example - web   - (java)
+                                                 - model - (java) 
+
+
+ 71: Deployment Environment
+ ==========================
+
+tomcat - webapps - BeerV1 - {html,jsp}
+                          - WEB-INF    - {web.xml}
+                                       - lib
+                                       - classes   - com - example - web   - {class}
+                                                                   - model - {class}
+
+
+ *** Command Line for Compiling Servlets: ***
+ ============================================
+ javac -classpath /path/to/servlet-api.jar;classes;. -d classes src/com/example/web/BeerSelect.class
+
+
+ 73: html
+ 75: web.xml
+ 78: BeerSelect v1 (controller)
+ 79: Compiling the classes -- IMPORTANT!!
+ 80: BeerExpert (model)
+ 82: BeerSelect v2 (controller)
+
+118: .getParameterValues("name")
+ 85: result.jsp (view)
+ 87: BeerSelect v3 (controller)

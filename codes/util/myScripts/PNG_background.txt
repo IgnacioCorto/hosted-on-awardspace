@@ -1,0 +1,26 @@
+<!--[if lte IE 6]>
+<style>
+
+/*
+  NOTES:
+   (1) apply "width:" or "height:" to the class
+       you want the repeated background
+
+   (2) Don't use "../" in the path of the image
+
+
+  sizingMethod='...'
+    -> crop  : place the image with no modification
+    -> image : resize the container
+    -> scale : strech the image
+*/
+
+* html DIV#YourDiv 
+{
+ background-image: none;
+ filter:
+progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/cian-bg.png,
+sizingMethod='scale');
+}
+</style>
+<![endif]-->

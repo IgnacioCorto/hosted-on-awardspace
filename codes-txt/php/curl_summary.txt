@@ -1,0 +1,22 @@
+$url = 'http://www.mysite.com/tester.phtml';
+
+$header = array(
+    'X-Apple-Tz: 0',
+    'X-Apple-Store-Front: 143444,12'
+    );
+
+$msg = 'postvar1=value1&postvar2=value2&postvar3=value3';
+$msg = http_build_query(array('postvar1' => 'value1'));      //ESCAPED-QUERY VERSION
+
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);              // URL
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);      // RETURN, NOT ECHO
+curl_setopt ($ch, CURLOPT_HTTPHEADER, $header);   // HEADERS (ARRAY OF STRINGS)
+curl_setopt($ch, CURLOPT_POST, 1); 
+curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);       // POST BODY
+curl_setopt($ch, CURLOPT_HEADER, 0);              // INCLUDE HEADER IN RETURN
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, TRUE);   // HTTPS
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);  // HTTPS
+$info = curl_exec ($ch);
+curl_close ($ch);

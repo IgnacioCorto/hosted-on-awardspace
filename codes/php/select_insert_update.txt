@@ -1,0 +1,27 @@
+ //CHECK RECORD//
+ $query = "SELECT id FROM table1
+       WHERE fl1d = $fld1
+         AND fld2 = $fld2
+         AND fld3 = $fld3
+       ";
+ $table_id = $db->getQueryValue($query);
+ 
+ if($table_id){
+    //UPDATE RECORD//
+    $query = "
+       UPDATE table1 SET
+       fdl4   = $fld4,
+       amount = amount+$amount
+       WHERE id=$table_id;
+       ";
+    $result = $db->getQueryResult($query);
+ } else {
+    //INSERT RECORD//
+    $query = "
+       INSERT INTO table1
+       (fld1,fld2,fld3,fld4,amount)
+       VALUES
+      ($fld1,$fld2,$fld3,$fld4,$amount)
+       ";
+    $result = $db->getQueryResult($query);
+ }

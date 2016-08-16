@@ -1,0 +1,15 @@
+
+function cut_text($str, $length){
+    $str = str_replace('#', ' #', trim($str));
+    if(strlen($str)<=$length){
+        return $str;
+    } else {
+        $str = substr($str, 0, $length);
+        $pos = strrpos($str, ' ');
+        
+        #echo "\n\n",'<pre>', var_dump($pos), '</pre>';
+        #echo '<pre>', var_dump($str), '</pre>',"\n\n";
+        
+        return substr($str, 0, $pos-1).'&hellip;';
+    }
+}

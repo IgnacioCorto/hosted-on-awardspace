@@ -1,0 +1,283 @@
+
+
+===================================================
+
+CakePHP 1.2.6
+
+
+[Basic Principles of CakePHP - CakePHP Conventions]
+http://book.cakephp.org/view/22/CakePHP-Conventions
+
+[Models -  Creating Database Tables]
+http://book.cakephp.org/view/68/Creating-Database-Tables
+
+
+[The Manual]
+[http://book.cakephp.org/
+
+[API]
+http://api.cakephp.org/classes
+
+
+===========[ CONVENTIONS ]=========================
+
+
+Filenames:
+ - class: my_nifty_class.php --> MyNiftyClass
+ - model: option_value.php --> OptionValue 
+ - controller: kisses_and_hugs_controller.php --> KissesAndHugsController
+ - component: my_handy.php --> MyHandyComponent 
+ - behavior: especially_funkable.php --> EspeciallyFunkableBehavior
+ - view: super_simple.php --> SuperSimpleView 
+ - helper: best_ever.php --> BestEverHelper
+
+Model and Database (check Inflector)
+ - model: ReallyBigPerson  --> singular
+ - table: really_big_people
+ - fields: first_name
+ - foreign: category_types.category_type_id
+ - join: aaapples_zzzebras
+ - id: int_autoincrement / char(36)
+
+Controller
+ - controller: LatestArticlesController  --> plural
+ - visible: index() ; go_pick() ;
+ - invisible: _findNewArticles
+  
+View
+ - table: "people"
+ - model: "Person", /app/models/person.php
+ - controller: "PeopleController", /app/controllers/people_controller.php
+ - view: /app/views/people/index.ctp
+
+Forms
+ - text: string (char, varchar, etc.)	
+ - checkbox: boolean, tinyint(1)	
+ - textarea: text	
+ - password: text, with name of password, passwd, or psword	
+ - date: date
+ - stamp: datetime, timestamp (day, month, year, hour, minute, meridian)
+ - time:	time (hour, minute, meridian)
+
+Table Fields:
+ - title, or name
+ - datetime: created + modified  (NULL)
+ - id: int_autoincrement, CHAR(36) or binary(36)
+
+=======[ RELATIONSHIPS ]============================================
+
+// vessel.puerto_id -> Vessel { belongsTo=>Puerto(v.puerto_id) }
+// user.id -> Vessel { has=>Profile(p.puerto_id) }
+
+BELONGS TO: se usa el nombre del foreignKey
+ - cada Model tiene su primaryKey!!
+
+// Doctor hasOne Mentor       mentors.doctor_id
+// Mentor belongsTo Doctor    mentors.doctor_id
+// User hasMany Comment       comments.user_id
+// Cake HABTM Fan             cakes_fans.id, cakes_fans.cake_id, cakes_fans.fan_id
+
+
+M: var $belongsTo = array('GroupList');
+C: $this->set('groupLists', $this->User->Group->find('list'));
+V: echo $form->input('group_list_id');
+
+
+class User extends AppModel {
+   var $useDbConfig  = 'alternate';
+    var $tablePrefix = 'proj_';
+
+    var $name         = 'User';      //for PHP4
+    var $useTable     = 'user_list'; //or false
+    var $primaryKey   = 'user_id';
+    var $displayField = 'username';
+ 
+    var $hasOne    = 'Profile' ;   
+    var $belongsTo = 'Group' ;
+    var $hasMany   = 'Post';
+
+    var $hasAndBelongsToMany = array(
+        'Recipe' => array(
+            'className'  => 'Recipe',
+            'foreignKey' => 'user_id',
+            'fields'     => array('a','b'),
+
+            'joinTable'              => 'recipes_users',
+            'associationForeignKey'  => 'recipe_id',
+
+            'conditions' => array('Recipe.approved' => '1'),
+            'order'      => 'Recipe.created DESC',
+        )
+    );
+}
+
+
+======[ CONTROLLER FUNCTIONS ]=============================================
+
+class TerminalesController extends AppController {
+	var $name     = 'Terminales';
+	var $uses     = array('Terminal');
+	var $scaffold = 'admin';
+
+	function any_function($param1=null){
+             $this->data['ModelName']['field_name'] = $param1 ;
+
+             $this->render( '/users/admin_dashboard' );
+             $this->redirect(array('action'=>'dashboard'));
+
+             $this->Auth->user('id');
+             //$session->read('Auth.User.first_name'); //view
+	}
+}
+
+
+---------------------------------------------------
+
+Pages Controller:
+ - Path: /app/views/pages/about_us.ctp
+ -  URL: /pages/about_us
+
+======[ VIEW TEMPLATES ]=============================================
+
+\cake\libs\view\scaffolds
+
+\app\views\pages\static_view.ctp
+
+\app\webroot\css\cake.generic.css
+
+
+\cake\libs\view\layouts\default.ctp
+ - \app\views\layouts\default.ctp
+
+
+=======[ CONFIG.PHP ]============================================
+
+\app\config\core.php:
+ - Configure::write('Routing.admin', 'admin')
+ - Security.salt
+ - Configure::write('App.baseUrl', env('SCRIPT_NAME'));
+
+\config\database.php.default
+ - DATABASE_CONFIG { $default, $test }
+
+\app\config\routes.php
+ - Router::connect ('/', array('controller'=>'posts', 'action'=>'index'));
+
+$ chown -R www-data app/tmp
+
+
+c:\windows\php.bat
+\htdocs\proj> cake\console\cake bake 
+\htdocs\proj> cake\console\cake bake all
+::REMEMBER: ./
+
+
+
+============[ AUTHENTICATION ]======================
+
+CREATE TABLE library_users (      # MySQL Users Table
+    id integer auto_increment,
+    username char(50),
+    password char(40),
+    first_name varchar(32),
+    last_name varchar(32),
+    PRIMARY KEY (id)
+);
+
+
+class AppController extends Controller {    ## /app/app_controller.php
+    var $components = array('Auth');
+}
+
+
+class UsersController extends AppController {  ## /app/controllers/users_controller.php
+    var $name = 'Users';    
+
+
+    function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->loginRedirect = array('controller' => 'dashboard', 'action' => 'index');
+    }
+    function dashboard() {
+    }
+
+    function login() {
+    }
+
+    function logout() {
+        $this->redirect($this->Auth->logout());
+    }
+}
+
+
+<?php
+    $session->flash('auth');
+    echo $form->create('User', array('action' => 'login')); ## \app\views\users\login.ctp
+    echo $form->input('username');
+    echo $form->input('password');
+    echo $form->end('Login');
+?>
+
+
+<div id="mast">
+    <?php echo $session->read('Auth.User.first_name'); ?>  ## \app\views\users\dashboard.ctp
+    <?php echo $session->read('Auth.User.last_name'); ?>
+    <?php echo $html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?>
+</div>
+
+
+
+$this->Auth->fields = array(    ## users table fields
+    'username' => 'username', 
+    'password' => 'secretword'
+     );
+
+$this->Auth->allow('index','view');  ## allowed views 
+
+$this->Auth->password( $this->data['User']['password_confirm'] )  ## hash confirm
+
+
+============[ Access Control List ]======================
+
+
+### INI ACL (app/config/core.php) ###
+  Configure::write('Acl.classname', 'IniAcl');
+  //Configure::write('Acl.database', 'default');
+
+#INI: /app/config/acl.ini.php
+#Tree Behavior
+
+
+cake schema run create DbAcl     ## at Command Prompt
+var $components = array('Acl');  ## at Controller
+
+
+function anyAction()
+{
+	$aro =& $this->Acl->Aro;
+	
+	$groups = array(
+		0 => array('alias' => 'warriors'),
+		1 => array('alias' => 'wizards'),
+		2 => array('alias' => 'hobbits'),
+		3 => array('alias' => 'visitors'),
+	);
+	
+	foreach($groups as $data) {
+		$aro->create();
+		$aro->save($data);
+	}
+
+	$this->redirect(array('action'=>'dashboard'));
+}
+
+cake acl view aro     ## at Command Prompt
+
+
+$this->Acl->allow('warriors/Legolas', 'Weapons', 'delete');
+$this->Acl->deny(array('model' => 'User', 'foreign_key' => 6342), 'Weapons', 'delete');
+$this->Acl->check('warriors/Aragorn', 'Weapons', 'update');
+
+
+
+

@@ -1,0 +1,18 @@
+<script type="text/javascript">
+
+window.addEvent('domready', function(){
+
+//=======================================================
+
+	MI_VARIABLE = new Accordion( $$('.BUTTONS') , $$('.BOXES') , {duration:1000, wait:false, display:1} );
+
+	//recuerda que .BUTTONS pueden ser .SNOOP, pero son requeridos 
+
+	MI_VARIABLE.display(1)
+
+
+//=======================================================
+
+});
+
+</script>

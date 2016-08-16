@@ -1,0 +1,39 @@
+Master Yi
+ - Lich Bane, Zhonya's Hourglass, Sorcerer's Shoes - Alacrity, Mejai's Soulstealer,
+ - Abyssal Scepter, Rabadon's Deathcap
+
+
+Sivir: (AA, boomerang, ignite) (flash, OTH)
+ --> 3:55: phage, giant, blood, whisper, Wriggle, Berserk  (frozen, chain vest)
+ --> 6:29: W+D+R --- 90% vs 50%-30%, near turret
+ - potions, vampiric, berserk,  tear, 2 faerie charms,
+   2 daggers, SotD, Oracle, ¿armor belt? ¿armor? manamune, BF Sword, BT, pickaxe, 
+   madred,  wriggle lantern, guardian angel,  ¿shen?
+    ** doran sword + armor, long sword, giant belt, phage
+   
+ - 50% hp, 10% ad: AA x2, E, Q, AA x 3, ignite
+ - 60% hp: AA, ignite, AA x3, flash, R, AA, Q
+ - 40% hp: 8 AA!!  (SotD) 
+
+
+=====[ PRINT SCREENS ]=====
+
+2 faeries + potion --> boots + vampiric --> 2 daggers --> tear + SotD
+** --> ** --> tear + belt --> berserc + oracle --> madred + manamune --> vamp+BFS --> BT+PKX
+** --> ** --> long sword 
+** --> ** --> wriggle
+
+potion + boots VS doran sw --> vampiric --> long + berserk + armor --> wriggle + ruby
+** --> ** --> berserk+ruby --> wriggle+BFS --> BT+phage --> frozen+negatron --> banshee+negatron (-doran)
+** --> ** --> madred --> wrigle+berserk --> vamp+oracle --> phage+long --> BT+PKX --> catal
+** --> ** --> wriggle + long
+** --> ** --> wriggle + dagger
+** --> ** --> wriggle + BFS --> berserk + BT + LW --> phage + giant --> mallet + chain vest
+** --> ** --> ** --> PKX --> IE + ruby
+
+
+wriggle, berserk, manamune, guardian, BT    (from faeries)
+**, **, **, BFS, vampiric, Sheen    (from faeries)
+**, **, BT, phage, giant, doran sw
+**, **, **, **, **, LW
+ 

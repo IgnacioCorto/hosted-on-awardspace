@@ -1,0 +1,35 @@
+
+### SEARCH FOLDER ###
+ find . -name "*.php"
+
+
+### DOMAIN'S EMAIL LIMIT ###
+cat /var/cpanel/maxemails
+vi  /var/cpanel/maxemails
+/scripts/build_maxemails_config
+
+
+### CHECK MAINLOG ###
+/usr/sbin/exigrep "uol.com.br" /var/log/exim_mainlog  | tail -n 10
+
+
+### TELNET SESSION ###
+(
+sleep 5
+echo "helo comunique.com.do"
+sleep 3
+echo "mail from: <ignacio@comunique.com.do>"
+sleep 3
+echo "rcpt to: <sandro.amador@uol.com.br>"
+sleep 3
+echo "data"
+sleep 3
+echo "esto es un mensaje de prueba"
+echo "si puede ver esto, favor de responderme"
+echo "gracias"
+echo "."
+sleep 3
+echo "quit"
+sleep 5
+echo "helo comunique.com.do"
+) | telnet mx.uol.com.br 25

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+
+
+<table style="float:left;"><tr><td id="td_circulo" align="center" valign="middle" style="border:1px solid red; background:red;">
+<div id="ignacio" style="font-size:400px; color:cyan;" onclick="clearInterval(id1);">&bull;</div>
+</td></tr></table>
+
+<canvas id="b" width="300" height="225" style="border:1px dotted black; float:left;"></canvas>
+
+<div style="clear:both;">
+Imagen tomada de 
+<a href="http://tecnone.com/2009/05/21/google-maps-en-republica-dominicana/">tecnone.com</a>
+</div>
+
+
+<img src="google-maps-rd.jpg" width="612" height="419" border="0" usemap="#Map" />
+
+
+
+<map name="Map" id="Map">
+  <area shape="circle" coords="360,250,66" href="#" style="border:1px solid red; color:red; background:red;" />
+</map>
+
+
+
+<script>
+var id1=null;
+var ancho=500;
+
+document.getElementById("td_circulo").width = ancho;
+document.getElementById("td_circulo").height = ancho;
+
+id1 = setInterval(function(){
+	tamano = (0+(Math.random()*ancho));
+	document.getElementById('ignacio').style.fontSize = tamano+'px';
+	document.getElementById('ignacio').style.lineHeight = tamano+'px';
+},333);
+
+id2 = setTimeout(function(){
+	//clearInterval(id);
+},3000);
+
+//http://diveintohtml5.org/canvas.html#divingin
+function draw_b() {
+	var b_canvas = document.getElementById("b");
+	var b_context = b_canvas.getContext("2d");
+	b_context.strokeRect(50, 25, 150, 100);
+	
+	//b_canvas.width = b_canvas.width; //to clear a canvas.
+	//b_context.strokeStyle = "#ccc";
+	
+	for (var x = 0.5; x < 500; x += 10) {
+	  b_context.moveTo(x, 0);
+	  b_context.lineTo(x, 375);
+	}
+	//b_context.strokeStyle = "#eee";
+	b_context.stroke();
+	
+	b_context.beginPath();
+	b_context.arc(60, 60, 40, 0, Math.PI*2,false);
+	//b_context.closePath(); 
+
+	b_context.strokeStyle = "2px dashed #f00";
+	b_context.stroke();
+
+	//b_context.fillStyle = "2px dashed #0ff";
+	//b_context.fill();
+}
+draw_b();
+/*
+	360 = 2r*pi
+	 45 =  x 
+*/
+</script>
+
+</body>
+</html>
+
+
+
+

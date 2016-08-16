@@ -1,0 +1,13 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+
+/* DEBUGGING FUNCTION */
+function debugging(obj){if(true) jQuery('.absolute-debugging').prepend((new Date()).getTime()+' >> '+(new String(obj))+'<br />');}; jQuery(function(){ jQuery('<div class="absolute-debugging" style="position:absolute;left:0;top:0;height:450px;overflow:scroll;background:white;color:black;"></div>').appendTo('body');});
+
+
+/* TESTING: */
+jQuery(function(){
+    debugging('IGNACIO');
+});
+
+</script>

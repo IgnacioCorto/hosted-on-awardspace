@@ -1,0 +1,70 @@
+===================
+File -> New Project
+Solution -> Add -> New Item... -> Web Form
+   [Views: Design or Code]
+Solution -> [My Project] -> [Change the names]
+-------------------
+
+
+===================
+Solution -> Show All Files   
+   [aspx, aspx.vb, aspx.designer.vb]
+-------------------
+if (Page.IsPostBack = false) then
+Calendar1.SeletedDate = now
+Label1.text = "lo que sea"
+-------------------
+
+
+===================
+[dblClick WebControl] -> DropDowns: Components & Declarations
+-------------------
+Calendar1.SelectedDate.ToShortDateString()
+-------------------
+
+
+===================
+Solution -> Add -> New Item... -> Class
+Private _[state or field name] as String
+  Public Property MyName() As String
+    Get... Set...
+  Public Sub New(ByVal variable AS String)  ''CONSTRUCTOR
+    Me.Propery = "lo que sea"   ''Me=This
+-------------------
+  Public Function FuncName(ByVal var As String) as List(Of Author)
+    List.Add( New Object() )
+-------------------
+[Data Tools] -> GridView -> Choose DataSource -> Object
+-------------------
+
+
+
+===================
+Solution -> Add -> New Item... -> MasterPage
+[Standard Tools] -> ContentPlaceHolder -> [ID property]
+  Solution -> Add -> New Item... -> Web Content Form -> Site.master
+  [Content Section] -> [Common Tasks] -> Create Custom Content
+-------------------
+ **DIRECTIVE***  <%@ Page ... MasterPageFile="~/Site1.Master" ... @>
+<asp:Content ID="anyID" ContentPlaceHolderID="MainContent" runat="server"> </...>
+-------------------
+Solution -> Add -> New Item... -> Site Map
+  [all siteMapNode node INSIDE_HOME_NODE]
+-------------------
+[Navigation Tools] -> TreeView -> Choose DataSource -> Site Map
+[Navigation Tools] -> SiteMapPath -> Choose DataSource -> Site Map
+-------------------
+
+
+===================
+Solution -> Add -> New Item... -> Web User Control
+[Any Standar Tool] -> Program the events !!
+-------------------
+Dim value As Integer
+Cint("22")
+"hola" & "mundo"
+-------------------
+Show All Files -> [Drag your control]
+   [My Project] -> Compile -> Build-Events -> [Pre-Build Command Line]
+-------------------
+

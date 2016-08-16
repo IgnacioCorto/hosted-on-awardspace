@@ -1,0 +1,77 @@
+<!-- array(35) {
+  ["DOCUMENT_ROOT"]=>
+  string(26) "/home/berriart/public_html"
+  ["HTTP_ACCEPT"]=>
+  string(99) "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+  ["HTTP_ACCEPT_CHARSET"]=>
+  string(30) "ISO-8859-1,utf-8;q=0.7,*;q=0.7"
+  ["HTTP_ACCEPT_ENCODING"]=>
+  string(12) "gzip,deflate"
+  ["HTTP_ACCEPT_LANGUAGE"]=>
+  string(26) "en,es-do;q=0.7,en-us;q=0.3"
+  ["HTTP_CACHE_CONTROL"]=>
+  string(8) "no-cache"
+  ["HTTP_CONNECTION"]=>
+  string(10) "keep-alive"
+  ["HTTP_HOST"]=>
+  string(13) "arteberri.com"
+  ["HTTP_KEEP_ALIVE"]=>
+  string(3) "300"
+  ["HTTP_PRAGMA"]=>
+  string(8) "no-cache"
+  ["HTTP_REFERER"]=>
+  string(41) "http://arteberri.com/categorias.php?idc=9"
+  ["HTTP_USER_AGENT"]=>
+  string(92) "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11"
+  ["PATH"]=>
+  string(29) "/sbin:/usr/sbin:/bin:/usr/bin"
+  ["REMOTE_ADDR"]=>
+  string(12) "200.88.93.94"
+  ["REMOTE_PORT"]=>
+  string(4) "2819"
+  ["SCRIPT_FILENAME"]=>
+  string(41) "/home/berriart/public_html/categorias.php"
+  ["SERVER_ADDR"]=>
+  string(13) "207.228.238.6"
+  ["SERVER_ADMIN"]=>
+  string(23) "webmaster@arteberri.com"
+  ["SERVER_NAME"]=>
+  string(13) "arteberri.com"
+  ["SERVER_PORT"]=>
+  string(2) "80"
+  ["SERVER_SIGNATURE"]=>
+  string(65) "<ADDRESS>Apache/1.3.39 Server at arteberri.com Port 80</ADDRESS>
+"
+  ["SERVER_SOFTWARE"]=>
+  string(142) "Apache/1.3.39 (Unix) PHP/4.4.7 mod_log_bytes/1.2 mod_bwlimited/1.4 mod_auth_passthrough/1.8 FrontPage/5.0.2.2635 mod_ssl/2.8.30 OpenSSL/0.9.8b"
+  ["UNIQUE_ID"]=>
+  string(19) "R4@Xyc-k7gYAADj6xek"
+  ["GATEWAY_INTERFACE"]=>
+  string(7) "CGI/1.1"
+  ["SERVER_PROTOCOL"]=>
+  string(8) "HTTP/1.1"
+  ["REQUEST_METHOD"]=>
+  string(3) "GET"
+  ["QUERY_STRING"]=>
+  string(5) "idc=1"
+  ["REQUEST_URI"]=>
+  string(21) "/categorias.php?idc=1"
+  ["SCRIPT_NAME"]=>
+  string(15) "/categorias.php"
+  ["PATH_TRANSLATED"]=>
+  string(41) "/home/berriart/public_html/categorias.php"
+  ["PHP_SELF"]=>
+  string(15) "/categorias.php"
+  ["PHP_AUTH_USER"]=>
+  string(9) "comunique"
+  ["PHP_AUTH_PW"]=>
+  string(6) "123456"
+  ["argv"]=>
+  array(1) {
+    [0]=>
+    string(5) "idc=1"
+  }
+  ["argc"]=>
+  int(1)
+}
+ -->

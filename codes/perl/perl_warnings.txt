@@ -1,0 +1,15 @@
+### Things a Perl script needs ###
+
+
+- It could need to be inside /cgi-bin/  folder
+
+- Execute Permission for folders/scripts. Probably 755
+
+- Text Script Encoding:  Linux Windows Mac
+
+- Shebang. One of these:
+	#!/usr/bin/perl 
+	#!"C:\xampp\perl\bin\perl.exe" 
+	#!/usr/local/bin/perl
+	
+- print "Content-type: text/plain\n\n";

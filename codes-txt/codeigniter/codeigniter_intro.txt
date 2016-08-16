@@ -1,0 +1,17 @@
+remember the .httaccess  ->  index.php/controller/method
+
+system/application/  (errors, config, MVC)
+
+controllers --> file:/blog.php  url:/Blog 
+
+system/application/config/routes.php
+	$route['default_controller']
+	
+in controller:
+	$data['todo']=array('health','wealth','motivation');
+	$this->load->view('blog_view',$data);
+in view:
+	var_dump($todo);
+	
+contructor:
+	function Blog() {  parent::Controller(); }

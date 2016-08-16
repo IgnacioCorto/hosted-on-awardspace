@@ -1,0 +1,1 @@
+"C:\Archivos de programa\CWRSYNC\bin\rsync.exe" --config rsyncd.txt --daemon --no-detach

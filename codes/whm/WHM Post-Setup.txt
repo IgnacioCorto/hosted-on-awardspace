@@ -1,0 +1,22 @@
+REGISTRAR:
+  Create a NameServer domain [NS1 and NS2]
+
+
+WHM:
+  IP Functions --> Add a New IP Address  [NS1 or NS2]
+  Networking Setup --> Nameserver IPs
+  ......
+  Server Status --> Apache Status / Service Status
+  Restart Services --> DNS Server (BIND/NSD) / HTTP Server (Apache)
+  ......
+  Account Functions --> Create a New Account ["your-server.com"]
+  Networking Setup --> Hostname
+  DNS Functions --> Add an A Entry for your Hostname
+
+
+=== END OF SETUP ===
+
+Packages:
+  Add/Edit Packages
+  Feature Manager
+

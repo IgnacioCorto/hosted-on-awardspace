@@ -1,0 +1,60 @@
+
+######################## [ PrintMid ] ############################
+
+myjavac -source 1.4 -d .\classes -bootclasspath "..\wtk22\lib\cldcapi10.jar;..\wtk22\lib\midpapi10.jar" src\PrintMid.java
+
+..\wtk22\bin\preverify.exe -target CLDC1.0 -classpath "classes;..\wtk22\lib\cldcapi10.jar;..\wtk22\lib\midpapi10.jar" hello.PrintMid
+
+..\myjar cvfm dist\PrintMid.jar src\manifest.txt -C output\ .
+
+
+cd dist
+..\..\wtk22\bin\emulator.exe -Xdescriptor PrintMid.jad
+
+
+
+######################## [ DateTimeApp ] ############################
+
+http://www.academictutorials.com/j2me/j2me-understanding-the-process-without-toolkit.asp
+C:\Program Files\netbeans-5.5.1\mobility7.3\emulators-inst\wtk22_win.zip
+
+java/
+  wtk22/
+  proj00/
+    dist/
+    classess/
+    src/
+      manifest.txt
+      DateTimeApp.java
+    output/
+      res/
+
+cd java\proj00
+
+myjavac -source 1.4 -d .\classes -bootclasspath "..\wtk22\lib\cldcapi10.jar;..\wtk22\lib\midpapi10.jar" src\DateTimeApp.java
+
+..\wtk22\bin\preverify.exe -target CLDC1.0 -classpath "classes;..\wtk22\lib\cldcapi10.jar;..\wtk22\lib\midpapi10.jar" com.j2me.part1.DateTimeApp
+
+..\myjar cvfm dist\DateTimeApp.jar src\manifest.txt -C output\ .
+
+..\wtk22\bin\emulator.exe -Xdescriptor dist\DateTimeApp.jad
+
+
+=== [ manifest.txt ] ===
+MIDlet-Name: DateTimeApp
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Vikram Goyal
+
+
+=== [ DateTimeApp.jad ] ===
+MIDlet-1: DateTimeApp, , com.j2me.part1.DateTimeApp
+MIDlet-Name: DateTimeApp
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Vikram Goyal
+MIDlet-Jar-URL: DateTimeApp.jar
+MIDlet-Jar-Size:
+MicroEdition-Profile: MIDP-1.0
+MicroEdition-Configuration: CLDC-1.0
+
+
+C:\Program Files\PC Connectivity Solution\;C:\Program Files\ActiveState Komodo Edit 5\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files\Common Files\Roxio Shared\DLLShared\;C:\Program Files\Common Files\Roxio Shared\10.0\DLLShared\;C:\Program Files\QuickTime\QTSystem\;C:\Nokia\Update_Manager\bin;C:\Program Files\Smart Projects\IsoBuster;C:\Program Files\Java\jdk1.6.0_02\bin\

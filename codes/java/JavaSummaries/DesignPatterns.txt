@@ -1,0 +1,115 @@
+Least Knowledge
+Dependency Inversion
+
+
+###############
+## Strategy: ##
+###############
+
+Dynamic Method Replacement
+Mainly Methods Inheritance
+
+
+###############
+## Observer: ##
+###############
+
+When there are a Subject and many Observers
+When a Subject changes, it notifies Observers
+
+
+################
+## Decorator: ##
+################
+
+To add/modify Objects properties/methods
+Return same Object, with little modifications
+
+
+##############
+## Factory: ##
+##############
+
+An Object for Creating Objects
+Has a switch for creating and returning Objects
+
+
+#######################
+## Abstract Factory: ##
+#######################
+
+A Factory that create Interfaced Objects.
+The Objects created extends/implements a SuperClass
+
+
+################
+## Singleton: ##
+################
+
+Private Property and Constructor, public Getter
+Every Object returned will be a reference to the Same one.
+Threads: synchronized(){...}, static, volatile, 1.2-GC
+
+
+##############
+## Command: ##
+##############
+
+A List of implemented Commands that can be modified.
+Each Command may have many Object for interacting.
+Has an "Undo" command too. Uses: Queues, Logs, 
+
+
+##############
+## Adapter: ##
+##############
+
+Make one Object looks like another Object.
+The Is-A duck, HAS-A turkey
+
+
+#############
+## Facade: ##
+#############
+
+Execute many methods of many objects with only one method!
+It HAS-A bunch of objects.
+
+
+###############
+## Template: ##
+###############
+
+Modify only the necessary methods of a defined algorithm
+The template has some abstract Methods
+Boolean methods to accept/ignore some Template parts
+
+
+###############
+## Iterator: ##
+###############
+
+An interface to iterate a list of Objects.
+Adapt any Object list to the Iterator.
+
+################
+## Composite: ##
+################
+
+To define a Element Tree.
+Childs and Menus are Components
+
+
+############
+## State: ##
+############
+
+To define the State of an Object.
+Each State is an Object with Properties and Methods.
+
+
+#############
+## Proxxy: ##
+#############
+
+493 

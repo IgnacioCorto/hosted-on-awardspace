@@ -1,0 +1,27 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2eeweb-app_2_4.xsd"
+		version="2.4">
+
+	<listener>
+		<listener-class>com.example.web.MyServletContextAttributeListener</listener-class>
+		<listener-class>com.example.web.MyServletContextListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>breed</param-name>
+		<param-value>Roth Wyller</param-value>
+	</context-param>
+
+	
+	<servlet>
+		<servlet-name>Test The Listener</servlet-name>
+		<servlet-class>com.example.web.ListenerTester</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Test The Listener</servlet-name>
+		<url-pattern>/testListener</url-pattern>
+	</servlet-mapping>
+
+</web-app>

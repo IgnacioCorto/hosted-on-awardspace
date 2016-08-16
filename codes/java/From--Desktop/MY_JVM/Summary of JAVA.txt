@@ -1,0 +1,482 @@
+Indice: [3-5]
+-------------
+#########################################################
+[532] setDefaultCloseOperation(...)
+[529] JFrame
+[525] JPanel
+[521] JLayeredPane
+[518] JRootPane
+[516] JApplet
+[510] JComponent
+[503] Listado de Controles 'Swing'
+==============================================< Swing >==
+[498] Constructores de 'FileDialog'
+[493] Constructores de 'Dialog'
+[490] Constructores de 'PopupMenu'
+[485] Constructores de la clase CheckboxMenuItem
+[475] Constructor de MenuItem
+[473] Constructor de Menu
+[472] Constructor de MenuBar
+[464] Constructor/Metodos de la clase Window
+[463] Campos/Constructor/Eventos de la clase WindowEvent
+[461] Metodos de la interfaz WindowListener
+------------------------------------------------< ANTERIORES >--
+[ 80] Tipos de Variables
+[105] Clase String
+[118] Clase StringBuffer
+[133] Precedencia de Operadores
+[141] Operadores a Nivel de BIT
+[143] Operadores Logicos
+[147] Constantes y Metodos de la Clase Math
+
+[244] Clase Object de Java
+[257] Metodos de Component en "AWT"
+[268] Metodos de Container y Container en "AWT"
+[272] Metodos de la clase "Applet"
+
+[299] Constructores de la clase "Frame"
+[309] Constructores de la clase "TextField"
+[313] Constructores de la clase "Label"
+[315] Constructores de la clase "Button"
+[319] Constructores de la clase "Checkbox"
+[321] Metodos de la clase "ItemEvent"
+[324] Metodos de la clase "CheckboxGroup"
+[327] Metodos de la clase "FlowLayout"
+[331] Constructores de la clase "GridLayout"
+[334] Constructores de la clase "Panel"
+[337] Constructores de la clase "BorderLayout"
+[340] Constructores de la clase "CardLayout"
+[344] Constructores de la clase "GridBagLayout"
+
+[357] Campos de la clase "TextArea"
+[365] Constructores de la clase "List"
+[375] Constructor de la clase "Choice"
+[377] Campos de la clase "ItemEvent"
+[380] Constructores de la clase "Scrollbar"
+[382] Campos de la clase "AdjustmentEvent"
+[391] Campos de la clase "ScrollPane"
+
+[399] Metodos de "MouseListener" y "MouseMotionListener"
+[402] Metodos de "KeyListener"
+[407] Campos de la clase "Font"
+[416] Campos de la clase "Image"
+[421] constructor de la clase "Graphics"
+[431] ....... Arcos, Poligonos y XOR .......
+[432] ....... Color, [Fore/Back]ground, fillArc .......
+[432] Campos de la clase "Color"
+[435] Constructores de la clase "Canvas"
+[438] ImageObserver.imageUpdate(Image, flags, x, y, w, h)
+[439] Usar la clase "MediaTracker"
+[443] Constructores de la clase "PixelGrabber"
+[445] Constructores de la clase "MemoryImageSource"
+#########################################################  [447]
+
+LIBRARIES
+=========
+  java.awt.*;
+  java.applet.Applet;
+  java.awt.event.*;
+  java.util.*;
+  java.text.*;
+  java.lang.Math;
+  java.awt.image.*;
+
+#########################################################
+[166] Programacion Orientada a Objetos
+[213] Herencia, clases internas e interfaces
+[182] Crear Metodos
+=============================================
+
+CLASES
+------
+ 1. En un fichero, solo una (1) clase puede ser 'public'
+ 2. Las clases prescinden de 'static'
+
+VARIABLES
+---------
+ 1. se accesan a las variables 'public' con el '.' (punto)
+ 2. 'static' mantiene el valor de las variables
+ 3. 'static int contador=0;' solo asigna la primera vez que se llama.
+ 4. bloque 'static { ... }' solo se ejecuta una sola vez.
+
+METODOS
+-------
+ 1. 'public static': lo transforma a metodo de clase
+ 2. 'public': solo se llama si se construye un objecto
+ 3. 'static': metodo de clase, al omitir 'private'; pseudoPublic
+ 4. Sin 'private', se accesan desde Objetos Construidos
+ 5. un 'static' *NO* puede llamar a un 'dynamic'
+ 6. 'this' y 'super' *NO* son 'static'. No se pueden llamar de un 'static'
+
+ ***** 'new miClase();' ¡¡¡Comando que Ejecuta el constructor!!! *****
+ ***** Los metodos de INTERFACE:  ******
+       --> *NO* pueden ser 'static'
+			 --> *DEBEN* ser 'public'
+
+OBJETOS
+-------
+ 1. a un parametro 'object' se le pueden manipular propiedades
+ 2. se pueden devolver objectos: 'return new miObjeto();'
+    --> usado en Declaraciones de misma clase del 'return'
+ 3. 'return miArreglo;'  'int miArreglo[] = x.getArreglo()'
+ 4. '[]' solo se usa en las declaraciones de Arrays
+
+===========================================================
+
+HERENCIA
+--------
+ 1. 'super': referencia al padre (SuperClase)
+ 2. 'polimorfismo': padre padre1 = new hijo(); padre1.metodo();
+    --> Los hijos deben tener el mismo 'Nombre de Metodo'
+ 3. 'Adapters' se usan para crear 'Clases Anonimas'
+
+
+ ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 
+
+
+ a) ¿'public' bloquea a 'this' y 'super'? ---> Creo que no
+ b) ¿por qué un 'static' no puede llamar a un 'dynamic'?
+ c) Referencias Circulares (Probables en Macro-Proyectos)
+    --> Las Declaraciones y Construcciones *SON LLAMADAS*
+ d) clases anidadas: ¿Ventajas? ¿'static'?
+
+#########################################################
+
+SET PATH=C:\WINDOWS; C:\JDK1.2.2\BIN
+CLASSPATH
+
+ javaw  <applet> c:\appletviewer applet.html
+
+EN WINDOWS:
+***********
+ javac [opciones] [archivos fuente] [@archivos] 
+  -d temp
+
+  +----------------------------------------+
+  | public class NOMBRE_ARCHIVO            |
+  | public static void main(String[] args) |
+  | System.out.println("Hola Mundo")       |
+  +----------------------------------------+
+
+ javac app.java 
+ java app
+
+PAGINA: 52 ==>
+
+ ## ANTES_DE public class app
+ --> import java.util.Date;
+
+ ## IMPORTAR todas las clases del paquete java.util
+ --> import java.util.*;
+
+ ## Actual Date --> new Date()
+ System.out.println("Hoy =" + new Date() );
+
+ ## Importar clase printer
+ ## y usar metodo print()
+ import printer; 
+ ...
+ (new printer()).print();
+
+ ## [DOS] Configurando CLASSPATH
+ SET CLASSPATH = 
+   c:\classes; server.jar; classes.zip; %CLASSPATH%
+
+ ## CREAR APPLETS 
+ import java.applet.Applet;
+ ...
+ public class applet extends Applet { }
+
+ ####################################
+ ## CON RAZON JUAN COPIA Y PEGA !! ## --> Pag. [68]
+ ####################################
+
+ double accounts[][] = new double[2][100];
+ 020, 0x10;  L, F, D;
+
+ ### Pag. [141]
+
+ s1.equals(s2);
+ s1.equalsIgnoreCase(s2);
+ s1.compareTo(s2);
+ 
+ --> StringBuffer [Pag. 121]
+
+ ############ POO ###########
+  CLASES: 
+    Constructor= Metodo con el mismo nombre de la clase
+
+  OBJETOS (Instancia de Clases):
+    String data = new String("Hola desde Java");
+
+  MIEMBROS DE DATOS DE INSTANCIA (variables de instancia):
+    data1.data
+
+  METODOS: private, public, protected
+   -> DE INSTANCIA: 
+   -> DE CLASE: Math.sqrt(value);
+  
+  CONSTRUCTORES:
+    Sobrecargados = Varios constructores en una misma clase
+    Clases que devuelven objetos (eg.: String.valueOf(doubled);)
+      -> Usan "new" dentro de ellas
+
+ ########################### CREACION DE CLASES #################################
+
+  // *SOLO_UNA* clase publica, con el mismo nombre del fichero
+
+  import NombreDeClase;
+
+  [access] class NombreDeClase [extends ...] [implements ...] 
+    {
+      // [static] declara una Variable o Metodo *DE_CLASE*
+      // [access] =
+      //   public --> Desde cualquier parte
+      //   private --> Solo desde la clase a la que pertenece
+      //   protected --> Desde clase: actual, paquete, derivadas [ESTANDAR]
+
+      [access] [static] tipo VariableDeInstancia;
+
+      static {Sentencias;}
+
+      NombreDeClase(tipo parametro,...)
+        {
+         ... ComandosDeInicializacion ...
+        }
+
+      [access] [static] tipo MetodoUno (tipo parametro,...)
+        {
+
+        }
+    }
+
+  ######### Alcance del especificador de acceso [Pag. 180] #########
+ 
+  --> el main debe ser [static]
+  --> Nombre_Constructor = Nombre_Clase 
+
+  ############################################################
+  ##### garbage ##### circular references ##### finalize #####
+  ############################################################
+
+  // pasar un OBJECTO como PARAMETRO: usar la CLASE como TIPO
+  public static void MI_FUNCION (MI_CLASE PARAM_OBJECTO)
+
+  public class NUEVA extends EXISTENTE
+  { NUEVA(String s) //constructor en Sub-Clase
+    {super(s);} }
+
+  POLIFORMISMO: si a.print y b.print, entonces se puede: a a1 = new b()
+
+  // Forzar la declaracion de una funcion
+  abstract class NombreClase
+  { abstract tipo NombreMetodo(); }
+
+  // Evitar que se modifique un metodo
+  [final] void breath() {...}
+
+  // Evitar crear Sub-Clases
+  [final] class animal
+
+  // Crear una constante
+  final int a = 5
+
+
+  ==> 'final' impide subclases y modificaciones
+  ==> 'super' referencia a la SuperClase
+  ==> 'this' clase actual
+
+
+  //Puedes usar metodos de SuperClases en codigos de SubClases
+  //Puedes declarar objetos dentro de clases, usando clases
+  //Puedes usar **RECURSIVIDAD**
+
+  ##### Metodos de clase Object [Pag. 244] #####
+
+  // Clases dentro de Clases
+  // Clases Anonimas
+
+
+  java.lang.Object
+   --> java.awt.Component
+    --> java.awt.Container
+     --> java.awt.Panel
+      --> java.applet.Applet
+
+  // [252] AWT Aplicaciones/Applets
+  // [253] Clases mas Populares de *APPLET*
+
+  // ####### METODOS DE APPLET ########
+  // [278] init, start, stop, destroy, paint, update
+  // [280] Dibujar graficos en applets
+
+  ### CERRAR y ABRIR EL BROWSER = Actualizar JAVA.class ###
+
+  import java.applet.Applet;
+  import java.awt.*;
+
+  add(ObjectoControl);
+
+  // [288] Lista de "Listener" (clases) y "...Event" (metodos)
+
+  -----Conclusiones [Controles|Eventos]-----
+   1. [public] no se usa dentro de metodos !!! 
+        (quizas en main)
+   2. 'this' TODAVIA significa 'CLASE-ACTUAL tratada como OBJETO'
+   3. con "addActionListener()" se pasa un parametro que
+         sea un OBJETO que 'implemente' a ActionListener
+
+  [215] ¿Por qué existen las interfaces?
+  [237] Crear Clases Abstractas
+  [907] Crear una Interfaz
+
+  *Una clase 'abstract' obliga a definir los metodos que tienen 'abstract'
+  *'interface' SOLO TIENE UNA LISTA DE METODOS SIN DEFINIR!!!??
+  *una clase debe declararse como 'abstract' 
+     si *NO* define  TODOS los METODOS de la interfaz
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      es-a ==> Hacer concatenacion de metodos entre clases extendidas.
+               Usar Metodos de una SuperClase dentro de una SubClase.
+                 class a { void print(){...} }
+                 class b extends a { print(); }
+
+   tiene-a ==> Poder Declarar y/o Construir dentro de una Clase con otra.
+                 class a { b b1 = new b(); }
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 
+ 'addActionListener()'
+   --> parametro =
+     --> extends *Applet* implements *actionListener*
+
+ // Los métodos que crean 'Listeners', reciben como parámetro
+ // un objecto Applet con una interfaz 'Listener' implementada
+ 
+  +------------------------------------------------------------------------------+
+  |                                                                              |
+  |  NOTA: los 'AddListeners' reciben como argumento un objecto que tenga        |
+  |        definido los metodos 'mouseClicked' ó 'actionPerformed', y que dicho  |
+  |        metodo tenga acceso a la clase 'applet principal'                     |
+  |                                                                              |
+  |  NOTA: los 'AddListeners' se agregan en 'public void init()'                 |
+  |                                                                              |
+  |  NOTA: 'new' declara clases anonimas. El contenido va dentro de '{ }'        |
+  |                                                                              |
+  |  NOTA: [notar Mayúsculas]   metodos --> aaAaa(); clases --> AaaAaa();        |
+  |                                                                              |
+  +------------------------------------------------------------------------------+
+
+ // Las variables publicas SE DECLARAN EN LAS CLASES, *FUERA DE LOS METODOS*
+ // *TODO METODO* derivado de una *interfaz*  *DEBE_SER_PUBLICO*
+
+
+  CardLayout CL;
+  ...
+  CL = new CardLayout();
+  setLayout(CL);
+  ...
+  add("primero",panel1);
+  CL.show( (Applet) this, "primero")
+  ...
+  repaint();
+
+
+ // El ejemplo pasa a 'cardPanel' el valor 'this' para indicar 
+ // cual es el 'Listener'; y "uno"/"etc." como texto de cuerpo.
+
+ // GridBagLayout... Esta muy bien!!
+
+ // I need "focus()" to see the "select" of "TextArea"
+ // "dblclick" es la "accion" de una "lista"
+
+ ################################
+  PARA AHORRARSE LOS "SCROLLBAR"
+ ################################
+   class x extends Panel
+   { public Dimension getPreferredSize()
+      {return new Dimension(400,400);}   }
+   ...
+   new ScrollPane(ScrollPane.SCROLLBARS_ALWAYS);
+   ScrollPane.add(Panel);
+
+
+ ####### Mouse, Texto, Graficos ##########
+
+ event.getSource() == (Object)
+
+ // la fotografia debe de estar en el mismo directorio
+ // en el que esta el archivo .class
+
+ // Clase Point; Math.[min/max]
+ // g.drawRoundRect(x,y, width,height, arc_width, arc_height);
+
+ ---447---
+ // PixelGrabber(image, x,y,w,h, int[],off,scan)
+ // createImage(...==>..)
+ // MemoryImageSource(image, x,y,w,h, int[],off,scan)
+
+ ---453---
+ -------------------------------------
+  VENTANAS CUADROS DE DIALOGO Y MENUS
+ -------------------------------------
+
+ // Para APPLETS: <param name='parametro1' value='Hola Mundo' />
+ getParameter("parametro1")  --> 04_ap.../applet00.java
+ 
+ *.- un WINDOW es un FRAME !!!
+ *.- para que un '.class' funcione como 'Applicacion' y como 'Applet',
+     en la clase publica debe estar los metodos:
+		   1. public static void main() {...}
+			 2. public void paint(Graphics g){...}  // o los metodos de un applet
+			 
+	*.- 'super()' debe ser el primer comando 
+	*.- System.exit(0)  || setVisible(false)
+	*.- (new Frame()).show()  //Deprecated.  --> usar: setVisible(boolean)
+	
+	*.- Los 'Frame' tienen 'setLayout( new ...Layout() );'
+	*.- miFrame() {super(title);}  // Agregar titulo al frame
+	
+	-> 'Frame' hereda 'addWindowListener()'
+	-> 'MenuItem' hereda 'addActionListener()'
+	 
+					bar  = new MenuBar();   // Crea la barra
+					file = new Menu("Archivo");  // Crea menu 'Archivo'
+					save = new MenuItem("Guardar");  // Crea opcion 'Guardar'
+					
+					save.addActionListener(...);  // Accion de 'Guardar'
+					file.add(save);  // Añadir 'Guardar' a menu 'Archivo'
+					bar.add(file);  // Añadir menu 'Archivo' a la Barra
+					
+					setMenuBar(bar);  // Añadir la barra al 'Frame'
+      ----------------------------------------------------------
+          file.addSeparator();  // Añadir 'linea gris'
+					
+          new CheckboxMenuItem("...");   // Item con casilla de verificacion
+					cotejo.addItemListener(this);  // Listener de casilla de verificacion
+          
+					Menu recent_files = new Menu('Recent Files') // Crear Sub Menu
+					file_menu.add(recent_files)  // Añadir Submenu a un Menu
+					
+					MenuItem.setEnabled(false);  // Desabilitar un MenuItem
+
+      --> PopupMenu popup = new PopupMenu("Menu");  // Crea un PopupMenu. Funciona como los menu.
+			
+	--493--
+	
+	 DIALOG: si 'modal' es 'true', el control se pasa al dialogo
+	         si *NO* es 'modal', se puede seguir usando la aplicacion
+					 
+   New Dialog(parent_frame,title,modal){...} // Dialogo enlazado a Frame Padre
+	 
+   // Crear un dialogo para cargar archivos (NOTA: FileDialog.LOAD)
+	 FileDialog dialog = new FileDialog(this,"Dialogo Archivo",FileDialog.LOAD);
+
+	 
+ *********************************************************************************************
+ *** SWING *** SWING *** SWING *** SWING *** SWING *** SWING *** SWING *** SWING *** SWING ***
+ *********************************************************************************************
+
+527: JApplet  (Applet)
+531: JFrame   (Aplicacion)
+

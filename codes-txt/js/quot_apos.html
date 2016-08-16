@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html>
+<head>
+  <title>Testing of Quotes and Apostrophes</title>
+  <meta name="Author" content="Roger Dingledine">
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" type="text/css" href="../stylesheet-ltr.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+
+
+
+<input type="button" onclick="myAlert()" value="via function" />
+
+<input type="button" onclick="alert(' \'  \&quot;  \&apos; \&#39; ')" value="onclick quotes" />
+
+<input type="button" onclick='alert(" \"  \&apos; \&#39; \&quot;  ")' value="onclick apos" />
+
+<input type="button" onclick="document.getElementById('tolete').innerHTML = '<img alt=&quot;no existe&quot; />'  " value="append element" />
+
+
+<input type="button" onclick='alert(document.getElementById("mas_tolete").innerHTML.split("\""))'  value="split quotes" />
+
+<input type="button" onclick="alert(document.getElementById('mas_tolete_2').innerHTML.split('\''))"  value="split apos" />
+
+
+<div id="tolete"></div>
+
+<div id="mas_tolete">a &quot; b &quot; c &#34; &#64; </div>
+
+<div id="mas_tolete_2">a &#39; b &#39; c &#39; &#64; </div>
+
+
+
+<style>
+.CharTable { border-collapse:collapse; }
+.CharTable th { text-align:center; background:#eee; }
+.CharTable td { text-align:center }
+.Red { color:red; }
+</style>
+
+<hr />
+
+<table border="1" cellpadding="8" class="CharTable">
+	<tr>
+		<th>&nbsp;</th>
+		<th>"</th>
+		<th>'</th>
+		<th>&copy</th>
+		<th>&nbsp;</th>
+	</tr>
+	<tr>
+		<th>Name</th>
+		<td>&amp;quot;</td>
+		<td class="Red">&amp;apos;</td>
+		<td>&amp;copy;</td>
+		<td>(Unkown for IE6)</td>
+	</tr>
+	<tr>
+		<th>Dec</th>
+		<td>&amp;#34;</td>
+		<td>&amp;#39;</td>
+		<td>&amp;#169;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th>Hex</th>
+		<td>&amp;#x22;</td>
+		<td>&amp;#x27;</td>
+		<td>&amp;#xA9;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+
+
+<script>
+function myAlert() {
+	alert( " \" \' &quot; &apos; " );
+}
+</script>
+
+</body>
+</html>

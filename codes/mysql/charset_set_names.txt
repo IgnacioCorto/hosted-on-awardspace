@@ -1,0 +1,21 @@
+SET NAMES 'latin1';
+SET CHARACTER SET 'latin1';   #OR 'utf8'
+
+SELECT . . . . 
+
+
+###### [ FORCE CHARSET ON A FIELD ] ######
+
+#convert(
+upper(
+convert(
+convert(
+convert(
+apellido         #####  latin1 binary utf8 upper #binary
+using latin1) 
+using binary) 
+using utf8) 
+)
+#using binary) 
+
+AS `apellido`,   #####  ALIAS

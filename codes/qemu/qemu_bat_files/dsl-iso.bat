@@ -1,0 +1,1 @@
+qemu -L . -cdrom dsl.iso

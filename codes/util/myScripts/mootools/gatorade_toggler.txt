@@ -1,0 +1,43 @@
+<script type="text/javascript">
+window.addEvent('domready',function(){
+//----------------------------------
+
+TogSel = '.GatToggler';
+CntSel = '.GatContainer';
+
+
+Togglers = new Array( $$(TogSel).length )
+Containers = new Array( $$(CntSel).length )
+
+// Container Iteration
+$$(CntSel).each(function(item, index) {
+	Containers[index]  = new Fx.Slide(item, {duration: 500, wait:false} ).hide();
+	item.setStyle('display','block');
+});
+
+// Toggler Iteration
+$$(TogSel).each(function(item, index) {
+
+	Togglers[index]  = new Fx.Slide(item, {duration: 500, wait:false} );
+
+	item.addEvent('click', function(){
+		CloseAll();
+		Togglers[index].slideOut();
+		Containers[index].slideIn();
+	});
+	
+});
+
+// To Close All the Containers
+function CloseAll() {
+	$$(TogSel).each(function(item, index) {
+	
+		Togglers[index].slideIn();
+		Containers[index].slideOut();
+		
+	});
+}
+
+//----------------------------------
+});
+</script>

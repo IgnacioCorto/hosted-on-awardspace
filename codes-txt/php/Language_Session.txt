@@ -1,0 +1,31 @@
+//Read the $_GET value
+if( isset($_GET['lang']) ) {
+    $_SESSION['lang'] = $_GET['lang'] ;
+    header('location: '.$_SERVER['HTTP_REFERER']);
+    die();
+}
+
+//if not, then Read the $_SESSION value
+else if( isset($_SESSION['lang']) ) {
+    $lang = $_SESSION['lang'] ;
+}
+
+if(!in_array($lang,array('en','es'))) {
+
+    //Languages List
+    $language_list = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']) ;
+    
+    //Check if the Language is in the Browser
+    $langFound=false;
+    foreach($language_list as $lang_item) {
+        $lang_key = substr($lang_item,0,2);
+        if(in_array($lang_key,array('en','es'))) {
+            $lang = $lang_key ;
+            $langFound=true;
+            break;
+        }    
+    }
+    
+    //If not in the browser, choose Default Language
+    if(!$langFound) $lang = 'en' ;
+}

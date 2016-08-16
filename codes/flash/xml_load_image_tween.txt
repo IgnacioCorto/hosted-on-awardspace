@@ -1,0 +1,78 @@
+stop();
+import mx.transitions.Tween;
+import mx.transitions.easing.*;
+
+var my_xml = new XML();
+my_xml.ignoreWhite = true ;
+XMLObj = '';
+Foto = new Array();
+FotoW = new Array();
+AlphaMovie = null;
+ii=0;
+iiTotal = 0
+
+//_root.onEnterFrame = function() {
+//trace( Foto[0].getBytesLoaded() +'/'+ Foto[0].getBytesTotal() );
+//};
+
+
+my_xml.onLoad = function(success){
+	if (!success) return;
+
+	XMLObj = this.childNodes[0];
+	iiTotal = XMLObj.childNodes.length;
+	
+	for(cc=0;cc<iiTotal;cc++){
+		FotoW[cc] = Number(XMLObj.childNodes[cc].attributes.width);
+		trace(FotoW[cc]);
+		_root.attachMovie("myIdentifier", "myInstanceName"+cc, 
+			_root.getNextHighestDepth(), { _x:0, _y:0, _alpha:0 } );
+		Foto[cc] = _root['myInstanceName'+cc];		
+		Foto[cc].loadMovie(XMLObj.childNodes[cc].attributes.src);
+	}
+
+	_root.attachMovie("idWhiteLayer", "myWhiteLayer",
+			_root.getNextHighestDepth(), 
+			{_x:-2,_y:-2} );
+	AlphaMovie = _root["myWhiteLayer"];	
+	
+	_root.onEnterFrame = function() {
+		fotosListas = true;
+		for(cc=0;cc<iiTotal;cc++){
+			if (Foto[cc].getBytesLoaded()!= Foto[cc].getBytesTotal()
+				or Foto[cc].getBytesTotal()<1024)
+				fotosListas = true;
+		}
+		if (fotosListas) {
+			delete _root.onEnterFrame;
+			MoverPeliculas();
+		}
+	}
+ 
+}
+
+
+my_xml.load("flsh/xml/thumbs.xml");
+
+function MoverPeliculas() {
+
+	Foto[ii]._alpha=100;
+	Limite = 370 - FotoW[ii] ;
+	//Limite = 370 - Foto[ii]._width ;
+
+	AlphaMovie.gotoAndPlay(1);
+
+	FPT = 120;
+	// null: Back. Bounce. Elastic. Regular. Strong.
+	myTween = new Tween(Foto[ii],'_x',null,0,Limite,FPT,false);
+	myTween.onMotionChanged  = function() {
+		if (myTween.time==(FPT-20) )
+		AlphaMovie.gotoAndPlay(21);
+	};
+	myTween.onMotionFinished = function() {
+		Foto[ii]._alpha=0;
+		ii = ii<(iiTotal-1) ? ii+1 : 0 ;
+		MoverPeliculas();
+	};
+	
+}

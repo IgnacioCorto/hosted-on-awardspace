@@ -1,0 +1,63 @@
+:APPS:
+  NetBeans 5.5.1   
+  NetBeans 5.5 Mobility Pack  
+  Series 40 Developer Platform 2.0 SDK 
+  Nokia Connectivity Framework 1.2  
+  
+in NetBeans, create a new "Hello World" J2ME Project
+
+Tools > Java Platform Manager > Add Platform ...
+choose "Java Micro Edition Platform Emulator"
+choose "Find More Java ME Platform Folders..."
+etc...
+
+Right-Click the project, then choose Properties
+edit Platform's Project Configuration
+
+
+========= [ HELLO WORLD ] =========================
+
+
+import javax.microedition.lcdui.*;
+import javax.microedition.midlet.*;
+
+public class HelloWorldMIDlet extends MIDlet
+	implements CommandListener
+{
+	private Display display;
+	private Command exitCommand = new Command("Exit",
+		Command.EXIT,1);
+		private TextBox text;
+		
+	public HelloWorldMIDlet()
+	{
+		display = Display.getDisplay(this);
+		text = new TextBox("HelloWorldMIDlet",
+			"Hello World", 255, TextField.ANY);
+		text.addCommand(exitCommand);
+		text.setCommandListener(this);
+	}
+	
+	protected void startApp() throws MIDletStateChangeException
+	{
+		display.setCurrent(text);
+	}
+	
+	protected void pauseApp() { }
+	
+	protected void destroyApp(boolean b) { }
+	
+	public void exitMIDlet()
+	{
+		destroyApp(false);
+		notifyDestroyed();
+	}
+	
+	public void commandAction(Command c, Displayable d)
+	{
+		if (c==exitCommand){
+		{
+			exitMIDlet();
+		}
+	}
+}

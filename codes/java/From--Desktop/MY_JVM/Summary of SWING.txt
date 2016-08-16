@@ -1,0 +1,55 @@
+[582] JRadioButton
+[579] JCheckBox
+[575] JToggleButton
+[559] Alineacion de Texto en 'JButton'
+[567] JButton
+[561] JAbstractButton
+[558] JTextField
+[556] Alineacion de Texto en 'JLabel' y 'JTextField'
+[554] Icon, ImageIcon
+[550] JLabel
+[544] LookAndFeel
+[539] UIManager
+[535] BorderFactory, Border, Insets
+################################################################
+---534---
+Diferencias entre JApplet y JFrame
+
+JApplet:
+  -> 'public void init()'  ó  'public constructor()'
+	-> El tamaño se define el el 'Codigo HTML'
+	
+JFrame:
+  -> en vez de init, se usa el constructor
+	-> constructor { super("Titulo de Ventana"); }
+	-> se hace un 'objeto' con la 'Clase Publica'
+	-> setBounds, setVisible, setDefaultCloseOperation, addWindowListener
+	
+  public void	paintComponent() --> paint de Swing
+	public void updateUI ()      --> ¿Otro paint de Swing?
+	
+	setHighlighter(null); --> Seleccionar Texto
+	setEditable(false); --> bloquear edicion de texto
+	
+	LookAndFeel.
+	 .installBorder(this, .border);
+	 .installColorsAndFont(this, ".bg", ".fg", ".font");
+	 
+---[572]---------------------------------
+normal -> rollover -> pressed -> disabled
+-----------------------------------------
+		normal -> rollover -> pulsado
+		desable -> rollover
+		selected -> rollover
+
+//Asigna una letra a un boton
+button2.setMnemonic('H'); 
+
+//Boton por Defecto
+getRootPane().setDefaultButton(button2); 
+
+//Envia el Foco 
+getRootPane().requestFocus();
+	 
+---589---
+---591---

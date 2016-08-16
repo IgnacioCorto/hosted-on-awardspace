@@ -1,0 +1,21 @@
+
+### [ LIMIT -1- GROUP BY INTO -3- ] ###
+
+
+SELECT categoria, id, titulo,
+    @num := IF(@cat = categoria, @num + 1, 1) AS row_number,
+    @cat := categoria AS dummy
+FROM cf13_fotos f,
+    (SELECT @num := 0, @cat := 0) ccc
+GROUP BY id 
+HAVING row_number < 6          ###  (6=3*2)
+ORDER BY categoria, id DESC;
+
+
+
+
+#/*                             ###  decidir cual bloque comentar
+select id from cf13_usuarios    ###  1er. bloque
+/*/
+select id from cf13_fotos       ###  2do. bloque
+#*/

@@ -1,0 +1,20 @@
+<html>
+<title>Applet Loader</title>
+<body>
+<applet id="anApplet" code="" width="300" height="150">
+</applet>
+
+<select id="aClass" name="aClass" onChange="
+alert(document.getElementById('anApplet').code);
+document.getElementById('anApplet').code = this.options[this.selectedIndex].text;
+alert(document.getElementById('anApplet').code);
+document.getElementById('anApplet').start();
+" />
+<option></option>
+<option></option>
+<option>Poem.class</option>
+
+</select>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+###### CODIGO  ###############################################################
+
+
+
+###### FUNCIONTES  ###############################################################
+
+
+
+
+	function getCategoriasListaGrupos() {
+
+		$query = "SELECT 
+					IFNULL(c.id_categorias,0) as id_categorias, 
+					IFNULL(c.nombre_categorias,'Otros Grupos') as nombre_categorias
+				FROM grupos as g 
+				LEFT JOIN categorias_grupos as cg 
+					ON g.id_grupos = cg.id_grupos 
+				LEFT JOIN categorias as c 
+					ON cg.id_categorias = c.id_categorias 
+				GROUP BY c.id_categorias 
+				ORDER BY null";
+
+		$this->conn->runQuery($query);
+		$data = $this->conn->getArray();
+		return $data;
+
+	}
+
+
+	function getRecursionGrupos($id, $esGrupo = false ) {
+
+		if ($esGrupo) {
+			$query = "SELECT g.id_grupos, g.nombre_grupos FROM `grupos` as g
+					WHERE id_grupos_padres = {$id}";
+		} else  {
+			$query = "SELECT g.id_grupos, g.nombre_grupos 
+					FROM grupos as g 
+					LEFT JOIN categorias_grupos as cg ON   cg.id_grupos = g.id_grupos 
+					LEFT JOIN categorias as c ON cg.id_categorias = c.id_categorias 
+					WHERE cg.id_categorias = {$id} AND g.id_grupos_padres = 0";
+		} 	
+
+		$this->conn->runQuery($query);
+		
+		$data = $this->conn->getArray($query);
+		
+		if($data) {
+			foreach($data as $key => $value) {
+				$data[$key]['sub'] = $this->getRecursionGrupos( $data[$key]['id_grupos'] , true );
+			}
+		}
+		
+		return $data;
+		

@@ -1,0 +1,44 @@
+   TRUNK: Main Line 
+    TAGS: Version / Snapshot Copy
+BRANCHES: Support / Alternate Line
+
+
+#### CREATE REPOSITORY: ####
+1) crear folder + right_click _> Create Repository Here
+2) copy "conf" folder
+3) Repo-Browser (maybe create:  tags  trunk trunk/wwwroot   trunk/sql )
+4) SVN_Checkout 
+
+    svn://127.0.0.1/luis3ignacio/trunk/wwwroot
+    C:\xampp\htdocs\luis3ignacio\
+	
+NOTE: You need a "svnserve based server" to control repository permissions
+
+
+#### BRANCHES / TAGS ####
+-> Working Copy 
+  -> SVN Commit...
+  -> TortoiseSVN 
+    -> Branch/Tag...
+    -> Switch...
+    -> Merge...
+      -> Range of Revision
+      -> Reintegrate a Branch
+      -> Two Different Trees
+    -> Revert...
+    -> Edit Conflicts...
+    -> Repo-Browser...
+
+	
+### NOTES ###
+
+#1: in "Switch", and in before committing, below "Commit to",
+    appears the actual commit path for your working copy
+
+#2: "Merge..." will mix the working copy with the one you choose.
+    If you "Switch..." with uncommited files, it will generate a 
+    "Conflicted" error
+
+#3: The codes with a line-through, will be removed 
+    from the"Merged File". Neither "Theirs" nor "Mine" will be used
+

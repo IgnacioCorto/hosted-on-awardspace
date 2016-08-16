@@ -1,0 +1,19 @@
+uid = ignacio
+gid = ignacio
+strict modes = false
+use chroot = no
+hosts allow = *
+max connections = 4
+incoming chmod = 0644
+
+pid file = pid.txt
+log file = log.txt
+lock file = lock.txt
+
+[backup]
+	path = /cygdrive/c/source/
+	comment = File Source
+	auth users = user,other
+	secrets file = secrets.txt
+	read only = false
+	write only = true

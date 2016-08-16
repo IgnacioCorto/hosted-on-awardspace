@@ -1,0 +1,13 @@
+
+cwRsync - Rsync for Windows
+http://www.itefix.no/i2/node/10650
+http://sourceforge.net/projects/sereds/files/cwRsync/
+
+rsync command
+http://rsync.samba.org/ftp/rsync/rsync.html
+
+rsyncd.conf
+http://rsync.samba.org/ftp/rsync/rsyncd.conf.html
+
+The rsync Tool In Windows
+http://www.rsync.net/resources/howto/windows_rsync.html

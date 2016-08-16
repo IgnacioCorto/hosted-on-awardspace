@@ -1,0 +1,3 @@
+SELECT SUBSTRING_INDEX(email,'@', 2), SUBSTRING(email, INSTR(email, '@')) FROM `userlist` 
+
+SELECT DISTINCT LOWER(SUBSTRING(email, INSTR(email, '@'))) domain FROM `userlist`  ORDER BY domain

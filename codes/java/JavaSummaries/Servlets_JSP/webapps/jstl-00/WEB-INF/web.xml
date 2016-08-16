@@ -1,0 +1,25 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2eeweb-app_2_4.xsd"
+		version="2.4">
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>FuncionesDeDados</taglib-uri>
+			<taglib-location>/WEB-INF/TLD_Ejemplo.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+		
+	<!-- ERROR PAGES -->
+		
+	<error-page>
+		<exception-type> java.lang.Throwable </exception-type>
+		<location>/jstl-error-page.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code> 404 </error-code>
+		<location>/jstl-resource-not-found.html</location>
+	</error-page>
+	
+</web-app>

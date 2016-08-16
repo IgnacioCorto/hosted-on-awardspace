@@ -1,0 +1,69 @@
+ 
+ /*
+array(2) { [0]=> array(11) { ["pages_id"]=> string(1) "3" 
+["id_father"]=> string(1) "0" ["name"]=> string(21) 
+"Prueba de otra pagina" ["title"]=> string(0) "" ["description"]=>
+ string(0) "" ["position"]=> string(2) "99" ["status"]=> string(1) 
+ "1" ["template"]=> string(0) "" ["keywords"]=> string(0) "" 
+ ["redirect"]=> string(0) "" ["slug"]=> string(21) "prueba-de-otra-pagina" } [1]=> array(11) { ["p 
+ */
+ 
+ function get_child($father, $super = TRUE)
+    {
+		$this->db->order_by("position", "asc");
+		$this->db->where('id_father', $father);
+		if($super):
+			$this->db->where('status <', 2);
+		else:
+			$this->db->where('status', 1);
+		endif;
+		$query = $this->db->get('pages');
+
+		if($query->num_rows() < 1):
+			$query = FALSE;
+		else:
+			$query = $query->result_array();
+			
+			### ESTO ES LO NUEVO ###
+			foreach($query as $i => $e){
+				$query[$i]['_kids'] = get_child($e['pages_id'], $super);
+			}
+		endif;
+		
+		return $query;
+   }
+
+
+function dropdown($query, $level="") {
+    $output = "";
+    
+    if(count($query)>0){
+        foreach($query as $i=>$e) {
+            $output .= "<option>{$level} {$e['name']}</option>\n";
+            $output .= dropdown($e['_kids'], $level." &mdash; ");
+        }
+    }
+    
+    return $output;
+}
+
+$output = array();
+
+$output[ $e['pages_id'] ] = "{$level} {$e['name']}";
+
+$output = array_merge (
+ $output,
+ dropdown($e['_kids'], $level." &mdash; "), 
+);
+   
+ignacio
+  cortorreal
+    de la cruz
+
+padre
+  hijo 1
+  hijo 2
+  hijo 3
+    nieto 1
+	nieto 2
+	nieto 3

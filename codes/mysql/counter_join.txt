@@ -1,0 +1,12 @@
+SET @num=0;
+SELECT @num:=@num+1 FROM productos p;
+
+###############################
+## Required: Derived Queries ##
+###############################
+
+SELECT
+  @num:=@num+1 counter,
+  p.*
+FROM productos p,
+  (SELECT @num:=0) c ;

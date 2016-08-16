@@ -1,0 +1,3 @@
+$char_search = array("\r","\n","\r\n",'"',"'");
+$char_change = array('','','','\"',"\\'");
+$texto_descripcion = str_replace($char_search, $char_change, $allProductos[0]['descripcion_productos']);

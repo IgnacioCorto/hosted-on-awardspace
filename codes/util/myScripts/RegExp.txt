@@ -1,0 +1,9 @@
+
+Search for "alt" attributes
+===========================
+\s+alt\s*="[^<>"]*"
+
+
+MERCASID WITH
+ITS EMPLOYEES
+

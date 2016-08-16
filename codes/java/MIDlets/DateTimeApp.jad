@@ -1,0 +1,8 @@
+MIDlet-1: DateTimeApp, , com.j2me.part1.DateTimeApp
+MIDlet-Name: DateTimeApp
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Ignacio Cortorreal
+MIDlet-Jar-URL: DateTimeApp.jar
+MIDlet-Jar-Size: ***********************************************
+MicroEdition-Profile: MIDP-2.0
+MicroEdition-Configuration: CLDC-1.1

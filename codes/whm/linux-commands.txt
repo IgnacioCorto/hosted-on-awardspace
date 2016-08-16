@@ -1,0 +1,72 @@
+
+ls / -R | grep "ftp"
+grep "Aug 23 13:5" apf_log.1  | more
+cd /usr/local/cpanel/base/3rdparty/squirrelmail/
+
+
+ftp://rpmfind.net/linux/fedora/development/ppc64/os/Packages/wget-1.11.3-1.fc10.ppc64.rpm
+
+
+
+
+===YUM===
+http://wiki.linux.duke.edu/ManYum
+
+===WHM===
+http://www.cpanel.net/docs/whm/
+
+
+===INSTALLING WHM===
+cd /home
+wget http://layer1.cpanel.net/latest
+sh latest
+
+===THIS LAST 3-5 MINUTES===
+/scripts/upcp --force
+
+===CONFIRM LICENSE===
+/usr/local/cpanel/cpkeyclt
+
+
+===INSTALLING X Windows + Desktop Environment===
+apt-get install xorg
+apt-get install gnome // Gnome, KDE
+startx
+apt-get install gdm   // GDM, KDM, DM
+dpkg-reconfigure xserver-xfree86
+dpkg-reconfigure xserver-xorg
+
+
+
+
+
+===Bourne Again SHell===
+echo -n           // rm last line
+printf "%d" 12    // %d  %4.2f  %s
+read [-ra] var1   //return; array;  $REPLY (default var)
+========================
+
+
+
+
+cpsrvd:   cPanel Service Daemon	
+exim:     Message Transfer Agent (MTA)
+ftpd:     File Transfer Protocol Daemon
+imap:     Internet Message Access Protocol
+lfd:      Login Failure Daemon
+mysql:    My Structured Query Language
+named:    Name Daemon
+pop:      Post Office Protocol
+syslogd:  System Log Daemon
+
+Server Load		
+Memory Used	
+Swap Used	
+Disk /dev/sda1 (/boot) 	
+Disk /dev/mapper/VolGroup00-LogVol00 (/)
+
+
+
+
+
+

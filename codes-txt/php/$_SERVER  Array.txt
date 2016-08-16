@@ -1,0 +1,128 @@
+REMEMBER:  enctype="multipart/form-data"    (for files)
+SEE ALSO:  http://www.php.net/manual/en/reserved.variables.php
+BLOCKS  :  $_SERVER  $_GET  $_POST  $_FILES
+
+
+### $_SERVER ###
+
+  array(36) {
+    ["HTTP_HOST"]=>
+    string(9) "localhost"
+    ["HTTP_USER_AGENT"]=>
+    string(90) "Mozilla/5.0 (Windows; U; Windows NT 5.1; es-ES; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7"
+    ["HTTP_ACCEPT"]=>
+    string(63) "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+    ["HTTP_ACCEPT_LANGUAGE"]=>
+    string(35) "es-es,es;q=0.8,en-us;q=0.5,en;q=0.3"
+    ["HTTP_ACCEPT_ENCODING"]=>
+    string(12) "gzip,deflate"
+    ["HTTP_ACCEPT_CHARSET"]=>
+    string(30) "ISO-8859-1,utf-8;q=0.7,*;q=0.7"
+    ["HTTP_KEEP_ALIVE"]=>
+    string(3) "300"
+    ["HTTP_CONNECTION"]=>
+    string(10) "keep-alive"
+    ["HTTP_REFERER"]=>
+    string(90) "http://localhost/ignacio/testing/server_global_var.php?dato1=konnichi&dato2=wa&dato3=sekai"
+    ["CONTENT_TYPE"]=>
+    string(71) "multipart/form-data; boundary=---------------------------32391146043902"
+    ["CONTENT_LENGTH"]=>
+    string(4) "1616"
+    ["PATH"]=>
+    string(620) "C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\ATI Technologies\ATI.ACE\;c:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\CodeSmith\v4.1\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Common Files\Teleca Shared;C:\Program Files\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files\Microsoft SQL Server\90\DTS\Binn\;C:\Program Files\Microsoft SQL Server\90\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\;C:\Program Files\SubWCRev\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\ActiveState Komodo Edit 5\"
+    ["SystemRoot"]=>
+    string(10) "C:\WINDOWS"
+    ["COMSPEC"]=>
+    string(27) "C:\WINDOWS\system32\cmd.exe"
+    ["PATHEXT"]=>
+    string(48) ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH"
+    ["WINDIR"]=>
+    string(10) "C:\WINDOWS"
+    ["SERVER_SIGNATURE"]=>
+    string(133) "
+  Apache/2.2.8 (Win32) DAV/2 mod_ssl/2.2.8 OpenSSL/0.9.8g mod_autoindex_color PHP/5.2.5 Server at localhost Port 80
+  
+  "
+    ["SERVER_SOFTWARE"]=>
+    string(85) "Apache/2.2.8 (Win32) DAV/2 mod_ssl/2.2.8 OpenSSL/0.9.8g mod_autoindex_color PHP/5.2.5"
+    ["SERVER_NAME"]=>
+    string(9) "localhost"
+    ["SERVER_ADDR"]=>
+    string(9) "127.0.0.1"
+    ["SERVER_PORT"]=>
+    string(2) "80"
+    ["REMOTE_ADDR"]=>
+    string(9) "127.0.0.1"
+    ["DOCUMENT_ROOT"]=>
+    string(15) "C:/xampp/htdocs"
+    ["SERVER_ADMIN"]=>
+    string(15) "admin@localhost"
+    ["SCRIPT_FILENAME"]=>
+    string(53) "C:/xampp/htdocs/ignacio/testing/server_global_var.php"
+    ["REMOTE_PORT"]=>
+    string(4) "2036"
+    ["GATEWAY_INTERFACE"]=>
+    string(7) "CGI/1.1"
+    ["SERVER_PROTOCOL"]=>
+    string(8) "HTTP/1.1"
+    ["REQUEST_METHOD"]=>
+    string(4) "POST"
+    ["QUERY_STRING"]=>
+    string(35) "dato1=konnichi&dato2=wa&dato3=sekai"
+    ["REQUEST_URI"]=>
+    string(74) "/ignacio/testing/server_global_var.php?dato1=konnichi&dato2=wa&dato3=sekai"
+    ["SCRIPT_NAME"]=>
+    string(38) "/ignacio/testing/server_global_var.php"
+    ["PHP_SELF"]=>
+    string(38) "/ignacio/testing/server_global_var.php"
+    ["REQUEST_TIME"]=>
+    int(1238072129)
+    ["argv"]=>
+    array(1) {
+      [0]=>
+      string(35) "dato1=konnichi&dato2=wa&dato3=sekai"
+    }
+    ["argc"]=>
+    int(1)
+  }
+
+ 
+### $_GET ###
+
+  array(3) {
+    ["dato1"]=>
+    string(8) "konnichi"
+    ["dato2"]=>
+    string(2) "wa"
+    ["dato3"]=>
+    string(5) "sekai"
+  }
+
+ 
+### $_POST ###
+
+  array(2) {
+    ["escondido"]=>
+    string(0) ""
+    ["enviado"]=>
+    string(15) "Enviar consulta"
+  }
+
+ 
+### $_FILES ###
+
+  array(1) {
+    ["archivo"]=>
+    array(5) {
+      ["name"]=>
+      string(17) "ignacio.txt"
+      ["type"]=>
+      string(10) "text/plain"
+      ["tmp_name"]=>
+      string(22) "C:\xampp\tmp\php82.tmp"
+      ["error"]=>
+      int(0)
+      ["size"]=>
+      int(1205)
+    }
+  }

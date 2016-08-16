@@ -1,0 +1,37 @@
+config/database.php
+	$db['default']['hostname'], ...
+
+config/autoload.php
+	$autoload['libraries'] = array('database'); //or 'core'
+	
+config/config.php
+	$config['base_url']	= "/codeigniter/practice01/";
+
+config/routes.php
+	$route['scaffolding_trigger'] = 'the_trigger' ;
+constructor: $this->load->scaffolding('entries');
+URL: index.php/controller/the_trigger
+
+controller:
+	$data['query']= $this->db->get('entries');
+view:
+	foreach $query->result() as $row)
+	  echo "{$row->title} --> {$row->body} <br />";
+
+system/helpers
+	constructor: 
+		$this->load->helper( array('url','form') );
+	view: 
+		anchor('blog/comments/'.$row->id,'Comments')
+		form_open('blog/comment_insert')
+		form_hidden('entry_id',$this->uri->segment(3))
+		
+comment_insert:
+	$this->db->insert('comments',$_POST);
+	redirect('blog/comments/'.$_POST['entry_id']);	
+	
+$this->db->where('entry_id',$this->uri->segment(3));
+$query->num_rows
+
+
+

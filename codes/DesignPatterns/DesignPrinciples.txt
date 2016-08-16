@@ -1,0 +1,70 @@
+(9)
+Hollywood: Don't call us, we'll call you!! LOL!!
+
+
+(8)
+Depend upon abstractions. Do not
+depend upon concrete classes.
+
+
+(7)
+Talk only to your immediate friends.
+//Reduce the Classes that the object depend (317)
+
+   String.parseInt("5);
+   args[0].toString();
+   return new Object();
+   this.Light.on();
+
+   By using: Object Methods
+             Methods of Parameters
+             Objects returned by these methods
+             Methods of a Component of the Object
+
+(6)
+Depend upon abstraction,
+Do not depend upon concrete classes.
+
+
+(5)
+Classes should be open for extension,
+but closed for modification
+
+
+(4)
+Strive for loosely coupled designs
+between objects that interact (???)
+
+ ** By programming for Interfaces (or SuperTypes)
+
+
+(3)
+Favor composition over inheritance
+
+ ** By creating objects with the methods that
+    you want your class to have 
+     
+    (Duck has QuackBehavior and FlyBehavior)
+
+
+(2)
+Program to an interface, not an implementation
+
+ ** By creating FlyBehavior or QuackBehavior interfaces
+    for the methods
+ ** ...to an Interface or "SuperType"
+ ** Create a SuperType property, assign a SubType object,
+    and use SuperType method --IN THE SUPERCLASS--
+
+     eg:  FlyBehavior fb = new NoFly();
+          ...
+          performFly() { fb.fly(); }
+          void setFlyBehavior(FlyBehavior argFB) {...}
+
+
+(1)
+Identify the aspects of your application that vary
+and separate them from what stays the same
+
+ ** When change is presented, A behavior will be encapsulated
+ ** By creating ONE (1) Class for each behavior

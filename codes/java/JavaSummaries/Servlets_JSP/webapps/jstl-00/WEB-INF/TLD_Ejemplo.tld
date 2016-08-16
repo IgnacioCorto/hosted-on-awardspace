@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com./xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+version="2.0">
+
+	<tlib-version>0.9</tlib-version> <!-- Version del Tag Library (MANDATORIO) -->
+	<short-name>TagsTools</short-name>  <!-- Para Herramientas a usar (MANDATORIO) -->
+	<uri>FuncionesDeDados</uri> <!-- para usar en "taglib uri" (MANDATORIO) -->
+	
+	<function>    					<!-- definida en la seccion JSP -->
+		<name>lanzarDado</name>
+		<function-class>com.LudicMethods</function-class>
+		<function-signature>int throwDice(int)</function-signature>
+	</function>
+
+	<tag>
+		<description>Consejo al Azar</description>  <!-- Opcional -->
+		<name>consejo</name>						<!-- ign:Consejo -->
+		<tag-class>com.ConsejeroTagHandler</tag-class>
+		<body-content>empty</body-content>   <!-- scriptless tagdependent JSP -->
+
+		<attribute>                <!-- Uno por cada Atributo del Tag -->
+			<name>usuario</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>  <!-- (R)un(T)ime(EXPR)ession(VALUE) -->
+		</attribute>
+	</tag>
+	
+	<!-- SIMPLE TAGS -->
+
+	<tag>
+		<description>un simple uso</description>
+		<name>simple1</name>
+		<tag-class>com.simple.Simple1TagHandler</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	
+	<tag>
+		<description>Un mejor uso del tag</description>
+		<name>simple2</name>
+		<tag-class>com.simple.Simple2TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<tag>
+		<description>Crear Atributos</description>
+		<name>simple3</name>
+		<tag-class>com.simple.Simple3TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<tag>
+		<description>Bucle</description>
+		<name>simple4</name>
+		<tag-class>com.simple.Simple4TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<tag>
+		<description>Bucle</description>
+		<name>simple5</name>
+		<tag-class>com.simple.Simple5TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>listaDePeliculas</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>SkipPageException</description>
+		<name>simple6</name>
+		<tag-class>com.simple.Simple6TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+
+	<!-- CLASSIC TAGS -->
+
+	<tag>
+		<description>un tag clasico</description>
+		<name>classic1</name>
+		<tag-class>com.classic.Classic1TagHandler</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	
+	<tag>
+		<description>un tag clasico que abre y cierra</description>
+		<name>classic2</name>
+		<tag-class>com.classic.Classic2TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<tag>
+		<description>un tag clasico que evalua su body</description>
+		<name>classic3</name>
+		<tag-class>com.classic.Classic3TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<tag>
+		<description>iteracion clasica</description>
+		<name>classic4</name>
+		<tag-class>com.classic.Classic4TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<!-- PARENT TAGS -->
+	
+	<tag>
+		<description>nivel de anidado</description>
+		<name>parent1</name>
+		<tag-class>com.parent.Parent1TagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<tag>
+		<description>Classic Outer</description>
+		<name>classicOuter</name>
+		<tag-class>com.parent.ClassicOuterTagHandler</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Simple Inner</description>
+		<name>simpleInner</name>
+		<tag-class>com.parent.SimpleInnerTagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	<tag>
+		<description>Menu Padre</description>
+		<name>menuPadre</name>
+		<tag-class>com.parent.MenuParentTagHandler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	<tag>
+		<description>Menu Hijo</description>
+		<name>menuHijo</name>
+		<tag-class>com.parent.MenuChildTagHandler</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>nombre</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	
+</taglib>

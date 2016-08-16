@@ -1,0 +1,46 @@
+function crearFiltrarPublicaciones(clase){
+	jQuery('.'+clase+' .block-title').before('<p style="float:right;">Filtrar por: <select class="filtro_publicacion" onchange="filtrarPublicacion(this);"></select></p>');
+	
+	var pubkeys = {};
+	pubkeys[""]=true;
+	jQuery('a[data-tipo]').each(function(i,e){
+		var str = jQuery.trim(jQuery(e).attr('data-tipo'));
+		if(str.length>0) {
+			pubkeys[str]=true;
+		}
+	});
+	
+	var dropdownoptions = [];
+	for(x in pubkeys) {
+		if(pubkeys[x]==true) {
+			dropdownoptions.push(x) 
+		}
+	}
+	dropdownoptions.sort();
+
+	jQuery(dropdownoptions).each(function(i,e){
+		if(e=='') jQuery('.filtro_publicacion').append('<option value="">Ver todas</option>');
+		else jQuery('.filtro_publicacion').append('<option>'+e+'</option>');
+	});	
+}
+
+
+
+
+function filtrarPublicacion(obj){
+	if(obj.value==''){
+		jQuery('a[data-tipo]').parents('.views-row').show();
+	} else {
+		jQuery('a[data-tipo]').parents('.views-row').hide();	
+		jQuery('a[data-tipo='+obj.value+']').parents('.views-row').show();
+	}
+
+	/*
+	if(obj.value==''){
+		jQuery('.view-id-view_proyecto_miradas .views-row').show();
+	} else {
+		jQuery('.view-id-view_proyecto_miradas .views-row').hide();	
+		jQuery('.view-id-view_proyecto_miradas .views-row a[data-tipo='+obj.value+']').parents('.views-row').show();
+	}
+	*/
+}

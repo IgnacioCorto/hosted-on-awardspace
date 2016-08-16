@@ -1,0 +1,12 @@
+CREATE TABLE mismatch_category (
+  category_id INT NOT NULL AUTO_INCREMENT
+  name VARCHAR(48) NOT NULL,
+  PRIMARY KEY (category_id)
+)
+
+ALTER TABLE mismatch_topic
+DROP COLUMN category
+
+ALTER TABLE mismatch_topic
+ADD COLUMN category_id INT NOT NULL
+

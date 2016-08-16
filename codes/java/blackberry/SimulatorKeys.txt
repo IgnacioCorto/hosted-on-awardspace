@@ -1,0 +1,20 @@
+ON EXCEPTIONS:
+  Scroll   - Arrow Keys
+  Click    - F9, Num5, 
+===========================
+BB           PC
+---------    -----------
+Send       - Home
+Menu       - Insert
+Trackpad   - Arrows  (F12 Enable)
+Escape     - Escape!
+           - End
+
+Vol. Up    - F8
+Vol. Down  - F7
+
+R.C.K.     - \
+L.C.K.     - Page Up
+
+Backlight  - Page Down
+Symbol     - Delete

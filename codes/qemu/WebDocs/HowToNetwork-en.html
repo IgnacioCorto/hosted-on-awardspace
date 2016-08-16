@@ -1,0 +1,1074 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html" ;="" charset="ISO-8859-1"><title>How to use Network</title>
+
+<style>
+body { margin: 3%, 10% }
+</style></head><body>
+<div align="center">
+<h1>How to use Network</h1>
+</div>
+<p>QEMU supports network in user mode. You can browse the Internet and
+use ftp, ssh etc. without root privilege or Administrative privilege.
+</p>
+<p>When you use a program which connect from a Host OS to a Guest OS
+with option -redir, it needs to have a root privilege or an
+Adrimistrative privilege.
+</p>
+
+<ul>
+<li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#option">1. Option</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#card">2. Network card</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#ne2k">3. NE2000 PCI card emulation</a><br>
+<ul>
+<li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#ne2k.1">3.1 Auto-configuration</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#ne2k.2">3.2 Example of Morphix</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#ne2k.3">3.3 DNS server's addresses</a><br>
+</li></ul>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#vlan">4. Using VLAN</a><br>
+<ul>
+<li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#vlan.1">4.1 Introduction</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#vlan.2">4.2 Guest-only network</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#vlan.3">4.3 Guest-only network by UDP</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#vlan.4">4.4 One guest using user-mode net, listening socket at different VLAN bus  and the other connecting to the one</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#vlan.5">4.5 One guest using user-mode net, listening socket in the same VLAN bus and the other guest is connecting to the one</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#vlan.6">4.6 TCP vs. UDP</a><br>
+</li></ul>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#isapc">5. Network by option -M isapc</a><br>
+<ul>
+<li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#isapc.1">5.1 Setting network configuration manually</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#isapc.2">5.2 Setting network configuration automatically at startup</a><br>
+</li></ul>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#tftp">6. File transfer by option -tftp</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#redir">7. Connection from Host OS to Guest OS by option -redir</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#notes">8. Notes</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#when">9. When the network doesn't work</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#internal">10. Virtual network's internals</a><br>
+</li><li><a href="http://www.h7.dion.ne.jp/%7Eqemu-win/HowToNetwork-en.html#sharing">11. Sharing files between Windows guest and Windows host</a><br>
+</li></ul>
+
+<h2><a name="option">1. Option</a></h2>
+
+<p>
+-net option is used to set a network card and a input-output of data, so it is necessary to set more than two -net options.<br>
+-net nic -net user <br>
+Default.<br>
+<br>
+-net nic,vlan=1 -net user,vlan=1<br>
+Configure network as VLAN number 1.<br>
+<br>
+-net nic,model=ne2k_pci -net user<br>
+-net nic,model=rtl8139  -net user<br>
+-net nic,model=pcnet    -net user<br>
+Use PCI Network card. ne2k_pci is a default.<br>
+<br>
+-M isapc -net nic -net user<br>
+Use ISA network card.<br>
+<br>
+<br>
+</p>
+
+<h2><a name="card">2. Network card</a></h2>
+
+<p>
+NE2000 PCI, RTL8139, PCNET and NE2000 ISA cards are available for the network card.<br>
+-net nic,model is used to set the model of the network card. ne2k_pci is a default.<br>
+-net nic,model=ne2k_pci -net user<br>
+-net nic,model=rtl8139  -net user<br>
+-net nic,model=pcnet    -net user<br>
+<br>
+When you want to use ISA card, it is necessary to set -M isapc option.<br>
+-M isapc -net nic -net user<br>
+-M isapc -net nic,model=nek2_isa -net user<br>
+<br>
+<br>
+</p>
+
+
+<h2><a name="ne2k">3. NE2000 PCI card emulation</a></h2>
+
+<h3><a name="ne2k.1">3.1 Auto-configuration</a><br></h3>
+
+<p>From version 0.6.0, NE2000 PCI card is supported. If a guest OS
+supports Plug and Play, NE2000 will be detected automatically. And if
+the guest OS have DHCP client, network will be automatically
+configured. You don't have to set it manually.
+</p>
+
+<p>Realtec 8029 driver can be used for Windows for Workgroup 3.11,
+Windows NT 4 and OS/2 warp 4. NE2000 driver doesn't work for Windows
+fot Workgroup 3.11 and Windows NT 4.
+</p>
+
+<p>If NE2000 can't be detected on Linux, please try these.
+</p>
+
+<pre>$ modprobe ne2k-pci
+$ dhclient eth0     (or $ dhcpcd eth0)
+</pre>
+
+<h3><a name="ne2k.2">3.2 Example of Morphix</a><br></h3>
+
+<p>
+kernel modules loaded are 8390.o and ne2k-pci.o.<br>
+
+</p><pre>sh-2.05b# lsmod
+Module                  Size  Used by    Not tainted
+input                   3328   0  (autoclean)
+pcmcia_core            43488   0 
+translucency           61408   8 
+af_packet              14568   0  (autoclean)
+ne2k-pci                5504   1 
+8390                    6576   0  [ne2k-pci]
+apm                    10436   1 
+rtc                     7356   0  (autoclean)
+unix                   17064  16  (autoclean)
+cloop                   8420   4 
+</pre>
+
+irq equals 9 and io memory address is 0xc100.<br>
+
+<pre>sh-2.05b# cat /proc/interrupts
+           CPU0       
+  0:     218022          XT-PIC  timer
+  1:        287          XT-PIC  keyboard
+  2:          0          XT-PIC  cascade
+  8:          1          XT-PIC  rtc
+  9:         21          XT-PIC  eth0
+ 12:        240          XT-PIC  PS/2 Mouse
+ 15:       1333          XT-PIC  ide1
+NMI:          0 
+LOC:          0 
+ERR:          0
+MIS:          0
+
+sh-2.05b# cat /proc/ioports
+0000-001f : dma1
+0020-003f : pic1
+0040-005f : timer
+0060-006f : keyboard
+0070-007f : rtc
+0080-008f : dma page reg
+00a0-00bf : pic2
+00c0-00df : dma2
+00f0-00ff : fpu
+0170-0177 : ide1
+0320-0323 : 
+0350-0353 : 
+0376-0376 : ide1
+03c0-03df : vesafb
+03f8-03ff : serial(auto)
+0cf8-0cff : PCI conf1
+c000-c00f : Intel Corp. 82371SB PIIX3 IDE [Natoma/Triton II]
+c000-c007 : ide0
+c008-c00f : ide1
+c100-c1ff : Realtek Semiconductor Co., Ltd. RTL-8029(AS)
+c100-c11f : ne2k-pci
+</pre>
+
+An IP address of a network interface card NE2000 is 10.0.2.15.<br>
+
+<pre>sh-2.05b# ifconfig
+eth0      Link encap:Ethernet  HWaddr 52:54:00:12:34:56  
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:2004 (1.9 KiB)  TX bytes:1746 (1.7 KiB)
+          Interrupt:9 Base address:0xc100 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:9 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:9 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:480 (480.0 b)  TX bytes:480 (480.0 b)
+</pre>
+
+Routing table is like this.<br>
+
+<pre>sh-2.05b# netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+10.0.2.0        0.0.0.0         255.255.255.0   U         0 0          0 eth0
+0.0.0.0         10.0.2.2        0.0.0.0         UG        0 0          0 eth0
+</pre>
+
+You can ping 10.0.2.2<br>
+
+<pre>sh-2.05b# ping 10.0.2.2
+PING 10.0.2.2 (10.0.2.2) 56(84) bytes of data.
+64 bytes from 10.0.2.2: icmp_seq=1 ttl=255 time=3.05 ms
+64 bytes from 10.0.2.2: icmp_seq=2 ttl=255 time=2.14 ms
+64 bytes from 10.0.2.2: icmp_seq=3 ttl=255 time=2.76 ms
+64 bytes from 10.0.2.2: icmp_seq=4 ttl=255 time=2.13 ms
+64 bytes from 10.0.2.2: icmp_seq=5 ttl=255 time=2.15 ms
+64 bytes from 10.0.2.2: icmp_seq=6 ttl=255 time=2.91 ms
+
+--- 10.0.2.2 ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5065ms
+rtt min/avg/max/mdev = 2.139/2.529/3.059/0.394 ms
+</pre>
+
+<p></p>
+
+
+<h3><a name="ne2k.3">3.3 DNS server's addresses</a><br></h3>
+
+<p>There is the case that you can browse the Internet by IP address but
+can't browse by name (e.x. http://fabrice.bellard.free.fr/). For
+example, It can be caused by the case that a router doesn't have a
+function of DNS server.<br>
+<br>
+It is necessary to set DNS server's addresses to a guest OS. When a guest OS is linux, set them in /etc/resolve.conf<br>
+<br>
+/etc/resolve.conf:<br>
+<br>
+nameserver DNS server's address 1<br>
+nameserver DNS server's address 2<br>
+<br>
+When a guest OS is Windows, set them in property of NE2000 in Network and Dial-up Connections.<br>
+</p>
+<br>
+
+<h2><a name="vlan">4. Using VLAN</a></h2>
+
+<h3><a name="vlan.1">4.1 Introduction</a></h3>
+
+<p>
+From version 0.8.0, network options are changed. It is called VLAN. You can connect among guest OSes. <br>
+<br> -net option is used to set data input/output terminal. For NE2000,
+it is -net nic. If you want to use more than two NE2000 or more than
+two guest OSes, it is necessary to set macaddr for each -net nic option
+like -net nic,macaddr=52:54:00:12:34:56. The value of macaddr should be
+different for each NE2000. For user mode network stack, -net user
+option is used. When you want to set one NE2000 for guest OS and
+connect to the Internet, options are -net nic -net user. It is default.<br>
+<br>
+When you want to use more than two guest OSes, you can use TCP or UDP.
+TCP can be used by -net socket,listen and -net socket,connect options.
+UDP can be used by -net socket,mcast option. When -net socket,listen
+and -net socket,connect options are used, output data from NE2000 of
+one guest OS are encapsulated by TCP packet and sent to other OSes.
+When -net socket,mcast option is used, it is done by UDP packet.<br>
+<br>
+-net socket,listen or -net socket,mcast options need to have an administrative priviledge to use them.<br>
+<br>
+ Here is some usage of VLAN. <br>
+<br>
+I made three copies of Redhat hard disk image and start them at different command prompt.
+ne2k-pci kernel module is loaded so that I can see network interface by
+ifconfig -a.<br>
+<br>
+<b>Overall notices are:</b><br>
+It is necessary to set macaddr at the second OS.<br>
+IP address or localhost is necesary to set listen or connect. Otherwise it is set to 0.0.0.0.<br>
+Don't start two QEMU using one hard disk image. It will break your hard disk image.<br>
+These results are the same as on Linux host.<br>
+</p>
+
+<h3><a name="vlan.2">4.2 Guest-only network</a></h3>
+
+<p>
+</p><pre>     Redhat1 NE2000 --------------------------
+                           |                 |
+                           |                 |
+                  Redhat2 NE2000    Redhat3 NE2000
+</pre>
+<br>
+Command line options are:<br>
+<pre>term1$ qemu -L ./pc-bios -hda redhat1.img -net nic
+                  -net socket,listen=localhost:1234
+term2$ qemu -L ./pc-bios -hda redhat2.img -net nic,macaddr=52:54:00:12:34:57
+                   -net socket,connect=localhost:1234
+</pre>
+<br>
+Setinng on guest OS:<br>
+<pre>Redhat1 guest&gt;ifconfig eth0 10.0.2.16
+
+Redhat2 guest&gt;ifconfig eth0 10.0.2.17
+</pre>
+<br>
+QEMU monitor's infomation are:<br>
+<pre>Redhat1
+(qemu) info network
+VLAN 0 devices:
+  ne2000 pci macaddr=52:54:00:12:34:56
+  socket: connection from 127.0.0.1:1472
+
+Redhat2
+(qemu) info network
+VLAN 0 devices:
+  socket: connect to 127.0.0.1:1234
+  ne2000 pci macaddr=52:54:00:12:34:57
+</pre>
+<br>
+Results:<br>
+ping works between two guests.<br>
+telnet, ssh work fine between them.<br>
+<br>
+Note:<br>
+When you want to use more than three guest OSes, just connect to the one. Use different macaddr.<br>
+<pre>term3$ qemu -L ./pc-bios -hda redhat2.img -net nic,macaddr=52:54:00:12:34:58
+                   -net socket,connect=localhost:1234
+</pre>
+If Redhat1 crashes, you can not communicate between Redhat2 and Redhat3.
+<p></p>
+
+<h3><a name="vlan.3">4.3 Guest-only network by UDP</a></h3>
+
+<p>
+</p><pre>                --------------------------------------
+                |                |                   |
+                |                |                   |
+     Redhat1 NE2000     Redhat2 NE2000     Redhat3 NE2000
+</pre>
+<br>
+Command line options are:<br>
+<pre>term1$ qemu -L ./pc-bios -hda redhat1.img -net nic,macaddr=52:54:00:12:34:56
+                   -net socket,mcast=230.0.0.1:1234
+term2$ qemu -L ./pc-bios -hda redhat2.img -net nic,macaddr=52:54:00:12:34:57
+                   -net socket,mcast=230.0.0.1:1234
+term3$ qemu -L ./pc-bios -hda redhat3.img -net nic,macaddr=52:54:00:12:34:58
+                   -net socket,mcast=230.0.0.1:1234
+</pre>
+<br>
+Setinng on guest OS:<br>
+<pre>Redhat1 guest&gt;ifconfig eth0 10.0.2.16
+
+Redhat2 guest&gt;ifconfig eth0 10.0.2.17
+
+Redhat3 guest&gt;ifconfig eth0 10.0.2.18
+</pre>
+<br>
+QEMU monitor's infomation are:<br>
+<pre>Redhat1
+(qemu) info network
+VLAN 0 devices:
+  socket: mcast=230.0.0.1:1234
+  ne2000 pci macaddr=52:54:00:12:34:56
+
+Redhat2
+(qemu) info network
+VLAN 0 devices:
+  socket: mcast=230.0.0.1:1234
+  ne2000 pci macaddr=52:54:00:12:34:57
+
+Redhat3
+(qemu) info network
+VLAN 0 devices:
+  socket: mcast=230.0.0.1:1234
+  ne2000 pci macaddr=52:54:00:12:34:58
+</pre>
+<br>
+Results:<br>
+ping works between two guests.<br>
+telnet, ssh work fine between them.<br>
+<p></p>
+
+<h3><a name="vlan.4">4.4 One guest using user-mode net, listening socket at the different VLAN
+bus and the other connecting to the one</a></h3>
+
+<p>
+</p><pre>                       VLAN 1
+     Redhat1 NE2000 --------------- USER -------------- Host &amp; Internet
+             NE2000 ---------
+                             |  VLAN 2
+                             | 
+                   Redhat2 NE2000
+</pre>
+<br>
+Command line options are:<br>
+<pre>term1$ qemu -L ./pc-bios -hda redhat1.img -net nic,vlan=1 -net user,vlan=1
+                  -net nic,vlan=2,macaddr=52:54:00:12:34:57
+                  -net socket,vlan=2,listen=localhost:1234
+term2$ qemu -L ./pc-bios -hda redhat2.img
+                   -net nic,vlan=2,macaddr=52:54:00:12:34:01
+                   -net socket,vlan=2,connect=localhost:1234
+</pre>
+<br>
+Setting on guest OS:<br>
+<pre>Redhat1 guest&gt; dhcpcd eth0
+   (or dhclinet eth0. If eth0 has been already configured, it is not
+necessary to do this.)
+   (eth0 will get 10.0.2.15 or 10.0.2.16.)
+</pre>
+It is necessary to set IP address for the second NE2000.<br>
+<pre>Redhat1 guest&gt; ifconfig eth1 192.168.10.2
+</pre>
+<br>
+The second guest OS does not have DHCP server  so that it is necessary to
+set IP address.<br>
+<pre>Redhat2 guest&gt; ifconfig eth0 192.168.10.3
+Redhat2 guest&gt; route add default gw 192.168.10.2 eth0
+</pre>
+<br>
+QEMU monitor's infomation are:<br>
+<pre>Redhat1
+(qemu) info network
+VLAN 1 devices:
+  user redirector
+  ne2000 pci macaddr=52:54:00:12:34:56
+VLAN 2 devices:
+  ne2000 pci macaddr=52:54:00:12:34:57
+  socket : connection from 127.0.0.1:1477
+
+Redhat2
+VLAN 2 devices:
+  socket: connect to 127.0.0.1:1234
+  ne2000 pci macaddr=52:54:00:12:34:01
+</pre>
+<br>
+Results:<br>
+telnet and ssh works between guests.<br>
+lynx works on Redhat1.<br>
+It is necessary to set Redhat1 as a router to browse the Internet from Redat2.<br>
+<br>
+Note:<br>
+VLAN ID is NOT necessary the same between guests. Port number (in this case 1234) determines which bus is used.<br>
+<p></p>
+
+
+<h3><a name="vlan.5">4.5 One guest using user-mode net and listening socket in the same
+VLAN bus and the other guest is connecting to the one</a></h3>
+
+<p>
+</p><pre>     Redhat1  NE2000 -------------- USER --------- Host &amp; Internet
+                          | 
+                          |
+               Redhat2 NE2000
+</pre>
+
+<b>It doesn't work well but for your information.</b><br>
+<br>
+Command line options are:<br>
+<pre>term1$ qemu -L ./pc-bios -hda redhat1.img -net nic -net user
+                  -net socket,listen=localhost:1234
+term2$ qemu -L ./pc-bios -hda redhat2.img -net nic,macaddr=52:54:00:12:34:01
+                  -net socket,connect=localhost:1234
+</pre>
+<br>
+Setting on guest OS:<br>
+<pre>Redhat1 guest&gt; dhcpcd eth0
+(Or dhclient eth0)
+</pre>
+<br>
+The second guest OS gets IP address from DHCP server but it is the same
+IP as the first OS's IP. It is necessary to set it manually.<br>
+<pre>Redhat2 guest&gt; ifconfig eth0 10.0.2.17
+Redhat2 guest&gt; route add default gw 10.0.2.2 eth0
+</pre>
+<br>
+Results:<br>
+telnet sometimes works but sometimes refuse to connect. When telnetd is working on connected guest, it can be success.<br>
+<br>
+When ssh is used, RSA key is saved at the first time but failed with this message.<br>
+<pre>Write failed: Connection reset by peer.
+</pre>
+<br>
+After second time, it failed with this message.<br>
+<pre>ssh_exchange_identification:  read: Connection Reset by peer.
+</pre>
+<br>
+I can browse the Internet from both Redhat1 and Redhat2.<br>
+<br>
+Notes:<br>
+This case does not work well.<br>
+It is not necessary to set Redhat1 as router to browse the Internet from Redhat2.<br>
+<br>
+
+<p></p>
+
+<h3><a name="vlan.6">4.6 TCP vs. UDP</a></h3>
+
+<p>
+An advantage of TCP (-net socket,listen and -net socket,connect) is
+reliability. When UDP (-net socket,mcast) is used, guest OSes' network
+stack is used to fill reliability.<br>
+An disadvantage of TCP is that if a guest OS with -net socket,listen
+option crashes, the rest of guest OSes can not communicate each other.
+If -net socket,mcast is used, you do not need to worry about it.<br>
+</p>
+<br>
+<br>
+
+
+<h2><a name="isapc">5. Network by option -M isapc</a></h2>
+
+<p>From version 0.8.0, -isa option is changed to -M isapc option. When
+you use ISA NE2000 card with -M isapc option, a network in a guest OS
+isn't configured automatically. It needs to set it by yourself. I used
+these OSes.
+</p>
+
+<p>Host OS: Fedora Core 1 or  Windows2000<br>
+Guest OS: Red Hat Linux 7.2
+</p>
+
+<p>I installed Red Hat 7.2 only with network support. I think it doesn't need to change CD-ROM if you don't install X Windows.</p>
+
+<p>From version 0.8.0, -user-net option is changed to -net nic -net user. <br>
+</p><pre>$ qemu -L ./pc-bios -hda redhat72.img -net nic -net user
+</pre>
+<p></p>
+
+<h3><a name="isapc.1">5.1 Setting network configuration manually</a></h3>
+
+<h3>5.1.1 Loading driver modules</h3>
+
+<p>If you want to use NE2000 ISA card, you need to set IRQ and I/O memory base manually. IRQ is 9 and I/O is 0x300.<br>
+<b>It needs to be root in gest OS to set network configuration.</b><br>
+Please load two drivers for NE2000 at first.<br>
+/lib/modules/2.4.x/kernel/driver/net/8390.o<br>
+/lib/modules/2.4.x/kernel/driver/net/ne.o<br>
+</p>
+
+<pre>[Red Hat 7.2]$ su
+Password: 
+[Red Hat 7.2]# /sbin/insmod 8390
+Using /lib/modules/2.4.9-13/kernel/drivers/net/8390.o
+[Red Hat 7.2]# /sbin/insmod ne irq=9 io=0x300
+Using /lib/modules/2.4.9-13/kernel/drivers/net/ne.o
+</pre>
+
+<p>Then confirm it is loaded.</p>
+
+<pre>[Red Hat 7.2]# /sbin/lsmod
+Module                  Size  Used by
+ne                      7488   0  (unused)
+8390                    6752   0  [ne]
+ext3                   62480   1 
+jbd                    41056   1  [ext3]
+
+[Red Hat 7.2]# cat /proc/interrupts
+           CPU0       
+  0:      31580          XT-PIC  timer
+  1:        406          XT-PIC  keyboard
+  2:          0          XT-PIC  cascade
+  8:          1          XT-PIC  rtc
+  9:          0          XT-PIC  NE2000    &lt;--- irq=9
+ 14:       5676          XT-PIC  ide0
+ 15:          1          XT-PIC  ide1
+NMI:          0 
+ERR:          0
+
+[Red Hat 7.2]# cat /proc/ioports
+0000-001f : dma1
+0020-003f : pic1
+0040-005f : timer
+0060-006f : keyboard
+0070-007f : rtc
+0080-008f : dma page reg
+00a0-00bf : pic2
+00c0-00df : dma2
+00f0-00ff : fpu
+0170-0177 : ide1
+01f0-01f7 : ide0
+0300-031f : eth0         &lt;--- io=0x300
+0376-0376 : ide1
+03c0-03df : vga+
+03f6-03f6 : ide0
+03f8-03ff : serial(auto)
+
+</pre>
+
+<h3>5.1.2 Setting NE2000</h3>
+
+<p>NE2000(eth0) is disabled at first. You cannot see eth0 without "-a" option.</p>
+
+<pre>[Red Hat 7.2]# /sbin/ifconfig
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:6 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:420 (420.0 b)  TX bytes:420 (420.0 b)
+
+[Red Hat 7.2]# /sbin/ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 52:54:00:12:34:56  
+          BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+          Interrupt:9 Base address:0x300 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436 Metric:1
+          RX packets:6 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:420 (420.0 b)  TX bytes:420 (420.0 b)
+</pre>
+
+<p>Then set eth0 to 10.0.2.16.</p>
+
+<pre>[Red Hat 7.2]# /sbin/ifconfig eth0 10.0.2.16
+
+[Red Hat 7.2]# /sbin/ifconfig
+eth0      Link encap:Ethernet  HWaddr 52:54:00:12:34:56  
+          inet addr:10.0.2.16  Bcast:10.255.255.255  Mask:255.0.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+          Interrupt:9 Base address:0x300 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:6 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:420 (420.0 b)  TX bytes:420 (420.0 b)
+</pre>
+
+<h3>5.1.3 Setting a routing table</h3>
+
+<p>Please check the routing table.</p>
+
+<pre>[Red Hat 7.2]# netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+10.0.0.0        0.0.0.0         255.0.0.0       U        40 0          0 eth0
+127.0.0.0       0.0.0.0         255.0.0.0       U        40 0          0 lo
+</pre>
+
+<p>Then set a default gateway to 10.0.2.2.</p>
+
+<pre>[Red Hat 7.2]# /sbin/route add -net 0.0.0.0 gw 10.0.2.2 eth0
+
+[Red Hat 7.2]# netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+10.0.0.0        0.0.0.0         255.0.0.0       U        40 0          0 eth0
+127.0.0.0       0.0.0.0         255.0.0.0       U        40 0          0 lo
+0.0.0.0         10.0.2.2        0.0.0.0         UG       40 0          0 eth0
+</pre>
+
+<p>All packets except for 10.x.x.x and 127.x.x.x are sent to gateway 10.0.2.2 through eth0(NE2000).</p>
+
+
+<p><b>NOTE: You can use modprobe and DHCP server instead of 3.1, 3.2 and 3.3. </b></p>
+
+<pre>[Red Hat 7.2]#/sbin/modprobe ne irq=9 io=0x300
+[Red Hat 7.2]#/sbin/dhcpcd eth0
+
+If gest OS is Fedora Core 1,
+[Guest OS is Fedora Core 1]#/sbin/dhclient eth0
+</pre>
+
+<p>It may take time to get IP address from DHCP server.<br>
+You will get IP address 10.0.2.x for eth0.</p>
+
+<h3>3.1.4 Checking virtual interfaces</h3>
+
+<p>Please check virtual interfaces by ping.</p>
+
+<pre>[Red Hat 7.2]# ping 10.0.2.2
+PING 10.0.2.2 (10.0.2.2) from 10.0.2.16 : 56(84) bytes of data.
+64 bytes from 10.0.2.2: icmp_seq=0 ttl=255 time=26.471 msec
+64 bytes from 10.0.2.2: icmp_seq=1 ttl=255 time=1.674 msec
+64 bytes from 10.0.2.2: icmp_seq=2 ttl=255 time=1.579 msec
+
+--- 10.0.2.2 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max/mdev = 1.579/9.908/26.471/11.711 ms
+[Red Hat 7.2]# ping 10.0.2.3
+PING 10.0.2.3 (10.0.2.3) from 10.0.2.16 : 56(84) bytes of data.
+
+--- 10.0.2.3 ping statistics ---
+3 packets transmitted, 0 packets received, 100% packet loss
+</pre>
+
+<p>It seems that ping 10.0.2.3 doesn't work but it is OK.</p>
+
+<h3>3.1.5 Checking of host OS</h3>
+
+<p>My network card has an address 192.168.100.2 on Fedora Core 1.</p>
+<pre>[Fedora Core 1]$ /sbin/ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:40:2B:XX:YY:ZZ  
+          inet addr:192.168.100.2  Bcast:192.168.100.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:7 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1532 (1.4 Kb)  TX bytes:976 (976.0 b)
+          Interrupt:5 Base address:0x3000 
+</pre>
+
+<p>Please check sshd is working on Linux.</p>
+<pre>[Fedora Core 1]$ ps ax |grep ssh
+ 3766 ?        S      0:00 /usr/sbin/sshd
+ 4048 ?        S      0:00 /usr/bin/ssh-agent /etc/X11/xinit/Xclients
+11800 pts/4    S      0:00 grep ssh
+</pre>
+
+<p>You can use ipconfig on Windows2000.</p>
+<pre>c:\&gt; ipconfig
+
+Windows 2000 IP Configuration
+
+Ethernet adapter Local Area Connection:
+
+	Connection-specific DNS Suffix  . :
+	IP Address. . . . . . . . . . . . : 192.168.100.2
+	Subnet Mask . . . . . . . . . . . : 255.255.255.0
+	Default Gateway . . . . . . . . . : 192.168.100.1
+</pre>
+
+<p>Please start Telnet service from controll panel. It needs to disable NTLM authentication.<br>
+Please stop it after you use it. It can be a security hole.</p>
+
+<h3>3.1.6 Using software</h3>
+
+<p>You can connect to host OS by ssh on Linux.</p>
+
+<pre>[Red Hat 7.2]$ ssh 192.168.100.2
+The authenticity of host '192.168.100.2 (192.168.100.2)' can't be established.
+RSA key fingerprint is 66:aa:8d:42:bd:8a:0d:bf:98:d9:6a:f6:aa:bb:cc:dd.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.100.2' (RSA) to the list of known hosts.
+kazu@192.168.100.2's password: 
+
+[Fedora Core 1]$ ls
+
+[Fedora Core 1]$ exit
+logout
+Connection to 192.168.100.2 closed.
+</pre>
+
+<p>Then you can use Lynx etc.</p>
+
+<pre>[Red Hat 7.2]$ lynx http://fabrice.bellard.free.fr
+</pre>
+
+<p>You can use telnet on Windows2000.</p>
+
+<pre>[Red Hat 7.2]$ telnet 192.168.100.2
+
+C:\&gt;exit
+</pre>
+
+<p>Backspace is Ctrl-h.</p>
+<p>Then you can use other programs.</p>
+
+<h3><a name="isapc.2">5.2 Setting network configuration automatically at startup</a></h3>
+
+<h3>5.2.1 Setting driver modules</h3>
+
+<p>Please add a new heading in /etc/modules.conf.</p>
+
+<pre>alias eth0 ne
+    options ne irq=9 io=0x300
+</pre>
+
+<h3>5.2.2 Setting a network interface</h3>
+
+<p>Please make a new file as /etc/sysconfig/network-scripts/ifcfg-eth0.</p>
+
+<pre># ISA NE2000
+DEVICE=eth0
+BOOTPROTO=dhcp
+HWADDR=52:54:00:12:34:56
+ONBOOT=yes
+TYPE=ethernet
+USERCTL=no
+PEERDNS=no
+</pre>
+
+<h3>5.2.3 Rebooting and checking</h3>
+
+<p>It is OK when you can see this list at startup.</p>
+
+<pre>Bringing up interface   eth0:                 [  OK  ]
+</pre>
+
+<h2><a name="tftp">6. File transfer by option -tftp</a></h2>
+
+<p>If you start the program with an option -tftp, you can read files on a Host OS from a guest OS by tftp client.<br>
+<br>
+It is nessesary to set a full path name for each file name.<br>
+Please use slash '/' instead of back slash '\'.<br>
+<br>
+For example, if you want to transfer file C:\msys\1.0\home\kazu\test.txt in folder C:\msys\1.0\home\kazu.<br>
+<br>
+[Dos Prompt] qemu.exe -L ../pc-bios -hda redhat.img -tftp /msys/1.0/home/kazu<br>
+<br>
+guest OS$ tftp 10.0.2.2<br>
+guest OS$ tftp&gt;binary<br>
+guest OS$ tftp&gt;get /msys/1.0/home/kazu/test.txt<br>
+<br>
+In MS-DOS prompt, root directory / means C:\.<br>In MinGW/MSYS
+environment, root directory / means C:/msys/1.0 and /tmp means
+C:/DOCUME~1/kazu/LOCALS~1/Temp. I'm stuck with these.<br>
+<br>
+Notes: Maximum file size is (32M - 512) byte.<br>
+      You can not transfer files in other drive for example D: or E:.<br>
+      You can not transfer files from a guest OS to a host OS.<br>
+</p>
+
+<h2><a name="redir">7. Connection from Host OS to Guest OS by option -redir</a></h2>
+
+<p>
+It is nesessary to set an IP address of a guest OS when the program
+starts. An IP address of a Windows98 guest rented from DHCP server is
+10.0.2.15, Morphix is 10.0.2.15, RedHat Linux is 10.0.2.16. Please see
+it by yourself.<br>
+<br>
+host OS$ qemu.exe -L ../pc-bios -hda redhat.img -redir tcp:5555:10.0.2.16:23<br>
+<br>
+10.0.2.16 is the IP address of the guest OS. 5555 is a port which is
+used to accept a connection on the host OS and 23 is a port which is
+used in the guest OS. 23 is used by telnet server.<br>
+<br>
+If you want to use telnet and ssh together, you can use some -redir options.<br>
+<br>
+host OS$ qemu.exe -L ../pc-bios -hda redhat.img -redir tcp:5555:10.0.2.16:23 -redir tcp:5556:10.0.2.16:22<br>
+<br>
+ 22 is sshd. You can see port's numbers in /etc/services in Linux.<br>
+<br>
+It seems that it takes time to set arp table.<br>
+After connecting to the guest OS, arp table is like this.<br>
+<br>
+guest OS# arp -a<br>
+guest OS#? (10.0.2.3) at 52:54:00:12:35:03 [eth0] on eth0<br>
+guest OS#? (10.0.2.3) at 52:54:00:12:35:02 [eth0] on eth0<br>
+<br>
+But don't set IP address of the guest OS manually in the guest OS. <br>
+You can see IP address gotten from DHCP server by winipcfg.exe in
+Windows 98/Me guest, ipconfig /all in Windows 2000/XP guest and
+ifconfig in Linux guest. IP address is probably 10.0.2.15 or 10.0.2.16.
+It is necessary to set it at starting the program.<br>
+Routing table is like this when IP address is set by hand.<br>
+<br>
+guest OS# Destination   Genmask<br>
+guest OS# 10.0.0.0      255.0.0.0<br>
+<br>
+But it is set by DHCP server,<br>
+<br>
+guest OS# 10.0.2.0      255.255.255.0<br>
+<br>
+It doesn't work in the case above.<br>
+<br>
+If you want set them by hand, you can set them like this.<br>
+<br>
+guest OS# modprobe ne2k-pci<br>
+guest OS# ifconfig eth0 10.0.2.16 netmask 255.255.255.0<br>
+guest OS# route add default gw 10.0.2.2 eth0<br>
+<br>
+Then you can connect from the host OS to the guest OS.<br>
+It may take time to connect to the guest OS at first.<br>
+<br>
+Please check that the IP addess, routing table and xinetd.<br>
+<br>
+guest OS# ifconfig<br>
+guest OS# netstat -rn<br>
+guest OS# ps ax |grep xinetd<br>
+<br>
+Type on the host OS:<br>
+Note: When your host OS is Linux (Fedora Core 4), use your network card's address instead of localhost. <br>
+<br>
+host OS$ telnet localhost 5555<br>
+or<br>
+host OS$ telnet 192.168.0.2 5555<br>
+<br>
+You will see Login prompt from telnet server after a while.<br>
+<br>
+If you want to use ftp, use passive mode.<br>
+<br>
+host OS$ qemu.exe -L ../pc-bios -hda redhat.img -redir tcp:5558:10.0.2.16:21<br>
+<br>
+21 is a control port for ftp.<br>
+<br>
+After configuring a network in the guest OS, type<br>
+<br>
+host OS$  ftp <br>
+host OS$  ftp&gt;open localhost 5558<br>
+host OS$ Name:<br>
+host OS$ Password:<br>
+host OS$  ftp&gt;passive<br>
+host OS$ passive mode on.<br>
+host OS$  ftp&gt;ls<br>
+<br>
+There is a ftp client which can not set port. It takes time to connect to ftp server.<br>
+<br>
+ssh port can be set by -p option.<br>
+Note: When your host OS is Linux (Fedora Core 4), use your network card's address instead of localhost. <br>
+<br>
+host OS$ sshd localhost -p 5556<br>
+or<br>
+host OS$ sshd 192.168.0.2 -p 5556<br>
+<br>
+UDP ports can be redirected. -redir udp:5560:10.0.2.16:117 etc. <br>
+</p>
+
+<h2><a name="notes">8. Notes</a></h2>
+
+<p>Please check that you can browse the Internet on host OS.<br>
+You can use softwares based on TCP/IP and UDP/IP. You cannot ping, traceroute etc. to the Internet.<br>
+Guest OS cannnot be accessed from the Internet without -redir option
+but it can be infected through e-mail or browser. Please update it and
+use anti-virus software.
+</p>
+
+<h2><a name="when">9. When a network doesn't work</a></h2>
+
+<h3>9.1 To check an interface card</h3>
+
+<p>QEMU supporting a network in user mode is a simple client program. A
+virtual network in QEMU which has a DHCP server doesn't have any
+relationship with a host's network
+configuration (except for DNS server's addresses). <br>
+At first, to check an network interface card and the internal network, ping to a virtual router 10.0.2.2 int a guest OS.<br>
+<br>
+[guest OS]$ ping 10.0.2.2<br>
+<br>
+If it doesn't return elapsed time, please set IP address 10.0.2.16
+manually and try ping. If it works, NE2000 and it's driver is OK. A
+problem is to get IP address from DHCP server.<br>
+Plese set DNS server's addresses from the Internet Service Provider manulally.<br>
+<br>
+If it desn't work, it might be a problem of the driver. please try to use -isa option to start the QEMU.<br>
+<br>
+[host OS] C:\qemu.exe -L ./pc-bios -hda linux.img -isa<br>
+<br>
+There is a case that it works by a driver of Readtek 8029.<br>
+</p>
+
+<h3>9.2 When the host OS is Linux</h3>
+
+<p>If your guest OS which is Linux can get an IP address 10.0.2.x by dhcpcd
+or dhclient from virtual DHCP server , the problem is that packets cannnot
+be sent or received by QEMU.<br>
+<br>
+If you can use tcpdump as root on a host OS, you can check it.<br>
+[host OS]# tcpdump -i eth0<br>
+or<br>
+[host OS]# tcpdump -i eth1     (if you have two cards)<br>
+or when you use a host-gest connection,<br>
+[host OS]# tcpdump -i lo<br>
+<br>
+Then use a program on a guest OS.<br>
+[guest OS]$ lynx  http://----example-----/<br>
+<br>
+When a connection is normal,  you will see some output of tcpdump.<br>
+</p>
+
+<h3>9.3 When the host OS is Windows</h3>
+
+<p>When your host OS is Windows, a simple way to check the netwrok is to use ping.
+If a network address of network interface card of host OS is 192.168.100.2, ping works.<br>
+<br>
+[guest OS]C:\ ping 192.168.100.2<br>
+<br>
+ICMP ping is converted UDP packet and sent to port 82 (XFER UTILITY) of
+the host OS. Linux doesn't respond to it but Windows does only when it
+is the host OS. The program ping can't be used to the Internet because
+a remote host usually doesn't respond to it.<br>
+</p>
+
+<h2><a name="internal">10. Virtual network's internals</a></h2>
+
+<h3>10.1 Debugging SLiRP</h3>
+
+<p>A virtual network in QEMU uses source codes known as SLiRP. It is
+originally developed in BSD. All packets sent to 10.0.2.2 are separated
+IP packet header, TCP packet header and data. Then QEMU sends them as
+if it sends as a normal client program. This enables a user mode
+networking. All received packets are reconfigured and sent to a guest
+OS.<br>
+</p>
+
+<p>A debug log can be taken by removing // in slirp/slirp.c.
+</p><pre>    //    debug_init("/tmp/slirp.log", DEBUG_DEFAULT);
+</pre>
+It is made in c:\tmp\slirp.log.<br>
+When a connection is made, there are soread and sbappend in it. Data are received by soread and send by sbappend.
+<p></p>
+
+<h3>10.2 Flow of sending and receiving data</h3>
+
+<p>When a TCP/IP program starts in the guest OS, the following functions are called.<br>
+ne2000_ioport_write<br>
+qemu_send_packet<br>
+slirp_send_packet<br>
+slirp_input<br>
+ip_input<br>
+tcp_input<br>
+tcp_fconnect<br>
+Then a socket is made. The socket is set to async mode (FIONBIO) so
+that it is checked by select() function to determine whether it can
+receive or send data. If there is data which can be received or sent,
+recv() or send() are used.<br>
+<br>
+
+It is checked periodically in main_loop() in vl.c by calling slirp_select_fill(),select() and slirp_select_poll().<br>
+<br>
+
+Data are sent by these functions.<br>
+slirp_select_poll in slirp.c<br>
+tcp_input in slirp_select_poll() in slirp.c<br>
+sbappend in tcp_input.c:574<br>
+send in sbappend() in sbuf.c<br>
+<br>
+
+Data are received by these functions.<br>
+slirp_select_poll in slirp.c<br>
+soread in slirp_select_poll() in slirp.c<br>
+recv in soread() in socket.c<br>
+<br>
+
+When there are data to be received, these functions are called.<br>
+tcp_output in slirp_select_poll in slirp.c<br>
+ip_output<br>
+if_output<br>
+if_encap<br>
+slirp_output<br>
+slirp_fd_read<br>
+ne2000_receive<br>
+Then they are sent to NE2000. It seems that data is outputed to QEMU by SLiRP, though they are input data to the program.<br>
+<br>
+
+Sockets can be closed by this.<br>
+tcp_close in tcp_subr.c<br>
+<br>
+
+struct socket in socket.h has data of a socket descriptor and socket state (so_state) etc. It holds state of connection.<br>
+<br>
+
+For UDP/IP, it is easier. It probably works if TCP/IP works. It changes functions depending on TCP or UDP.<br>
+<br>
+
+In addition, timer is used to send or receive data. <br>
+<br>
+
+When -redir option is used, functions solisten and udp_listen are used to act as a server.<br>
+<br>
+</p>
+
+
+<h2><a name="sharing">11. Sharing files between Windows guest and Windows host</a></h2> 
+
+<p>
+1. On host OS, right click on the sharing folder you want in Explore. Select property and select sharing tab.<br>
+Check in checkbox of sharing this folder on network and check in
+allowing to change files to network user. Set sharing name like "tmp".<br>
+<br>
+2. On guest OS, right click on my network in Explore, select allocationg network drive.<br>
+Input a drive name like E: and a folder name of sharing folder in host
+OS like \\10.0.2.2\tmp , "tmp" is the name you set in host OS. then
+shared folder is shared as drive E:.<br> 
+<br>
+</p>
+
+<a href="http://www.h7.dion.ne.jp/%7Eqemu-win/index.html">home</a>
+
+</body></html>

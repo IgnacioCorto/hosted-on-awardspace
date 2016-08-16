@@ -1,0 +1,14 @@
+### DISTINCT + INNER JOIN  ###
+
+SELECT DISTINCT value FROM table_a
+INNER JOIN table_b
+USING (value);
+
+
+### DISTINCT + IN(SELECT...)  ###
+
+SELECT DISTINCT value FROM table_a
+WHERE (value) IN
+(SELECT value FROM table_b);
+
+

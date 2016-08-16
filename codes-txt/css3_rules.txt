@@ -1,0 +1,18 @@
+<style>
+.drop_ner {
+	width:100px;
+	height:100px;
+	border:1px solid #ccff00;
+	background:#ccc;
+	padding:10px;
+
+	/*DROP SHADOW*/
+	-moz-box-shadow: -10px 10px 10px 4px #888888;  /*Firefox 3.6 and earlier*/
+	/*-webkit-box-shadow: 10px 10px 5px #888888;  /*Safari and Chrome*/
+	/*box-shadow: 10px 10px 5px #888888;  /*Normal*/
+
+	/*BORDER RADIUS*/
+	-moz-border-radius:20px 0 0 20px / 10px 10px 10px 30px;  /*Firefox 3.6 and earlier*/
+	/*border-radius:15px 5px;  /*Normal*/
+}
+</style>

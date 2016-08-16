@@ -1,0 +1,83 @@
+20100830.1122:
+Just do it, Yes, e+Motion,
+Planning, Feelings,
+Two-Fold Path, Double/Multiple Options,
+Testing takes time: Tests, Errors, Releases = Much Work
+[Blank Mind], [Planning], Sequence, Annotating,
+Analysing all folds:
+ - touch each file to make them portable.
+Nothing is 100% Perfect. Eternal Needs. Eternal Improvements.
+Yins and Yangs of Plannings - time/flexibility, adapt/redo
+
+
+20100827.1617:
+ - haz la tabla o agrega el campo,
+ - pon el control y el boton,
+ - haz un var_dump o ejecuta el boton/link, ...
+    - ... aaaahh! le temes a los errores retrasantes que aparecen!!
+    - he hecho como dos padres nuestros!
+ - trae la data de la tabla, y su var_dump
+ - enlazala al control
+ - [mente en blanco], [extasiado], [final del dia]
+ - revisa todas las vistas y procesos relacionados
+
+ -  plan  - act  - check
+ - design - code - test
+planning,impresion,word,excel,acrobat,
+control de acceso, campos extra, formularios, validaciones,
+extra fields, extra conditions, extra functions,
+
+
+draggable stack:
+project - section - problem - analysis - rhetoric?
+WUEESSSS, essential, easy, small,simple,short,
+
+
+1. form  [label]  - [view editable analisis]
+2. cancel [label] - [view editable analisis]
+search files
+
+
+D&C: permissions,levels,areas,functions,retrieve password.
+
+
+
+COMMON CHANGEABLE:
+ - tracking code, bugs, tweaks, modifications  (pre|post-svn)
+ - looks-and-feel,
+ - forms,
+ - widgets,
+ - validation,
+ - extra database table fields
+
+DRASTIC CHANGES:
+ - database engine,
+ - language,
+ - platform.
+
+
+M: libs methods
+V: controller,print,calls,if,for,
+C: methods
+
+
+=== [ MY MIND ] =======================
+i should stop writing thoughts. they make me feel unsure.
+ - you have free will, you have to choose, you have to improve your choices
+ - *** still now, you're not thinking about code ***
+ - i need to plan and analyze, but nothing is 100% true. It's your choice,
+   based on your point of view. It doesn't mean it should be same choice for
+   everybody. You make your choice and suffer. Happiness is being Blind.
+   to accept everything as it is. But what about killing? and leisure? It's not
+   the first time I ask this, but, is my situation able to be saved?
+   either surrender or earn your living. What about my writings? You will
+   still analyze your problems, but you must solve this one and for all.
+   You can try to understand the flow of a programming language, if you want
+   to write it as soft as you write spanish. Navigation is a problem, so you
+   will need to develop a plan. Just like chess, you can choose any opening,
+   but there are some openings that you have tested as good for you. In the end,
+   it's YOUR game. You should learn to re-adapt it the middle of the way.
+not enough free time, but i can't take busy time. <-- Avoid taking it!!!
+contact with coworkers distracts me
+when the ending hour is near, is when i regain desire.
+

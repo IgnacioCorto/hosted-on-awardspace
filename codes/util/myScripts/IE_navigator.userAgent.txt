@@ -1,0 +1,14 @@
+<script type="text/javascript">
+
+	mensaje = "Browser Actual: " + navigator.userAgent + "\n\n\n";
+	browser = "MSIE";
+	browser = "Safari";
+	browser = "Firefox";
+	
+	if( navigator.userAgent.indexOf(browser)!=-1 ) {
+		mensaje += "Condicion Confirmada: "+navigator.userAgent;
+	}
+
+	alert(mensaje);
+
+</script>

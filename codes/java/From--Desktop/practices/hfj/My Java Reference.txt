@@ -1,0 +1,573 @@
+60: Larry & Brad Story
+===============================
+java.util.* : ArrayList, Date, Calendar, GregorianCalendar
+javax.sound.midi.*; 
+
+java.awt.*
+java.awt.event.*
+javax.swing.*
+
+java.io.*
+java.net.*
+java.rmi.*
+java.rmi.server.*
+===============================
+ 368, 414, 444, 474+482, 488, 548, 658 [Final]
+
+
+Integer.parseInt(String number)
+for(int i : myArray ) // each "i" in "myArray"
+Math.random() // 0...1
+
+// try { ... } catch (Exception ex) { ex.printStackTrace(); }
+
+BufferReader is = new BufferedReader ( 
+                    new InputStreamReader (
+                      System.in ) );
+BufferedReader.readLine();
+
+
+ArrayList<Object> var = new ArrayList<Object>();
+ .add( Object elem );
+ .remove( int index );  .remove( int elem ); 
+ .contains ( Object elem );
+ .isEmpty();
+ .indexOf(Object elem)
+ .size();
+ .get(int index);
+
+
+Object.equals(Object)
+  (int)    .hashCode()
+  (String) .toString()
+  (Class)  .getClass()
+
+
+*** Dentro de un metodo static no se pueden usar propiedades no-estaticas ***
+
+
+Math.random()
+  .abs()
+  .round()
+  .min( n1 , n2 ) 
+  .max( n1 , n2 ) 
+
+
+new Integer(3)
+  .intValue();
+
+Integer.parseInt("3");
+Double.parseDouble("1.23");
+Boolean.booleanValue();
+
+Double.toString(1.23);
+
+
+String.format( "%,.2f %d" , 123.456 , 5 )
+%[argument number][flags][width].[precition]type
+  %d = integer 
+  %f = float
+  %x = hex
+  %c = char
+
+  %tc = Sun Nov 28 14:52:41 MST 2004
+  %tr = 03:01:47 PM
+  %tA %tB %d = Sunday, November 28
+
+  String.format( "%tA, %<tB %<td", today ); // use argument 3 times!!
+
+
+Calendar cal = Calendar.getInstance();
+  .set(2004,0,31,23,59)
+  .set(c.DATE, 1)
+  .add(c.DATE, 35)
+  .roll(c.DATE. 35)
+  .get(c.DATE)
+  .getTimeInMillis()
+  .setTimeInMillis()
+
+  .DATE / DAY_OF_MONTH
+  .HOUR / HOUR_OF_MONTH
+  .MILLISECOND
+  .MINUTE
+  .MONTH
+  .YEAR
+  .ZONE_OFFSET
+
+
+import static java.lang.Math.*;
+
+
+Sequencer seq = MidiSystem.getSequencer();  // Page 368
+
+try {...}
+catch (PolyMorphic ex) {...}
+finally {...}
+[ HANDLE || DECLARE ]
+
+
+JFrame frame = new JFrame("Window Title");
+  .setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  .getContentPane().add(Widget)     // returns: new Container()
+  .setSize(w,h)
+  .setVisible(true)
+  .repaint()
+
+JButton button = new JButton("click me");
+  .addActionListener(instanceName)
+
+
+// LISTENER INTERFACES:
+ActionListener
+  .actionPerformed(ActionEvent ev)
+ItemListener
+  .itemStateChanged(ItemEvent ev)
+KeyListener
+  .keyPressed(KeyEvent ev)
+  .keyReleased(KeyEvent ev)
+  .keyTyped(KeyEvent ev)
+ListSelectionListener
+  .valueChanged(ListSelectionEvent ev)
+
+
+graphics.fillOval( x, y, h, w );
+graphics.drawImage( myPic, x, y, this );
+
+
+class MyDrawPanel extends JPanel {
+  public void paintComponent(Graphics g) {
+    g. ...(...);
+  }
+}
+
+Image image = new ImageIcon("catzilla.jpg").getImage();
+g.drawImage( image, 3, 4, this ); //Actual Object
+g.setColor( new Color(red,green,blue) );
+g.fillRect( 0, 0, this.getWidth(), this.getHeight() );
+g.fillOval( x, y, h, w );
+
+  .drawImage()
+  .drawLine()
+  .drawPolygon()
+  .drawRect()
+  .drawOval()
+  .fillRect()
+  .fillRoundRect()
+  .setColor()
+
+Graphics2D g2d = (Graphics2D) g;
+
+  .fill3DRect()
+  .draw3DRect()
+  .rotate()
+  .scale()
+  .shear()
+  .transform()
+  .setRenderingHint()
+
+GradientPaint grad = new GradientPaint(x,y,Color.blue,x,y,Color.orange)
+g2d.setPaint(grad);
+g2d.fillOval( x, y, h, w )
+
+JFrame.repaint()
+
+
+JFrame.getContentPane().add( BorderLayout.CENTER, button )
+
+JLabel.setText("A text for the label")
+
+
+if ( event.getSource() == buttonInstance )
+
+Widget.repaint()  //Animation  ...(414)
+try { Thread.sleep(50); }
+catch (Exception ex) { ... }
+
+
+JPanel.add ( button );
+//container
+BorderLayout :  [.CENTER]  .EAST  .WEST  .NORTH  .SOUTH  
+FlowLayout
+BoxLayout
+
+Font bigFont = new Font("serif", Font.BOLD, 28);
+button.setFont(bigFont);
+
+JPanel.setBackground(Color.darkGray);
+myJFrame.setContentPane(myJPanel);
+
+JPanel.setLayout( new BoxLayout(myPanel, BoxLayout.Y_AXIS) )
+
+Jpanel myjp = new JPanel( new GridLayout(16,16) ); // 
+    grid.set[H|V]gap(px);
+
+JTextField field = new JTextField(20);
+JTextField field = new JTextField("Your Name");
+  .getText()
+  .setText("A Text")
+  .selectAll()
+  .requestFocus()
+
+
+JTextArea text = new JTextArea(row,col)
+  .setLineWrap(true);
+  .setText("A Paragraph");
+  .append("At Final!!");
+  .selectAll()
+  .requestFocus()
+
+  JScrollPane scrl = new JScrollPane( text );
+  
+  scrl.setVerticalScrollBarPolicy(
+      ScrollPaneConstraints.VERTICAL_SCROLLBAR_ALLWAYS);
+  
+  scrl.setHorizontalScrollBarPolicy(
+      ScrollPaneConstraints.HORIZONTALL_SCROLLBAR_ALLWAYS);
+
+  JPanel.add(scrl);
+
+
+JCheckBox check = new JCheckBox("Yes, IWBRMAP");
+  .addItemListener(this)
+  .isSelected()
+  .setSelected( true || false )
+
+
+JList list = new JList( String[] )    // Page 444
+  .setVisibleRowCount(4)
+  .setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+  .getValueIsAdjusting()  // if ( !ev..getValueIsAdjusting() ) { ... }
+  .getSelectedValue()
+
+  // A ScrollPane for a JList (like a JTextArea)
+
+
+
+class ... implements Serializable {  // Saving class 
+                                     // *MUST* implements this
+//try .. catch ...
+FileOutputStream fs = new FileOutputStream("Serial-Object.ser");
+ObjectOutputStream os = new ObjectOutputStream ( fs );
+os.writeObject(charOne);
+os.close();
+
+//To be saved, all properties must be:
+[ Serializable || transient ]
+
+//try .. catch ...
+FileInputStream fs = new FileInputStream("Serial-Object.ser");
+ObjectInputStream os = new ObjectInputStream ( fs );
+Character elf = (Character) os.readObject();
+os.close();
+
+
+
+//try ... catch ...
+FileWriter writer = new FileWriter("Plain-Text.txt");
+writer.write("Hello World");
+writer.close();
+
+
+File f = new File("MyCode.txt");
+  .mkdir();
+  .isDirectory();
+  .list()
+  .getAbsolutePath()
+  .delete()
+
+BufferedWriter writer = new BufferedWriter( new FileWriter("A.txt") );
+
+//try ... catch ...
+File f = new File("Plain-Text.txt");
+FileReader fr = new FileReader(f);
+BufferedReader r = new BufferedReader(fr);
+String line = null;
+while ( (line = r.readLine()) != null ) { System.out.println(line); }
+r.close();
+
+
+String [] fields = strRecord.split ( "/" );
+
+//Class VersionID
+What you can do to a Class to  keep the VersionID:
+  1) add instance variables
+  2) change access level of variables
+  3) change to non-transient (like adding variables!!)
+
+c:\> serialver Dog
+Dog: static final long serialVersionUID = 8614654239165L;
+
+
+
+//READ A SOCKET
+Socket chtSck = new Socket("196.164.1.103", 5000);  //1024-65535
+InputStreamReader s = new InputStreamReader(chtSck.getInputStream());
+BufferedReader r = new BufferedReader(s);
+String msg = r.readLine();
+r.close();
+
+//WRITE A SOCKET
+Socket chtSck = new Socket("196.164.1.103", 5000);  //1024-65535
+PrintWriter w = new PrintWriter(chtSck.getOutputStream());
+w.println("Message sent");
+
+
+//SERVER SOCKET
+ServerSocket srvSck = new ServerSocket(4242);
+Socket sock = srvSck.accept();
+
+recibeMensaje = new DataInputStream(socketCliente.getInputStream());
+enviaMensaje = new DataOutputStream(socketCliente.getOutputStream());
+
+/* 1) Only 'one' ServerSocket' per Port */
+/* 2) You can have several ServerSocket.accept(); */
+/* READ or WRITE block for "sock" variable */
+/* ALSO: an array of readers || writers */
+
+
+Runnable r = new MyThreadJob(); // public void run() { .. }
+Thread t = new Thread(r);
+t.start();
+try { Thread.sleep(50); } catch (Exception ex) { ... }
+
+... synchronized ...
+static || synchronized(this) { ... }
+// REMEMBER "DEADLOCK"
+
+
+
+<E extends || super T>  // generics
+Collections.sort(Comparable<T>)
+  public interface Comparable<T> { int compareTo(T o);  }
+
+Collections.sort(ArrayList<T>, Comparator<T>)
+  //on an INNER Class
+  public interface Comparator<T> { int compareTo(T o1, T o2);  }
+
+
+
+HashSet<Song> sng = new HashSet<Song>();  // Duplicates
+  .addAll(sngLst);
+
+  //HashSet NEEDS: 
+    1) boolean equals(Object); 
+    2) int hashCode();
+
+TreeSet<Song> sng = new TreeSet<Song>();  // Stay Sorted
+  .addAll(sngLst);
+
+  //TreeSet NEED:  Comparable<T>  or  Comparator<T> 
+
+
+HashMap<Integer, String> scrs = new HashMap<Integer, String>();
+  .put(1,"Ignacio");
+  .get(1);
+
+
+public <T extends Animal> void getAnimals ( ArrayList<T> animals ) { ... }
+public void getAnimals ( ArrayList<? extends Animal> animals ) { ... }
+
+//GENERICS BLOCKS ADDING TO AN ARRAY INSIDE A METHOD
+
+
+
+package com;
+javac -d ../classes *.java
+
+manifest.txt --> Main-Class: MyApp
+jar -cvmf manifest.txt app1.jar *.class
+java -jar app1.jar
+
+java com.hfj.Exercise
+
+jar -tf app1.jar   // Table File
+jar -xf app1.jar   // eXtract Files
+
+
+
+.jnlp  +  .jar  +  application/x-java-jnlp-file
+
+// ****** HolaMundo.jnlp: ******
+
+<?xml version="1.0" encoding="utf=8" ?>
+
+<jnlp spec="0.2 1.0"
+      codebase="http://127.0.0.1/php-test/java"
+      href="HolaMundo.jnlp">
+
+    <information>
+        <title>Hola Mundo App</title>
+        <vendor>Ignacio Cortorreal</vendor>
+        <description>Sere Rico, Millonario y Poderoso</description>
+        <homepage href="index.html" />
+        <icon href="HolaMundo.gif" />
+        <offline-allowed />
+    </information>
+
+    <resources>
+        <j2se version="1.3+" />
+        <jar href="app1.jar" />
+    </resources>
+
+    <application-desc main-class="com.HolaMundo" />
+
+</jnlp>
+
+//==================================================
+
+ 1. Remote Interface
+ 2. Remote Implementation
+ 3. Stubs & Skels
+ 4. RMI Registry
+ 5. Start Remote Service
+
+
+//STEP (1) Remote Interface
+   public interface MyRmtUI extends Remote {
+     public String /*Serializable*/ sayHello() throws RemoteException; 
+   }
+
+//STEP (2) Remote Implementation
+   public class RmtImpl extends UnicastRemoteObject implements MyRmtUI {
+
+     public RmtImpl() throws RemoteException { } 
+
+     public String sayHello() { ... } 
+
+     public static void main ( String [] args ) {
+        try {
+            MyRmtUI mySrvc = new MyRmtUI();
+            Naming.rebind("Remote_HelloWorld", mySrvc);
+        } catch (Exception ex) { ex.printStackTrace(); }
+     }
+   }
+
+
+//STEP (3) Stubs & Skels
+   % rmic -vcompat RemoteImplementation // Stubs & Skels
+
+
+//STEP (4) Run RMI Registry (WHERE STUB & SKEL ARE)
+   % rmiregistry                        // Start Registry on Server
+
+
+//STEP (5) Start Remote Service
+   % java RemoteImplementation          // Run Server
+
+
+//RMI Client Code
+   //try ... catch ...
+     MyRmtUI mySrvc =                              /* NO SPACES */
+         (MyRmtUI) Naming.lookup("rmi://127.0.0.1/Remote_HelloWorld");
+     String msg = myService.getHelloWorld();
+
+
+//Run Client
+   % java RMIClient                     // Run Client
+
+
+BOTH:   RemoteInterface, RemoteImplementation_Stub, Serializable_Return
+CLIENT: client
+SERVER: RemoteImplementation, RemoteImplementation_Skel,
+
+
+
+
+// Servlet Steps (For TomCat):
+BOTH: <servlet-name>
+<servlet><servlet-class>
+<servlet-mapping><url-pattern>
+
+servlets.jar (J2EE Package)
+A Web-Folder for Servlets
+class MySrvlt extends HttpServlet
+
+ // ****** ServletExample.java: ******
+
+ // NOTA: HAY QUE AGREGAR ESTO EN web.xml
+ // =========================================
+
+ // <servlet>
+ //     <servlet-name>aco</servlet-name>
+ //     <servlet-class>ServletExample</servlet-class>
+ // </servlet>
+
+ // <servlet-mapping>
+ //     <servlet-name>aco</servlet-name>
+ //     <url-pattern>/servlet/ServletExample</url-pattern>
+ // </servlet-mapping>
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class ServletExample extends HttpServlet {
+    public void doGet (HttpServletRequest request, 
+                       HttpServletResponse response)
+                       throws ServletException, IOException 
+    {
+        String title = "Ejemplo de Servlet";
+        response.setContentType("text/html");
+        
+        String salida = 
+            "<html><head><title>"+title
+          +"</title></head><body>"
+          + Math.random()
+          + "</body></html>";
+        
+        PrintWriter out = response.getWriter();
+        out.println(salida);
+        out.close();
+
+    }
+}
+
+//==================[Top "10"]=============================
+
+// true:continue; false:break;
+assert( height > 0 ) : "Height =" + height ;
+java -ea MyApp
+
+sb.delete(3,6).insert(2,"Hey").deleteCharAt(1);
+
+anonymous + static nested classes
+
+public, protected, default, private
+
+
+
+StringBuilder 
+StringBuffer  //Thread-Safe
+String
+
+BOTH:
+  .charAt(int index)
+  .length()
+  .substring(start, end)
+  .toString()
+
+String.
+  .concat("Hello");
+  .replace('ñ','n');
+  .toCharArray()
+  .toLowerCase()
+  .toUpperCase()
+  .valueOf(char [])
+  .valueOf("1.23")
+
+
+Builder/Buffer
+  .append("Hello");
+  .delete(start, end);
+  .insert(pos, [Object])
+  .replace(start, end, "Hello")
+  .reverse()
+  .setCharAt(pos, 'H');
+
+
+int [][] multi = { {1,2,3} , {4,5,6} };
+int [][] multi = new int [3][3];
+
+
+public enum Members { GLADYS, ELY, IGNACIO }
+  .values()

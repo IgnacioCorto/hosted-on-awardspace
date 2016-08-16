@@ -1,0 +1,5 @@
+#use checksum
+rsync -drvc --delete --force  SOURCE_FOLDER  DESTINATION_FOLDER
+
+#preserve permissions, exclude list
+rsync -avr  SOURCE_FOLDER  DESTINATION_FOLDER --exclude-from=exclude_list.txt

@@ -1,0 +1,21 @@
+<!-- OLD ONE -->
+
+<script type="text/javascript" language="javascript">
+created = "2007";
+today = new Date().getFullYear();
+
+year = created < today ? created + "-" + today : created;
+
+document.write('&copy; Copyright ' + year + ' all rights reserved "Compañía" Design and Developed by <a href="http://www.comunique.com.do/" style="color:#008F76; text-decoration:underline;" target="_blank">comuniQue</a>');
+</script>
+
+<!-- NEW ONE -->
+
+
+<script type="text/javascript">
+<!--
+created=2007;
+today = new Date().getFullYear();
+document.write(created < today ? created + "-" + today : created);
+//-->
+</script>

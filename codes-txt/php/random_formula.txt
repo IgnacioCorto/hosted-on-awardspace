@@ -1,0 +1,125 @@
+/**
+  *  EASY+MESSY:
+  *    Hammer, Pencil+Paper, Annotate, 
+  *    Test, Computer, Store, Logic+Arithmetics
+  *
+  *  HARD+LONG:
+  *    Mind, Remember, Remind,
+  *
+  *  ACCEPTED:   3*a-2*b == c
+  * FORBIDDEN: 5*a/a+b-b == c  //5*1+0=5   //OR SIMILAR
+  *
+  */
+
+
+# KILLER FORMULA SOLVER: c1*a + c2*b == c
+def solve3(a,b,c):
+    counter=0
+    for c2 in range(100,-1,-1):
+        str_c1 = "%f"%((c-float(c2)*b)/a)
+        str_c2 = "%f"%c2
+        if (str_c1[-6:]==str_c2[-6:]):
+            strout =  "c1=%s , c2=%s" %(str_c1,str_c2)
+            print strout
+            counter+=1
+    print "solutions: %d"%counter
+    
+solve3(11,19,29)
+
+
+
+a=31;b=15;c=57; "PASS" if 10*b-3*a==c else "FAIL"
+
+
+#  b - (b - ((a*3) - (b-3*a)))*(b-3*a) == c
+a=16;b=53;c=3; "PASS" if b-(2*b-6*a)*(b-3*a)==c else "FAIL"
+a=16;b=53;c=3; "PASS" if 7*b-23*a==c else "FAIL"
+
+
+# b \
+#     -((b-a)-(a-(b-a))-(a-(b-a))) \
+#     -((b-a)-(a-(b-a))-(a-(b-a))) \
+#     -((b-a)-(a-(b-a))-(a-(b-a))) \
+#     == c
+a=53;b=92;c=59; "PASS" if 15*a-8*b==c  else "FAIL"
+
+
+a=86;b=49;c=36;  "PASS" if  a-b-b/b==c else "FAIL"
+
+
+#############################################################
+
+
+>>> a
+16
+>>> b
+53
+>>> c
+3
+>>> b-a
+37
+>>> b-a-a
+21
+>>> b-a-a-a   // b-3*a  = 5
+5
+>>> a*3
+48
+>>> b*2
+106
+>>> 48-5      // (a*3) - (b-3*a)
+43
+>>> 53-43     // b - ((a*3) - (b-3*a))
+10
+>>> 53-5*10
+3
+>>> b - (b - ((a*3) - (b-3*a)))*(b-3*a)
+
+
+#############################################################
+
+
+
+a=53 ; b=92 ; c=59 ;
+
+//EXPLORING NUMBERS
+92-53 = 39   (b-a)
+53-39 = 14   a-(b-a)
+39-14 = 25   (b-a)-(a-(b-a))
+
+25-14 = 11   (b-a)-(a-(b-a)) - (a-(b-a))  //???
+
+92-11-11-11 = 59  //MAGIC!
+
+b \
+    -((b-a)-(a-(b-a))-(a-(b-a))) \
+    -((b-a)-(a-(b-a))-(a-(b-a))) \
+    -((b-a)-(a-(b-a))-(a-(b-a))) \
+    == c
+
+//SIMPLIFICATION
+>>> ((b-a)-(a-(b-a))-(a-(b-a)))
+11
+>>> ((b-a)-(a-b+a)-(a-(b-a)))
+11
+>>> (b-a-a+b-a-(a-(b-a)))
+11
+>>> (b-a-a+b-a-(a-b+a))
+11
+>>> (b-a-a+b-a+(-a+b-a))
+11
+>>> (b-a-a+b-a-a+b-a)
+11
+>>> b-a-a+b-a-a+b-a
+11
+>>> 3*b-5*a 
+11
+>>> (9*b-15*a)
+33
+>>> b-(9*b-15*a)==c
+True
+>>> b+(-9*b+15*a)
+59
+>>> b-9*b+15*a
+59
+>>> 15*a-8*b
+59

@@ -1,0 +1,4 @@
+Cells, Columns, Aces
+Remove Low Ranks
+
+1: Column 6, 7, 8.

@@ -1,0 +1,1 @@
+$resultado = str_replace('%2F','/',rawurlencode($nombre_archivo));

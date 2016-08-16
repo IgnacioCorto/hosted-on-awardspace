@@ -1,0 +1,3 @@
+
+// MySQL format
+echo 'TimeStamp:' . date( "Y-m-d H:i:s", time() )  . '<br />';

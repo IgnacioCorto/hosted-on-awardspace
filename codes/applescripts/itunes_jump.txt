@@ -1,0 +1,125 @@
+-- http://forums.ilounge.com/applescripts-itunes-mac/200427-looking-go-time-itunes-script.html
+
+-- script: Rewinder
+----------------------------------------------------
+-- "Automatic Rewind" setting:
+----------------------------------------------------
+--    the default playhead position displayed in the input 
+--    dialog will be "rewound" by this many seconds. So, if you 
+--    enter 12 as a setting, you can rewind 12 seconds just by 
+--    hitting the OK button.
+--      ex: kRewindSecs : 12
+property kRewindSecs : 0
+--    (Use 0 [zero] to have the dialog display the actual playhead position)
+----------------------------------------------------
+
+property kUserCancelled : -128
+property kInvalidTime : -1002
+property kTimeDelimiter : ":"
+
+on run
+	try
+		tell application "iTunes"
+			set this_track to current track
+			set maxTime to ((duration of this_track) div 1)
+			set curTime to player position
+			if (curTime is greater than kRewindSecs) and ¬
+				(curTime is less than finish of this_track) then
+				set curTime to (curTime - kRewindSecs)
+			end if
+		end tell
+		-- convert the time to strings
+		set newTimeStr to ConvertTimeToString(curTime)
+		set minTimeStr to ConvertTimeToString(0)
+		set maxTimeStr to ConvertTimeToString(maxTime)
+		-- prompt user for new playhead time
+		set msgStr to "Enter Time between " & minTimeStr & " and " & maxTimeStr
+		set timeStr to PromptUser(msgStr, newTimeStr)
+		-- get the time out of the user string
+		set theTime to ConvertStringToTime(timeStr)
+		-- set the playhead
+		tell application "iTunes"
+			-- just to prevent funny things...
+			if this_track is current track then
+				activate
+				set player position to theTime
+				play
+			end if
+		end tell
+	on error number errNumber
+		if (errNumber is equal to kInvalidTime) then
+			AdviseUser("An invalid time was entered.")
+		else if (errNumber is not equal to kUserCancelled) then
+			AdviseUser("There was an error: " & errNumber)
+		end if
+	end try
+end run
+
+----------------------------------------------------
+on ConvertTimeToString(inTime)
+	-- break the time up into hours, minutes, and seconds
+	set timeVal to inTime
+	set numHours to (timeVal div hours)
+	set timeVal to timeVal - (numHours * hours)
+	set numMinutes to (timeVal div minutes)
+	set numSeconds to timeVal - (numMinutes * minutes)
+	-- build a zero-padded string
+	set timeStr to "" as string
+	-- hours
+	if (numHours < 10) then set timeStr to "0"
+	set timeStr to (timeStr & numHours)
+	-- minutes
+	set timeStr to (timeStr & ":")
+	if (numMinutes < 10) then set timeStr to (timeStr & "0")
+	set timeStr to (timeStr & numMinutes)
+	-- seconds
+	set timeStr to (timeStr & ":")
+	if (numSeconds < 10) then set timeStr to (timeStr & "0")
+	set timeStr to (timeStr & numSeconds)
+	return (timeStr as string)
+end ConvertTimeToString
+----------------------------------------------------
+on ConvertStringToTime(inStr)
+	try
+		set numHours to 0
+		set numMinutes to 0
+		set numSeconds to 0
+		-- store off the old delimiter
+		set oldDelimiters to AppleScript's text item delimiters
+		-- set the delimiter to ":"
+		set AppleScript's text item delimiters to kTimeDelimiter
+		set numItems to count of (text item of inStr)
+		if (numItems is equal to 1) then
+			set numSeconds to (text item 1 of inStr)
+		else if (numItems is equal to 2) then
+			set numMinutes to (text item 1 of inStr)
+			set numSeconds to (text item 2 of inStr)
+		else if (numItems is equal to 3) then
+			set numHours to (text item 1 of inStr)
+			set numMinutes to (text item 2 of inStr)
+			set numSeconds to (text item 3 of inStr)
+		else
+			error number kInvalidTime
+		end if
+		-- convert the time to secs
+		set numSecs to (numHours * hours) + (numMinutes * minutes) + numSeconds
+		-- reset the delimiter
+		set AppleScript's text item delimiters to oldDelimiters
+	on error errNum
+		set AppleScript's text item delimiters to oldDelimiters
+		error number kInvalidTime
+	end try
+	return (numSecs)
+end ConvertStringToTime
+----------------------------------------------------
+on PromptUser(inMsgStr, inDefaultTimeStr)
+	set dialogResult to display dialog inMsgStr default answer inDefaultTimeStr buttons {"Cancel", "OK"} default button "OK"
+	-- if the user canceled then bail
+	if button returned of dialogResult is equal to "Cancel" then error number kUserCancelled
+	set newTimeStr to text returned of dialogResult
+	return (newTimeStr)
+end PromptUser
+----------------------------------------------------
+on AdviseUser(inMsg)
+	display dialog inMsg buttons {"OK"} default button "OK" with icon 2
+end AdviseUser

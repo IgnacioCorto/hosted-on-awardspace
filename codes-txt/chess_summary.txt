@@ -1,0 +1,168 @@
+[Marilyn Manson]
+Whatever doesn't kill you is gonna leave a scar
+
+NOTE: I started to forget this old method because it is slow,
+although I am a bit faster now.
+--------------------------------------------------------------
+CHESS DRAWS: mutual, 25, material, stalemate, repetition, perpetual,
+
+filter:
+ - opponent's last move     //this betrays his plan
+ - opponent's controlled squares
+ - opponent's weak squares/pieces
+
+ "pn"[qb]rk
+N (fists) ; B (forearms) ; P (armor) ; 
+Q (gun)   ; R (feet)     ; K (head)  ;
+Fantastic Four of MiddleGame are opponents's knights and bishops,
+and their purpose is to get one or two points of advantage.
+
+ 
+----[The Great Pawn Hunter]----
+PIECE ADVANTAGE? trade all > eat pawns > promote > checkmate. HUNT PAWNS!!
+Don't leave an enemy piece in an open rank.
+Opening pawn chains points towardswhere you should attack
+fixating: stop pieces, then attack them
+You move Opponent's pieces where you want using Sacrifices
+bad bishops protect good pawns
+"you are not the best player. it's only that your opponents
+didn't take advantage of your holes"
+
+
+**********
+build defence quickly
+gain flank terrain
+fly until advantages appear
+**********
+ 
+knights + ESCAPE ROUTE!!   (yourhands/butterflies)
+half-open/STORM/doubled/isolated   (avenues)
+opponent's queen bishop worth more than the other bishop
+
+ -> two pawns pushes help develop *ALL* minor pieces
+ -> play towards the queen side, but keep an eye on king side
+ -> really, pawns are the heralds of chess!!
+ 
+--[GOALS]----:
+ - english pawn attack
+ - develop castle
+ - rook connect
+ - four pawns attack: central pawn or knight
+ - backwards attack [NEW: my protectors on enemy territory]
+ - minority attack
+ - doubled/isolated
+ - opponent's queen bishop
+ - ...
+ - piece
+ 
+---[GOALS 2.0]----
+ castle develop
+ central pawn majority
+ pawn wing/direction  attack
+ pawn structure distortion
+ overloaded defenders
+ centre destruction????
+ english/bird pawns????
+ later: rook opening
+ sacrifices
+ ---
+ three pawns > one piece
+ free|passed pawn
+ isolated, doubled
+ weapons (tactics)
+ mate-thread
+
+---[GOALS #3]---
+castle available
+gain tempo
+centre control
+flank attack + eye on king
+---
+one or none
+
+---[GOALS #4]---
+two pawns + develop + rook connect 
+
+---------------- 
+ 
+center
+time/space
+develop
+stra-tics
+
+alternation/overprotection
+dynamic/static
+2NL (connected knights)
+islands/doubled/holes
+entombment
+
+"An advancing sacrifice is the door that connects both strategy and tactics"
+"opponent must either lose a piece, or something worse"
+"when you use a weapon, the next play should be another weapon"
+"if you can imagine three mate positions, then your position is good!"
+"AVENUES: decoys, barriers, invaders/attackers"
+"Bad bishops protect good pawns." GM Mihai Suba 
+
+* zugzwang
+* zwischenzug
+* lure them
+- fork - don't leave an enemy open
+- pin - study effects
+- skewer 
+- discover
+- decoy - open avenues with sacrifice
++ double attack
+
+FILTER X 10
+
+----------------------
+
+undevelop
+minority attack
+counter
+alternation
+tactic 1/0
+axis/avenues
+pin-force
+weapons
+
+ce(N)tral 
+pawn: doubled isolated majority half
+
+zwischenzug:
+------------
+  mate thread
+  check
+  overvalued
+  unprotected
+  attack the pinned, 1/0
+
+any combination, offense or defense, can be spoiled by an unexplected flying attacker
+no matter the situation, "The Great Pawn Hunter"'s message is the way to live
+clear advantage for the end game?? then trade it all!!
+Indirect Advantage:  RxN,a8=Q,RxQ,QxR :  P+N < R
+you've read many things, but still can't make a Linux! The same could be for Chess!
+
+chessgames.com: Sicilian Najdorf
+1. e4 c5   
+2. Nf3 d6   
+3. d4 cxd4   
+4. Nxd4 Nf6   
+5. Nc3 a6   
+6. Be3 e5   
+7. Nb3 Be6   
+8. f3 Be7   
+9. Qd2 O-O   
+10. O-O-O Nbd7   
+11. g4
+
+chessgames.com: Semi-Slav
+1. d4 Nf6   
+2. c4 e6   
+3. Nf3 d5   
+4. Nc3 c6   
+5. e3 Nbd7   
+6. Bd3 dxc4   
+7. Bxc4 b5   
+8. Bd3 Bb7   
+9. O-O a6

@@ -1,0 +1,4 @@
+<object type="application/x-shockwave-flash" data="images/banner.swf" width="288" height="128">
+<param name="movie" value="images/banner.swf" />
+<img src="banner.gif" width="288" height="128" alt="banner" />
+</object>

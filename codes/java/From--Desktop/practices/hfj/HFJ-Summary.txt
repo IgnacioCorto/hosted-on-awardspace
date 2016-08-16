@@ -1,0 +1,80 @@
+9+32
+c:\>serialver MyClass
+
+131: XP
+367: Making a Midi Player *
+381: GUI 
+414: Video for MIDI *
+444: Matching BeatBox (Lots of Checks) *
+476+481: Quiz Card Building
+488: BeatBox Save/Restore
+506+509+511+543: Client+Server+Chat1+Chat2 **
+545: Really Simple Chat Server
+548: BeatBox Client/Server
+623: JNLP File (Allow Console View)
+***********************************************
+(681) Top Ten Topics
+
+BOTH: <servlet-name>
+<servlet><servlet-class>
+<servlet-mapping><url-pattern>
+
+(649) Servlet Steps
+
+% rmic -vcompat RemoteImplementation
+% rmiregistry
+% java RemoteImplementation
+% java RMIClient
+
+"rmi://127.0.0.1/Rem_Int"  *NO SPACES*
+
+BOTH:   RemoteInterface, RemoteImplementation_Stub, 
+CLIENT: client
+SERVER: RemoteImplementation, RemoteImplementation_Skel,
+
+[631!!!] HHHOOOOTTTTT!!!!!
+
+
+jar -[tb|xf] JAR-File.jar
+jar -cvmf manifest.txt app1.jar *.class
+javac -d ../classes File.java
+
+
+(605) <--=   
+
+
+---572--- <T extends Comparable<? super T>>
+// It seems Comparable is Descendant of [List]
+
+List<Class> // 
+ - <? extends Class>  // any Child  of Class
+ - <? super Class>    // any Parent of Class
+
+(554)
+(513)
+
+[Border|Flow|Box|]Layout
+BorderLayout.WEST
+
+(133)
+
+=---> readln <---=
+new BufferedReader ( 
+  new InputStreamReader(System.in) 
+).readLine()
+
+CHAPTER 9
+===========
+Over[Load|Ride] Methods
+
+constructor(){
+this() or super()
+...any code below...
+}
+
+(346)
+
+[Interface] extends [Interface]
+[Class] implements [Interface]
+
+Graphics object

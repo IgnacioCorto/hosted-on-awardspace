@@ -1,0 +1,9 @@
+
+  filter:alpha(opacity=25); /* for IE */
+  -moz-opacity:.25;         /* for FF */
+  opacity:.25;              /* CSS3 */
+
+
+
+
+ filter:alpha(opacity=25); -moz-opacity:.25; opacity:.25; 

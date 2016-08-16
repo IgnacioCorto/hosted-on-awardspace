@@ -1,0 +1,28 @@
+
+
+<link href="all_browsers.css" rel="stylesheet" type="text/css">
+
+
+
+<!--[if IE]>
+		<link href="ie_only.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+
+<!--[if lt IE 7]>
+			<link href="ie_6_and_below.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+
+<!--[if !lt IE 7]>
+	<![IGNORE[--><![IGNORE[]]>
+					<link href="recent.css" rel="stylesheet" type="text/css"> 
+<!--<![endif]-->
+
+
+
+<!--[if !IE]>--> 
+			<link href="not_ie.css" rel="stylesheet" type="text/css">
+<!--<![endif]-->

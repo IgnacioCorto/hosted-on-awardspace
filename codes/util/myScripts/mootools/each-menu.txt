@@ -1,0 +1,41 @@
+<script type="text/javascript">
+
+window.addEvent('domready',function(){
+//----------------------------------
+
+
+/* *** PARENT ELEMENTS *** */
+
+sliders = new Array( $$('.MenuParent').length )
+
+	
+$$('.menu_holder').each(function(item, index) {
+
+	if( $defined(item.getElement('div')) ) {
+	
+		/* *** CHILD ELEMENTS *** */
+
+		sliders[index] = new Fx.Slide(item.getElement('MenuChild'), {duration: 500, wait:false} ).hide();
+	
+		item.addEvent('mouseenter', function(){
+	
+			sliders[index].slideIn();
+	
+		});
+	
+		item.addEvent('mouseleave', function(){
+	
+			sliders[index].slideOut();
+	
+		});
+		
+	}
+
+});
+
+
+//----------------------------------
+
+});
+
+</script>

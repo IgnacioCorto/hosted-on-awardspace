@@ -1,0 +1,60 @@
+
+##### [ OUTPUT: CLEAN ] ##################################
+
+#FIRST TEST: Can I have a googleplex of binary elements?
+a = 1<<(10**100)
+OverflowError: long int too large to convert to int
+
+#SECOND TEST: How many binary elements can I have?
+a = 1 << ((1 << 31) - 1)
+print a
+OverflowError: long is too large to format
+
+#THIRD TEST: How many digits does that decimal number have? 
+import math
+math.log10(1 << ((1 << 31) - 1)) + 1
+646456992.94488049
+
+
+##### [ OUTPUT: REAL ] ##################################
+
+
+>>> #FIRST TEST: Can I have a googleplex of binary elements?
+>>> a = 1<<(10**100)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+OverflowError: long int too large to convert to int
+
+>>> #SECOND TEST: How many binary elements can I have?
+>>> a = 1 << ((1 << 31) - 1)
+>>> print a
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+OverflowError: long is too large to format
+
+>>> #THIRD TEST: How many digits that decimal number has? 
+>>> import math
+>>> math.log10(1 << ((1 << 31) - 1))
+646456992.94488049
+
+
+##### [ OUPUT: HTML ENTITIES ] ##################################
+
+
+&gt;&gt;&gt; #FIRST TEST: Can I have a googleplex of binary elements?
+&gt;&gt;&gt; a = 1&lt;&lt;(10**100)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+OverflowError: long int too large to convert to int
+
+&gt;&gt;&gt; #SECOND TEST: How many binary elements can I have?
+&gt;&gt;&gt; a = 1 &lt;&lt; ((1 &lt;&lt; 31) - 1)
+&gt;&gt;&gt; print a
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+OverflowError: long is too large to format
+
+&gt;&gt;&gt; #THIRD TEST: How many digits that decimal number has? 
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.log10(1 &lt;&lt; ((1 &lt;&lt; 31) - 1))
+646456992.94488049

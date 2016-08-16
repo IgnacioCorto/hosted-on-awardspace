@@ -1,0 +1,12 @@
+NEVER TRUST USER DATA!!  $_POST['*']['*']='*'
+url/link overload
+user,pass,token!!
+session regenerate id !!
+login attempts log
+navigation log
+previous link hash post, compared with next page
+ - by post? by get? by cookie?
+
+#############################################################
+
+INDIRECTION: extra table, extra field, extra if, extra div, 

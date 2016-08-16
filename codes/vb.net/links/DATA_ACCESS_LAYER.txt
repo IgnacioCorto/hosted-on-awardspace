@@ -1,0 +1,5 @@
+[Solution] -> Add -> New Item... -> DataSet
+[Create Procedure]
+
+GridView1.datasource = [Object]
+GridView1.databind()

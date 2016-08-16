@@ -1,0 +1,159 @@
+ - Common Abstract Class for all components
+      A common Object!!   Room, Wall and Door are MapSite
+	  
+- Encapsulate > Interface > Delegate >
+- SWITCH VS. OVERRIDE !! 
+- Flexibility Vs. Complexity
+- ***Change at run-time***
+- Prototype > Requirements > EXPANSION > reuse > consolidation
+- 431: All Patterns Diagram
+
+94: ### CREATIONAL PATTERNS ###   [p95]
+
+99: AbsFactory:  many look-and-feel for ALL widgets  [p101]
+    Enemies: adding new products, accessing subclass operations
+    Friends: Singleton, Prototype,
+	    1) MazeGame->CreateMaze(InterfaceFactory)
+		2) InterfaceFactory->CreateInterfaceButton()
+		
+110: Builder: read, parse or translate a RTF Document  [p112]
+     Reader has a ConverterInterface, and its Concrete class "RETURNS" a Parsed Product
+	    1) MazeGame->CreateComplexMaze(Interface Builder)
+		2) game.createMaze(builder){builder.doRoom().doDoor().doWall();}
+		3) maze->createMaze(builder);  maze=builder.getMaze();  total=builder.getTotal();
+
+121: Factory: Apps/Docs frameworks?  [p122]    105..115..130
+     SuperClass provides implementations. Extensions override operations.
+	 BombedGame extends  NormalGameFactory //override some operations
+	 Friends: template, AbsFactory
+        1) creator.create(ProductID); or  InterfaceApp.create(InterfaceDoc)
+		2) C++ Templates or Java Generics
+		3) Override: Wall* makeWall() { return BomberWall; }
+		
+133: Prototype: a music editor   [p135]    105..130..140
+     *** Imagine a DropDown which can create a New Circle, Square or Triangle
+	 *** you can create a method for each one, or choose+clone an existing one.
+	 *** AbsFactory: class MazeFac ... BombFac extends MazeFac ... game.get(BombFac)
+     *** Prototype: ProtoF ext MazeF ... ProtoF(b1) ... game.get(Proto(b2))
+	 *** PrototypeFactory delegates methods towards Parameters from Constructors
+     ProtoSuper has const methods, and constructor gets parameters
+	 Each maze needs a "extends ProtoFact"
+	 Friends: AbsFactory, Composite, Decorator
+     Enemies: implement Clone(), maybe needs a Manager()
+	    1) PrototypeFactory
+		2) ProtoFact bomber(maze, bombWall, bombRoom, door);
+		3) game.createMaze(bomber);
+		4) avoids subclassing? GraphTool.work() -> Graph.clone()
+		
+144: Singleton: many printers, one spooler  [p145]
+      1)private static instance; 2)protected constructor;  3)public getter
+	  Friends: AbsFactory, Builder, Prototype
+	  Enemies: modifying getter with each new Singleton SubClass
+
+155: ### STRUCTURAL PATTERNS ###
+
+157: Adapter/Wrapper  [p159,169]
+
+171: Bridge/Body/Handle: cross-platform [p174]
+     Next step after AbsFactory, is a Implementation Composition
+     WindowApp delegates to a WindowImpl
+
+183: Composite: tree   [p185]
+     Tree-like structure: add, remove, get, foreach
+
+199: Decorator: extension by composition   [p198]
+     Adding new characteristics.
+	 class Decorator extends Component 
+	 constructor Decorator(Component)
+	 
+208: Facade: an interface for groups of objects  [p210]
+     Interface for many jobs from many classes
+
+218: Flyweight: one object for each character in a document?  [p221]
+
+     how does it save space? by reusing same object
+	 how does it reuse an object? by something like a factory+singleton
+	 how does it know which class to restore? a pool of flyweights
+	 how does context works? all glyph operations update Context
+	 how does it assign a font type? when glyph say "setFont"
+	 how does it know which is actual context? select+traversal??
+	 how does it insert glyphs in specific places? array of str_len
+     did he forget to add a "ChooseContext()" or "FindContext()" ?
+	 
+     intrinsic:character;  extrinsic:font,coordinates;
+     Friends: composite, state, strategy
+	 A BTREE USING SUM OF STRING LENGTHS TO ACCESS FONT FACES [p227] !!!!!!
+
+233: proxxy/Embassor: opening documents with biggest images   [p235]
+     This doesn't forward request until it is available
+	 Friends: adapter, decorator
+	 
+
+249: ### BEHAVIORAL PATTERNS ### 
+
+251: Chain of Responsibility: help buttons   [p253]
+     Exceptions? handle or throw?
+	 Help > Application > Dialog > Button > HelpRequest
+	 Friends: composite
+	 
+263: Command: common class for all type of requests [p266]
+     You can implement undo/redo
+	 
+274: Interpreter: something like RegExp  [p277]
+     274-275 (4 Interesting Figures about parsing) 
+	 283: C++ Interpreter Example
+	 A Context object to store/retrieve variables
+	 Friends: Composite, Flyweight, Iterator, Visitor
+	 
+289: Iterator: general way to access lists  [p291]
+     first,next,done,current
+	 Friends: composite, factory, memento
+	 
+305: Mediator: dynamic and dependant form elements!! [p309]
+     Mediator is the Chief. Widgets can advice him
+     Mediator coordinates all members. Observer informs only.
+	 Widget has a Director ... _director.WidgetChanged(thisWidget)
+	 Friends: Facade + Observer
+	 
+316: Memento: undo modifications of an object   [p318]
+     Originator.Create/SetMemento  >  Memento.Get/SetState
+	 State and/or Serialize??
+	 Friends: Command, Iterator
+
+							??? memento 316 stone_cold laptop_noise baldness
+							!!! memento is on page 316, stone_cold number,
+								he is in baldness as me, 
+								I think laptop_noise is contributing more to mine.
+								 
+325: Observer: model updates, views too!! [p328]
+     subject:  attach, detach, notify;  
+	 observer: update, subject->getState
+	 Friends: Mediator, Singleton
+  
+338: State:  TCP Status   [p339]
+     Object has ObjectStates
+	 this is Composition + Delegation
+	 Frineds: Flyweight, Singleton
+	 
+349: Strategy: types of Composition [p351]
+     Object can replace it Algorithms
+	 Friends: Flyweight
+
+360: Template: OpenDocument whole process   [p362]  //Zangief
+     You can extend  void (proccess) or boolean (conditional) methods
+	 Friends: Factory, Strategy
+	 
+366: Visitor:  spell, syntax and semantic checker  [p369]
+     glyph.check(spell) or  spell.check(glyph) ?? I think it's the first
+	 element.accept(visitor)
+	 Friends: Composite, Interpreter
+	 
+	 
+	
+	 
+
+
+
+
+
+		

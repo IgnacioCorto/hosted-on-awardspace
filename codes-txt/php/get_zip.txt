@@ -1,0 +1,21 @@
+<?php
+error_reporting(-1);
+
+$path = 'http://localhost:8082/rutalocal/borrame/holamundo.zip';
+
+if(isset($_GET['zipurl'])){
+    $path = $_GET['zipurl'];
+}
+echo "descargando: $path <br />";
+
+file_put_contents('anybuffername.zip', 
+        file_get_contents($path));
+
+$zip = new ZipArchive;
+if ($zip->open('anybuffername.zip') === TRUE) {
+    $zip->extractTo('extracted');
+    $zip->close();
+    echo 'ok';
+} else {
+    echo 'failed';
+}

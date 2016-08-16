@@ -1,0 +1,402 @@
+PREGUNTAS AL INGENIERO:
+ - el producto se aprovisiona solo cuando se cierra el barco.
+ - usted cambiara una prioridad de una orden ya creada?
+    - hay ediciones que no se pueden permitir
+ - usted editara mañana una orden creada ayer
+===============================================================
+        *** Deber, Round, ESSSUW, Alt+Tab, Domino ***
+===============================================================
+Problems? Why not? How? 
+Causes+Effects Inverse Reverse Opposite Contrasts 
+===============================================================
+Graficos, Secuencias, Ejemplos, (2 por 3 debe dar 6)
+===============================================================
+How a solution could look like is helpful to find a solution
+===============================================================
+All problems have many smaller problems.
+Don't underestimate sub or micro problems.
+Step by Step, Brick by Brick, Grain by Grain, Divide & Conquer
+--- Grains: Iterative, Repetitive, Looping ---
+--- Grains: Eternal Search, Find, Look For ---
+--- Grains: Think? Plan? ---
+Shell Scripting keeps you on the right track
+FERM: the repetitive action I choose to automate
+===============================================================
+repartir producto, cancelar conduces, tocar todos los procesos, Surrender,
+ESSSUW+KISS, steps, 1%, kingdom of heaven, yes, randomness, e+Motion, think-do,
+samsara, speed, Surrender, ...
+===============================================================
+
+
+===============================================================
+
+OBJETIVOS:
+  1)cancelar, redireccionar.
+  2)asignar productos a uno de dos clientes
+  3)permisos usuarios, supervision.
+  4)sincronizmo
+
+redirigir:
+   pero puede ser de un silo
+   o puede ser de un barco
+   y hay que estabilizar los balances
+   y chequear el balance de la orden
+   y revisar el de la extra pesada.
+justamente, los inconvenientes son exactamente los pasos que debes dar,
+o problemas que tienes que resolver
+   ? pudieras hacer las transacciones de montos como operaciones contables,
+     pero como harias eso con la data de los campos? lo unico que queda es que
+     sean campos memo o texto y guardar todas las modificaciones
+        OTLT : One True Lookup Table
+         EAV : Entity Attribute Value
+         DRI : Declarative Referential Integrity
+
+
+
+los productos pendientes  
+los clientes de esos productos pendientes
+(las cantidades pendientes conduce)
+
+vesssel=1,  sumar(cantidad),  agrupar por productos y clientes
+
+
+el next_vessel_clients tiene tiene el   vessel,cliente,producto,cantidad
+el silo_distrib tiene  vessel,cliente,producto,cantidad
+
+los conduces y el conduce_stowage tiene data
+asignados y pendientes son ley
+tambien tenemos el total asignado a silo
+el silo ya esta asignado
+ya no hay que ver el conduce
+ya que el producto esta almacenado en el stowage
+si hay que ver algo es el conduce_stowage
+
+---ODIO LA INSEGURIDAD, INCERTIDUMBRE E INEXACTITUD DEL SER HUMANO---
+---COMO DESCARTAR LAS INTERROGANTES NUEVAS? RAPIDAMENTE?---
+pero se necesita saber el producto y la cantidad
+
+todos los clientes que traen de ese producto, con su pendiente, y asignado
+ - el del silo no se necesita
+
+
+cantidad por aprovisionar
+cantidad aprovisionada
+cantidad solicitada
+
+el total se puede seguir sacando de los conduce
+se puede sacar de conduce, o   con_sto + stow?
+ - no hay forma de saberlo con el stowage, ya que ahi se guarda el total, no los steps
+
+
+
+cual mostrar? productos en conduce? o productos en vessel?
+hay que aprovisionar el producto que esta en el silo.
+lo que esta en el silo vino de algun vessel.
+ese vessel esta especifcado en el conduce.
+ese vessel tiene la lista de clientes
+
+los conduces tiene los vessels, y los silos
+
+stowage,
+conduce_stowage,
+conduce,
+
+conduce_stowage, stowage
+
+
+OBJETIVOS:
+   cancelar y redireccionar
+   productos disponible en silo
+   comparar totales de silo_clientes al crear una Orden ADM
+   que el Aprovisionar no dependa de Cerrar, sino de Deposito
+   repartir el producto cuando se reciba
+   
+PROBLEMAS:
+ - si hay en el barco, no lo despacho del silo,
+    c: hay que dar prioridad al despacho del barco, es decir,
+       si se necesita un consignatario y hay en un barco se manda del barco
+    e: no necesito distribuir el producto del silo? ...
+        - claro que hay que repartirlo!
+    p: se necesita asignar ese producto, pero no se sabe de quien es
+        - solo se asigna el producto que se recibe en el silo.
+          si no se recibe, no se puede aprovisionar.
+
+PROBLEMAS:
+ - comparar con el vessel
+    - el vessel puede traer menos o mas. a quien se le resta o pone el producto?
+       - dificilmente pase que el ultimo sea el que pida el cliente
+       ! KISS
+       +++ hacer una comparacion con el vessel y se va restando de lo que trajo
+         en el vessel la distribucion lo puede tener repetido!!! ademas en la
+         distribucion se quedaria fijo
+       - entonces el cerrar es para que no se pueda usar el vessel en los procesos
+       - y hay que comparar  los totales de los clientes al crear una orden
+ - el vessel puede traer de menos o de mas. quien tomara la decision de que si
+   ese cliente es el que no va a recibir su cantidad exacta??
+       
+
+
+
+
+
+      barco   silo    cliente
+00    20      05      00
+
+---------------------------------------------------------------
+PENDIENTES:
+    BALANCE DEL FALTANTE:
+     - registrar el faltante de producto que se pierda (eg. robo)
+---------------------------------------------------------------
+
+
+OBJETIVO:
+    aprovisionar, deposito, asignar,
+     - estos tocan el stowage.
+         esperar hasta el final? se necesitan actualizar los stowages
+         para saber cual es la cantidad que hay disponible.
+         y si lo resto del stowage, despues tendre que saldar el balance cuando
+         lo redireccione o cancele.
+          - acaso es que no quieres hacer las restas? podrias hacer una entrada
+            negativa, como en un libro contable 
+
+
+REDIRECCIONAR:
+ - enviar a asignar o redireccionar desde ahi mismo
+ 
+PROBLEMA:
+ - hay tablas que se modifican condicionalmente:
+    - esta solo modifa al stowage en el cierre.
+      el silo no se puede redireccionar, asi que solo es barco-cliente
+    - es posible! de barco a silo
+ - las tablas que hay que darle para atras
+   son: conduce, conduce_stowage, orden, stowage,
+   habra alguna otra tabla:
+    - NO SON: camiones, auditoria, los silos_* se cambian al cierre
+   Ya se sabe cuales son las tablas a actualizar
+    - si es por codigo, tienes que tirarlo obligado y como sea.
+    - no tienes que preparar nada para copy/paste o funciones
+    - 1% yes  e+motion randomness... ESSSUW!!     ---SuperBuy---
+    - Edit DB|Code, Ctrl+S, Alt+Tab, F5, repeat
+    - Domino Effect: 1st. Ideas, 2nd. Files
+ 
+REDIRECT: accept silo, confirm cliente,
+
+
+ 
+REDIRECCION
+  stowage se queda asi
+  conduce_stowage se queda asi   (SI NO ES SILO)***
+  conduce cambia: destino, orden_id, status,
+  orden cambia: 2 ordenes: nueva-qty;  vieja+qty;
+
+REDIRECCION
+  stowage se queda asi
+  conduce cambia: destino, orden_id, status
+  orden cambia: 2 ordenes: nueva-qty;  vieja+qty;
+
+ 
+ 
+
+
+CAMBIAR DESTINO, CANCELAR:
+ - producto que se resta a: orden, conduce, stowage, cliente, distribucion
+   conduce_stowage, destino: en asignar, se le resta al stowage origen
+   es solo el destino que se cambia, o se cancela el conduce:
+   tablas tocada: orden,conduce,cond_stow,stow_orig,
+     + se pudieran mover el cerrar conduce basado en las ordenes, de forma
+       solo se resten del barco cuando se cierre el mismo.
+     - modificar todos los procesos que restan del stowage, hasta que se cierre
+       y esa ruta va a depender de mi.
+     + piensa en la forma en la que lo resolverias. shell programming.
+       primero, es una modificacion, no una creacion.
+       tocar lo esencial: store, show
+       la pregunta es: restarlo de la orden o del stowage?
+         - tener que sumar de nuevo lo que restaste, y recordar cuanto fue
+         - hasta con las ordenes tienes que hacer eso. ademas, aunque esten
+           separadas, no tendras ese producto disponible hasta que no se cierre
+           el stowage. Aunque tampoco puedes usar el silo.
+         - es mas rapido dejarlo asi y adaptar, que rehacerlo
+           
+
+distraction,anger,physio-needs,
+
+
+
+META: EDITAR CONDUCE
+    traer la data del conduce
+PROBLEMAS
+     - cambio de prioridad y razon del cambio.
+     - se puede editar los datos del chofer.
+
+    de modificar un conduce, debe encajar con una orden disponible.
+    hay campos que requieren modificar los registros de almacen
+    eg: si cambias la orden, se cambia el producto, origen y destino
+        ! los conduces solo se cambian como una orden
+        ! se puede cambiar la tara y el peso
+        ! se puede agregar un memo
+        ! se puede descartar un conduce.
+    no se deberia crear un conduce que no satisfaga una orden.  <== PUNTO CLAVE
+    las modificacion mas comunes son:
+      - redireccion,cancelacion, [cantidad,chofer]
+    
+    
+BRAIN STORMING:
+
+
+
+---------------------------------------
+
+OBJETIVOS:
+    revisar que:
+      HECHO: - la 2da. carga sea igual o menor que la Orden
+      HECHO: - la orden no este liberada
+      HECHO: - el vessel no este cerrado   [HECHO]
+    HECHO: traer conduce_stowage_id
+    HECHO: traer orden_id
+    HECHO: actualizar orden 
+PROBLEMAS:
+    ...
+
+
+PROBAR Y CORREGIR:
+  si un conduce tiene un producto que no se registro en
+  el stowage. (si pasa y cuantas veces pasa)
+  deposito_silo -vs- cerrar_vessel
+
+  HECHO: seleccione del drop-down
+
+
+
+
+    top: layout;
+ bottom: calculation summary;
+
+-----------------------------------------------
+confirmar el producto que llega de silo, pues:
+ - no se puede despachar producto que no ha llegado
+ - no se puede asignar producto que no ha llegado
+
+-----------------------------------------------
+ok, se que debo de evitar que ese error llegue al cliente
+pero tambien debo ...
+ ... era algo relacionado con la validacion
+ ... algo relacionado al hecho de que son humanos los que entran data
+
+-----------------------------------------------
+formatos para el layout
+-----------------------------------------------
+s1 p1 10
+s1 p2 20
+
+s2 p3 30
+s2 p4 40
+
+#ideal
+    foreach silo:
+       table silo
+       foreach producto:
+          row nombre, cantidad
+       close table
+
+#clasico
+    set current
+    open table
+    if different      
+        close table     #layout duplicado
+        open table
+    show row
+    close table
+
+
+#viendo el siguiente
+if current is different   #chequeo actual
+   update flag
+   open table
+show row
+if next is different      #chequeo proximo
+   close table
+
+
+group by silo, product,
+
+cl1 pr1 10 si1
+cl2 pr2 20 si1
+cl3 pr3 30 si2
+cl4 pr4 40 si2
+
+
+green IF $sum[$db_s1][$db_p1] == $db_c1 ELSE red
+
+
+=============================
+
+20100810.1213: see movies, control eks, work-art, anger, grain by grain, how to
+express my fury? leader, i REALLY, REALLY HATE how my laziness finds work
+too hard and error-prone, WORK+PEOPLE, but what about myself? how to keep me
+motivated with all these demotivating facts?
+
+20100811.1622: Trying to find a 3rd number using operations in only two numbers.
+Repetition of Numbers, and Repetition of Operations.
+The process starts being funny, but then it becomes a little boring.  [!@#$]
+I made a function to calculate that using a for loop.
+Now, the fun was to find numbers that function can find, and redelegating
+the improvement of the find method as static and not upgrading it.
+The fun now is to find errors that are possible correctable.
+What about the fun of solving?
+
+20100811.1716: extra space, extra dot, extra colon, quietness, withstanding,
+Anatole France: Learn to suffer. Knowing suffering is suffering less.
+ - Limiting amounts of latter modifications  (It's OK as It is)
+ - If you can't find Motivation, then find Fear.
+ - Either Remove-and-Insert, or Flag-and-Repeat.
+ - At first, I fear to lose my job; but after some months, it doesn't matter.
+ - Express neither Pain nor Joy. It's Effort's Waste
+ 
+20100812.1056: promising and not accomplishing is a contagious disease.
+anxiety, blaming every fail is energy waste
+
+If I ... I'll ...   [remember crud.txt]
+ - leave women, feel eks desire
+ - act the robot, catch distractions
+ - pursue work, find tiredom and boredom
+ - want music, wish silence
+
+8S - suffering sacrifice shame sadness surrender suicide sorrow solitude
+MOTIVATED: If I am, I don't know; If I know, then I'm not.
+4S - strength stamina speed speciality
+grain find loop    --->    ***SUPER BUY*** !!!
+Start wherever you want
+PLAN --> Connect MVC --> Design - Code - Test --> Spaguetti
+
+ordering vs. working  -->  sanitize_to_db, sanitize_to_html
+not friends, but workmates
+one word describe plurals better
+it's fast route at start, but with time it gets slower.
+
+IT SHOULD BE EASIER TO CHANGE A WHOLE PROCESS!!
+Positive and Negative transaction of products for every inventory,
+then: 1) use a table for Balance? or 2) Automatically calculate it?
+ - zaa, They think I'm pretending to look like I'm working,
+   but in reality, I'm doing my greatest efforts.
+
+    1. knows the problem
+    2. understands the problem
+    3. knows the solution
+    4. codes the solution
+    
+20100812.1942: que cuerda con los frameworks es que supeustamente te cierran a un
+pattron y te ofrecen helper methods, pero son un lio de navegar.
+pareciera como que es mejor no usar frameworks, porque uno pierde tiempo
+buscando como hacer algo, y total, siempre hay que navegar codigo y
+hacer patches, y estar preparado para cualquier spaguetti con el que uno
+tenga que trabajar. supuestamente dan forma, pero me pregunto para que.
+Cada vez que toco a CakePHP, me molesta su ayuda. CodeIgniter no esta completo.
+AL FINAL, UNO TIENE QUE METERLE SU SPAGUETTI AL FRAMEWORK DE MIERDA!!!!
+en Programacion, uno busca una Funcion y no la encuentra, entonces uno decide
+hacerla desde cero, y cuando la Funcion ya esta hecha, ahi aparece algo o
+alguien que te muestra la Funcion que estabas buscando, pero antes no habia.
+
+MI MADRE, QUE ESO ES ASI: LO QUE SE HABLA MUCHO, NO SE HACE!!!
+pareciera como que siempre hay una energia rondando, queriendo que falles,
+o quriendo que las cosas te salgan mal.
+y con respecto a lo que se escribe o lo que se piensa??

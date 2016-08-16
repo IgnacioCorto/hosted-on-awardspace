@@ -1,0 +1,27 @@
+
+##### CONTROLLER #####
+
+
+function paginacion(){
+	$this->paginate = array(
+		'limit' => 3,
+	);
+	$data = $this->paginate('Dife');
+	$this->set('data',$data);
+}
+
+
+
+##### VIEW #####
+
+
+echo $paginator->sort('ID', 'id'); 
+
+echo $paginator->prev('« Previous ', null, null, array('class' => 'disabled'));
+echo $paginator->next(' Next »', null, null, array('class' => 'disabled'));
+
+echo $paginator->counter(array(
+	'format' => 'Page %page% of %pages%, showing %current% records out of
+			 %count% total, starting on record %start%, ending on %end%'
+));
+

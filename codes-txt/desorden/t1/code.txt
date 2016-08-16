@@ -1,0 +1,38 @@
+20100910.1122:
+dijkstra: two or more, use a for (or include-initialize-call)
+client list (ADFRV), check validation/conditions: where to put them?
+you can encapsulate data extraction, what about data presentation?
+then it will become in tons of recursive includes
+or also, tons of possible duplicities of sql queries without joins
+javascript/php validations and flexible data structures
+  U: spaguetti, essential complexity, whatever.
+  I: i don't want to lose my heart.
+  U: you are losing your old one anyway.
+
+20100818.1945:
+FALSE = bad, wrong, evil, ... Being TRUE is being EVIL? I don't think so.
+Function Name, Main Operation and Return Value: all must look similar:
+ - def is_different(a,b):  return a==b;
+
+20100818.1529:
+In the Worst Case Scenario, you should add new files,
+and touch all existent files as well.
+
+20100818.1218:
+user: permissions, functions, sections, groups,
+javascript: link, inline, domready, 
+operations of the view  (BackEnd+JavaScript Mix/Mess)
+validation of the data 
+modification of the database (insert,delete)
+
+20100818.1218:
+Dynamic Views are, by themselves, messy. But how about Models? or Controller?
+It should be nice that you design your view, and that view tells to the program
+how it should be treated, instead of making adaptions to all the back-end
+to accomodate to the needs of that view.
+
+20100817.1755:
+flexible: forms, reports, data, validation, ... remember [D&C]
+modifying many forms... define a pattern of work of your code.
+remember [crud.txt] --> block: cache, experimental, concurrency, etc ...
+you will add and/or remove fields and sections in every D&C division

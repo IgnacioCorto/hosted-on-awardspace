@@ -1,0 +1,124 @@
+Exceptions and Scalability of the system
+(php vs. mysql) html on queries
+(php vs. mysql) user levels/permission
+(cache vs. DBC) read session-user data
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+three different scripts: login, check, logout
+script's timestamp is the most important. it goes in constants.php  //date("Y-m-d H:i:s")
+auditory must be commands, like a log reply
+last_inserted_id  *and* total_affected_rows
+all queries that modifies data through the same fuction eases replication
+if it'd need description/caption, make a table  //status,type,rating
+store original data in sessions and compare it with 'untrusted' user input
+//=======================================================
+
+layout: html, css, js
+    header(), footer()  Vs.  $layout_content
+
+interface: dates, widgets, js
+    when widgets interfere with field names and validation
+
+l10n/i18n: es us
+    lang.ini Vs. $GLOBALS['lang'] Vs. __('label');
+
+extra modules: patches
+    many php scripts on root
+
+user levels: url or session
+    - forbidding field editions
+    - functions  (I see a recursion of permissions)
+    - view_code('0001'): if it does not exist on database, it will get added
+      itself after the first run. How to check if the existing one is the one?
+
+auditory: activity logs, queriable
+    easy to read and retrieve
+    to store crucial data on them?
+
+validation/sanitation:  email, date, injections
+    - repetitive task. library only.
+    - TRUE=OK, FALSE=ERROR, $validator->errors['date']='Wrong!'
+    - AJAX: include > initialize > call
+
+main logic:  {prototypes}
+    - logic of the program. /inc/ not public
+
+migration: oracle db2 sql_server mysql postgres sqlite
+    queries Vs. array transformators
+    
+data structures: clients
+    1-N, N-N, inventories
+    adding or removing fields, tables, relationships, or views
+    
+database: vertical structure, data loads
+    CRUD, field flexibility  (transformers?)
+
+session hijacking: brute force
+    https, hash get/post/cookie/session  (ideas_tree)
+
+scalability: squid
+    web servers and replications, 
+
+repository:  RSYNC, SVN, CVS, FTP,
+    checkout, commit, update
+
+M.V.C: Cake, CI, Symphony, Zend?
+    - more Procedural than OOP
+    - controllers/models are methods/functions called by views
+    
+
+###################################################
+
+includes: db, lang, session, ... what about inner includes??
+database: accesibility & integrity. Form/View/Report = Too Specific each one.
+
+
+// CHECK: 'crud.php'
+// sum('int',a,b)  [OR]  sum_int(a,b)
+// add.php  [OR] case 'add'  [OR]  $ctrl->add()
+// include no-validated fields in Validator?
+// messages: validator? view-laced? a string variable?
+
+include('controller.php');  //quasi-accepted
+
+brute_force_check();
+$_SERVER['X_HTTP_FORWARD_IP'];
+
+
+### COMMENTS OF THREE LINES FOR EACH BLOCK ###
+if(not 'admin') header(login.php);
+log($user,$data);
+// queries *BEFORE* validator to check values!!
+$today = $validator->checkDate($today); //correct
+$_POST = $validator->defaults();
+if( $validator->validData() ) store($today); //accepted
+$db->open('mysql');
+$db->getRecord();  // 1st. save; 2nd. load;
+$db->addDynamicField();
+
+head();
+  <script />
+  __('english')
+  system('callgrind pchart');
+  showForm();
+foot();
+
+
+#############################################
+separated views for each crud? or common crud interface?
+flexibilities: layout, database, validation, ajax, dummy data?
+[SOLVED] MYSQL: F5 + CHECK + EDIT 
+...Bombing until it falls right (like QBasic Gorillas)
+#############################################
+
+
+HTML or AJAX:
+new -> edit -> ftp
+head/foot, layout
+
+
+add/edit:
+if id read; else post;
+if valid save; else error;
+
+list:
+paginate,search,sort,tree

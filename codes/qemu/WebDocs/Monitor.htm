@@ -1,0 +1,550 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="generator" content="MediaWiki 1.14alpha">
+		<meta name="keywords" content="QEMU/Monitor">
+		<link rel="alternate" type="application/x-wiki" title="Edit this page" href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit">
+		<link rel="edit" title="Edit this page" href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit">
+		<link rel="shortcut icon" href="http://en.wikibooks.org/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://en.wikibooks.org/w/opensearch_desc.php" title="Wikibooks (en)">
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+		<link rel="alternate" type="application/rss+xml" title="Wikibooks RSS Feed" href="http://en.wikibooks.org/w/index.php?title=Special:RecentChanges&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="Wikibooks Atom Feed" href="http://en.wikibooks.org/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+		<title>QEMU/Monitor - Wikibooks, collection of open-content textbooks</title>
+		<link rel="stylesheet" href="Monitor_files/shared.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="Monitor_files/commonPrint.css" type="text/css" media="print">
+		<link rel="stylesheet" href="Monitor_files/main.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="Monitor_files/main_002.css" type="text/css" media="handheld">
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE50Fixes.css?195xx" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE55Fixes.css?195xx" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins-1.5/monobook/IE60Fixes.css?195xx" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins-1.5/monobook/IE70Fixes.css?195xx" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="Monitor_files/flaggedrevs.css" type="text/css">
+		<link rel="stylesheet" href="Monitor_files/index_005.css" type="text/css">
+		<link rel="stylesheet" href="Monitor_files/index_003.css" type="text/css" media="print">
+		<link rel="stylesheet" href="Monitor_files/index.css" type="text/css" media="handheld">
+		<link rel="stylesheet" href="Monitor_files/index_002.css" type="text/css">
+		<link rel="stylesheet" href="Monitor_files/index_004.css" type="text/css">
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?195xx"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type="text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins-1.5";
+		var wgArticlePath = "/wiki/$1";
+		var wgScriptPath = "/w";
+		var wgScript = "/w/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://en.wikibooks.org";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "QEMU/Monitor";
+		var wgTitle = "QEMU/Monitor";
+		var wgAction = "view";
+		var wgArticleId = "152334";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = "1261042";
+		var wgVersion = "1.14alpha";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgMWSuggestTemplate = "http://en.wikibooks.org/w/api.php?action=opensearch\x26search={searchTerms}\x26namespace={namespaces}";
+		var wgDBname = "enwikibooks";
+		var wgSearchNamespaces = [0, 4, 112];
+		var wgMWSuggestMessages = ["with suggestions", "no suggestions"];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="Monitor_files/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="Monitor_files/ajax.js"></script>
+		<script type="text/javascript" src="Monitor_files/mwsuggest.js"></script>
+<script type="text/javascript">/*<![CDATA[*/
+var wgNotice='';var wgNoticeLocal='';
+/*]]>*/</script>		<script type="text/javascript" src="Monitor_files/centralnotice.js"></script><style type="text/css">
+#centralNotice .siteNoticeSmall{display:none;}
+#centralNotice .siteNoticeSmallAnon{display:none;}
+#centralNotice .siteNoticeSmallUser{display:none;}
+#centralNotice.collapsed .siteNoticeBig{display:none;}
+#centralNotice.collapsed .siteNoticeSmall{display:block;}
+#centralNotice.collapsed .siteNoticeSmallUser{display:block;}
+#centralNotice.collapsed .siteNoticeSmallAnon{display:block;}
+#centralNotice.anonnotice .siteNoticeSmallUser{display:none !important;}
+#centralNotice.usernotice .siteNoticeSmallAnon{display:none !important;}
+</style>
+
+<script type="text/javascript">
+var wgFlaggedRevsParams = {"tags": {"composition": 3, "accuracy": 2, "coverage": 2}};
+var wgFlaggedRevsParams2 = {"tags": {"reliability": 3, "completeness": 2, "npov": 2, "presentation": 1}};
+var wgStableRevisionId = 0;
+var wgAjaxFeedback = {"sendingMsg": "Submitting...", "sentMsg": "Thank you!"}
+var wgAjaxReview = {"sendingMsg": "Submitting...", "sentMsg": "Review complete!", "actioncomplete": "Action complete"}
+</script>
+<script type="text/javascript" src="Monitor_files/flaggedrevs.js"></script>
+		<script type="text/javascript" src="Monitor_files/index_006.php"><!-- site js --></script><script type="text/javascript" src="Monitor_files/index_003.php"></script><script type="text/javascript" src="Monitor_files/index_009.php"></script><script type="text/javascript" src="Monitor_files/index_008.php"></script><script type="text/javascript" src="Monitor_files/index_002.php"></script><script type="text/javascript" src="Monitor_files/index_007.php"></script><script type="text/javascript" src="Monitor_files/index_005.php"></script><script type="text/javascript" src="Monitor_files/index_004.php"></script><script type="text/javascript" src="Monitor_files/index.php"></script>
+	</head><body class="mediawiki ltr ns-0 ns-subject page-QEMU_Monitor skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript">if (wgNotice != '') document.writeln(wgNotice);</script><div id="centralNotice" class="expanded anonnotice"><style type="text/css"> 
+/*
+Styles for Notices
+*/
+
+.notice-wrapper-election, .notice-collapsed-wrapper-election {
+    margin: 2px auto 0;
+    width: 100%;
+    padding: 0;
+    font-family: 'Arial','Helvetica','Tahoma',sans-serif;
+    color: #333;
+    background-color: #ddd;
+    font-size: .9em;
+    font-weight: 200;
+}
+
+.notice-wrapper-election
+{
+    border: 1px solid #bbb;
+    background-color: #fcfcfc;
+    text-align: left;
+    font-size: .9em;
+}
+
+.notice-wrapper-election a,
+{
+    color: #006699;
+}
+
+.trans-box
+{
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.toggle-box-election
+{
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0;
+}
+
+.notice-text-election
+{
+    margin: 0 auto 5px;
+    padding: 7px 5px 5px;
+    font-size: 1.2em;
+}
+
+.line-ht-fix
+{
+    line-height: 1em;
+}
+
+#centralNotice.anonnotice .siteNoticeUser 
+{
+    display:none !important;
+}
+
+#centralNotice.collapsed .siteNoticeUser
+{
+    display:none;
+}
+
+</style>
+
+<table class="siteNoticeUser notice-wrapper-election">
+<tbody><tr>
+ <td>
+  <div class="notice-text-election">
+  Candidates for the 2009 steward elections are asked to submit their nominations by January&nbsp;25. <b><a href="http://meta.wikimedia.org/wiki/Stewards/elections_2009" class="extiw"> Nominate yourself.</a></b>
+  </div>
+ </td>
+ <td class="line-ht-fix">
+   <span class="toggle-box-election">
+   [<a href="#" onclick="toggleNotice();return
+false">Hide</a>]
+ </span><br>
+  <span class="trans-box">
+  [<a href="http://meta.wikimedia.org/wiki/Stewards/elections_2009/Translation">Help us with translations!</a>]
+  </span>
+ </td>
+</tr>
+</tbody></table>
+<div class="siteNoticeSmallAnon notice-collapsed-wrapper-election">
+</div></div>
+<script type="text/javascript" language="JavaScript">
+/* <![CDATA[ */
+document.writeln("\x3cdiv style=\"text-align:center;\"\x3e\x3cb\x3eEnglish Wikibooks has installed \x3ca href=\"http://www.mediawiki.org/wiki/FlaggedRevs\" class=\"extiw\" title=\"mw:FlaggedRevs\"\x3eFlagged Revisions\x3c/a\x3e\x3c/b\x3e, which shows a stable version to anonymous users where possible.\x3cbr/\x3eYou can choose to see newer versions if there are any; \x3ca href=\"/wiki/Special:UserLogin\" title=\"Special:UserLogin\"\x3elogin\x3c/a\x3e to see the newest version all the time. Give feedback at \x3ca href=\"/wiki/Help_talk:Article_validation\" title=\"Help talk:Article validation\" class=\"mw-redirect\"\x3eHelp talk:Article validation\x3c/a\x3e\x3c/div\x3e\n");
+/* ]]> */
+</script><div style="text-align: center;"><b>English Wikibooks has installed <a href="http://www.mediawiki.org/wiki/FlaggedRevs" class="extiw" title="mw:FlaggedRevs">Flagged Revisions</a></b>, which shows a stable version to anonymous users where possible.<br>You can choose to see newer versions if there are any; <a href="http://en.wikibooks.org/wiki/Special:UserLogin" title="Special:UserLogin">login</a> to see the newest version all the time. Give feedback at <a href="http://en.wikibooks.org/wiki/Help_talk:Article_validation" title="Help talk:Article validation" class="mw-redirect">Help talk:Article validation</a></div>
+
+</div>		<h1 id="firstHeading" class="firstHeading">QEMU/Monitor</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikibooks, the open-content textbooks collection</h3>
+			<div id="contentSub"><span class="subpages">&lt; <a href="http://en.wikibooks.org/wiki/QEMU" title="QEMU">QEMU</a></span><div id="mw-revisiontag" class="flaggedrevs_notice plainlinks noprint"><span class="fr-icon-current plainlinks"></span>There are no reviewed revisions of this page, so it may <b>not</b> have been <a href="http://en.wikibooks.org/wiki/Help:Page_validation" title="Help:Page validation" class="mw-redirect">checked</a> for quality.</div></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>When
+QEMU is running, it provides a monitor console for interacting with
+QEMU. Through various commands, the monitor allows you to inspect the
+running guest OS, change removable media and USB devices, take
+screenshots and audio grabs, and control various aspects of the virtual
+machine.</p>
+<p>The monitor is accessed from within QEMU by holding down the Control and Alt keys, and pressing 2 – <code>CTRL-ALT-2</code>. Once in the monitor, <code>CTRL-ALT-1</code> switches back to the guest OS. Typing <code>help</code> or <code>?</code> in the monitor brings up a list of all commands.</p>
+<table id="toc" class="toc" summary="Contents">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Help_and_information"><span class="tocnumber">1</span> <span class="toctext">Help and information</span></a>
+<ul>
+<li class="toclevel-2"><a href="#help"><span class="tocnumber">1.1</span> <span class="toctext">help</span></a></li>
+<li class="toclevel-2"><a href="#info"><span class="tocnumber">1.2</span> <span class="toctext">info</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Devices"><span class="tocnumber">2</span> <span class="toctext">Devices</span></a>
+<ul>
+<li class="toclevel-2"><a href="#change"><span class="tocnumber">2.1</span> <span class="toctext">change</span></a></li>
+<li class="toclevel-2"><a href="#eject"><span class="tocnumber">2.2</span> <span class="toctext">eject</span></a></li>
+<li class="toclevel-2"><a href="#usb_add"><span class="tocnumber">2.3</span> <span class="toctext">usb_add</span></a></li>
+<li class="toclevel-2"><a href="#usb_del"><span class="tocnumber">2.4</span> <span class="toctext">usb_del</span></a></li>
+<li class="toclevel-2"><a href="#mouse_move"><span class="tocnumber">2.5</span> <span class="toctext">mouse_move</span></a></li>
+<li class="toclevel-2"><a href="#mouse_button"><span class="tocnumber">2.6</span> <span class="toctext">mouse_button</span></a></li>
+<li class="toclevel-2"><a href="#mouse_set_index"><span class="tocnumber">2.7</span> <span class="toctext">mouse_set index</span></a></li>
+<li class="toclevel-2"><a href="#sendkey_keys"><span class="tocnumber">2.8</span> <span class="toctext">sendkey keys</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Screen_and_audio_grabs"><span class="tocnumber">3</span> <span class="toctext">Screen and audio grabs</span></a>
+<ul>
+<li class="toclevel-2"><a href="#screendump"><span class="tocnumber">3.1</span> <span class="toctext">screendump</span></a></li>
+<li class="toclevel-2"><a href="#wavcapture"><span class="tocnumber">3.2</span> <span class="toctext">wavcapture</span></a></li>
+<li class="toclevel-2"><a href="#stopcapture"><span class="tocnumber">3.3</span> <span class="toctext">stopcapture</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Virtual_machine"><span class="tocnumber">4</span> <span class="toctext">Virtual machine</span></a>
+<ul>
+<li class="toclevel-2"><a href="#commit"><span class="tocnumber">4.1</span> <span class="toctext">commit</span></a></li>
+<li class="toclevel-2"><a href="#quit"><span class="tocnumber">4.2</span> <span class="toctext">quit</span></a></li>
+<li class="toclevel-2"><a href="#savevm"><span class="tocnumber">4.3</span> <span class="toctext">savevm</span></a></li>
+<li class="toclevel-2"><a href="#loadvm"><span class="tocnumber">4.4</span> <span class="toctext">loadvm</span></a></li>
+<li class="toclevel-2"><a href="#delvm"><span class="tocnumber">4.5</span> <span class="toctext">delvm</span></a></li>
+<li class="toclevel-2"><a href="#stop"><span class="tocnumber">4.6</span> <span class="toctext">stop</span></a></li>
+<li class="toclevel-2"><a href="#cont"><span class="tocnumber">4.7</span> <span class="toctext">cont</span></a></li>
+<li class="toclevel-2"><a href="#system_reset"><span class="tocnumber">4.8</span> <span class="toctext">system_reset</span></a></li>
+<li class="toclevel-2"><a href="#system_powerdown"><span class="tocnumber">4.9</span> <span class="toctext">system_powerdown</span></a></li>
+<li class="toclevel-2"><a href="#log"><span class="tocnumber">4.10</span> <span class="toctext">log</span></a></li>
+<li class="toclevel-2"><a href="#logfile"><span class="tocnumber">4.11</span> <span class="toctext">logfile</span></a></li>
+<li class="toclevel-2"><a href="#gdbserver"><span class="tocnumber">4.12</span> <span class="toctext">gdbserver</span></a></li>
+<li class="toclevel-2"><a href="#x"><span class="tocnumber">4.13</span> <span class="toctext">x</span></a></li>
+<li class="toclevel-2"><a href="#xp"><span class="tocnumber">4.14</span> <span class="toctext">xp</span></a></li>
+<li class="toclevel-2"><a href="#print"><span class="tocnumber">4.15</span> <span class="toctext">print</span></a></li>
+<li class="toclevel-2"><a href="#sum"><span class="tocnumber">4.16</span> <span class="toctext">sum</span></a></li>
+<li class="toclevel-2"><a href="#memsave"><span class="tocnumber">4.17</span> <span class="toctext">memsave</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Help_and_information" id="Help_and_information"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=1" title="Edit section: Help and information">edit</a>]</span> <span class="mw-headline">Help and information</span></h2>
+<p><a name="help" id="help"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=2" title="Edit section: help">edit</a>]</span> <span class="mw-headline">help</span></h3>
+<ul>
+<li><tt>help [<i>command</i>]</tt> or <tt>? [<i>command</i>]</tt></li>
+</ul>
+<p>With no arguments, the help command lists all commands available. For more detail about another command, type <tt>help <i>command</i></tt>, e.g.</p>
+<pre>(qemu) help info
+</pre>
+<p>On a small screen / VM window, the list of commands will scroll off
+the screen too quickly to let you read them. To scroll back and forth
+so that you can read the whole list, hold down the control key and
+press Page Up and Page Down.</p>
+<p><a name="info" id="info"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=3" title="Edit section: info">edit</a>]</span> <span class="mw-headline">info</span></h3>
+<ul>
+<li><tt>info <i>option</i></tt></li>
+</ul>
+<p>Show information on some aspect of the guest OS. Available options are:</p>
+<ul>
+<li><tt>block</tt> – block devices such as hard drives, floppy drives, cdrom</li>
+<li><tt>blockstats</tt> – read and write statistics on block devices</li>
+<li><tt>capture</tt> – active capturing (audio grabs)</li>
+<li><tt>history</tt> – console command history</li>
+<li><tt>irq</tt> – statistics on interrupts (if compiled into QEMU)</li>
+<li><tt>jit</tt> – statistics on QEMU's Just In Time compiler</li>
+<li><tt>kqemu</tt> – whether the kqemu kernel module is being utilised</li>
+<li><tt>mem</tt> – list the active virtual memory mappings</li>
+<li><tt>mice</tt> – mouse on the guest that is receiving events</li>
+<li><tt>network</tt> – network devices and VLANs</li>
+<li><tt>pci</tt> – PCI devices being emulated</li>
+<li><tt>pcmcia</tt> – <a href="http://en.wikipedia.org/wiki/PC_Card" class="extiw" title="w:PC Card">PCMCIA card</a> devices</li>
+<li><tt>pic</tt> – state of i8259 (PIC)</li>
+<li><tt>profile</tt> – info on the internal profiler, if compiled into QEMU</li>
+<li><tt>registers</tt> – the CPU registers</li>
+<li><tt>snapshots</tt> – list the VM snapshots</li>
+<li><tt>tlb</tt> – list the TLB (<a href="http://en.wikipedia.org/wiki/Translation_lookaside_buffer" class="extiw" title="w:Translation lookaside buffer">Translation Lookaside Buffer</a>), i.e. mappings between physical memory and virtual memory</li>
+<li><tt>usb</tt> – USB devices on the virtual USB hub</li>
+<li><tt>usbhost</tt> – USB devices on the host OS</li>
+<li><tt>version</tt> – QEMU version number</li>
+<li><tt>vnc</tt> – <a href="http://en.wikipedia.org/wiki/Virtual_Network_Computing" class="extiw" title="w:Virtual Network Computing">VNC</a> information</li>
+</ul>
+<p><a name="Devices" id="Devices"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=4" title="Edit section: Devices">edit</a>]</span> <span class="mw-headline">Devices</span></h2>
+<p><a name="change" id="change"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=5" title="Edit section: change">edit</a>]</span> <span class="mw-headline">change</span></h3>
+<ul>
+<li><tt>change <i>device</i> <i>setting</i></tt></li>
+</ul>
+<p>The <code>change</code> command allows you to change removable media
+(like CD-ROMs), change the display options for a VNC, and change the
+password used on a VNC.</p>
+<p>When you need to change the disc in a CD or DVD drive, or switch between different <a href="http://en.wikipedia.org/wiki/ISO_image" class="extiw" title="w:ISO image">.iso</a> files, find the name of the CD or DVD drive using <code>info</code> and use <code>change</code> to make the change.</p>
+<pre>(qemu) info block
+ide0-hd0: type=hd removable=0 file=/path/to/winxp.img
+ide0-hd1: type=hd removable=0 file=/path/to/pagefile.raw
+ide1-hd1: type=hd removable=0 file=/path/to/testing_data.img
+ide1-cd0: type=cdrom removable=1 locked=0 file=/dev/sr0 ro=1 drv=host_device
+floppy0: type=floppy removable=1 locked=0 [not inserted]
+sd0: type=floppy removable=1 locked=0 [not inserted]
+(qemu) change ide1-cd0 /path/to/my.iso
+</pre>
+<p><a name="eject" id="eject"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=6" title="Edit section: eject">edit</a>]</span> <span class="mw-headline">eject</span></h3>
+<ul>
+<li><tt>eject [-f] <i>device</i></tt></li>
+</ul>
+<p>Use the <code>eject</code> command to release the device or file connected to the removable media device specified. The <code>-f</code> parameter can be used to force it if it initially refuses!</p>
+<p><a name="usb_add" id="usb_add"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=7" title="Edit section: usb_add">edit</a>]</span> <span class="mw-headline">usb_add</span></h3>
+<p><a name="usb_del" id="usb_del"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=8" title="Edit section: usb_del">edit</a>]</span> <span class="mw-headline">usb_del</span></h3>
+<p><a name="mouse_move" id="mouse_move"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=9" title="Edit section: mouse_move">edit</a>]</span> <span class="mw-headline">mouse_move</span></h3>
+<p><a name="mouse_button" id="mouse_button"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=10" title="Edit section: mouse_button">edit</a>]</span> <span class="mw-headline">mouse_button</span></h3>
+<p><a name="mouse_set_index" id="mouse_set_index"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=11" title="Edit section: mouse_set index">edit</a>]</span> <span class="mw-headline">mouse_set index</span></h3>
+<p><a name="sendkey_keys" id="sendkey_keys"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=12" title="Edit section: sendkey keys">edit</a>]</span> <span class="mw-headline">sendkey keys</span></h3>
+<p>You can emulate keyboard events through sendkey command. The syntax is: sendkey keys. To get a list of keys, type sendkey [tab].</p>
+<p><a name="Screen_and_audio_grabs" id="Screen_and_audio_grabs"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=13" title="Edit section: Screen and audio grabs">edit</a>]</span> <span class="mw-headline">Screen and audio grabs</span></h2>
+<p><a name="screendump" id="screendump"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=14" title="Edit section: screendump">edit</a>]</span> <span class="mw-headline">screendump</span></h3>
+<ul>
+<li><tt>screendump <i>filename</i></tt></li>
+</ul>
+<p>Capture a screendump and save into a <a href="http://en.wikipedia.org/wiki/Netpbm_format" class="extiw" title="w:Netpbm format">PPM</a> image file.</p>
+<p><a name="wavcapture" id="wavcapture"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=15" title="Edit section: wavcapture">edit</a>]</span> <span class="mw-headline">wavcapture</span></h3>
+<p><a name="stopcapture" id="stopcapture"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=16" title="Edit section: stopcapture">edit</a>]</span> <span class="mw-headline">stopcapture</span></h3>
+<p><a name="Virtual_machine" id="Virtual_machine"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=17" title="Edit section: Virtual machine">edit</a>]</span> <span class="mw-headline">Virtual machine</span></h2>
+<p><a name="commit" id="commit"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=18" title="Edit section: commit">edit</a>]</span> <span class="mw-headline">commit</span></h3>
+<ul>
+<li><tt>commit <i>device</i></tt> or <tt>commit all</tt></li>
+</ul>
+<p>When running QEMU with the <code>-snapshot</code> option, commit changes to the device, or all devices.</p>
+<p><a name="quit" id="quit"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=19" title="Edit section: quit">edit</a>]</span> <span class="mw-headline">quit</span></h3>
+<ul>
+<li><tt>quit</tt> or <tt>q</tt></li>
+</ul>
+<p>Quit QEMU immediately.</p>
+<p><a name="savevm" id="savevm"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=20" title="Edit section: savevm">edit</a>]</span> <span class="mw-headline">savevm</span></h3>
+<ul>
+<li><tt>savevm</tt> name</li>
+</ul>
+<p>Save the virtual machine as the tag 'name'. Not all filesystems support this. raw does not, but qcow2 does.</p>
+<p><a name="loadvm" id="loadvm"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=21" title="Edit section: loadvm">edit</a>]</span> <span class="mw-headline">loadvm</span></h3>
+<ul>
+<li><tt>loadvm</tt> name</li>
+</ul>
+<p>Load the virtual machine tagged 'name'. This can also be done on the command line: <tt>-loadvm</tt> name</p>
+<p><a name="delvm" id="delvm"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=22" title="Edit section: delvm">edit</a>]</span> <span class="mw-headline">delvm</span></h3>
+<p><a name="stop" id="stop"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=23" title="Edit section: stop">edit</a>]</span> <span class="mw-headline">stop</span></h3>
+<p><a name="cont" id="cont"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=24" title="Edit section: cont">edit</a>]</span> <span class="mw-headline">cont</span></h3>
+<p><a name="system_reset" id="system_reset"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=25" title="Edit section: system_reset">edit</a>]</span> <span class="mw-headline">system_reset</span></h3>
+<p><a name="system_powerdown" id="system_powerdown"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=26" title="Edit section: system_powerdown">edit</a>]</span> <span class="mw-headline">system_powerdown</span></h3>
+<p><a name="log" id="log"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=27" title="Edit section: log">edit</a>]</span> <span class="mw-headline">log</span></h3>
+<ul>
+<li><tt>log <i>option</i></tt></li>
+</ul>
+<p><a name="logfile" id="logfile"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=28" title="Edit section: logfile">edit</a>]</span> <span class="mw-headline">logfile</span></h3>
+<ul>
+<li><tt>logfile <i>filename</i></tt></li>
+</ul>
+<p>Write logs to specified file instead of the default path, <code>/tmp/qemu.log</code> .</p>
+<p><a name="gdbserver" id="gdbserver"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=29" title="Edit section: gdbserver">edit</a>]</span> <span class="mw-headline">gdbserver</span></h3>
+<p><a name="x" id="x"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=30" title="Edit section: x">edit</a>]</span> <span class="mw-headline">x</span></h3>
+<p><a name="xp" id="xp"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=31" title="Edit section: xp">edit</a>]</span> <span class="mw-headline">xp</span></h3>
+<p><a name="print" id="print"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=32" title="Edit section: print">edit</a>]</span> <span class="mw-headline">print</span></h3>
+<p><a name="sum" id="sum"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=33" title="Edit section: sum">edit</a>]</span> <span class="mw-headline">sum</span></h3>
+<p><a name="memsave" id="memsave"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit&amp;section=34" title="Edit section: memsave">edit</a>]</span> <span class="mw-headline">memsave</span></h3>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 136/1000000
+Post-expand include size: 37/2048000 bytes
+Template argument size: 0/2048000 bytes
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key enwikibooks:pcache:idhash:152334-0!1!0!default!!en!2 and timestamp 20090110115501 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikibooks.org/wiki/QEMU/Monitor">http://en.wikibooks.org/wiki/QEMU/Monitor</a>"</div>
+			<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://en.wikibooks.org/wiki/Special:Categories" title="Special:Categories">Subject</a>: <span dir="ltr"><a href="http://en.wikibooks.org/wiki/Category:QEMU" title="Category:QEMU">QEMU</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://en.wikibooks.org/wiki/QEMU/Monitor" title="View the content page [alt-shift-c]" accesskey="c">Module</a></li>
+				 <li id="ca-talk" class="new"><a href="http://en.wikibooks.org/w/index.php?title=Talk:QEMU/Monitor&amp;action=edit&amp;redlink=1" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=edit" title="You can edit this page.
+Please use the preview button before saving. [alt-shift-e]" accesskey="e">Edit this page</a></li>
+				 <li id="ca-history"><a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;action=history" title="Past versions of this page. [alt-shift-h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://en.wikibooks.org/w/index.php?title=Special:UserLogin&amp;returnto=QEMU/Monitor" title="You are encouraged to log in, it is not mandatory however. [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikibooks/en/b/bc/Wiki.png);" href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the Main Page [alt-shift-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the Main Page [alt-shift-z]" accesskey="z">Main Page</a></li>
+				<li id="n-help"><a href="http://en.wikibooks.org/wiki/Help:Contents" title="The place to find out.">Help</a></li>
+				<li id="n-Cookbook"><a href="http://en.wikibooks.org/wiki/Cookbook:Table_of_Contents">Cookbook</a></li>
+				<li id="n-Wikijunior"><a href="http://en.wikibooks.org/wiki/Wikijunior">Wikijunior</a></li>
+				<li id="n-Browse"><a href="http://en.wikibooks.org/wiki/Wikibooks:Card_Catalog_Office">Browse</a></li>
+				<li id="n-Featured-Books"><a href="http://en.wikibooks.org/wiki/Wikibooks:Featured_books">Featured Books</a></li>
+				<li id="n-recentchanges"><a href="http://en.wikibooks.org/wiki/Special:RecentChanges" title="The list of recent changes in the wiki. [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Donate" title="Support us">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input autocomplete="off" id="searchInput" name="search" title="Search Wikibooks [alt-shift-f]" accesskey="f" value="" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-community">
+		<h5>community</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-currentevents"><a href="http://en.wikibooks.org/wiki/Wikibooks:Bulletin_board" title="Find background information on current events">Bulletin Board</a></li>
+				<li id="n-portal"><a href="http://en.wikibooks.org/wiki/Wikibooks:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-Reading-room"><a href="http://en.wikibooks.org/wiki/Wikibooks:Reading_room">Reading room</a></li>
+				<li id="n-Help-cleanup"><a href="http://en.wikibooks.org/wiki/Wikibooks:Maintenance">Help cleanup</a></li>
+				<li id="n-Policy-discussions-and-votes"><a href="http://en.wikibooks.org/wiki/Wikibooks:Policies_and_guidelines/Vote">Policy discussions and votes</a></li>
+				<li id="n-contact"><a href="http://en.wikibooks.org/wiki/Wikibooks:Contact_us">Contact us</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Create_a_book">
+		<h5>Create a book</h5>
+		<div class="pBody">
+<ul id="collectionPortletList"><li>
+	<a href="http://en.wikibooks.org/w/index.php?title=Special:Collection/add_article/&amp;arttitle=QEMU/Monitor&amp;oldid=0" onclick="collectionCall('AddArticle', [wgNamespaceNumber, wgTitle, 0]); return false;" rel="nofollow">Add wiki page</a>
+</li>							<li><a href="http://en.wikibooks.org/wiki/Help:Collections">Collections help</a></li></ul><script type="text/javascript">
+/* <![CDATA[ */
+	function collectionCall(func, args) {
+		sajax_request_type = 'POST';
+		sajax_do_call('wfAjaxCollection' + func, args, function(xhr) {
+			sajax_request_type = 'GET';
+			sajax_do_call('wfAjaxCollectionGetPortlet', [func], function(xhr) {
+				document.getElementById('collectionPortletList').parentNode.innerHTML = xhr.responseText;
+			});
+		});
+	}
+/* ]]> */
+</script>		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul><li id="google-trick-search"><a href="http://www.google.com/custom?sa=Google+Search&amp;domains=en.wikibooks.org/wiki/QEMU&amp;sitesearch=en.wikibooks.org/wiki/QEMU">Search this book</a></li>
+				<li id="t-whatlinkshere"><a href="http://en.wikibooks.org/wiki/Special:WhatLinksHere/QEMU/Monitor" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://en.wikibooks.org/wiki/Special:RecentChangesLinked/QEMU/Monitor" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="http://en.wikibooks.org/wiki/Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://en.wikibooks.org/w/index.php?title=QEMU/Monitor&amp;printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="http://en.wikibooks.org/w/index.php?oldid=1261042" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-download-as-"><a href="http://en.wikibooks.org/w/index.php?title=Special:Collection/render_article/&amp;arttitle=QEMU/Monitor&amp;writer=rl" rel="nofollow">PDF version</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="Monitor_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="Monitor_files/wikimedia-button.png" alt="Wikimedia Foundation" border="0"></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 28 August 2008, at 20:49.</li>
+					<li id="copyright">All text is available under the terms of the <a class="internal" href="http://en.wikibooks.org/wiki/GNU_Free_Documentation_License">GNU Free Documentation License</a> (see <b><a class="internal" href="http://en.wikibooks.org/wiki/Wikibooks:Copyrights">Copyrights</a></b> for details).<br>
+Wikibooks® is a registered trademark of the Wikimedia Foundation, Inc.<br></li>
+					<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://en.wikibooks.org/wiki/Wikibooks:About" title="Wikibooks:About">About Wikibooks</a></li>
+					<li id="disclaimer"><a href="http://en.wikibooks.org/wiki/Wikibooks:General_disclaimer" title="Wikibooks:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served by srv122 in 0.128 secs. --></body></html>

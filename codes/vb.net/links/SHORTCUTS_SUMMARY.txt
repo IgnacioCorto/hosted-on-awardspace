@@ -1,0 +1,3 @@
+
+Collapse To Definitions
+CTRL+K , CTRL+O

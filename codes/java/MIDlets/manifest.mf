@@ -1,0 +1,3 @@
+MIDlet-Name: DateTimeApp
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Ignacio Cortorreal

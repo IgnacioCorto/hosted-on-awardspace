@@ -1,0 +1,13 @@
+
+// $xmlData has the "XML" string
+$xml = new Xml( $xmlData );
+
+
+// Then we select all the "item" nodes
+//                    <rss>        <channel>    <item>...
+$the_xml_data = $xml->children[0]->children[0]->children('item'); //->first()->value();
+
+
+// $the_xml_data will have an array
+//   <item>...        <title>          [TextNode]
+echo $the_xml_data[0]->child('title')->children[0]->value ;

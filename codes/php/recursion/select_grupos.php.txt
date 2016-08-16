@@ -1,0 +1,53 @@
+<?php
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
+// error_reporting(E_ALL);
+
+//Incluye el archivo de login en esta página por asuntos de seguridad.
+@include('../login.php');
+//Incluye archivo de configuracion
+include ('../../inc/config.php');
+//Incluye archivo de funciones
+include_once('../inc/functions.php');
+//Incluye la clase.
+include ('../../class/class.grupos.php');
+//Incluye el lenguaje.
+include ('../inc/lang/es/lang_grupos.php');
+
+
+$grps = new Grupos();
+
+if ( !isset($_GET['idc']) or !$_GET['idc'] ) {
+	$recGrupos = $grps->getAllGrupos();
+} else {
+	$id_categorias = $_GET['idc'] ;
+	$recGrupos = $grps->getRecursionGrupos($id_categorias);
+}
+
+
+echo '<select name="id_padres" id="id_padres"><option value="0">Ninguno</option>';
+echo  desplegarSelect($recGrupos) ;
+echo '</select>';
+
+##### UTILITY FUNCTIONS #####
+
+function desplegarSelect($arreglo, $nivel='') {
+	$opciones = '';
+	
+	if($arreglo){			
+		foreach($arreglo as $data){
+			$selected = $data['id_grupos'] == $_GET['idg'] ? ' selected="selected" ' : '' ;
+			$opciones .= "<option value='{$data['id_grupos']}' {$selected} >
+						 {$nivel} {$data['nombre_grupos']} </option>";
+			if($data['sub']) $opciones .= desplegarSelect($data['sub'], $nivel.'-') ;
+		}//fin de data
+	}//fin de padres
+	
+	return $opciones;
+}
+
+
+
+
+?>

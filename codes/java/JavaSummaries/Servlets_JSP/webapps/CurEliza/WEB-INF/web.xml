@@ -1,0 +1,16 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2eeweb-app_2_4.xsd"
+		version="2.4">
+		
+	<servlet>
+		<servlet-name>Curricullum de Eliza</servlet-name>
+		<servlet-class>com.example.web.DownloadCurElizaDoc</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Curricullum de Eliza</servlet-name>
+		<url-pattern>/getCurriculum</url-pattern>
+	</servlet-mapping>
+
+</web-app>

@@ -1,0 +1,21 @@
+http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html#rewritecond
+
+### TOMADO DE CODE_IGNITER ###
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+LAS REGLAS SE VUELVEN A REEVALUAR!!!
+parece que se pueden usar los indices de $_SERVER
+
+### RewriteCond %{HTTPS} ###
+RewriteCond STRING PATTERN
+RewriteRule PATTERN SUBSTITUTION
+
+$1 from RewriteRule pattern
+%1 from RewriteCond pattern
+%{VARNAME} from server-variables
+(${mapname:key|default}) from mapping-function calls 
+
+[OR,NC] Or, No Case
+[L,NE]  Last, No Escape

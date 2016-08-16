@@ -1,0 +1,19 @@
+<form action="extra_zip.php">
+<table>
+    <tr>
+        <td>Fecha #1:</td>
+        <td><input name="fecha1" /></td>
+        <td>Ej: 2009-12-31</td>
+    </tr>
+    <tr>
+        <td>Fecha #2:</td>
+        <td><input name="fecha2" /></td>
+        <td>Ej: 2009-12-31</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" value="Extra Zip"/></td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</form>

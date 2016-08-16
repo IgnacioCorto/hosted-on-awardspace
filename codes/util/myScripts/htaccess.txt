@@ -1,0 +1,102 @@
+###########################
+# SETTING ERROR DOCUMENTS #   --> File must be greater than 512 bytes.
+###########################
+ErrorDocument 404 /myfolder/mydefaultpage.php
+
+
+#########################
+# PASSWORDS (user:pass) #
+#########################
+AuthUserFile DriveLetter:/myfolderpath/mypasswordfile
+AuthName My-Site-Name
+AuthType Basic
+require user MyName
+
+
+########################
+# SERVER-SIDE-INCLUDES #
+########################
+AddType text/html .shtml
+AddHandler server-parsed .shtml
+Options Indexes FollowSymLinks Includes
+
+
+#################
+# DEFAULT INDEX #
+#################
+DirectoryIndex myDefaultPage.php
+
+
+##############
+# BLOCK IP'S #
+##############
+#deny from all
+allow from all
+
+
+##################      LoadModule rewrite_module modules/mod_rewrite.so
+# BLOCK REFERERS #      AddModule mod_rewrite.c
+##################  --> Remember: if it's only one referer, don't  use  ',OR' 
+RewriteEngine on
+Options +FollowSymlinks
+RewriteCond %{HTTP_REFERER} firstbadsite\.com [NC,OR] 
+RewriteCond %{HTTP_REFERER} badsite\.com [NC,OR] 
+RewriteCond %{HTTP_REFERER} anotherbadsite\.com
+RewriteRule .* - [F]
+
+
+##############################
+# BLOCK BOTS (AND EXPLORERS) #
+##############################
+RewriteEngine On 
+RewriteCond %{HTTP_USER_AGENT} MSI\ E [OR] 
+RewriteCond %{HTTP_USER_AGENT} ^BackOrifice
+RewriteRule ^.* - [F,L]
+
+
+################  --> Redirection Destiny needs 'http://' preffix
+# REDIRECTIONS #  --> '/' doesn't work at end of Redirect Source
+################
+Redirect /mySitePath/myFolder     http://mysite/myPath/myFile.htm
+Redirect /mySitePath/empty        http://mysite/myPath/myFile.htm
+#Redirect /mySitePath/myFile.htm  http://mysite/myPath/myFile.htm
+
+
+######################
+# BLOCKING .htaccess #
+######################
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+
+####################
+# ADD "MIME" TYPES #  --> application/octet-stream  doesn't worked for me
+####################
+AddType application/x-shockwave-flash swf
+AddType application/octet-stream txt
+
+
+#########################  FILE ACCESS ARE ALSO FORBIDDEN TO:
+# PREVENT "HOT LINKING" #    [BLOCKED 'REFERERS']
+#########################
+#RewriteEngine on
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://my\.site\.com/.*$ [NC]
+#RewriteRule \.(gif|jpg|js|css)$ - [F]
+
+
+###########################  FILE ACCESS ARE ALSO FORBIDDEN TO:
+# PREVENT "FILE BROWSING" #    [BLOCKED 'REFERERS']
+###########################
+IndexIgnore *.exe *.jpg
+
+##### This forbids 'FILE BROWSING': #####
+Options -Indexes 
+
+##### and this ALLOWS it: #####
+Options +Indexes
+# adding fancy directory indexing
+IndexOptions +FancyIndexing
+

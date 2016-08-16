@@ -1,0 +1,13 @@
+Group 1, 2 Subjects
+	average starting cholesterol: 206
+	average final    cholesterol: 200
+	change in        cholesterol: -6
+Group 2, 3 Subjects
+	average starting cholesterol: 233
+	average final    cholesterol: 219
+	change in        cholesterol: -14
+Group 3, 1 Subjects
+	average starting cholesterol: 202
+	average final    cholesterol: 185
+	change in        cholesterol: -17
+Done with processing.

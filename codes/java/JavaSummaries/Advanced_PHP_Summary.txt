@@ -1,0 +1,33 @@
+"Premature Optimization is the root of all evil" (Donald Knuth)
+
+-----------------------------------------------------------------
+Encapsulationg Logic in Functions:
+ ->  $tax = ( $user->state == 'MD ) ? 0.05 * $price : 0 ;
+ ->  .getTax($user, $price )  //  .getStateTax($state, $price )
+
+Namespace Via Classes
+ ->  CreditCard.validate()  User.validate()  Login.validate()
+-----------------------------------------------------------------
+
+
+Adaptor(Singleton)
+ - Connection
+ - Statement
+
+Template
+ - Connection Settings inside the class
+
+Strategy
+ - Polymorphism at its Max
+ - Interface (SuperType)
+ - // function setConn ( DB_Conn $dbh )    ### Type Check
+
+Factory
+ - For the creation of multiple objects (cat,grp,prod,etc)
+
+Singleton
+ - Singleton::$property
+ -  __construct()  __get("a")  __set("a",1)
+ - // the former methods are called for undefined properties
+ - // $tabla->campo  ===  $tabla->__get("campo")
+

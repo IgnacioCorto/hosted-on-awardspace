@@ -1,0 +1,58 @@
+
+
+
+javac -classpath "C:\Archivos de programa\Apache Software Foundation\Tomcat 6.0\lib\servlet-api.jar;classes;." -d classes src/com/example/web/BeerSelect.java
+
+javax.servlet.Servlet <<interface>>
+javax.servlet.GenericServlet
+javax.servlet.http.HttpServlet
+
+javax.servlet.ServletRequest <<interface>>
+javax.servlet.http.ServletRequest
+
+javax.servlet.ServletResponse <<interface>>
+javax.servlet.http.ServletResponse
+
+
+A servlet needs [3] names !!
+
+
+CREATE & DEPLOY A MVC WEB APP:
+==============================
+project organization
+namespac management
+portability, reusability
+
+lib etc web, src clases [... web model]
+webapps/beer1-V1/WEB-INF/classes+lib
+
+
+a) review *USER VIEWS* and the *HIGH LEVEL ARCHITECTURE"
+b) create the *DEVELOPMENT ENVIRONMENT*
+c) create the *DEPLOYMENT ENVIRONMENT*
+d) *ITERATIVE DEVELOPMENT AND TESTING* (design-code-test)
+
+1. HTML Form
+2. Servlet Controller
+3. Model (plain old Java class)
+4. XML Deployment Descriptor
+5. JSP View
+
+
+J2EE SERVERS:
+=============
+
+BEA's WebLogic
+open sourc JBoss
+IBM's WebSphere
+
+
+SERVLET ESSENTIAL COMMANDS:
+===========================
+
+classes + src + etc
+tomcat/webapps/ch1/WEB-INF/classes
+
+javac -classpath "C:\Archivos de programa\Apache Software Foundation\Tomcat 6.0\lib\servlet-api.jar" -d classes src/Ch1Servlet.java
+
+%bin/startup.sh

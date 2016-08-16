@@ -1,0 +1,366 @@
+DATABASE:
+ - id,position,status,dates,memo,
+ - check: user permissions, record statuses
+ - LOSERING: who,when,what,where,from,to,  (log)
+ - Any table with STATUS-Field should have an STATUS-Table
+ - Model Functions should bring old data structure, plus fields added in query
+ - "ERROR: mysql_fetch_assoc() expects parameter 1 to be resource, boolean given"
+ * idempotency on: Insert+Update. Status ease things a bit. MODIFICATION COUNTER!
+ * concurrency on: multiple users working. F5 to check availability and status.
+   UPDATE a+b WHERE date=previous
+ - hide records on list, reject records on save
+ * count records saved  (mysql_affected_rows)
+
+CODE:
+ - generation -vs- organization
+ - how to identify commands? one per file? one per tag variable?
+ - oneProcess+manyViews -vs- flags -vs- switch -vs- structure -vs- overload 
+ - Close all opened files after you have ended a modification or step;
+   like a simplification of a formula!
+ - Performance(MySQL|Validation) -vs- Space(Many Functions)
+ - Where Beginning is, Ending is: Output, Graphic, Look & Feel
+ - First: Functionality. Main-Logic.
+ - prohibit multiple inserts by checking a form-reposting
+ - in web, you should always check records' status before processing 'em
+ - prepare input -> ( post -> check db -> repeat[f5] )
+ - WHAT,WHY,WHERE,when,how,who,how much.  "problem":folder/file:line
+ - import and variables at the top!
+ - include a file with two functions?
+ - programming solutions are like generating formulas. Focus on process.
+ - permissions --> sanitize --> assign --> validate --> status check ??
+ - It's not that it doesn't work. There were some overlooked tests
+ - Any view *CAN* change data, even a report can!
+ - How can I solve it, in a pluggable way? (1) import (2) function call
+
+ROBOT:
+ - keep the correct file opened:  "problem"...folder/file:line
+ - Fighting Stance: Meditative Pose and Alert State. Never forget it!
+ - Look What to Do
+ - Each requirement or feature is like one move  (ply)
+ - Check Requirements List
+ / robot becomes tiring and boring
+ / outside motivates you to move out
+
+
+ * KEEP THE PROBLEM OR MAIN STEP INSIDE YOUR HEAD. DON'T REPLACE IT
+ * Keep inserting/storing/saving  ugly/bare/raw data
+ * Keep Shell-Oriented Programming in your mind
+ * Keep rounding the problem, then compare with a list of alternatives
+ * Keep finding in Problems: either Causes of Effects, or Effects of Causes.
+ * Keep looking for the domino effect
+ * Keep searching for the ESSUW way to get Useful Results
+
+
+   unlove,smash,needs,endless,
+   **direction,intent,results,action,evidence,**
+   anxiety stupidity,improve,¿schedule?
+
+
+PROBLEMS:  (order+chaos)
+ - Difficulty to Transmute THOUGHTS into ACTIONS  (think-do)
+ - When you have several OPTIONS, but you must make ONE CHOICE
+ - DISTRACTIONS that appear NATURALLY in your life
+
+
+ORDER vs CHAOS:
+ |00| distractions belongs to chaos, and have a space inside order
+ |01| stress,ideas -vs- time waste
+ |02| fail to plan = plan to fail ; A plan helps, but is not enough!!
+ |03|  - there's still something that stops me. I can feel that it exists,
+         but it's not a simple entity. I have it not clear enough.
+         could it be Devil? I don't know, but even with all my writings,
+         I have not seen it. I've only found: myself, oscillations, yin-yang
+ 
+ - Order is static; Chaos doesn't have form;
+ - Order helps to remember; Chaos hides alternatives;
+ - Order promotes balance; Chaos promote extremes;
+
+
+STUDING MOMENTS OF *THINK-DO* MAGIC:
+  WANTING WORK:
+    - I know what I have to do, I am implementing a idea that is: Probable,
+      Demostrable, Applicable, and Works. I want to be like this forever.
+    - [edit], Ctrl+S, Alt+Tab, F5, ...
+    - Exploratory+Experimental Programming is Fun
+    - Stating obstacles and rounding them.
+    - Shell-Oriented Programming
+    - If what I do either improves my techniques or it's something new
+    - KEEP ROUNDING THE PROBLEM!
+  REJECTING WORK:
+    * When I arrive to my house at night, and I think to program, I feel tired
+      and then I go to sleep. In the next morning, even after I have slept, if
+      I think to program again, then I feel tired again!
+    - Firstly, I reject it for short moments because of these writings.
+    - Too much work, but I'm certain that work is a must.
+    - When the next step is not clear enough.
+    - When my actual task seems long and difficult.
+    - When my mind goes blank.  **Remember to Explore and Experiment**
+
+
+PSYCHOLOGY:
+ - one step at a time; but don't enjoy too much the joy
+ - anxiety is stupidity: you are not flash! you have your speed and only two hands!
+ - change,improvement: your idea can get better by anybody
+ - there is always have bien been that way. so disconnect from your dreams.
+   mon-fri: study, sat-sun:party,homework. come back to you needs and reality.
+   until you have free time enough to party and bimbo around. music comforts.
+ - You know an answer, but is too long to implement
+ - Don't leave for later what you can do now
+ - Be a ROBOT, while not in leisure
+ - You never end. There will always be something to do. Forever
+ - Love+Inspiration / Needs+Interests
+ * Much HARD WORK without LOVE and PASSION... or absurd it!  :'(   //!!!!!!!
+ * Smash all your DREAMS for one of them to become REALITY
+ * Just being NECESSARY should be ENOUGH
+
+FOCUS ON THE SOLUTION:
+ * closing eyes? lost eyes? far ideas?
+ - speed, memory, blindfold
+ - First solution is Long+Rough, but Works
+ - views: with a pluggable controller/include
+ - models: functions,validation,sanitation,crud+sql,permissions,status,
+ - processes defines views, data
+
+
+
+=======================
+ WHY DO I FEEL HAPPY
+  WITH A SMALL STEP
+  OR A TINY WIN, AND
+ FORGET THERE IS STILL
+    TOO MUCH TO DO
+=======================
+
+ + again, the problem to transmute joy into work
+ - I need to do other things to freshen my mind, or do other quick thing,
+   but programming, something to disconnect...
+ + that's an error! it's like a vice, so make you work pleasurable.
+
+
+MY OWN HINDRANCES:
+    => too general: fun*3, movies*10, games*10, women, parties, 
+    => specific: moving legs, blank mind, extra ideas,
+                 google, writings,
+                 instrospection, feelings, stomach twinch,
+    => agile spaguetti -vs- late optimum
+         - difference is the amount of planning
+    
+  Necessary is Enough
+  Mighty Roar
+  Unstoppable Uttering
+
+-----------------------------------------------------------------
+imperative: goto
+functional: lambda
+ objective: class
+   logical: (a)if hit, then cry;  (b)to cry, hit;
+-----------------------------------------------------------------
+
+*valid user*
+data validation -> #1:posted?  #2:$save=true; 
+data sanitation -> injections
+db store ... array?
+db retrieve ... array?
+form/view ... foreach?
+==> when you are one field to the cycle...
+-------------------------------
+each view appears in one place,ILSUD
+lists based on SQL
+pagination,search,sort,tree,select,options,dynamic_cols
+set+step based = derived -> foreach -> echo  [dynamic? head/foot/inject]
+#######################################
+dynamic but specific, online but local server, sql but vertical,
+#######################################
+**NOTES** each one should do query checks 
+before storing something
+
+
+CREATE:
+  validate, 
+RETRIEVE:
+  details_view, fill_fields
+UPDATE:
+  validate, like create
+  if(post){load_post} else{load_record}
+DELETE:
+  r u sure?
+
+
+there are limits, and you must allow them to be broken
+there are defined steps, but you must allow undo,redo,cancel
+quick ideas and repetitive tasks for testing
+ - It's better to have one partial and tedious idea, than none at all.
+managing essential complexity
+ - Playing with Record Statuses to Test an Application?
+ 
+
+
+
+============================
+feelings/robot/spaguetti/improve
+----------------------------
+HUMAN MIND:
+ - anytime I decide to find the source of motivation inside the crud work
+   by only focusing at it, distractions appears by themselves.
+ - when alone, i recieve less motivation. I don't like that  :@
+ - DESIRES: C++, Python, Java, Circuits
+ - many rare ideas, but you are unsure about the one you think will work
+ - mind begs and takes a break by itself
+ - incorrect, lousy, working, maintenance, [FRCPG]
+ - tension,stress,pressure,by the work
+ - risk to lose is fearful, but you must risk.
+ - defend crap?
+----------------------------
+PRINCIPLES:
+ - Keep rounding, around the world.
+ - textual analysis: list elements and objects conforming a system
+ - Diagrams on Paper: 1)forms; 2)reports; 3)tables; 4)processes;
+ * sections: Divide and Conquer
+ * validation/sanitation/permissions/statuses  ARE A MUST
+ * user/dates/auditory/logs 2ND. MUST
+ - views are too modifiable  (FERM/IMRED -able?)
+============================
+
+
+ESSENCE:
+  model:
+   - functions/methods: crud,validation,sanitation,permissions,status check
+   - crud logic, SQL, 100% migrable
+  controller:
+   - redirect, prepare, crud|model calls
+  view:
+   - header/footer/helper/js
+   - presentation logic
+
+GARBAGE:
+  model:
+   - new $db; new $productos; many includables
+   - refactor extra insert|retrieve functions
+  controller:
+   - sql,var garbage
+  view:
+   - spaguetti. rarely reusable
+
+
+Any attempt of ORDER goes into MODELS  (and is painful)
+Any attempt of CHAOS goes into VIEWS   (and seems silly)
+
+
+QUESTIONS:
+ * encryption, authentication, permissions, statuses, sanitation, validation,
+ * idempotency, concurrency, record-lock, cache, semaphore, duplicates,
+ * recursion, abstraction, exploratory+experimental, main-logic, humans,
+
+HUMAN VALIDATION PROBLEMS:
+   1. Don't allow differences
+   2. Show and allow all differences, but somebody must confirm them
+   3. Show All, Filter.
+
+   validation: client, server
+   permission: url,duplicate form, protect fields section,
+   data: block listing,
+   SHELL SCRIPTING!!!
+
+
+two shells -->
+both add the same record: add "a" "b" "c"   # compare parameters
+both edit the same record: edit 001  "x" "y" "z"  # edit
+both check diferent reference: assign owner 002    ## revoke owner 002
+ - drop down of users assignables to functions
+ - drop down of functions
+ - you disable an user for assignation of a special function,
+   but that function got assigned right before that disabilitation
+   * check user before assignation --> user is able
+   * disable user
+   * store user assignation --> user is still true
+ - SOLVE IT THE NORMAL WAY. YOU NEED SOMETHING WORKABLE BEFORE
+   THINKING ABOUT RECORD-LOCKING!!
+ - probably, it could work like "negative balance" rule! let me check:
+   you make a mod and then you show it
+
+
+VALIDATION:
+ - long list of "is_data_valid()"  functions
+ - to pass an object, and define validators for each object??
+ - return an array of errors:  {'field1':'message1','field2':'message2'}
+ - Show Valid Records
+ - Store Valid Records
+ - Beware of Concurrent Insert/Update!!!!  [SuperBuy]
+
+
+FUNCTIONS AND SQL: a function for each one?
+  - a list of record
+  - selecting columns
+  - adding conditions
+  - joining more tables
+
+AUDITORY:
+  - list of labels
+  - catch only different data in fields
+  - chronological memo
+
+
+----stopping life, not seeing you anymore----
+----20100730.1903: Well,I accept that I will pay that mistake again
+    and again, and again, until I learn how to
+    build a correct body for me, and choose the correct mother
+    for growing up my kids. So, smite me, oh mighty smiter!  :'(
+
+20100803.1710: somebody bothers me, but I keep withstanding those bad jokes or
+stress until I either explode or find a counter-attack, then I put it into
+test. We get into a truce until one of us starts attacking again, then it
+appears either the counter, or the apology. But, if counter appears and
+apology gets hidden, then it'll be a bigger fight than before, and with
+disastrous consequences.
+ 
+20100804.1514: por que pasara eso
+que una cancion que tu habias escuchado antes
+no te gustaba
+y despues te gusta
+lo unico que creo es que el cerebro la asocia a algun buen recuerdo
+
+20100804.2223: pike, soporte, trabajo, yo tengo, sí es necesario, pero no es
+obligatorio, incomodidad, calma, esperar hasta que se rebose la copa, hasta
+que se explote, no quiero olvidar. como tratar de razcarte donde la mano
+no te llega, entonces te pegas de la pared o aguantas lo mas que puedas.
+aguantar vainas. siempre ha sido asi. pero recuerda que solo tienes dos manos.
+y si te vuelves loco es peor. peor que ofenderlos? peor que perder el trabajo?
+mientras estes vivo, tendras oportunidad. y mi corazon? y mi salud? para vivir
+esta vida hay que tener cierto grado de locura.
+
+20100806.1027: 
+mahoma eats an elephant
+one step at a time (naruto)
+if there are many, treat them one by one  (code/obj mods)
+
+20100817.1048:
+forms, reports, data,  (id,status,created,modified,count)
+organizar ideas
+organizar problemas
+organizar analisis de soluciones
+organizar sus contextos por proyecto
+essential complexity: evident and unavoidable
+
+20100817.1055:
+a waitress coordinates all accesses to resources
+if some entity tries direct-access, system will penalize it
+flush data instantly, or let waitress handle it
+r.u.lazy?
+
+20100817.1146:
+inventory reduced
+route assigned
+both receipt and invoice generated
+logs and auditory
+even all of this is confirmed
+BUT NOW, YOU MUST CANCEL ALL OF IT!
+auditory log of any Cancellation
+
+20100817.1146:
+The most important thing is the daily discipline of neatly writing down our thoughts. (Edsger Wybe Dijkstra)
+Why do you act the fool?
+
+20100817.1157:
+I talk to a computer using a programming language.
+If she understands me, she does what I want.
+If she doesn't, she shows me a big bang.

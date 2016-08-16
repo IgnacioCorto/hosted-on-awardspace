@@ -1,0 +1,648 @@
+####### PENDING: #########
+ GENERAR ARRAY DE OBJETOS CON JAVABEANS
+ ninja gaiden sigma: master ninja, chapter 17
+##########################
+
+739: SCWCD: Business Delegate, Service Locator, Transfer Object,
+             Intercepting Filter, MVC, Front Controller, 
+
+663: Filters & Wrappers
+534: Parent Tags
+498: Tag Handlers: Simple & Classic
+179: Eight Listeners
+162: Listener Intro
+
+
+==== FILTERS [p665] ====
+
+filters are Stack
+684: Gzip Filter
+
+
+
+
+==== SECURITY [p614] ====
+Authentication, Authorization, Confidentiality, Data Integrity
+CHECK: /webapps/security/WEB-INF/web.xml
+       /tomcat/conf/tomcat-users.xml
+
+
+<tomcat-users>               //NOTE: tomcat/conf/tomcat-users.xml
+   <role rolename="Guest"/>
+   <role rolename="Member"/>
+   <user name="Bill" password="coder" roles="Member, Guest" />
+</tomcat-users>
+
+
+<login-config>                       //NOTE: ON DD (Deployment Descriptor)
+   <auth-method>BASIC</auth-method>
+</login-config>
+
+<security-role>
+   <role-name> admin </role-name>
+   <role-name> member </role-name>
+   <role-name> guest</role-name>
+</security-role>
+
+
+
+
+==== EJB: Enterprice Java Beans [p594] ====
+
+<env-entry>
+    <env-entry-name> rates/discountRate </env-entry-name>
+    <env-entry-type> rates/discountRate </env-entry-type>
+    <env-entry-value> rates/discountRate </env-entry-value>
+</env-entry>
+
+....
+
+<ejb-local-ref>
+   <ejb-ref-name> ejb/Customer </ejb-ref-name>
+   <ejb-ref-type> Entity </ejb-ref-type>
+
+   <local-home> com.wickedlysmart.CustomerHome </local-home>
+   <local> com.wickedlysmart.CustomerHome </local>
+</ejb-local-ref>
+
+
+<ejb-ref>
+   <ejb-ref-name> ejb/Customer </ejb-ref-name>
+   <ejb-ref-type> Entity </ejb-ref-type>
+
+   <home> com.wickedlysmart.CustomerHome </home>
+   <remote> com.wickedlysmart.CustomerHome </remote>
+</ejb-ref>
+
+
+
+
+==== Deploying Application ====
+replegar(BORRAR) ; desplegar(EXTRAER)
+
+
+mappings:  exact:/fooStuff/bar  --> starting:/fooStuff/*  --> ending:*.do
+
+
+<welcome-file-list>
+   <welcome-file> index.html </welcome-file>    <!-- NO SLASH -->
+   <welcome-file> default.jsp </welcome-file>
+</welcome-file-list>
+
+
+response.sendError(HttpServletResponse.SC_FORBIDDEN);
+response.sendError(403);
+
+
+<servlet>
+    <load-on-startup>1</load-on-startup>  <!-- LOAD PRIORITY -->
+</servlet>
+
+
+<jsp:[directive.page][declartation][scriptlet][expression][text]> </...>
+EJEMPLO: <jsp:directive.page import="java.util.*"/>
+
+
+<mime-mapping>
+   <extension> mpg </extension>
+   </mime-type> video/mpeg </extension>
+</mime-mapping>
+
+
+
+-- JSTL Classic Tags --
+
+
+
+-- JSTL Simple Tags --
+
+
+
+-- JSTL Costum Tags (JSTL: 499) --
+MODIFY: .jsp .tld .class 
+
+
+extends BodyTagSupport:  setBodyContent(), doInitBody(), EVAL_BODY_BUFFERED
+
+
+... extends javax.servlet.jsp.tagext.SimpleTagSupport
+... doTag() throws javax.servlet.jsp.JspException, java.io.IOException
+<taglib ... >
+   <tlib-version>0.9</tlib-version>
+   <uri>FuncionesDeDados</uri>
+   ...
+   <tag>
+      <description>El peor uso de un Tag</description>
+      <name>simple1</name>
+      <tag-class>com.SimpleTagTest1</tag-class>
+      <body-content>empty</body-content> 
+   </tag>	
+</taglib>
+<%@ taglib prefix="Ignacio" uri="FuncionesDeDados" %>
+<Ignacio:simple1/>
+
+
+-- JSTL Tag Files (JSTL: 492) --
+
+//inside the .TLD file (needed for .jar files)
+<tag-file>
+   <name>Header</name>
+   <path>/META-INF/tags/header.tag</path>
+</tag-file>
+
+
+//tag file:
+PATH: /jstl-00/WEB-INF/tags/header.tag
+<%@ attribute name="mensaje" required="true" rtexprvalue="true" %>
+<%@ tag body-content="scriptless" %>   // empty  scriptless  tagdependent
+${mensaje} <jsp:doBody />
+
+//jsp file:
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="Layout" tagdir="/WEB-INF/tags" %>
+<Layout:header mensaje="Ignacio" />
+
+
+
+
+--  Java Server Tag Library (JSTL: 429) --
+//copy Standard.jar and jstl.jar 
+//to WEB-INF/lib folder and...
+//... RELOAD WEBAPP !!
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+RESERVED PREFIXES:  jsp, jspx, java, javax, servlet, sun, sunw
+
+//*NEW* .TLD WAY  (Tag not needed)
+Path for .tld:  WEB-INF/[.jar|folder]/META-INF/[folder]
+
+//OLD .TLD WAY
+<jsp-config>
+   <taglib-uri> FuncionesDeDados </taglib-uri>
+   <taglib-location> /WEB-INF/TLD_Ejemplo.tld </taglib-location>
+</jsp-config>
+
+
+
+//Check  XML:  jstl-00/WEB-INF/TLD_Elemplo.tld
+//Check Java:  jstl-00/WEB-INF/src/com/ConsejeroTagHandler.java
+//Check  BAT:  jstl-00/WEB-INF/src/servletc.bat
+....
+<%@ taglib prefix="Ignacio" uri="FuncionesDeDados" %>
+<Ignacio:consejo>
+   <jsp:attribute name="usuario"> ${miNombre} </jsp:attribute>
+</Ignacio:consejo>
+
+//TAGS PENDIENTES:  <c:out/>  <c:forEachToken/>
+
+<c:catch var="myException">
+   <% int x = 10/0 ; %>
+</c:catch>
+${myException.message}
+
+
+<error-page>
+   <exception-type> java.lang.Throwable </exception-type>  // exception
+   <error-code> 404 </error-code>                          // 404
+   <location> /errorPage.jsp </location>
+</error-page>
+
+
+<%@ page errorPage="jstl_error_page.jsp"%>
+<%@ page isErrorPage="true" %>
+${pageContext.exception}
+
+
+<c:url value="/file_for_import_url.jsp" var="myEncodedURL">
+    <c:param name="data" value="JSP EL JSTL" />
+</c:url>
+An URL rewrited: ${myEncodedURL} <br />
+
+
+<c:import url="http://luis3ignacio.awardspace.com" />
+...
+<c:import url="http://127.0.0.1:8080/jstl-00/file_for_import_url.jsp">
+    <c:param name="data" value="JSP, EL & JSTL ROCKS !!!" />
+</c:import>
+
+
+<c:remove var="myMantra" scope="request" />
+
+
+<c:set target="${bean}" property="property" value="..." />
+...
+<c:set var="myMantra" scope="request" value="..." />
+...
+<c:set var="nameParts" scope="request">
+   Luis, Ignacio, Cortorreal, De La Cruz
+</c:set>
+
+
+<c:choose>
+   <c:when test="..."> ... </c:when>
+   <c:otherwise> ... </c:otherwise>
+</c:choose>
+
+
+<c:if test="${param.level == '1'}"> Easy </c:if>
+
+
+<c:forEach var="partes" items="${nameParts}" varStatus="contador">
+    ${contador.count}.- ${partes} - <br />
+</c:forEach>
+
+
+
+-- Scriptless JSP (339) --
+
+<jsp:include page="footer.jsp">
+    <jsp:param name="propietary" value="Ignacio De La Cruz" />
+</jsp:include>
+<i>${param.propietary}</i>
+
+
+<%@ include file="Header.jsp" %>    // At Translation
+<jsp:include page="Header.jsp">   // At Runtime
+
+
+//Check XML: jsp-00/WEB-INF/ListaDeFuncionesLudicas.tld
+<%@ taglib prefix="Ignacio" uri="FuncionesDeDados" %>
+${Ignacio:lanzarDado(20)}
+
+
+ . . . . . . . . . . . . . . . . 
+
+${paramValues.food[0]}             // POST array of values
+${pageContext.request.method}      // request.getMethod()
+${requestScope["foo.person"].name} // bypass naming rules
+${cookie.userName.value}
+${initParam.mainEmail}
+
+
+implicit EL: pageScope, requestScope, sessionScope, applicatinScope
+             param, paramValues, header, headerValues
+             header, cookie, initParam, pageContext
+
+
+//Scope or Attribute
+${musicMap[Genre]}              // Genre is an attribute, returns "Ambient"
+
+${scope["array"]["0"]           // [Map|bean|List|array] . [key|property|index]
+${beanId.beamProperty}          // Bean.Property
+${applicationScope.attribute}   // Map.Key
+
+ . . . . . . . . . . . . . . . . . . . 
+
+
+Bean Law: constructor, getProperty/isProperty/setProperty, String/Primitive 
+
+//               AttributeName, ParentClass,      ChildClass,          AttributeScope 
+<jsp:useBean       id="person"  type="foo.Person" class="foo.Employee" scope="request" />
+<jsp:getProperty name="person"  property="name" />
+<jsp:setProperty name="person"  property="name" value="Ignacio" param="userName" />
+
+  property="*"
+  type:attribute must exist  ; class:attribute not abstract ; param:Form and Property Name !!
+
+// Conditional Setter
+<jsp:useBean id="person" class="foo.Person" scope="request" />
+    <jsp:setProperty name="person" property="name" value="Ignacio" />
+</jsp:useBean>
+
+
+
+-- Java Server Pages (JSP) --
+
+
+** INSISE web-app **
+<jsp-config>
+    <jsp-property-group>
+        <url-pattern>        *.jsp  </url-pattern>
+        <scripting-invalid>  true   </scripting-invalid> 
+        <el-ignored>         true   </el-ignored>
+    </jsp-property-group>
+</jsp-config>
+
+
+DEPRECATED:  <%@ page isScriptingEnabled="false" isELIgnored="true" %>
+
+${applicationScope.mail}  ==>  <%application.getAttribute("mail")%>
+
+
+ . . . . . . . . . . . . . . .
+
+//class imports must belong to a package
+page: import, isThreadSafe, contentType, isELIgnored, isErrorPage, errorPage,
+      language, extends, session, buffer, autoFlush, info, pageEncoding,
+
+Attributes: pageContext < request < session < application 
+
+
+<servlet>
+   <servlet-name>FirstJSP</servlet-name>
+   <jsp-file>/jsp-00.jsp</jsp-file>
+   <init-param>
+      <param-name>email</param-name>
+      <param-value>ignacio@cortorreal.com</param-value>
+   <init-param>
+</servlet>
+
+
+?jsp_precompile
+TomCatDir/work/Catalina/localhost/WebAppName/org/apache/jsp
+.jspInit(), jspDestroy, _jspService()
+
+
+out, request, response,
+session, application,
+config, exception,
+pageContext, page
+
+
+<%! private static int counter = 0 ; %>
+
+
+<%@ page import="foo.*,java.util.*" session="false" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="cool" %>
+<%@ include file="ignHeader.html" %>
+
+
+<% %>  <%= %>    --> Scriptlet  Expression
+<%@ %>  <%! ;%>  --> Directive  Declaration
+<%-- --%>        --> Comment
+
+
+#################################################################
+#################################################################
+
+
+========================================
+ Gettin ServletContext:
+========================================
+ getServletContext()                       // Normal Servlet
+ event.getSession().getServletContext()    // from Session Events
+ event.getServletContext()                 // every other Event
+ getServletConfig().getServletContext()    // if not extending HttpServlet or GenericServlet
+========================================
+
+
+--Events & Listeners for Sessions (258) --
+
+
+//OBJECTS CONTROL THEIRSELVES
+Dog implements HttpSessionBindingListener, HttpSessionActivationListener, Serializable
+   .valueBound ( HttpSessionBindingEvent )
+   .valueUnbound ( ... )
+   .sessionWillPassivate ( HttpSessionEvent )
+   .sessionDidActivate ( ... )
+
+
+//MODIFICATIONS OF SESSION ATTRIBUTES??
+BeerAttributeListener implements HttpSessionAttributeListener
+   .attributeAdded ( HttpSessionBindingEvent )
+   .attributeRemoved ( ... )
+   .attributeReplaced ( ... )
+
+
+//SESSION CREATED OR DESTROYED??
+BeerCounter implements HttpSessionListener
+   .sessionCreated ( HttpSessionEvent )
+   .sessionDestroyed ( ... )
+
+
+//SESSION INTERCHANGE ON JVM'S ??
+HttpSessionActivationListener
+   .sessionDidActivate(HttpSessionEvent)
+   .sessionWillPassivate(HttpSessionEvent)
+
+
+--Cookies--
+
+
+Cookie cookie = new Cookie("username", name);
+cookie.setMaxAge(30*60); //seconds
+response.addCookie(cookie);
+
+Cookie [] cookies = request.getCookies();
+
+if( cookies[i].getName().equals("username") ) {
+    out.println ( "Hello" + cookies[i].getValue() ) ;
+}
+
+
+
+--Sessions--
+
+
+session.setMaxInactiveInterval(20*60); //seconds
+
+<web-app ...>
+  <servlet> ... </servlet>
+  <session-config>
+    <!-- In Minutes -->
+    <session-timeout>15</session-timeout>
+  </session-config>
+</web-app>
+
+
+javax.servlet.http.HttpSession.
+    boolean         .isNew                   ( )
+    String          .getId                   ( )                   
+    ServletContext  .getServletContext       ( )
+    void            .setAttribute            ( String , Object )
+    Object          .getAttribute            ( String )
+    void            .removeAttribute         ( String )    
+    int             .getMaxInactiveInterval  ( )
+    void            .setMaxInactiveInterval  ( int )  //seconds
+    void            .invalidate              ( ) 
+    long            .getCreationTime         ( )          
+    long            .getLastAccessedTime     ( )
+
+
+JSTL <c:URL> 
+response.encodeRedirectURL('/BeerTest.do');
+<a href='" + response.encodeURL('BeerTest.do') + "'> Click Me </a>
+	<a href="BeerTest.do;jsessionid=CAFE?param=value"> Click Me </a>
+
+
+HttpSession session = request.getSession(false);
+if( session==null )  { ... }
+
+
+HttpSession session = request.getSession();
+if( session.isNew() )  { ... }
+
+
+
+--RequestDispatcher--
+
+RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+RequestDispatcher view = getServletContext().getRequestDispatcher("result.jsp");
+view.forward(request,response);
+view.include(request,response); //Ping-Pong  Request & response
+
+
+-------------
+
+//Making the SESSION Thread-safe:
+synchronized ( request.getSession() ) { ... }
+
+//Making the CONTEXT Thread-safe:
+synchronized ( getServletContext() ) { ... }
+
+
+Attribute API:
+   setAttribute(String name, Object value)
+   removeAttribute(String name)
+   Object getAttribute(String name)
+   Enumeration getAttributeNames()
+
+Attribute Scope: Context > Session > Request
+
+
+--LISTENERS--
+
+
+<listener>
+  <listener-class>com.example.web.MyListener00</listener-class>
+  <listener-class>com.example.web.MyListener99</listener-class>
+</listener>
+
+
+  SESSIONS: javax.servlet.http.*
+    OTHERS: javax.servlet.*
+
+ServletContext[Listener|Event]  ==>  .context[Initialized|Destroyed] 
+ServletRequest[Listener|Event]  ==>  .request[Initialized|Destroyed] 
+
+ServletContextAttribute[Listener|Event]  ==>  .attribute[Added|Removed|Replaced] 
+ServletRequestAttribute[Listener|Event]  ==>  .attribute[Added|Removed|Replaced] 
+
+HttpSessionBinding[Listener|Event]  ==>  .value[Bound|Unbound]  // POJOs implements THIS
+HttpSession[Listener|Event]  ==>  .session[Created|Destroyed] 
+
+HttpSessionAttributeListener | HttpSessionBindingEvent
+  .attribute[Added|Removed|Replaced] 
+
+HttpSessionActivationListener | HttpSessionEvent
+  .session[DidActivate|WillPassivate] 
+
+
+---------
+
+http://jakarta.apache.org/log4j
+*OR* java.util.logging
+
+//to get Context if not extending HttpServlet or GenericServlet:
+getServletConfig().getServletContext().getInitParameter()
+
+
+ServletContext
+  .getInitParameter(String)
+  .getInitParameterNames()
+  .getAttribute(String)
+  .getAttributeNames()
+  .setAttribute(String)
+  .removeAttribute(String)
+
+
+//HOW-TO: hot redeploy, deploy and undeploy
+http://jakarta.apache.org/tomcat/tomcat-5.0-doc/manager-howto.html
+
+
+--CONTEXT PARAMETERS ON web.xml--
+  **NOTE: OUTSIDE <servlet>, INSIDE <web-app>
+
+<context-param>
+  <param-name>adminEmail</param-name>
+  <param-value>luis3ignacio@hotmail.com</param-value>
+</context-param>
+...
+out.println( getServletContext().getInitParameter("adminEmail") );
+
+
+--INIT PARAMETERS ON web.xml--
+  **NOTE: INSIDE <servlet>
+
+Enumeration e = getServletConfig().getInitParameterNames();
+while( e.hasMoreElements() )
+  out.println(e.nextElement);
+
+
+<init-param>
+  <param-name>adminEmail</param-name>
+  <param-value>luis3ignacio@hotmail.com</param-value>
+</init-param>
+...
+out.println( getServletConfig().getInitParameter("adminEmail") );
+
+
+--RESPONSE HANDLING--
+
+RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+view.forward(request, response);
+
+//NOTE: Do this *BEFORE* writing anything to the response...
+response.sendRedirect("http://www.oreilly.com"); 
+
+response.setHeader("foo", "bar");
+response.addHeader("foo", "bar");
+response.setIntHeader("foo", 42);
+
+
+PrintWriter writer = response.getWriter();
+writer.println("Some text and HTML");
+...
+ServletOutputStream out = response.getOutputStream();
+out.write(aByteArray);
+
+
+.....
+response.setContentType("application/jar");
+ServletContext ctx = getServletContext();
+InputStream is = ctx.getResourceAsStream("/bookCode.jar");
+
+int read = 0;
+byte[] bytes = new byte[1024]
+OutputStream os = response.getOutputStream();
+
+while( (read=is.read(bytes)) != 1 ) {
+   os.write(bytes, 0, read)
+}
+os.flush();
+os.close();
+.....
+
+--REQUEST HANDLING--
+
+request.getRemotePort()  //The Client's port (Web Browser)
+request.getServerPort()  //Port 80 or 8080
+request.getLocalPort()   //Port used by the thread
+
+int forwardsNum = request.getIntHeader("Max-Forwards");
+
+     String client    = request.getHeader("User-Agent");
+   Cookie[] cookies   = request.getCookies();
+HttpSession session   = request.getSession();
+     String theMethod = request.getMethod();
+InputStream input     = request.getInputStream();
+
+
+<%@ page import="java.util.*" %>
+
+
+request.getParameter("color");
+request.getParameterValues("sizes")[0];  //Returns the array
+
+
+--SERVLET INITIALIZATION--
+
+.init(ServletConfig)
+.service(ServletRequest, ServletResponse)
+.doGet(ServletRequest, ServletResponse)
+.doPost(ServletRequest, ServletResponse)
+
+
+90: *** FIRST PAGE AFTER MVC (POJO,JSP,SERVLET) EXAMPLE ***
+30: *** INVALID web.xml MARKUP WILL BLOCK THE WEB APPLICATION ***

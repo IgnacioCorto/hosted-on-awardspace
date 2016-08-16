@@ -1,0 +1,7 @@
+text/vnd.sun.j2me.app-descriptor jad
+application/java-archive jar
+
+<a href="DateTimeApp.jad">Install DateTimeApp</a>
+
+//Change URL in .JAD
+MIDlet-Jar-URL: http://www.craftbits.com/j2me/DateTimeApp.jar

@@ -1,0 +1,102 @@
+### LOOK: ###
+http://artis.imag.fr/~Xavier.Decoret/resources/svn/index.html
+ -> The tcsh completion assistance
+ -> Using xxdiff for graphical differences
+
+
+
+ ###############
+ ### BASICOS ###
+ ###############
+
+
+## CREAR SVN
+svnadmin create --fs-type fsfs /home/user/svn
+
+## LISTAR FOLDER SVN
+svn ls file:///home/user/svn
+
+## CREAR FOLDER DENTRO DE SVN
+svn mkdir file:///home/user/svn/project  -m "DIR project"
+
+## VER LOG
+svn log file:///home/user/svn
+
+## AGREGAR ARCHIVOS
+svn import ./project/ file:///home/user/svn/project/trunk -m 'Initial import'
+
+## HACER UNA COPIA DEL PROJECTO
+svn checkout file:///home/user/svn/project
+
+## DENTRO DE LA COPIA
+svn info
+
+
+ ##########################
+ ### ACTUALIZANDO TRUNK ###
+ ##########################
+
+
+## dentro de ./myPath/project/trunk
+svn add  fld/file1  fld/file2
+
+## actualizando el trunk del project
+svn commit -m 'Archivo XXX agregado/modificado'
+
+## trayendo una revision en especifico
+svn checkout -r 4 file:///home/dsl/mysvn/test  CustomFolder
+
+## dentro de ./myPath/project/trunk
+svn info index.html
+
+
+ ######################
+ ### MANEJANDO TAGS ###
+ ######################
+
+
+## dentro de ./myPath/project/
+svn mkdir tags
+svn copy trunk/ tags/igntag00
+
+## recobrando un tag
+svn checkout file:///home/dsl/mysvn/test/project/tags/igntag00
+
+
+ ##############################
+ ### BORRANDO Y RENOMBRANDO ###
+ ##############################
+
+svn mv archivo_viejo
+svn add archivo_nuevo
+svn rename doc html
+svn commit -m "renombrando doc a html"
+
+
+ ######################
+ ### OTROS COMANDOS ###
+ ######################
+
+svn revert
+svn update
+svn diff
+
+
+
+### SVN REMOTO ###
+svn checkout svn+ssh://url.of.desktop/home/user/svn project
+
+### REVISION MAS RECIENTE ###
+svnlook youngest /home/user/svn
+
+
+ ########################
+ ### SVN DB DUMP/LOAD ###
+ ########################
+
+
+svnadmin dump /home/user/svn > /tmp/mydumpfile.db
+svnadmin create -fs-type fsfs /home/user/newsvn
+svnadmin load /home/user/newsvn/ < /tmp/dumpfile.db
+
+

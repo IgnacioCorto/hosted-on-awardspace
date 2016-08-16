@@ -1,0 +1,46 @@
+
+
+##### Layouts #####
+
+
+email/html/default.ctp
+email/text/default.ctp
+
+<?php echo $content_for_layout; ?>
+
+
+
+##### Layouts #####
+
+
+elements/email/text/simp_msg.ctp
+elements/email/html/simp_msg.ctp
+
+
+
+##### Controller #####
+
+
+var $components = array('Email');
+
+...
+
+
+/* SMTP Options */
+$this->Email->smtpOptions = array(
+	'port'=>'25', 
+	'timeout'=>'30',
+	'host' => 'localhost',
+	//'username'=>'newuser',
+	//'password'=>'wampp',
+);
+
+$this->Email->delivery = 'smtp';
+
+$this->Email->from   = 'New User <newuser@localhost>';
+$this->Email->to      = 'New User <newuser@localhost>';
+$this->Email->subject = 'Testing';
+$this->Email->send('This is a body for testing!');
+
+/* Check for SMTP errors. */
+debug($this->Email->smtpError) ;

@@ -1,0 +1,8 @@
+<script type="text/javascript">
+direccion = location.href;
+mi_dato_url = new RegExp('www.predicart');
+if ( location.href.match('www.predicart') ) {
+	direccion = direccion.replace(mi_dato_url,'predicart');
+	location.href = direccion;
+}
+</script>

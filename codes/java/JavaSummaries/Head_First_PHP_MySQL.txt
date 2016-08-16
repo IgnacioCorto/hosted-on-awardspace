@@ -1,0 +1,50 @@
+19 (115%)
+
+=== PRINCIPIOS ====
+CRUD
+Validation : files y data
+Approve/Reject
+LOGIN
+...
+CAPTCHA
+
+
+=== MySQL ====
+mysqli_real_escape_string ( $con , 'HOLA' ) ;
+
+ALTER TABLE [ADD/MODIFY/CHANGE] COLUMN ...
+  --> FIRST / AFTER ...
+DROP [COLUMN/TABLE/DATABASE] ...
+
+
+INT
+CHAR/VARCHAR
+DEC 
+DATE/DATETIME_TIMESTAMP
+BLOB/TEXT
+
+
+
+=== PHP ====
+  HTTP/1.1 401 Unauthorized
+  WWW-Authenticate: Basic realm="Guitar Wars"
+  die('Sorry. Unaccepted');
+  .........................
+  Content-Type: text/html
+  Location: http://example.com
+  Refresh: 5; url=http://example.com
+
+  $_SESSION = array()
+  setcookie( session_name(), '', time()-3600 )
+  view_profile.php?<?=SID?>
+
+
+########################
+
+482: joins
+472: main thing, use, easily query
+ 79: MySQL
+ 35: Email
+
+Appendixes
+1 => 723

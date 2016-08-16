@@ -1,0 +1,51 @@
+
+ ################
+ ### 1) .ASMX ###
+ ################
+
+
+Imports System.Web.Services
+Imports System.Web.Services.Protocols
+Imports System.ComponentModel
+
+<System.Web.Services.WebService( _
+    Namespace:="http://IgnGuia/ServiciosWebXml/", _
+    Description:="Servicio de Conversion de Temperatura")> _
+<System.Web.Services.WebServiceBinding(ConformsTo:=WsiProfiles.BasicProfile1_1)> _
+<ToolboxItem(False)> _
+Public Class WebService1
+    Inherits System.Web.Services.WebService
+
+
+    // NOTE: Imports AmigosWebService.AmigosDataSetTableAdapters
+    Private _amigosAdapter As New ignAmigosTableAdapter
+
+
+    Public Function getAmigos() As ignAmigosDataTable
+        Return _amigosAdapter.GetData()
+    End Function
+
+
+    <WebMethod(Description:="de Fahrenheit a Celsius")> _
+    Public Function aCelsius(ByVal dFahrenheit As Double) As Double
+        Return (dFahrenheit - 32) * 5 / 9
+    End Function
+
+End Class
+
+
+ ################
+ ### 2) .ASPX ###
+ ################
+
+
+    Protected Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Try
+            Dim servicio As New aCelsius.WebService1
+            Dim dataCelsius As String = "vacio"
+            Label1.Text = "En celsius son: " & servicio.aCelsius(CDbl(TextBox1.Text))
+        Catch ex As Exception
+            Label1.Text = "Conversion Fallida!!"
+        End Try
+
+    End Sub

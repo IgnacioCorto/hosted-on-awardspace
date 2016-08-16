@@ -1,0 +1,2553 @@
+<html><head><!--header.tmpl_START--><!-- FileName = vlans.fm --><!-- Folder = /TD/Doc/ELB/Cat6000/rel_5_4/config --><!-- Object_ID = 090019e980adb7c0 --><!-- Chronicle ID = 090019e9806266cb --><!-- Revision = 53.0 --><!-- DocType = unknown --><!-- ProdType = cc/td/doc/product/lan/cat6000/sw_5_4/config --><!-- Sector = Internet BU --><!-- RelState = Released --><!-- PubDate = 03/23/2005 --><!-- PushDate = Tue Mar 29 19:12:38 PST 2005 --><!-- Competitors =  --><!-- ParentTree = cc/td/doc/product/access/sc/rel7/soln/voip11, cc/td/doc/product/access/sc/rel7/soln/voip13, cc/td/doc/product/access/sc/rel7/soln/vxml_uc, cc/td/doc/product/access/sc/rel7/soln/wv_rel1/wv_compo/switches, cc/td/doc/product/access/sc/rel7/soln/wv_rel1/wv_compo/wvrel1sc, cc/td/doc/product/access/sc/rel8, cc/td/doc/product/access/sc/rel9/soln/voip20/compo, cc/td/doc/product/access/sc/rel9/soln/vxml_uc2, cc/td/doc/product/access/sc/slt/slt_soln, cc/td/doc/product/access/solution/asap/cmpntdoc/medgtcon, cc/td/doc/product/access/solution/asap/rel_soln, cc/td/doc/product/lan/cat6000/sw_5_4/config, cc/td/doc/product/rtrmgmt/cmnm, cc/td/doc/solution/dialvoic/bliss/ether/portal/medgat, cc/td/doc/solution/dialvoic/pstngw/compo/node, cc/td/doc/solution/dialvoic/tv --><!-- Parents = cc/td/doc/product/lan/cat6000/sw_5_4/config --><!-- IsCategory =  --><!-- EncodeDesc =  --><!-- Language = English --><!-- Robots = 0 --><!-- Category = Catalyst 6500 Series Software Configuration Guide, 5.4 --><!-- Keyword = Catalyst 6500 Series Software Configuration Guide, 5.4 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="FileName" content="vlans.fm">
+<meta name="Folder" content="/TD/Doc/ELB/Cat6000/rel_5_4/config">
+<meta name="Object_ID" content="090019e980adb7c0">
+<meta name="Chronicle ID" content="090019e9806266cb">
+<meta name="Revision" content="53.0">
+<meta name="DocType" content="unknown">
+<meta name="ProdType" content="cc/td/doc/product/lan/cat6000/sw_5_4/config">
+<meta name="Sector" content="Internet BU">
+<meta name="RelState" content="Released">
+<meta name="PubDate" content="03/23/2005">
+<meta name="PushDate" content="Tue Mar 29 19:12:38 PST 2005">
+<meta name="Competitors" content="">
+<meta name="ParentTree" content="cc/td/doc/product/access/sc/rel7/soln/voip11, cc/td/doc/product/access/sc/rel7/soln/voip13, cc/td/doc/product/access/sc/rel7/soln/vxml_uc, cc/td/doc/product/access/sc/rel7/soln/wv_rel1/wv_compo/switches, cc/td/doc/product/access/sc/rel7/soln/wv_rel1/wv_compo/wvrel1sc, cc/td/doc/product/access/sc/rel8, cc/td/doc/product/access/sc/rel9/soln/voip20/compo, cc/td/doc/product/access/sc/rel9/soln/vxml_uc2, cc/td/doc/product/access/sc/slt/slt_soln, cc/td/doc/product/access/solution/asap/cmpntdoc/medgtcon, cc/td/doc/product/access/solution/asap/rel_soln, cc/td/doc/product/lan/cat6000/sw_5_4/config, cc/td/doc/product/rtrmgmt/cmnm, cc/td/doc/solution/dialvoic/bliss/ether/portal/medgat, cc/td/doc/solution/dialvoic/pstngw/compo/node, cc/td/doc/solution/dialvoic/tv">
+<meta name="Parents" content="cc/td/doc/product/lan/cat6000/sw_5_4/config">
+<meta name="IsCategory" content="">
+<meta name="EncodeDesc" content="">
+<meta name="Language" content="English">
+<meta name="Robots" content="0">
+<meta name="Category" content="Catalyst 6500 Series Software Configuration Guide, 5.4">
+<meta name="Keyword" content="Catalyst 6500 Series Software Configuration Guide, 5.4"><title>Configuring VLANs</title><!--header.tmpl_END-->
+
+
+<link rel="stylesheet" href="vlans_files/ccim.css" type="text/css"></head><body bgcolor="#ffffff">
+<!-- The stylesheet is include in the BODY for CDC compatibility and the migrate tags are used as workaround Tidy -->
+<migrate></migrate>
+<!--archive_cd:standard.tmpl_FILE--> <!--ccci:standard.tmpl_FILE--> <!--ucdit:standard.tmpl_FILE--> <!--ucdrt:standard.tmpl_FILE--> <!--ucdbeta:standard.tmpl_FILE--> <!--public_cco:standard.tmpl_FILE--> <!--pcat:standard.tmpl_FILE--> <!--interlink:standard.tmpl_FILE--> <!--cmci:standard.tmpl_FILE--> <!--cmcr:standard.tmpl_FILE--> <!--cpressr:standard.tmpl_FILE--> <!--cpressi:standard.tmpl_FILE--> <!--cpress_cco:standard.tmpl_FILE--> <!--ccsten:standard.tmpl_FILE--> <!--ccsten1:standard.tmpl_FILE--> <!--ccstcp_cco:standard.tmpl_FILE--> <!--ccstcp:standard.tmpl_FILE--> <!--ccsmb_rcd:standard.tmpl_FILE--> <!--cco:standard.tmpl_FILE--> <!--ccd_html:standard.tmpl_FILE--> <!--ccci_kp:standard.tmpl_FILE-->
+<!--SKIP_START-->
+<table><tbody><tr><td>
+<img src="vlans_files/docstrip.gif" alt="cc/td/doc/product/lan/cat6000/sw_5_4" border="0" height="21" width="504"><br>
+<!--SKIP_END-->
+<!--nav_buttons.tmpl_START-->
+<!--SKIP_START-->
+<a href="http://www.cisco.com/univercd/home/home.htm"><img src="vlans_files/home.gif" alt="home" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/index.htm"><img src="vlans_files/toc.gif" alt="toc" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vtp.htm"><img src="vlans_files/prev.gif" alt="prev" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/e_trunk.htm"><img src="vlans_files/next.gif" alt="next" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/cisintwk/ita/index.htm"><img src="vlans_files/gloss.gif" alt="glossary" border="0" height="20" width="63"></a><a href="http://www.cisco.com/feedback"><img src="vlans_files/feed.gif" alt="feedback" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/home/search.htm"><img src="vlans_files/search.gif" alt="search" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/lib/help.htm"><img src="vlans_files/help.gif" alt="help" border="0" height="20" width="63"></a>
+<!--SKIP_END-->
+<!--nav_buttons.tmpl_END-->
+<!--SKIP_START-->
+<br></td></tr></tbody></table>
+<!--td_pdfbuttons.tmpl_START-->
+<a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.pdf"><img src="vlans_files/pdf_opt.gif" alt="PDF" align="right" border="0" height="65" width="63"></a>
+<!--td_pdfbuttons.tmpl_END-->
+<!--SKIP_END-->
+<!--SKIP_START-->
+<i></i>
+<!--SKIP_END-->
+<!-- The minitoc is now generated using webworks 2003 -->
+<!--QLINK_START-->
+<!--QLINK_END-->
+<p>
+  <!-- WFP 1.1.2.36 -->
+  <!-- Added on date : 10/09/2003 Do not delete blockquotes  -->
+</p><blockquote>
+    <!-- Start of Mini TOC : Added on 09/23/2003 16:38:30 PST -->
+    <h2 class="p_H_Head1">Table Of Contents</h2>
+    
+<p class="MiniTOC1"><a href="#wp2574">Configuring VLANs</a></p>
+<p class="MiniTOC1"><a href="#wp21036">Configuring Ethernet and Token Ring VLANs</a></p>
+<p class="MiniTOC2"><a href="#wp25114">Understanding VLANs in a VTP Domain</a></p>
+<p class="MiniTOC2"><a href="#wp26790">Understanding Token Ring VLANs</a></p>
+<p class="MiniTOC2"><a href="#wp27698">VLAN Default Configuration</a></p>
+<p class="MiniTOC2"><a href="#wp25396">VLAN Configuration Guidelines</a></p>
+<p class="MiniTOC2"><a href="#wp22629">Configuring Ethernet and Token Ring VLANs</a></p>
+<p class="MiniTOC1"><a href="#wp28122">Configuring Private VLANs</a></p>
+<p class="MiniTOC2"><a href="#wp31555">Software Requirements for Private VLANs</a></p>
+<p class="MiniTOC2"><a href="#wp31559">Understanding Private VLANs</a></p>
+<p class="MiniTOC2"><a href="#wp29036">Private VLAN Configuration Guidelines</a></p>
+<p class="MiniTOC2"><a href="#wp28269">Creating a Private VLAN</a></p>
+<p class="MiniTOC2"><a href="#wp2436">Deleting a Private VLAN</a></p>
+<p class="MiniTOC2"><a href="#wp30958">Deleting an Isolated or Community VLAN</a></p>
+<p class="MiniTOC2"><a href="#wp30991">Deleting a Private VLAN Mapping</a></p>
+    <br>
+    <!-- End of Mini TOC -->
+    <a name="wp307"></a><h2 class="pCN_ChapNum">
+9
+</h2>
+<a name="wp2574"></a><h2 class="pCT_ChapTitle">
+Configuring VLANs
+</h2>
+<hr class="Chap1">
+<a name="wp14965"></a><p class="pBody">
+This chapter describes how to configure Ethernet, Token Ring, and private VLANs for the Catalyst&nbsp;6000 family switches.
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp27630"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">For complete syntax and usage information for the commands used in this chapter, refer to the <em class="cCi_CmdItalic">Catalyst&nbsp;6000 Family Command Reference</em> publication.
+</p>
+<hr class="Cautn1table"><a name="wp20254"></a><p class="pBody">
+This chapter consists of these sections:
+</p>
+<a name="wp26364"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp21036">Configuring Ethernet and Token Ring VLANs</a>
+</p>
+<a name="wp26368"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp28122">Configuring Private VLANs</a>
+</p>
+<a name="wp21036"> </a><h2 class="p_H_Head1">
+ Configuring Ethernet and Token Ring VLANs
+</h2>
+<a name="wp21038"></a><p class="pBody">
+A VLAN is a group of end stations with a common set of requirements,
+independent of physical location. VLANs have the same attributes as a
+physical LAN but allow you to group end stations even if they are not
+located physically on the same LAN segment.
+</p>
+<a name="wp25047"></a><p class="pBody">
+These sections describe how VLANs work:
+</p>
+<a name="wp25048"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp25114">Understanding VLANs in a VTP Domain</a>
+</p>
+<a name="wp25956"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp26790">Understanding Token Ring VLANs</a>
+</p>
+<a name="wp27713"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp27698">VLAN Default Configuration</a>
+</p>
+<a name="wp28257"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp25396">VLAN Configuration Guidelines</a>
+</p>
+<a name="wp28258"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp22629">Configuring Ethernet and Token Ring VLANs</a>
+</p>
+<a name="wp25114"> </a><h3 class="p_H_Head2">
+ Understanding VLANs in a VTP Domain
+</h3>
+<a name="wp25049"></a><p class="pBody">VLANs allow you to group ports
+on a switch to limit unicast, multicast, and broadcast traffic
+flooding. Flooded traffic originating from a particular VLAN is only
+flooded out other ports belonging to that VLAN.
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp26469"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">Before
+you create VLANs, you must decide whether to use VTP to maintain global
+VLAN configuration information for your network. For complete
+information on VTP, see <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vtp.htm#wp2574">"."</a>
+</p>
+<hr class="Cautn1table"><a name="wp26476"></a><p class="pBody">
+ <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp26478">Figure&nbsp;9-1</a> shows an example of VLANs segmented into logically defined networks.
+</p>
+<a name="wp26478"></a><p class="pTC_TableCap">
+Figure&nbsp;9-1	VLANs as Logically Defined Networks
+</p>
+<a name="wp21053"></a><p class="pBody">
+</p>
+<div align="left"><img src="vlans_files/16751.jpg" id="wp21051" border="0" height="347" hspace="0" vspace="0" width="696"></div><p class="pBody">
+</p>
+<a name="wp25281"></a><p class="pBody">
+VLANs are often associated with IP subnetworks. For example, all the
+end stations in a particular IP subnet belong to the same VLAN. Traffic
+between VLANs must be routed. Port VLAN membership on the switch is
+assigned manually on a port-by-port basis. When you assign switch ports
+to VLANs using this method, it is known as port-based, or static, VLAN
+membership.
+</p>
+<a name="wp21055"></a><p class="pBody">The in-band (sc0) interface of a
+switch can be assigned to any VLAN, so you can access another switch on
+the same VLAN directly without a router. Only one IP address at a time
+can be assigned to the in-band interface. If you change the IP address
+and assign the interface to a different VLAN, the previous IP address
+and VLAN assignment are overwritten.
+</p>
+<a name="wp25230"></a><p class="pBody">
+You can set these parameters when you create a VLAN in the management domain:
+</p>
+<a name="wp25231"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN number
+</p>
+<a name="wp25232"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN name
+</p>
+<a name="wp25233"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN type (Ethernet, FDDI, FDDI network entity title [NET], TrBRF, or TrCRF)
+</p>
+<a name="wp25234"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN state (active or suspended)
+</p>
+<a name="wp25235"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Maximum transmission unit (MTU) for the VLAN
+</p>
+<a name="wp25236"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Security Association Identifier (SAID)
+</p>
+<a name="wp25257"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Bridge identification number for TrBRF VLANs
+</p>
+<a name="wp25237"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Ring number for FDDI and TrCRF VLANs
+</p>
+<a name="wp25239"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Parent VLAN number for TrCRF VLANs
+</p>
+<a name="wp25240"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Spanning Tree Protocol (STP) type for TrCRF VLANs
+</p>
+<a name="wp25241"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN number to use when translating from one VLAN type to another
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp26785"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">When translating from one VLAN type to another, the switch software requires a different VLAN number for each media type.
+</p>
+<hr class="Cautn1table"><a name="wp26790"> </a><h3 class="p_H_Head2">
+ Understanding Token Ring VLANs
+</h3>
+<a name="wp25221"></a><p class="pBody">
+Two Token Ring VLAN types are supported on switches running VTP version&nbsp;2:
+</p>
+<a name="wp25331"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp21063">Token Ring TrBRF VLANs</a>
+</p>
+<a name="wp25349"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp25059">Token Ring TrCRF VLANs</a>
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp27693"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">Catalyst 6000 family switches do not support ISL-encapsulated Token Ring frames.
+</p>
+<hr class="Cautn1table"><a name="wp21063"></a><h3 class="p_H_Head3">
+Token Ring TrBRF VLANs
+</h3>
+<a name="wp25380"></a><p class="pBody">Token Ring Bridge Relay Function
+(TrBRF) VLANs interconnect multiple Token Ring Concentrator Relay
+Function (TrCRF) VLANs in a switched Token Ring network (see <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp25496"></a>).
+The TrBRF can be extended across a network of switches interconnected
+via trunk links. The connection between the TrCRF and the TrBRF is
+referred to as a <em class="cCi_CmdItalic">logical port</em>. 
+</p>
+<a name="wp25496"></a><p class="pTC_TableCap">
+Figure&nbsp;9-2	Interconnected Token Ring TrBRF and TrCRF VLANs
+</p>
+<a name="wp25506"></a><p class="pBody">
+</p>
+<div align="left"><img src="vlans_files/s6624.jpg" id="wp25494" border="0" height="216" hspace="0" vspace="0" width="486"></div><p class="pBody">
+</p>
+<a name="wp25382"></a><p class="pBody">
+For source routing, the switch appears as a single bridge between the
+logical rings. The TrBRF can function as a source-route bridge (SRB) or
+source-route transparent (SRT) bridge running either the IBM or IEEE
+STP. If SRB is used, you can define duplicate MAC addresses on
+different logical rings.
+</p>
+<a name="wp21070"></a><p class="pBody">The Token Ring software runs an
+instance of STP for each TrBRF VLAN and each TrCRF VLAN. For TrCRF
+VLANs, STP removes loops in the logical ring. For TrBRF VLANs, STP
+interacts with external bridges to remove loops from the bridge
+topology, similar to STP operation on Ethernet VLANs.</p>
+<div align="left">
+<table id="wp21077table21072" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="top">    <td><a name="wp21077"></a><div class="pCellBody">
+<img src="vlans_files/vlans2.jpg" id="wp21075" border="0" height="36" hspace="0" vspace="0" width="47">
+</div>
+</td>
+    <td><a name="wp21079"></a><div class="pCautnTable">
+<div class="caut2"><img src="vlans_files/caut.gif"></div><hr class="Cautn1table">
+<b>Caution&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="6">Certain
+parent TrBRF STP and TrCRF bridge mode configurations can place the
+logical ports (the connection between the TrBRF and the TrCRF) of the
+TrBRF in a blocked state. For more information, see the <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp25396">"VLAN Configuration Guidelines" section</a>.
+<hr class="Cautn1table">
+</div>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<a name="wp21094"></a><p class="pBody">
+For source routing, the switch appears as a single bridge between the
+logical rings. The TrBRF can function as an SRB or SRT bridge running
+either the IBM or IEEE STP. If SRB is used, duplicate MAC addresses can
+be defined on different logical rings. </p>
+<a name="wp21095"></a><p class="pBody">
+To accommodate IBM System Network Architecture (SNA) traffic, you can
+use a combination of SRT and SRB modes. In a mixed mode, the TrBRF
+considers some ports (logical ports connected to TrCRFs) to operate in
+SRB mode while others operate in SRT mode. </p>
+<a name="wp25059"></a><h3 class="p_H_Head3">
+Token Ring TrCRF VLANs
+</h3>
+<a name="wp25687"></a><p class="pBody">
+Token Ring Concentrator Relay Function (TrCRF) VLANs define port groups
+with the same logical ring number. You can configure two types of
+TrCRFs in your network: undistributed and backup.
+</p>
+<a name="wp25683"></a><p class="pBody">Typically, TrCRFs are
+undistributed, which means each TrCRF is limited to the ports on a
+single switch. Multiple undistributed TrCRFs on the same or separate
+switches can be associated with a single parent TrBRF (see <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp25549"></a>). The parent TrBRF acts as a multiport bridge, forwarding traffic between the undistributed TrCRFs.
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp25680"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">To
+pass data between rings located on separate switches, you can associate
+the rings to the same TrBRF and configure the TrBRF for SRB.
+</p>
+<hr class="Cautn1table"><a name="wp25549"></a><p class="pTC_TableCap">
+Figure&nbsp;9-3	Undistributed TrCRFs</p>
+<div align="left"><img src="vlans_files/s6813.jpg" id="wp25547" border="0" height="169" hspace="0" vspace="0" width="521"></div><p class="pTC_TableCap">
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp25534"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">By
+default, Token Ring ports are associated with the default TrCRF (VLAN
+1003, trcrf-default), which has the default TrBRF (VLAN 1005,
+trbrf-default) as its parent. In this configuration, a distributed
+TrCRF is possible (see <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp25650"></a>),
+and traffic is passed between the default TrCRFs located on separate
+switches provided that the switches are connected through an ISL trunk.
+</p>
+<hr class="Cautn1table"><a name="wp25650"></a><p class="pTC_TableCap">
+Figure&nbsp;9-4	Distributed TrCRF</p>
+<div align="left"><img src="vlans_files/s6812.jpg" id="wp25655" border="0" height="166" hspace="0" vspace="0" width="496"></div><p class="pTC_TableCap">
+</p>
+<a name="wp25754"></a><p class="pBody">Within a TrCRF, source-route
+switching forwards frames based on either MAC addresses or route
+descriptors. The entire VLAN can operate as a single ring, with frames
+switched between ports within a single TrCRF. </p>
+<a name="wp25758"></a><p class="pBody">
+You can specify the maximum hop count for All-Routes and Spanning-Tree
+Explorer frames for each TrCRF. This limits the maximum number of hops
+an explorer is allowed to traverse. If a port determines that the
+explorer frame it is receiving has traversed more than the number of
+hops specified, it does not forward the frame. The TrCRF determines the
+number of hops an explorer has traversed based on the number of bridge
+hops in the route information field. </p>
+<a name="wp25726"></a><p class="pBody">
+A <span class="cCp_CmdPlain">backup </span>TrCRF
+enables you to configure an alternate route for traffic between
+undistributed TrCRFs located on separate switches that are connected by
+a TrBRF, in the event that the ISL connection between the switches
+fails. Only one backup TrCRF for a TrBRF is allowed, and only one port
+per switch can belong to a backup TrCRF. </p>
+<a name="wp25720"></a><p class="pBody">
+If the ISL connection between the switches fails, the port in the
+backup TrCRF on each affected switch automatically becomes active,
+rerouting traffic between the undistributed TrCRFs through the backup
+TrCRF. When the ISL connection is reestablished, all but one port in
+the backup TrCRF is disabled. <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp22854"></a> illustrates the backup TrCRF.
+</p>
+<a name="wp22854"></a><p class="pTC_TableCap">
+Figure&nbsp;9-5	Backup TrCRF</p>
+<div align="left"><img src="vlans_files/s6811.jpg" id="wp25763" border="0" height="214" hspace="0" vspace="0" width="553"></div><p class="pTC_TableCap">
+</p>
+<a name="wp27698"> </a><h3 class="p_H_Head2">
+ VLAN Default Configuration
+</h3>
+<a name="wp22257"></a><p class="pBody">
+ <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp26179"></a> shows the default VLAN configuration.
+</p>
+<a name="wp22280"></a><p class="pBodyRelative">
+</p>
+<div align="left">
+<table id="wp26179table22259" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption><a name="wp26179"></a><p class="pTableCaption">
+Table&nbsp;9-1	VLAN Default Configuration&nbsp;
+</p>
+</caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp22261"></a><div class="pCellHeading">
+Feature
+</div>
+</th>
+    <th><a name="wp22263"></a><div class="pCellHeading">
+Default Value
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22265"></a><p class="pB1_Body1">
+Native (default) VLAN
+</p>
+</td>
+    <td><a name="wp22267"></a><p class="pB1_Body1">
+VLAN 1
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22269"></a><p class="pB1_Body1">
+Port VLAN assignments
+</p>
+</td>
+    <td><a name="wp22271"></a><p class="pB1_Body1">
+All ports assigned to VLAN 1
+</p>
+<a name="wp25594"></a><p class="pB1_Body1">
+Token Ring ports assigned to VLAN 1003 (trcrf-default)
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp25037"></a><p class="pB1_Body1">
+VLAN state
+</p>
+</td>
+    <td><a name="wp25039"></a><p class="pB1_Body1">
+Enabled
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24391"></a><p class="pB1_Body1">
+MTU size
+</p>
+</td>
+    <td><a name="wp24393"></a><p class="pB1_Body1">
+1500 bytes
+</p>
+<a name="wp25405"></a><p class="pB1_Body1">
+4472 bytes for Token Ring VLANs
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24405"></a><p class="pB1_Body1">
+SAID value
+</p>
+</td>
+    <td><a name="wp24411"></a><p class="pB1_Body1">
+100,000 plus the VLAN number (for example, the SAID for VLAN&nbsp;3 is 100003)
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24437"></a><p class="pB1_Body1">
+Pruning eligibility
+</p>
+</td>
+    <td><a name="wp24439"></a><p class="pB1_Body1">
+VLANs 2-1000 are pruning eligible
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24145"></a><p class="pB1_Body1">
+Default FDDI VLAN
+</p>
+</td>
+    <td><a name="wp24147"></a><p class="pB1_Body1">
+VLAN 1002
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24156"></a><p class="pB1_Body1">
+Default FDDI NET VLAN
+</p>
+</td>
+    <td><a name="wp24158"></a><p class="pB1_Body1">
+VLAN 1004
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24163"></a><p class="pB1_Body1">
+Default Token Ring TrBRF VLAN
+</p>
+</td>
+    <td><a name="wp24165"></a><p class="pB1_Body1">
+VLAN 1005 (trbrf-default) with bridge number 0F
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24184"></a><p class="pB1_Body1">
+Default Token Ring TrCRF VLAN
+</p>
+</td>
+    <td><a name="wp24186"></a><p class="pB1_Body1">
+VLAN 1003 (trcrf-default)
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24278"></a><p class="pB1_Body1">
+TrBRF STP
+</p>
+</td>
+    <td><a name="wp24257"></a><p class="pB1_Body1">
+IBM
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24306"></a><p class="pB1_Body1">
+TrCRF bridge mode
+</p>
+</td>
+    <td><a name="wp24308"></a><p class="pB1_Body1">
+SRB
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBodyRelative">
+</p>
+<a name="wp25396"> </a><h3 class="p_H_Head2">
+ VLAN Configuration Guidelines
+</h3>
+<a name="wp24188"></a><p class="pBody">
+Follow these guidelines when creating and modifying VLANs in your network:
+</p>
+<a name="wp25302"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">A maximum of 1000 VLANs can be active at any time.
+</p>
+<a name="wp16202"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Before
+you can create a VLAN, the switch must be in VTP server mode or VTP
+transparent mode. If the switch is a VTP server, you must define a VTP
+domain. For information on configuring VTP, see <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vtp.htm#wp2574">"."</a>
+</p>
+<a name="wp22796"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">The
+default TrBRF (VLAN 1005) can only be the parent of the default TrCRF
+(VLAN 1003). You cannot specify the default TrBRF as the parent of a
+user-configured TrCRF.
+</p>
+<a name="wp24328"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You must configure a TrBRF before you configure the TrCRF (the parent TrBRF VLAN you specify must exist).
+</p>
+<a name="wp22797"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">In
+a Token Ring environment, the logical ports (the connection between the
+TrBRF and the TrCRF) of the TrBRF are placed in a blocked state if
+either of these conditions exists:
+</p>
+<a name="wp22798"></a><p class="pBulletIndent">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">The TrBRF is running the IBM STP, and the TrCRF is in SRT mode.
+</p>
+<a name="wp22799"></a><p class="pBulletIndent">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">The TrBRF is running the IEEE STP, and the TrCRF is in SRB mode.
+</p>
+<a name="wp22629"> </a><h3 class="p_H_Head2">
+ Configuring Ethernet and Token Ring VLANs
+</h3>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp22875"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">VLANs support a number of parameters that are not discussed in detail in this section. For complete information on the <b class="cBold">set vlan</b> command and its parameters, see the <em class="cCi_CmdItalic">Catalyst&nbsp;6000 Family Command Reference</em> publication.
+</p>
+<hr class="Cautn1table"><a name="wp22630"></a><p class="pBody">
+These sections describe how to configure VLANs:
+</p>
+<a name="wp22634"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp21206">Creating or Modifying an Ethernet VLAN</a> 
+</p>
+<a name="wp23176"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp26795">Creating or Modifying an FDDI VLAN</a>
+</p>
+<a name="wp23182"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp22664">Creating or Modifying a Token Ring TrBRF VLAN</a>
+</p>
+<a name="wp23188"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp22909">Creating or Modifying a Token Ring TrCRF VLAN</a>
+</p>
+<a name="wp22340"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp27766">Assigning Switch Ports to a VLAN</a>
+</p>
+<a name="wp27103"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp26939">Mapping 802.1Q VLANs to ISL VLANs</a>
+</p>
+<a name="wp27111"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp23434">Clearing 802.1Q-to-ISL VLAN Mappings</a>
+</p>
+<a name="wp23472"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp27879">Deleting a VLAN</a>
+</p>
+<a name="wp21206"></a><h3 class="p_H_Head3">
+Creating or Modifying an Ethernet VLAN
+</h3>
+<a name="wp21164"></a><p class="pBody">
+To create a new Ethernet VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp19533table19531" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp19533"></a><div class="pCellHeading">
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline;">Task</span>
+</div>
+</th>
+    <th><a name="wp19535"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp19537"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Create a new Ethernet VLAN.
+</p>
+</td>
+    <td><a name="wp22892"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b> <em class="cCi_CmdItalic">vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] [<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>] [<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>] [<b class="cBold">translation</b> <em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22149"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp22151"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp22605"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">The default VLAN type is Ethernet; if you do not specify the VLAN type, the VLAN is an Ethernet VLAN.
+</p>
+<hr class="Cautn1table"><a name="wp22594"></a><p class="pBody">
+This example shows how to create an Ethernet VLAN and verify the configuration:
+</p>
+<a name="wp22156"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan 500 name Engineering
+</b></pre>
+</div><a name="wp22157"></a><div class="pEx1_Example1">
+<pre>Vlan 500 configuration successful
+</pre>
+</div><a name="wp22158"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">show vlan 500
+</b></pre>
+</div><a name="wp22159"></a><div class="pEx1_Example1">
+<pre>VLAN Name                             Status    IfIndex Mod/Ports, Vlans
+</pre>
+</div><a name="wp22160"></a><div class="pEx1_Example1">
+<pre>---- -------------------------------- --------- ------- ------------------------
+</pre>
+</div><a name="wp22161"></a><div class="pEx1_Example1">
+<pre>500  Engineering                      active    344
+</pre>
+</div><a name="wp22162"></a><div class="pEx1_Example1">
+<pre>VLAN Type  SAID       MTU   Parent RingNo BrdgNo Stp  BrdgMode Trans1 Trans2
+</pre>
+</div><a name="wp22163"></a><div class="pEx1_Example1">
+<pre>---- ----- ---------- ----- ------ ------ ------ ---- -------- ------ ------
+</pre>
+</div><a name="wp22164"></a><div class="pEx1_Example1">
+<pre>500  enet  100500     1500  -      -      -      -    -        0      0
+</pre>
+</div><a name="wp22165"></a><div class="pEx1_Example1">
+<pre>VLAN AREHops STEHops Backup CRF
+</pre>
+</div><a name="wp22166"></a><div class="pEx1_Example1">
+<pre>---- ------- ------- ----------
+</pre>
+</div><a name="wp13053"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><div class="pPreformatted"><pre><br><br></pre></div>
+<a name="wp24092"></a><p class="pBody">
+To modify the VLAN parameters on an existing Ethernet VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp23093table23091" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp23093"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp23095"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23097"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Modify an existing Ethernet VLAN.
+</p>
+</td>
+    <td><a name="wp23099"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b> <em class="cCi_CmdItalic">vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] [<b class="cBold">state</b> {<b class="cBold">active</b> | <b class="cBold">suspend</b>}] [<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>] [<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>] [<b class="cBold">translation</b> <em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23101"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp23103"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp26795"></a><h3 class="p_H_Head3">
+Creating or Modifying an FDDI VLAN
+</h3>
+<a name="wp22721"></a><p class="pBody">
+To create a new FDDI VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp22710table22708" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp22710"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp22712"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22714"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Create a new FDDI or FDDI NET-type VLAN.
+</p>
+</td>
+    <td><a name="wp22716"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b> <em class="cCi_CmdItalic">vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] <b class="cBold">type </b>{<b class="cBold">fddi</b> | <b class="cBold">fddinet</b>} [<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>] [<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>]
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22718"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp22720"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp24093"></a><p class="pBody">
+To modify the VLAN parameters on an existing FDDI VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp23119table23117" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp23119"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp23121"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23123"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Modify an existing FDDI or FDDI NET-type VLAN.
+</p>
+</td>
+    <td><a name="wp23125"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b> <em class="cCi_CmdItalic">vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] [<b class="cBold">state</b> {<b class="cBold">active</b> | <b class="cBold">suspend</b>}] [<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>] [<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>]
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23127"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp23129"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp22664"></a><h3 class="p_H_Head3">
+Creating or Modifying a Token Ring TrBRF VLAN
+</h3>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp22745"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">You must enable VTP version 2 before you create Token Ring VLANs. For information on enabling VTP version&nbsp;2, see  <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vtp.htm#wp2574">"."</a>
+</p>
+<hr class="Cautn1table"><a name="wp22775"></a><p class="pBody">
+To create a new Token Ring TrBRF VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp22764table22762" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp22764"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp22766"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22768"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Create a new Token Ring TrBRF-type VLAN.
+</p>
+</td>
+    <td><a name="wp22880"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b> <em class="cCi_CmdItalic">vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] <b class="cBold">type trbrf </b>[<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>]<b class="cBold"> </b>[<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>] <b class="cBold">bridge</b> <em class="cCi_CmdItalic">bridge_number </em>[<b class="cBold">stp</b> {<b class="cBold">ieee</b> | <b class="cBold">ibm</b>}]
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22772"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp22774"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp22776"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">You must specify a bridge number when creating a new TrBRF.
+</p>
+<hr class="Cautn1table"><a name="wp22777"></a><p class="pBody">
+This example shows how to create a new Token Ring TrBRF VLAN and verify the configuration:
+</p>
+<a name="wp23000"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan 999 name TrBRF_999 type trbrf bridge a
+</b></pre>
+</div><a name="wp23001"></a><div class="pEx1_Example1">
+<pre>Vlan 999 configuration successful
+</pre>
+</div><a name="wp23002"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">show vlan 999
+</b></pre>
+</div><a name="wp23003"></a><div class="pEx1_Example1">
+<pre>VLAN Name                             Status    IfIndex Mod/Ports, Vlans
+</pre>
+</div><a name="wp23004"></a><div class="pEx1_Example1">
+<pre>---- -------------------------------- --------- ------- ------------------------
+</pre>
+</div><a name="wp23005"></a><div class="pEx1_Example1">
+<pre>999  TrBRF_999                        active    
+</pre>
+</div><a name="wp23006"></a><div class="pEx1_Example1">
+<pre>VLAN Type  SAID       MTU   Parent RingNo BrdgNo Stp  BrdgMode Trans1 Trans2
+</pre>
+</div><a name="wp23007"></a><div class="pEx1_Example1">
+<pre>---- ----- ---------- ----- ------ ------ ------ ---- -------- ------ ------
+</pre>
+</div><a name="wp23008"></a><div class="pEx1_Example1">
+<pre>999  trbrf 100999     4472  -      -      0xa    ibm  -        0      0
+</pre>
+</div><a name="wp23009"></a><div class="pEx1_Example1">
+<pre>VLAN AREHops STEHops Backup CRF
+</pre>
+</div><a name="wp23010"></a><div class="pEx1_Example1">
+<pre>---- ------- ------- ----------
+</pre>
+</div><a name="wp23011"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><div class="pPreformatted"><pre><br><br></pre></div>
+<a name="wp24094"></a><p class="pBody">
+To modify the VLAN parameters on an existing Token Ring TrBRF VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp23022table23020" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp23022"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp23024"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23026"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Modify an existing Token Ring TrBRF-type VLAN.
+</p>
+</td>
+    <td><a name="wp23028"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b> <em class="cCi_CmdItalic">vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] [<b class="cBold">state</b> {<b class="cBold">active</b> | <b class="cBold">suspend</b>}] [<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>] [<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>] [<b class="cBold">bridge</b> <em class="cCi_CmdItalic">bridge_number</em>]<em class="cCi_CmdItalic"> </em>[<b class="cBold">stp</b> {<b class="cBold">ieee</b> | <b class="cBold">ibm</b>}]
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23030"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp23032"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp22909"></a><h3 class="p_H_Head3">
+Creating or Modifying a Token Ring TrCRF VLAN
+</h3>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp26496"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">You must enable VTP version 2 before you create Token Ring VLANs. For information on enabling VTP version&nbsp;2, see  <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vtp.htm#wp2574">"."</a>
+</p>
+<hr class="Cautn1table"><a name="wp26513"></a><p class="pBody">
+To create a new Token Ring TrCRF VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp26502table26500" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp26502"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp26504"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp26506"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Create a new Token Ring TrCRF-type VLAN.
+</p>
+</td>
+    <td><a name="wp26508"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b> <em class="cCi_CmdItalic">vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] <b class="cBold">type trcrf </b>[<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>] [<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>] {<b class="cBold">ring</b> <em class="cCi_CmdItalic">hex_ring_number</em> | <b class="cBold">decring</b> <em class="cCi_CmdItalic">decimal_ring_number</em>} <b class="cBold">parent </b><em class="cCi_CmdItalic">vlan_num</em>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp26510"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp26512"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp22928"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">You must specify a ring number (either in hexadecimal or in decimal) and a parent TrBRF VLAN when creating a new TrCRF.
+</p>
+<hr class="Cautn1table"><a name="wp22978"></a><p class="pBody">
+This example shows how to create a Token Ring TrCRF VLAN and verify the configuration:
+</p>
+<a name="wp22986"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan 998 name TrCRF_998 type trcrf decring 10 parent 999
+</b></pre>
+</div><a name="wp22987"></a><div class="pEx1_Example1">
+<pre>Vlan 998 configuration successful
+</pre>
+</div><a name="wp22988"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">show vlan 998
+</b></pre>
+</div><a name="wp22989"></a><div class="pEx1_Example1">
+<pre>VLAN Name                             Status    IfIndex Mod/Ports, Vlans
+</pre>
+</div><a name="wp22990"></a><div class="pEx1_Example1">
+<pre>---- -------------------------------- --------- ------- ------------------------
+</pre>
+</div><a name="wp22991"></a><div class="pEx1_Example1">
+<pre>998  TrCRF_998                        active    352     
+</pre>
+</div><a name="wp22992"></a><div class="pEx1_Example1">
+<pre>VLAN Type  SAID       MTU   Parent RingNo BrdgNo Stp  BrdgMode Trans1 Trans2
+</pre>
+</div><a name="wp22993"></a><div class="pEx1_Example1">
+<pre>---- ----- ---------- ----- ------ ------ ------ ---- -------- ------ ------
+</pre>
+</div><a name="wp22994"></a><div class="pEx1_Example1">
+<pre>998  trcrf 100998     4472  999    0xa    -      -    srb      0      0
+</pre>
+</div><a name="wp22995"></a><div class="pEx1_Example1">
+<pre>VLAN AREHops STEHops Backup CRF
+</pre>
+</div><a name="wp22996"></a><div class="pEx1_Example1">
+<pre>---- ------- ------- ----------
+</pre>
+</div><a name="wp22997"></a><div class="pEx1_Example1">
+<pre>998  7       7       off
+</pre>
+</div><a name="wp22982"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><div class="pPreformatted"><pre><br><br></pre></div>
+<a name="wp24089"></a><p class="pBody">
+To modify the VLAN parameters on an existing Token Ring TrCRF VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp23620table23618" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp23620"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp23622"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23624"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Modify an existing Token Ring TrCRF-type VLAN.
+</p>
+</td>
+    <td><a name="wp23626"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b><em class="cCi_CmdItalic"> vlan_num</em> [<b class="cBold">name</b> <em class="cCi_CmdItalic">name</em>] [<b class="cBold">state</b> {<b class="cBold">active</b> | <b class="cBold">suspend</b>}] [<b class="cBold">said</b> <em class="cCi_CmdItalic">said</em>] [<b class="cBold">mtu</b> <em class="cCi_CmdItalic">mtu</em>] [<b class="cBold">ring</b> <em class="cCi_CmdItalic">hex_ring_num</em>] [<b class="cBold">decring</b> <em class="cCi_CmdItalic">decimal_ring_num</em>] [<b class="cBold">bridge</b> <em class="cCi_CmdItalic">bridge_num</em>] [<b class="cBold">parent</b> <em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23628"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp23630"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp24090"></a><p class="pBody">
+To create a backup TrCRF, assign one port on each switch that the TrBRF traverses to the backup TrCRF.
+</p>
+<a name="wp25748"></a><p class="pBody">
+To configure a TrCRF VLAN as a backup TrCRF, perform this task in privileged mode:</p>
+<div align="left">
+<table id="wp23660table23658" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp23660"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp23662"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23664"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Configure a TrCRF VLAN as a backup TrCRF.
+</p>
+</td>
+    <td><a name="wp23666"></a><p class="pB1_Body1">
+<b style="font-weight: bold;" class="cBold">set</b><span style="font-style: normal; font-weight: bold;"> </span><b style="font-weight: bold;" class="cBold">vlan</b><span style="font-style: normal; font-weight: bold;"> </span><em style="font-weight: normal;" class="cCi_CmdItalic">vlan_num</em><span style="font-style: normal; font-weight: bold;"> </span><b style="font-weight: bold;" class="cBold">backupcrf</b><span style="font-style: normal; font-weight: bold;"> </span><b class="cBold">on</b>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23668"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp23670"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<div align="left">
+<table id="wp23677table23672" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="top">    <td><a name="wp23677"></a><div class="pCellBody">
+<img src="vlans_files/vlans3.jpg" id="wp23675" border="0" height="36" hspace="0" vspace="0" width="36">
+</div>
+</td>
+    <td><a name="wp23679"></a><div class="pCautnTable">
+<div class="caut2"><img src="vlans_files/caut.gif"></div><hr class="Cautn1table">
+<b>Caution&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="6">If
+the backup TrCRF port is attached to a Token Ring multistation access
+unit (MSAU), it does not provide a backup path unless the ring speed
+and port mode are set by another device. We recommend that you
+configure the ring speed and port mode for the backup TrCRF.
+<hr class="Cautn1table">
+</div>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<a name="wp24091"></a><p class="pBody">To specify the maximum number of
+hops for All-Routes Explorer frames or Spanning-Tree Explorer frames in
+the TrCRF, perform this task in privileged mode:</p>
+<div align="left">
+<table id="wp24026table23536" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp24026"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp24028"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24030"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Specify the maximum number of hops for All-Routes Explorer frames in the TrCRF.
+</p>
+</td>
+    <td><a name="wp24032"></a><p class="pB1_Body1">
+<b style="font-weight: bold;" class="cBold">set vlan</b><span style="font-style: normal; font-weight: bold;"> </span><em style="font-style: italic;" class="cCi_CmdItalic">vlan_num</em><span style="font-style: italic; font-weight: normal;"> </span><span style="font-style: normal; font-weight: bold;">aremaxhop</span><span style="font-style: normal; font-weight: bold;"> </span><em class="cCi_CmdItalic">hopcount</em>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24038"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Specify the maximum number of hops for Spanning-Tree Explorer frames in the TrCRF.
+</p>
+</td>
+    <td><a name="wp24040"></a><p class="pB1_Body1">
+<b style="font-weight: bold;" class="cBold">set vlan</b><span style="font-style: normal; font-weight: bold;"> </span><em style="font-style: italic;" class="cCi_CmdItalic">vlan_num</em><span style="font-style: italic; font-weight: normal;"> </span><span style="font-style: normal; font-weight: bold;">stemaxhop</span><span style="font-style: normal; font-weight: bold;"> </span><em class="cCi_CmdItalic">hopcount</em>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp24034"></a><p class="pCellStep2">
+<b>Step&nbsp;3	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN configuration.
+</p>
+</td>
+    <td><a name="wp24036"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<a name="wp23919"></a><p class="pBody">
+This example shows how to limit All-Routes Explorer frames and
+Spanning-Tree Explorer frames to ten hops and how to verify the
+configuration:
+</p>
+<a name="wp24047"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan 998 aremaxhop 10 stemaxhop 10
+</b></pre>
+</div><a name="wp24048"></a><div class="pEx1_Example1">
+<pre>Vlan 998 configuration successful
+</pre>
+</div><a name="wp24049"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">show vlan 998
+</b></pre>
+</div><a name="wp24050"></a><div class="pEx1_Example1">
+<pre>VLAN Name                             Status    IfIndex Mod/Ports, Vlans
+</pre>
+</div><a name="wp24051"></a><div class="pEx1_Example1">
+<pre>---- -------------------------------- --------- ------- ------------------------
+</pre>
+</div><a name="wp24052"></a><div class="pEx1_Example1">
+<pre>998  VLAN0998                         active    357
+</pre>
+</div><a name="wp24053"></a><div class="pEx1_Example1">
+<pre> 
+</pre>
+</div><a name="wp24054"></a><div class="pEx1_Example1">
+<pre> 
+</pre>
+</div><a name="wp24055"></a><div class="pEx1_Example1">
+<pre>VLAN Type  SAID       MTU   Parent RingNo BrdgNo Stp  BrdgMode Trans1 Trans2
+</pre>
+</div><a name="wp24056"></a><div class="pEx1_Example1">
+<pre>---- ----- ---------- ----- ------ ------ ------ ---- -------- ------ ------
+</pre>
+</div><a name="wp24057"></a><div class="pEx1_Example1">
+<pre>998  trcrf 100998     4472  999    0xff   -      -    srb      0      0
+</pre>
+</div><a name="wp24058"></a><div class="pEx1_Example1">
+<pre> 
+</pre>
+</div><a name="wp24059"></a><div class="pEx1_Example1">
+<pre> 
+</pre>
+</div><a name="wp24060"></a><div class="pEx1_Example1">
+<pre>VLAN AREHops STEHops Backup CRF
+</pre>
+</div><a name="wp24061"></a><div class="pEx1_Example1">
+<pre>---- ------- ------- ----------
+</pre>
+</div><a name="wp24062"></a><div class="pEx1_Example1">
+<pre>998  10      10      off
+</pre>
+</div><a name="wp27706"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><a name="wp27766"></a><h3 class="p_H_Head3">
+Assigning Switch Ports to a VLAN
+</h3>
+<a name="wp23338"></a><p class="pBody">A VLAN created in a management
+domain remains unused until you assign one or more switch ports to the
+VLAN. If you specify a VLAN that does not exist, the VLAN is created
+and the specified ports are assigned to it.
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp23356"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">Make
+sure you assign switch ports to a VLAN of the proper type. Assign
+Ethernet, Fast Ethernet, and Gigabit Ethernet ports to Ethernet-type
+VLANs.
+</p>
+<hr class="Cautn1table"><a name="wp13129"></a><p class="pBody">
+To assign one or more switch ports to a VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp13122table13120" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp13122"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp13124"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp13126"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Assign one or more switch ports to a VLAN.
+</p>
+</td>
+    <td><a name="wp13128"></a><p class="pB1_Body1">
+<b class="cBold">set vlan</b><span style="font-style: normal; font-weight: normal;"> </span><em class="cCi_CmdItalic">vlan_num mod_num/port_num</em>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp22426"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the port VLAN membership.
+</p>
+</td>
+    <td><a name="wp22428"></a><p class="pB1_Body1">
+<b class="cBold">show vlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]<br><b class="cBold">show port</b> [<em class="cCi_CmdItalic">mod_num</em>[<b class="cBold">/</b><em class="cCi_CmdItalic">port_num</em>]]
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp13131"></a><p class="pBody">
+This example shows how to assign switch ports to a VLAN and verify the assignment:
+</p>
+<a name="wp22437"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan 560 4/10
+</b></pre>
+</div><a name="wp22438"></a><div class="pEx1_Example1">
+<pre>VLAN 560 modified.
+</pre>
+</div><a name="wp22439"></a><div class="pEx1_Example1">
+<pre>VLAN 1 modified.
+</pre>
+</div><a name="wp22440"></a><div class="pEx1_Example1">
+<pre>VLAN  Mod/Ports
+</pre>
+</div><a name="wp22441"></a><div class="pEx1_Example1">
+<pre>---- -----------------------
+</pre>
+</div><a name="wp22442"></a><div class="pEx1_Example1">
+<pre>560   4/10
+</pre>
+</div><a name="wp22443"></a><div class="pEx1_Example1">
+<pre>      
+</pre>
+</div><a name="wp22444"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">show vlan 560
+</b></pre>
+</div><a name="wp22445"></a><div class="pEx1_Example1">
+<pre>VLAN Name                             Status    IfIndex Mod/Ports, Vlans
+</pre>
+</div><a name="wp22446"></a><div class="pEx1_Example1">
+<pre>---- -------------------------------- --------- ------- ------------------------
+</pre>
+</div><a name="wp22447"></a><div class="pEx1_Example1">
+<pre>560  Engineering                      active    348     4/10
+</pre>
+</div><a name="wp22448"></a><div class="pEx1_Example1">
+<pre>VLAN Type  SAID       MTU   Parent RingNo BrdgNo Stp  BrdgMode Trans1 Trans2
+</pre>
+</div><a name="wp22449"></a><div class="pEx1_Example1">
+<pre>---- ----- ---------- ----- ------ ------ ------ ---- -------- ------ ------
+</pre>
+</div><a name="wp22450"></a><div class="pEx1_Example1">
+<pre>560  enet  100560     1500  -      -      -      -    -        0      0
+</pre>
+</div><a name="wp22451"></a><div class="pEx1_Example1">
+<pre>VLAN AREHops STEHops Backup CRF
+</pre>
+</div><a name="wp22452"></a><div class="pEx1_Example1">
+<pre>---- ------- ------- ----------
+</pre>
+</div><a name="wp22453"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">show port 4/10
+</b></pre>
+</div><a name="wp22454"></a><div class="pEx1_Example1">
+<pre>Port  Name               Status     Vlan       Level  Duplex Speed Type
+</pre>
+</div><a name="wp22455"></a><div class="pEx1_Example1">
+<pre>----- ------------------ ---------- ---------- ------ ------ ----- ------------
+</pre>
+</div><a name="wp22456"></a><div class="pEx1_Example1">
+<pre> 4/10                    notconnect 560        normal   half    10 10BaseT
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp22475"></a><div class="pEx1_Example1">
+<pre>&lt;...output truncated...&gt;
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp22477"></a><div class="pEx1_Example1">
+<pre>Last-Time-Cleared
+</pre>
+</div><a name="wp22470"></a><div class="pEx1_Example1">
+<pre>--------------------------
+</pre>
+</div><a name="wp22471"></a><div class="pEx1_Example1">
+<pre>Wed Jun 24 1998, 12:16:41
+</pre>
+</div><a name="wp22472"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><a name="wp26939"></a><h3 class="p_H_Head3">
+Mapping 802.1Q VLANs to ISL VLANs
+</h3>
+<a name="wp26940"></a><p class="pBody">The valid range of
+user-configured Inter-Switch Link (ISL) VLANs is 1-1000. The valid
+range of VLANs specified in the IEEE 802.1Q standard is 0-4095. In a
+network environment with non-Cisco devices connected to Cisco switches
+through 802.1Q trunks, you must map 802.1Q VLAN numbers greater than
+1000 to ISL VLAN numbers.
+</p>
+<a name="wp26941"></a><p class="pBody">802.1Q VLANs in the range 1-1000
+are automatically mapped to the corresponding ISL VLAN. 802.1Q VLAN
+numbers greater than 1000 must be mapped to an ISL VLAN in order to be
+recognized and forwarded by Cisco switches.
+</p>
+<a name="wp27376"></a><p class="pBody">
+These restrictions apply when mapping 802.1Q VLANs to ISL VLANs:
+</p>
+<a name="wp27377"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You can configure up to 16 802.1Q-to-ISL VLAN mappings on the switch.
+</p>
+<a name="wp27384"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You can only map 802.1Q VLANs to Ethernet-type ISL VLANs.
+</p>
+<a name="wp27582"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Do not enter the native VLAN of any 802.1Q trunk in the mapping table.
+</p>
+<a name="wp27092"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">When
+you map an 802.1Q VLAN to an ISL VLAN, traffic on the 802.1Q VLAN
+corresponding to the mapped ISL VLAN is blocked. For example, if you
+map 802.1Q VLAN 2000 to ISL VLAN 200, traffic on 802.1Q VLAN 200 is
+blocked.
+</p>
+<a name="wp26955"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN
+mappings are local to each switch. Make sure you configure the same
+VLAN mappings on all appropriate switches in the network.
+</p>
+<a name="wp27099"></a><p class="pBody">
+To map an 802.1Q VLAN to an ISL VLAN, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp26944table26942" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp26944"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp26946"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp26948"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Map an 802.1Q VLAN to an ISL Ethernet VLAN. The valid range for <em class="cCi_CmdItalic">dot1q_vlan</em> is 1001-4095. The valid range for <em class="cCi_CmdItalic">isl_vlan</em> is 1-1000.
+</p>
+</td>
+    <td><a name="wp26950"></a><p class="pB1_Body1">
+<b class="cBold">set vlan mapping dot1q</b> <em class="cCi_CmdItalic">dot1q_vlan</em> <b class="cBold">isl</b> <em class="cCi_CmdItalic">isl_vlan</em>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp26952"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN mapping.
+</p>
+</td>
+    <td><a name="wp26954"></a><p class="pB1_Body1">
+<b class="cBold">show vlan mapping</b>
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp26956"></a><p class="pBody">This example shows how to map
+802.1Q VLANs 2000, 3000, and 4000 to ISL VLANs 200, 300, and 400 and
+how to verify the configuration:
+</p>
+<a name="wp26957"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan mapping dot1q 2000 isl 200</b> 
+</pre>
+</div><a name="wp26958"></a><div class="pEx1_Example1">
+<pre>802.1q vlan 2000 is existent in the mapping table
+</pre>
+</div><a name="wp26959"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan mapping dot1q 3000 isl 300
+</b></pre>
+</div><a name="wp26960"></a><div class="pEx1_Example1">
+<pre>Vlan mapping successful
+</pre>
+</div><a name="wp26961"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">set vlan mapping dot1q 4000 isl 400
+</b></pre>
+</div><a name="wp26962"></a><div class="pEx1_Example1">
+<pre>Vlan mapping successful
+</pre>
+</div><a name="wp26963"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">show vlan mapping
+</b></pre>
+</div><a name="wp26964"></a><div class="pEx1_Example1">
+<pre>802.1q vlan     ISL vlan        Effective
+</pre>
+</div><a name="wp26965"></a><div class="pEx1_Example1">
+<pre>------------------------------------------
+</pre>
+</div><a name="wp26966"></a><div class="pEx1_Example1">
+<pre>2000            200             true
+</pre>
+</div><a name="wp26967"></a><div class="pEx1_Example1">
+<pre>3000            300             true
+</pre>
+</div><a name="wp26968"></a><div class="pEx1_Example1">
+<pre>4000            400             true
+</pre>
+</div><a name="wp26969"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><a name="wp23434"></a><h3 class="p_H_Head3">
+Clearing 802.1Q-to-ISL VLAN Mappings
+</h3>
+<a name="wp26988"></a><p class="pBody">
+To clear an 802.1Q-to-ISL VLAN mapping, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp26977table26975" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp26977"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp26979"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp26981"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Clear an 802.1Q-to-ISL VLAN mapping.
+</p>
+</td>
+    <td><a name="wp26983"></a><p class="pB1_Body1">
+<b class="cBold">clear vlan mapping dot1q</b> {<em class="cCi_CmdItalic">dot1q_vlan</em> | <b class="cBold">all</b>}
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp26985"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the VLAN mapping.
+</p>
+</td>
+    <td><a name="wp26987"></a><p class="pB1_Body1">
+<b class="cBold">show vlan mapping</b>
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp26989"></a><p class="pBody">
+This example shows how to clear the VLAN mapping for 802.1Q VLAN 2000:
+</p>
+<a name="wp27036"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">clear vlan mapping dot1q 2000
+</b></pre>
+</div><a name="wp27037"></a><div class="pEx1_Example1">
+<pre>Vlan 2000 mapping entry deleted
+</pre>
+</div><a name="wp27038"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><div class="pPreformatted"><pre><br><br></pre></div>
+<a name="wp27052"></a><p class="pBody">
+This example shows how to clear all 802.1Q-to-ISL VLAN mappings:
+</p>
+<a name="wp27065"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">clear vlan mapping dot1q all
+</b></pre>
+</div><a name="wp27066"></a><div class="pEx1_Example1">
+<pre>All vlan mapping entries deleted
+</pre>
+</div><a name="wp27053"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><a name="wp27879"></a><h3 class="p_H_Head3">
+Deleting a VLAN
+</h3>
+<a name="wp23435"></a><p class="pBody">When you delete a VLAN in VTP
+server mode, the VLAN is removed from all switches in the VTP domain.
+When you delete a VLAN in VTP transparent mode, the VLAN is deleted
+only on the current switch.</p>
+<div align="left">
+<table id="wp23441table23436" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="top">    <td><a name="wp23441"></a><div class="pCellBody">
+<img src="vlans_files/vlansa.jpg" id="wp23439" border="0" height="36" hspace="0" vspace="0" width="47">
+</div>
+</td>
+    <td><a name="wp23443"></a><div class="pCautnTable">
+<div class="caut2"><img src="vlans_files/caut.gif"></div><hr class="Cautn1table">
+<b>Caution&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="6">When
+you delete a VLAN, any ports assigned to that VLAN become inactive.
+Such ports remain associated with the VLAN (and thus inactive) until
+you assign them to a new VLAN.
+<hr class="Cautn1table">
+</div>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<a name="wp23453"></a><p class="pBody">
+To delete a VLAN on the switch, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp23446table23444" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp23446"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp23448"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp23450"></a><p class="pB1_Body1">
+Delete a VLAN.
+</p>
+</td>
+    <td><a name="wp23452"></a><p class="pB1_Body1">
+<b class="cBold">clear vlan</b> <em class="cCi_CmdItalic">vlan_num</em>
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp23480"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">You
+cannot delete a Token Ring TrBRF VLAN without first reassigning its
+child TrCRFs to another parent TrBRF, or deleting the child TrCRFs.
+</p>
+<hr class="Cautn1table"><a name="wp23454"></a><p class="pBody">
+This example shows how to delete a VLAN (in this case, the switch is a VTP server):
+</p>
+<a name="wp23455"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">clear vlan 500
+</b></pre>
+</div><a name="wp23456"></a><div class="pEx1_Example1">
+<pre>This command will deactivate all ports on vlan 500
+</pre>
+</div><a name="wp23457"></a><div class="pEx1_Example1">
+<pre>in the entire management domain
+</pre>
+</div><a name="wp23458"></a><div class="pEx1_Example1">
+<pre>Do you want to continue(y/n) [n]?<b class="cBold">y
+</b></pre>
+</div><a name="wp23459"></a><div class="pEx1_Example1">
+<pre>Vlan 500 deleted
+</pre>
+</div><a name="wp23460"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)
+</pre>
+</div><a name="wp28122"> </a><h2 class="p_H_Head1">
+ Configuring Private VLANs
+</h2>
+<a name="wp29549"></a><p class="pBody">
+These sections describe how private VLANs work:
+</p>
+<a name="wp29086"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp31555">Software Requirements for Private VLANs</a>
+</p>
+<a name="wp31548"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp31559">Understanding Private VLANs</a>
+</p>
+<a name="wp29090"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp29036">Private VLAN Configuration Guidelines</a>
+</p>
+<a name="wp29094"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp28269">Creating a Private VLAN</a>
+</p>
+<a name="wp31553"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19"> <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp2436">Deleting a Private VLAN</a>
+</p>
+<a name="wp31555"> </a><h3 class="p_H_Head2">
+ Software Requirements for Private VLANs
+</h3>
+<a name="wp31560"></a><p class="pBody">To configure private VLANs you
+need supervisor engine software release 5.4(1) or later and MSFC IOS
+software release 12.0(7)XE1 or later.
+</p>
+<a name="wp31559"> </a><h3 class="p_H_Head2">
+ Understanding Private VLANs
+</h3>
+<a name="wp31556"></a><p class="pBody">Private VLANs provide Layer-2
+isolation between ports within the same private VLAN on the
+Catalyst&nbsp;6000 family switches. Ports belonging to a private VLAN
+are associated with a common set of supporting VLANs that are used to
+create the private VLAN structure. </p>
+<a name="wp30672"></a><p class="pBody">
+There are three types of private VLAN ports: promiscuous, isolated, and community.
+</p>
+<a name="wp30674"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">A
+promiscuous port communicates with all other private VLAN ports and is
+the port used to communicate with devices such as routers,
+LocalDirector, backup servers, and administrative workstations.
+</p>
+<a name="wp30676"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">An
+isolated port has complete Layer 2 separation from other ports within
+the same private VLAN with the exception of the promiscuous port. </p>
+<a name="wp30678"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Community
+ports communicate among themselves and with their promiscuous ports.
+These ports are isolated at Layer 2 from all other ports in other
+communities or isolated ports within their private VLAN. </p>
+<a name="wp29883"></a><p class="pBody">
+Privacy is granted at the Layer 2 level by blocking outgoing traffic to
+all isolated ports. All isolated ports are assigned to an isolated VLAN
+where this hardware function occurs. Traffic received from an isolated
+port is forwarded to all promiscuous ports only.
+</p>
+<a name="wp29830"></a><p class="pBody">A private VLAN comprises pairs
+of VLANs that share a primary VLAN. Within a private VLAN, there are
+three distinct classifications of VLANs: a single primary VLAN, a
+single isolated VLAN, and a series of community VLANs. You must define
+each supporting VLAN within a private VLAN structure before you can
+configure the private VLAN. </p>
+<a name="wp30915"></a><p class="pBody">
+The primary VLAN conveys incoming traffic from the promiscuous port to all other promiscuous, isolated, and community ports. 
+</p>
+<a name="wp30917"></a><p class="pBody">
+The isolated VLAN is used by isolated ports to communicate to the
+promiscuous ports. The traffic from an isolated port is blocked on all
+adjacent ports and can only be received by promiscuous ports.
+</p>
+<a name="wp30918"></a><p class="pBody">The community VLAN is used by a
+group of community ports to communicate among themselves and transmit
+traffic to outside the group via the designated promiscuous port.
+</p>
+<a name="wp30088"></a><p class="pBody">To create a private VLAN, you
+assign two or more normal VLANs in the normal VLAN range: one VLAN is
+designated as a primary VLAN, a second VLAN is designated as either an
+isolated or community VLAN. If you choose to, you can then designate
+additional VLANs as separate isolated or community VLANs in this
+private VLAN. After designating the VLANs, you must bind them together
+and associate them to the promiscuous port.
+</p>
+<a name="wp30094"></a><p class="pBody">Private VLANs can be extended
+across multiple Ethernet switches by trunking the primary, isolated,
+and any community VLANs to other switches that support private VLANs.
+</p>
+<a name="wp29944"></a><p class="pBody">In an Ethernet-switched
+environment where it is desirable to have Layer 2 isolation between an
+individual or groups of stations, you can assign an individual VLAN and
+associated IP subnet to each individual or common group of stations. In
+many environments, the servers only require the ability to communicate
+with a default gateway to gain access to end points outside the VLAN
+itself. By incorporating these stations, regardless of ownership, into
+one private VLAN, these benefits are realized:
+</p>
+<a name="wp29144"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Designating the server ports as isolated prevents any interserver communication at Layer 2. 
+</p>
+<a name="wp29153"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Designating
+the ports to which the default gateway(s), backup server, or
+LocalDirector are attached as promiscuous, allows all stations to have
+access to these gateways. </p>
+<a name="wp29155"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN
+consumption is reduced. You only need to allocate one IP subnet to the
+entire group of stations because all stations reside in one common
+private VLAN.
+</p>
+<a name="wp31156"></a><p class="pBody">On an MSFC port or a nontrunk
+promiscuous port it is possible to remap as many community VLANs as
+desired; however, while a nontrunk promiscuous port can remap to only
+one primary VLAN, an MSFC port does not have this limitation.
+Furthermore, another difference between the two types of promiscuous
+ports is that an MSFC port can only connect an MSFC router, while with
+a nontrunk promiscuous port it's possible to connect a wide range of
+devices as "access points" to a private VLAN. For example, a nontrunk
+promiscuous port can be connected to the "server port" of a
+LocalDirector to remap a number of community VLANs to the server VLAN
+so that the LocalDirector can load balance the servers present in the
+communities; or a nontrunk promiscuous port can be used to monitor
+and/or backup all the private VLAN's servers from an administration
+workstation.
+</p>
+<a name="wp29036"> </a><h3 class="p_H_Head2">
+ Private VLAN Configuration Guidelines
+</h3>
+<a name="wp29038"></a><p class="pBody">
+Designate a VLAN as the primary VLAN. 
+</p>
+<a name="wp31592"></a><p class="pBody">
+You have the option of designating one VLAN as an isolated VLAN; there can only be one isolated VLAN. 
+</p>
+<a name="wp31593"></a><p class="pBody">
+You have the option of using private VLAN communities, you need to designate a community VLAN for each community.
+</p>
+<a name="wp30709"></a><p class="pBody">
+Bind the isolated and/or community VLAN(s) to the primary VLAN and assign the isolated or community ports:
+</p>
+<a name="wp30181"></a><p class="pBulletIndent">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Isolated/community VLAN spanning tree properties are set to those of the primary VLAN.
+</p>
+<a name="wp30474"></a><p class="pBulletIndent">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLAN membership becomes static.
+</p>
+<a name="wp30182"></a><p class="pBulletIndent">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Access ports become host ports.
+</p>
+<a name="wp30183"></a><p class="pBulletIndent">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">BPDU guard protection is activated. 
+</p>
+<a name="wp30695"></a><p class="pBody">Set up the automatic VLAN
+translation that maps the isolated and community VLANs to the primary
+VLAN on the promiscuous port(s). Set nontrunk ports or the MFSC ports
+as promiscuous ports. </p>
+<a name="wp30705"></a><p class="pBody">
+Follow these additional guidelines for configuring a private VLAN:
+</p>
+<a name="wp30454"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You must set VTP to transparent mode. 
+</p>
+<a name="wp30455"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Once
+you configure a private VLAN, you cannot change the VTP mode to client
+or server mode, because VTP does not support private VLAN types and
+mapping propagation.
+</p>
+<a name="wp28135"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">VLANs can be configured as primary, isolated, or community only if no access ports are currently assigned to the VLAN. Use the <b class="cBold">show port</b> command to verify that the VLAN has no access ports assigned to it.
+</p>
+<a name="wp28136"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">A primary VLAN can have one isolated VLAN and/or multiple communities associated with it. 
+</p>
+<a name="wp28137"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">An isolated or community VLAN can have only one primary VLAN associated with it.
+</p>
+<a name="wp28138"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Private VLANs cannot use VLANs 1, 1001, 1002, 1003, 1004, or 1005.
+</p>
+<a name="wp29216"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">If you delete either the primary or secondary VLAN, the ports associated with the VLAN become inactive.
+</p>
+<a name="wp29218"></a><p class="pBody">
+When configuring private VLANs, note the hardware and software interactions:
+</p>
+<a name="wp28342"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You
+cannot set private VLAN ports to trunking mode, channeling, or have
+dynamic VLAN memberships, with the exception of MSFC ports which always
+have trunking activated.
+</p>
+<a name="wp31481"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You
+cannot set ports belonging to the same ASIC where one port is set to
+trunking or promiscuous mode or is a SPAN destination and another port
+is set to isolated or community port for the modules listed in <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vlans.htm#wp31536"></a>.
+</p>
+<a name="wp31536"></a><p class="pTableCaption">
+Table&nbsp;9-2	</p>
+<div align="left">
+<table id="wp31488table31486" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp31488"></a><div class="pCellHeading">
+Module Number
+</div>
+</th>
+    <th><a name="wp31490"></a><div class="pCellHeading">
+Description
+</div>
+</th>
+    <th><a name="wp31492"></a><div class="pCellHeading">
+Ports by ASIC 
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp31494"></a><p class="pB1_Body1">
+WS-X6224-100FX-MT
+</p>
+</td>
+    <td><a name="wp31496"></a><p class="pB1_Body1">
+24-port 100FX Multimode MT-RJ
+</p>
+</td>
+    <td><a name="wp31498"></a><p class="pB1_Body1">
+Ports 1 - 12
+</p>
+<a name="wp31499"></a><p class="pB1_Body1">
+Ports 13 - 24
+</p>
+<a name="wp31500"></a><p class="pB1_Body1">
+Ports 25 - 36
+</p>
+<a name="wp31501"></a><p class="pB1_Body1">
+Ports 37 - 48
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp31503"></a><p class="pB1_Body1">
+WS-X6248-RJ-45
+</p>
+</td>
+    <td><a name="wp31505"></a><p class="pB1_Body1">
+48-port 10/100TX RJ-45
+</p>
+</td>
+    <td><a name="wp31507"></a><p class="pB1_Body1">
+Ports 1 - 12
+</p>
+<a name="wp31508"></a><p class="pB1_Body1">
+Ports 13 - 24
+</p>
+<a name="wp31509"></a><p class="pB1_Body1">
+Ports 25 - 36
+</p>
+<a name="wp31510"></a><p class="pB1_Body1">
+Ports 37 - 48
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp31512"></a><p class="pB1_Body1">
+WS-X6248-TEL
+</p>
+</td>
+    <td><a name="wp31514"></a><p class="pB1_Body1">
+48-Port 10/100TX RJ-21
+</p>
+</td>
+    <td><a name="wp31516"></a><p class="pB1_Body1">
+Ports 1 - 12
+</p>
+<a name="wp31517"></a><p class="pB1_Body1">
+Ports 13 - 24
+</p>
+<a name="wp31518"></a><p class="pB1_Body1">
+Ports 25 - 36
+</p>
+<a name="wp31519"></a><p class="pB1_Body1">
+Ports 37 - 48
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp31521"></a><p class="pB1_Body1">
+WS-X6348-RJ-45
+</p>
+</td>
+    <td><a name="wp31523"></a><p class="pB1_Body1">
+48-port 10/100TX RJ-45
+</p>
+</td>
+    <td><a name="wp31525"></a><p class="pB1_Body1">
+Ports 1 - 12
+</p>
+<a name="wp31526"></a><p class="pB1_Body1">
+Ports 13 - 24
+</p>
+<a name="wp31527"></a><p class="pB1_Body1">
+Ports 25 - 36
+</p>
+<a name="wp31528"></a><p class="pB1_Body1">
+Ports 37 - 48
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp31530"></a><p class="pB1_Body1">
+WS-X6024-10FL-MT
+</p>
+</td>
+    <td><a name="wp31532"></a><p class="pB1_Body1">
+24-port 10BaseFL MT-RJ
+</p>
+</td>
+    <td><a name="wp31534"></a><p class="pB1_Body1">
+Ports 1 - 12
+</p>
+<a name="wp31535"></a><p class="pB1_Body1">
+Ports 13 - 24
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pTableCaption">
+Modules with Ports Listed by ASIC Groups
+</p>
+<a name="wp31537"></a><p class="pB2_Body2">
+If you attempt such a configuration, a warning message displays and the command is rejected.
+</p>
+<a name="wp28831"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Isolated and community ports should run BPDU guard features to prevent spanning tree loops due to misconfigurations.
+</p>
+<a name="wp29258"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">Primary
+VLANs and associated isolated/community VLANs must have the same
+spanning tree configuration. This configuration maintains consistent
+spanning tree topologies between associated primary, isolated, and
+community VLANs and avoids possible loss of connectivity. These
+priorities and parameters automatically propagate from the primary VLAN
+to the isolated and community VLANs. </p>
+<a name="wp30218"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">BPDU guard mode is system wide and is enabled once the first port is added to a private VLAN.
+</p>
+<div class="Note3"><img src="vlans_files/note.gif"></div><hr class="Note3">
+<a name="wp29276"></a><p class="pBulletNote">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="3">For more information on spanning tree and setting BPDU-guard protection, see  <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/spantree.htm#wp17547">"."</a>
+</p><hr class="Note3">
+<p></p>
+<a name="wp28360"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You cannot configure a destination SPAN port as a private VLAN port and vice versa. 
+</p>
+<a name="wp28364"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">A source SPAN port can belong to a private VLAN.
+</p>
+<a name="wp28365"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You
+can use VSPAN to span primary, isolated, and community VLANs together,
+or use SPAN on only one VLAN to separately monitor egress or ingress
+traffic.
+</p>
+<a name="wp30899"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">A remote SPAN VLAN (RSPAN) cannot be used for a private VLAN. 
+</p>
+<div class="Note3"><img src="vlans_files/note.gif"></div><hr class="Note3">
+<a name="wp30896"></a><p class="pBulletNote">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="3">For more information on SPAN, see  <a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/span.htm#wp20751">"."</a>
+</p><hr class="Note3">
+<p></p>
+<a name="wp30225"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">IGMP snooping and multicast shortcuts are not supported in private VLANs.
+</p>
+<a name="wp29002"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You cannot enable EtherChannel on isolated, community, or promiscuous ports.
+</p>
+<a name="wp31190"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">If
+an ACL is applied to a primary VLAN it is propagated to all the
+associated isolated and community VLANs. The opposite is not allowed as
+this would not conform to the ACL model which is not direction based.
+Primary and secondary VLANs, instead, are mostly unidirectional.
+However, it is still possible to configure ACLs "on a community basis",
+but in that case you need to set up IOS ACLs and/or QoS ACLs address by
+address or, if a range of addresses is assigned to each community, you
+can set up the ACLs for each range/community. Conversely, VACLs always
+apply to the entire private VLAN.
+</p>
+<div class="Note3"><img src="vlans_files/note.gif"></div><hr class="Note3">
+<a name="wp29277"></a><p class="pBulletNote">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="3">For more information on ACLs, see the <span style="font-style: italic; font-weight: normal;">Catalyst 6000 Family Multilayer Switch Feature Card and Policy Feature Card Configuration Guide.</span>
+</p><hr class="Note3">
+<p></p>
+<a name="wp30902"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">You
+can stop Layer 3 switching on an isolated or community VLAN by
+destroying the binding of that VLAN with its primary VLAN. Deleting the
+corresponding mapping is not sufficient.
+</p>
+<a name="wp28269"> </a><h3 class="p_H_Head2">
+ Creating a Private VLAN
+</h3>
+<a name="wp28161"></a><p class="pBody">
+To create a private VLAN, perform this task in privileged mode:</p>
+<div align="left">
+<table id="wp28142table28140" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp28142"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp28144"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp28146"></a><p class="pCellStep1">
+<b>Step&nbsp;1	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Create the primary VLAN.
+</p>
+</td>
+    <td><a name="wp28148"></a><p class="pB1_Body1">
+<b style="font-weight: bold;" class="cBold">set</b><span style="font-style: normal; font-weight: bold;"> vlan </span><em class="cCi_CmdItalic">vlan_num</em> <span style="font-style: normal; font-weight: bold;">pvlan-type primary</span> 
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp28150"></a><p class="pCellStep2">
+<b>Step&nbsp;2	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Set the isolated or community VLAN(s).
+</p>
+</td>
+    <td><a name="wp28152"></a><p class="pB1_Body1">
+<b style="font-weight: bold;" class="cBold">set</b><span style="font-style: normal; font-weight: bold;"> vlan </span><em class="cCi_CmdItalic">vlan_num</em> <span style="font-style: normal; font-weight: bold;">pvlan-type </span>{<span style="font-style: normal; font-weight: bold;">isolated</span> | <span style="font-style: normal; font-weight: bold;">community</span>}
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp28154"></a><p class="pCellStep2">
+<b>Step&nbsp;3	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Bind the isolated or community VLAN(s) to the primary VLAN.
+</p>
+</td>
+    <td><a name="wp28156"></a><p class="pB1_Body1">
+<span style="font-style: normal; font-weight: bold;">set pvlan</span> <span style="font-style: italic; font-weight: normal;">primary_vlan_num </span>{<span style="font-style: italic; font-weight: normal;">isolated_vlan_num | community_vlan_num</span>}
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp30231"></a><p class="pCellStep2">
+<b>Step&nbsp;4	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Associate the isolated or community port(s) to the private VLAN.
+</p>
+</td>
+    <td><a name="wp30233"></a><p class="pB1_Body1">
+<span style="font-style: normal; font-weight: bold;">set pvlan</span> <span style="font-style: italic; font-weight: normal;">primary_vlan_num </span>{<span style="font-style: italic; font-weight: normal;">isolated_vlan_num | community_vlan_num</span>} <span style="font-style: italic; font-weight: normal;">mod</span><span style="font-style: italic; font-weight: bold;">/</span><span style="font-style: italic; font-weight: normal;">ports</span>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp29320"></a><p class="pCellStep2">
+<b>Step&nbsp;5	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Map the isolated/community VLAN to the primary VLAN on the promiscuous port.
+</p>
+</td>
+    <td><a name="wp29324"></a><p class="pB1_Body1">
+<span style="font-style: normal; font-weight: bold;">set pvlan mapping </span><span style="font-style: italic; font-weight: normal;">primary_vlan_num </span>{<span style="font-style: italic; font-weight: normal;">isolated_vlan_num | community_vlan_num</span>} <span style="font-style: italic; font-weight: normal;">mod</span><span style="font-style: italic; font-weight: bold;">/</span><span style="font-style: italic; font-weight: normal;">ports</span>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp28158"></a><p class="pCellStep2">
+<b>Step&nbsp;6	</b><img src="vlans_files/blank.gif" border="0" height="2" width="5">Verify the private VLAN configuration.
+</p>
+</td>
+    <td><a name="wp28160"></a><p class="pB1_Body1">
+<b class="cBold">show pvlan</b> [<em class="cCi_CmdItalic">vlan_num</em>]
+</p>
+<a name="wp29729"></a><p class="pB1_Body1">
+<b class="cBold">show pvlan mapping</b>
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp28162"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">As
+a shortcut, you can bind the isolated or community port(s) and
+associated isolated or community port(s) to the private VLAN in one
+step using the <span style="font-style: normal; font-weight: bold;">set pvlan</span> <span style="font-style: italic; font-weight: normal;">primary_vlan_num </span>{<span style="font-style: italic; font-weight: normal;">isolated_vlan_num | community_vlan_num</span>} <span style="font-style: italic; font-weight: normal;">mod</span><span style="font-style: italic; font-weight: bold;">/</span><span style="font-style: italic; font-weight: normal;">port</span> command. 
+</p>
+<hr class="Cautn1table"><div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp31542"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">Ports
+do not have to be on the same switch as long as the switches are trunk
+connected and the private VLAN has not been removed from the trunk
+</p>
+<hr class="Cautn1table"><div class="Note1B"><img src="vlans_files/note.gif"></div><hr class="Cautn1table">
+<a name="wp30242"></a><p class="pN1_Note1">
+<b>Note&nbsp;&nbsp;&nbsp;</b><img src="vlans_files/blank.gif" border="0" height="2" width="1">If you are using the MSFC for your promiscuous port in your private VLAN, use 15/1 as the MSFC <span style="font-style: italic; font-weight: normal;">mod/por</span>t number if the supervisor engine is in slot 1, or use 16/1 if the supervisor engine is in slot 2.
+</p>
+<hr class="Cautn1table"><a name="wp30150"></a><p class="pBody">This
+example shows how to create a private VLAN using VLAN 7 as the primary
+VLAN, 901 as the isolated VLAN, and 902 and 903 as the community VLANs.
+VLAN 901 uses module 4, port 3. VLAN 902 uses module 4, ports 4 through
+6. VLAN 903 uses module 4, ports 7 through 9.
+</p>
+<a name="wp29550"></a><p class="pBody">
+This example shows how to specify VLAN 7 as the primary VLAN:
+</p>
+<a name="wp30318"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set vlan 7 pvlan-type primary
+</span></pre>
+</div><a name="wp30319"></a><div class="pEx1_Example1">
+<pre>Vlan 7 configuration successful
+</pre>
+</div><a name="wp29555"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)                 
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp29551"></a><p class="pBody">
+This example shows how to specify VLAN 901 as the isolated VLAN and VLANs 902 and 903 as community VLANs:
+</p>
+<a name="wp30332"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)<span style="font-style: normal; font-weight: bold;"> set vlan 901 pvlan-type isolated
+</span></pre>
+</div><a name="wp30333"></a><div class="pEx1_Example1">
+<pre>Vlan 901 configuration successful
+</pre>
+</div><a name="wp30334"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set vlan 902 pvlan-type community
+</span></pre>
+</div><a name="wp30335"></a><div class="pEx1_Example1">
+<pre>Vlan 902 configuration successful
+</pre>
+</div><a name="wp30336"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set vlan 903 pvlan-type community
+</span></pre>
+</div><a name="wp30337"></a><div class="pEx1_Example1">
+<pre>Vlan 903 configuration successful
+</pre>
+</div><a name="wp29556"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) 
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp29552"></a><p class="pBody">
+This example shows how to bind VLAN 901 to primary VLAN 7 and assign port 4/3 as the isolated port: 
+</p>
+<a name="wp30347"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set pvlan 7 901 4/3
+</span></pre>
+</div><a name="wp30348"></a><div class="pEx1_Example1">
+<pre>Successfully set the following ports to Private Vlan 7,901: 4/3
+</pre>
+</div><a name="wp29557"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)                      
+</pre>
+</div><a name="wp30357"></a><div class="pEx1_Example1">
+<pre> 
+</pre>
+</div><a name="wp28168"></a><p class="pBody">
+This example shows how to bind VLAN 902 to primary VLAN 7 and assign ports 4/4 through 6 as the community port:
+</p>
+<a name="wp30366"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set pvlan 7 902 4/4-6
+</span></pre>
+</div><a name="wp30367"></a><div class="pEx1_Example1">
+<pre>Successfully set the following ports to Private Vlan 7,902:4/4-6
+</pre>
+</div><a name="wp29576"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)      
+</pre>
+</div><a name="wp30415"></a><div class="pEx1_Example1">
+<pre>                    
+</pre>
+</div><a name="wp29573"></a><p class="pBody">
+This example shows how to bind VLAN 903 to primary VLAN 7 and assign port 4/7 through 9 as the community ports:
+</p>
+<a name="wp30381"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set pvlan 7 903
+</span></pre>
+</div><a name="wp30382"></a><div class="pEx1_Example1">
+<pre>Successfully set association between 7 and 903.
+</pre>
+</div><a name="wp30383"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set pvlan 7 903 4/7-9
+</span></pre>
+</div><a name="wp30384"></a><div class="pEx1_Example1">
+<pre>Successfully set the following ports to Private Vlan 7,903:4/7-9
+</pre>
+</div><a name="wp29584"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable)           
+</pre>
+</div><a name="wp30414"></a><div class="pEx1_Example1">
+<pre>      
+</pre>
+</div><a name="wp30409"></a><p class="pBody">This example shows how to
+map the isolated/community VLAN to the primary VLAN on the promiscuous
+port, 3/1 for each isolated or community VLAN: </p>
+<a name="wp29583"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set pvlan mapping 7 901 3/1
+</span></pre>
+</div><a name="wp29734"></a><div class="pEx1_Example1">
+<pre>Successfully set mapping between 7 and 901 on 3/1
+</pre>
+</div><a name="wp29737"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set pvlan mapping 7 902 3/1
+</span></pre>
+</div><a name="wp29738"></a><div class="pEx1_Example1">
+<pre>Successfully set mapping between 7 and 902 on 3/1
+</pre>
+</div><a name="wp29742"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">set pvlan mapping 7 903 3/1
+</span></pre>
+</div><a name="wp29743"></a><div class="pEx1_Example1">
+<pre>Successfully set mapping between 7 and 903 on 3/1
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp29585"></a><p class="pBody">
+This example shows how to verify the private VLAN configuration:
+</p>
+<a name="wp28171"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">show vlan 7 
+</span></pre>
+</div><a name="wp28172"></a><div class="pEx1_Example1">
+<pre>VLAN Name                             Status    IfIndex Mod/Ports, Vlans
+</pre>
+</div><a name="wp28173"></a><div class="pEx1_Example1">
+<pre>---- -------------------------------- --------- ------- ------------------------
+</pre>
+</div><a name="wp28174"></a><div class="pEx1_Example1">
+<pre>7    VLAN0007                         active    35      4/4-6
+</pre>
+</div><a name="wp28175"></a><div class="pEx1_Example1">
+<pre>VLAN Type  SAID       MTU   Parent RingNo BrdgNo Stp  BrdgMode Trans1 Trans2
+</pre>
+</div><a name="wp28176"></a><div class="pEx1_Example1">
+<pre>---- ----- ---------- ----- ------ ------ ------ ---- -------- ------ ------
+</pre>
+</div><a name="wp28177"></a><div class="pEx1_Example1">
+<pre>7    enet  100010     1500  -      -      -      -    -        0      0
+</pre>
+</div><a name="wp28178"></a><div class="pEx1_Example1">
+<pre>VLAN DynCreated  RSPAN
+</pre>
+</div><a name="wp28179"></a><div class="pEx1_Example1">
+<pre>---- ---------- --------
+</pre>
+</div><a name="wp28180"></a><div class="pEx1_Example1">
+<pre>7    static     disabled
+</pre>
+</div><a name="wp28181"></a><div class="pEx1_Example1">
+<pre>VLAN AREHops STEHops Backup CRF 1q VLAN
+</pre>
+</div><a name="wp28182"></a><div class="pEx1_Example1">
+<pre>---- ------- ------- ---------- -------
+</pre>
+</div><a name="wp28183"></a><div class="pEx1_Example1">
+<pre>Primary Secondary Secondary-Type    Ports
+</pre>
+</div><a name="wp28184"></a><div class="pEx1_Example1">
+<pre>------- --------- ----------------- -----------------
+</pre>
+</div><a name="wp28185"></a><div class="pEx1_Example1">
+<pre>7       901        Isolated          4/3
+</pre>
+</div><a name="wp28186"></a><div class="pEx1_Example1">
+<pre>7       902        Community         4/4-6
+</pre>
+</div><a name="wp28187"></a><div class="pEx1_Example1">
+<pre>7       903        Community         4/7-9
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp30270"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">show vlan 902
+</span></pre>
+</div><a name="wp28189"></a><div class="pEx1_Example1">
+<pre>VLAN Name                             Status    IfIndex Mod/Ports, Vlans
+</pre>
+</div><a name="wp28190"></a><div class="pEx1_Example1">
+<pre>---- -------------------------------- --------- ------- ------------------------
+</pre>
+</div><a name="wp28191"></a><div class="pEx1_Example1">
+<pre>902  VLAN0007                         active    38      4/4-6
+</pre>
+</div><a name="wp28192"></a><div class="pEx1_Example1">
+<pre>VLAN Type  SAID       MTU   Parent RingNo BrdgNo Stp  BrdgMode Trans1 Trans2
+</pre>
+</div><a name="wp28193"></a><div class="pEx1_Example1">
+<pre>---- ----- ---------- ----- ------ ------ ------ ---- -------- ------ ------
+</pre>
+</div><a name="wp28194"></a><div class="pEx1_Example1">
+<pre>7    enet  100010     1500  -      -      -      -    -        0      0
+</pre>
+</div><a name="wp28195"></a><div class="pEx1_Example1">
+<pre>VLAN DynCreated  RSPAN
+</pre>
+</div><a name="wp28196"></a><div class="pEx1_Example1">
+<pre>---- ---------- --------
+</pre>
+</div><a name="wp28197"></a><div class="pEx1_Example1">
+<pre>7    static     disabled
+</pre>
+</div><a name="wp28198"></a><div class="pEx1_Example1">
+<pre>VLAN AREHops STEHops Backup CRF 1q VLAN
+</pre>
+</div><a name="wp28199"></a><div class="pEx1_Example1">
+<pre>---- ------- ------- ---------- -------
+</pre>
+</div><a name="wp28200"></a><div class="pEx1_Example1">
+<pre>Primary Secondary Secondary-Type    Ports
+</pre>
+</div><a name="wp28201"></a><div class="pEx1_Example1">
+<pre>------- --------- ----------------- -----------------
+</pre>
+</div><a name="wp28202"></a><div class="pEx1_Example1">
+<pre>7       902       Isolated          4/4-6
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp30277"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">show pvlan 
+</span></pre>
+</div><a name="wp30421"></a><div class="pEx1_Example1">
+<pre>Primary Secondary Secondary-Type Ports
+</pre>
+</div><a name="wp30422"></a><div class="pEx1_Example1">
+<pre>------- --------- -------------- ------------
+</pre>
+</div><a name="wp30423"></a><div class="pEx1_Example1">
+<pre>7       901       isolated       4/3
+</pre>
+</div><a name="wp30424"></a><div class="pEx1_Example1">
+<pre>7       902       community      4/4-6
+</pre>
+</div><a name="wp30282"></a><div class="pEx1_Example1">
+<pre>7       903       community      4/7-9                  
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp30275"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">show pvlan mapping
+</span></pre>
+</div><a name="wp29762"></a><div class="pEx1_Example1">
+<pre>Port  Primary  Secondary
+</pre>
+</div><a name="wp29763"></a><div class="pEx1_Example1">
+<pre>----- -------- ----------
+</pre>
+</div><a name="wp29764"></a><div class="pEx1_Example1">
+<pre>3/1    7        901-903
+</pre>
+</div><div class="pPreformatted"><pre><br></pre></div>
+<a name="wp28232"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <span style="font-style: normal; font-weight: bold;">show port
+</span></pre>
+</div><a name="wp28233"></a><div class="pEx1_Example1">
+<pre>Port  Name               Status     Vlan       Duplex Speed Type
+</pre>
+</div><a name="wp28234"></a><div class="pEx1_Example1">
+<pre>----- ------------------ ---------- ---------- ------ ----- ------------
+</pre>
+</div><a name="wp28235"></a><div class="pEx1_Example1">
+<pre>...truncated output...
+</pre>
+</div><a name="wp30283"></a><div class="pEx1_Example1">
+<pre> 4/3                     notconnect 7,901       half   100 100BaseFX MM
+</pre>
+</div><a name="wp28236"></a><div class="pEx1_Example1">
+<pre> 4/4                     notconnect 7,902       half   100 100BaseFX MM
+</pre>
+</div><a name="wp28237"></a><div class="pEx1_Example1">
+<pre> 4/5                     notconnect 7,902       half   100 100BaseFX MM
+</pre>
+</div><a name="wp28238"></a><div class="pEx1_Example1">
+<pre> 4/6                     notconnect 7,902       half   100 100BaseFX MM
+</pre>
+</div><a name="wp31128"></a><div class="pEx1_Example1">
+<pre> 4/7                     notconnect 7,903       half   100 100BaseFX MM
+</pre>
+</div><a name="wp31129"></a><div class="pEx1_Example1">
+<pre> 4/8                     notconnect 7,903       half   100 100BaseFX MM
+</pre>
+</div><a name="wp31130"></a><div class="pEx1_Example1">
+<pre> 4/9                     notconnect 7,903       half   100 100BaseFX MM
+</pre>
+</div><a name="wp30284"></a><div class="pEx1_Example1">
+<pre>... truncated output...
+</pre>
+</div><a name="wp2436"> </a><h3 class="p_H_Head2">
+ Deleting a Private VLAN
+</h3>
+<a name="wp30480"></a><p class="pBody">
+You can delete a private VLAN by deleting the primary VLAN. If you
+delete a primary VLAN, all bindings to the primary VLAN are broken, all
+ports in the private VLAN become inactive, and any related mappings on
+the promiscuous port(s) are deleted.
+</p>
+<a name="wp30926"></a><p class="pBody">
+To delete a private VLAN, perform this task in privileged mode:</p>
+<div align="left">
+<table id="wp30931table30929" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp30931"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp30933"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp30935"></a><p class="pB1_Body1">
+Delete a primary VLAN.
+</p>
+</td>
+    <td><a name="wp30937"></a><p class="pB1_Body1">
+<span style="font-style: normal; font-weight: bold;">clear vlan </span><span style="font-style: italic; font-weight: normal;">primary_vlan</span>
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<a name="wp30923"></a><p class="pBody">
+This example shows how to delete primary VLAN 7:
+</p>
+<a name="wp30961"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Console&gt; (enable) </code><b class="cBold">clear vlan 7
+</b></pre>
+</div><a name="wp30962"></a><div class="pEx1_Example1">
+<pre><code class="cCode">This command will de-activate all ports on vlan 7
+</code></pre>
+</div><a name="wp30963"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Do you want to continue(y/n) [n]?y
+</code></pre>
+</div><a name="wp30964"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Vlan 7 deleted
+</code></pre>
+</div><a name="wp30965"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Console&gt; (</code>enable) 
+</pre>
+</div><a name="wp30958"> </a><h3 class="p_H_Head2">
+ Deleting an Isolated or Community VLAN
+</h3>
+<a name="wp31011"></a><p class="pBody">If you delete an isolated or
+community VLAN, the binding with the primary VLAN is broken, any
+isolated or community ports associated to the VLAN become inactive, and
+any related mappings on the promiscuous port(s) are deleted.
+</p>
+<a name="wp31022"></a><p class="pBody">
+To delete a VLAN on the switch, perform this task in privileged mode:<span style="font-style: normal; font-weight: normal;"></span></p>
+<div align="left">
+<table id="wp30996table30994" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp30996"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp30998"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp31000"></a><p class="pB1_Body1">
+Delete an isolated or community VLAN.
+</p>
+</td>
+    <td><a name="wp31026"></a><p class="pB1_Body1">
+<b class="cBold">clear vlan</b> {<span style="font-style: italic; font-weight: normal;">isolated_vlan_num | community_vlan_num</span>}
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+<span style="font-style: normal; font-weight: normal;"></span>
+</p>
+<a name="wp31012"></a><p class="pBody">
+This example shows how to delete the community VLAN 902:
+</p>
+<a name="wp31013"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Console&gt; (enable) </code><b class="cBold">clear vlan 902
+</b></pre>
+</div><a name="wp31014"></a><div class="pEx1_Example1">
+<pre><code class="cCode">This command will de-activate all ports on vlan 902
+</code></pre>
+</div><a name="wp31015"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Do you want to continue(y/n) [n]?y
+</code></pre>
+</div><a name="wp31016"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Vlan 902 deleted
+</code></pre>
+</div><a name="wp31017"></a><div class="pEx1_Example1">
+<pre><code class="cCode">Console&gt; (enable) 
+</code></pre>
+</div><a name="wp30991"> </a><h3 class="p_H_Head2">
+ Deleting a Private VLAN Mapping
+</h3>
+<a name="wp30978"></a><p class="pBody">If you delete the private VLAN
+mapping, the connectivity breaks between the isolated or community
+ports and the promiscuous port. If you delete all the mappings on a
+promiscuous port, the promiscuous port becomes inactive. When a private
+VLAN port is set to inactive, it displays "pvlan-" as its VLAN number
+in the <b class="cBold">show port</b> output.
+</p>
+<a name="wp31421"></a><p class="pBody">
+A private VLAN port might be set to inactive for the following reasons:
+</p>
+<a name="wp31422"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">The primary, isolated, or community VLAN to which it belongs is cleared.
+</p>
+<a name="wp31427"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">All mappings from a non-MSFC promiscuous port are deleted.
+</p>
+<a name="wp31428"></a><p class="pBu1_Bullet1">
+&#8226;<img src="vlans_files/blank.gif" border="0" height="2" width="19">An error occurs during the configuration of a port to be a private VLAN port.
+</p>
+<a name="wp30959"></a><p class="pBody">
+To delete a port mapping from a private VLAN, perform this task in privileged mode:</p>
+<div align="left">
+<table id="wp30493table30491" border="1" bordercolor="#808080" cellpadding="3" cellspacing="0" width="80%">
+  <caption></caption>
+  <tbody><tr align="left" valign="bottom">    <th><a name="wp30493"></a><div class="pCellHeading">
+Task
+</div>
+</th>
+    <th><a name="wp30495"></a><div class="pCellHeading">
+Command
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td><a name="wp30497"></a><p class="pB1_Body1">
+Delete the port mapping from the private VLAN.
+</p>
+</td>
+    <td><a name="wp30499"></a><p class="pB1_Body1">
+<span style="font-style: normal; font-weight: bold;">clear pvlan mapping </span>primary_vlan {<span style="font-style: italic; font-weight: normal;">isolated </span>| <span style="font-style: italic; font-weight: normal;">community</span>}{<span style="font-style: italic; font-weight: normal;">mod/ports</span>}
+</p>
+</td>
+</tr>
+</tbody></table>
+</div><br>
+<p class="pBody">
+</p>
+<a name="wp30530"></a><p class="pBody">
+This example shows how to delete the mapping of VLAN 902 to 901, previously set on ports 3/2 through 5:
+</p>
+<a name="wp30531"></a><div class="pEx1_Example1">
+<pre>Console&gt; (enable) <b class="cBold">clear pvlan mapping 901 902 3/2-5
+</b></pre>
+</div><a name="wp30532"></a><div class="pEx1_Example1">
+<pre>Successfully cleared mapping between 901 and 902 on 3/2-5 
+Console&gt; (enable) 
+</pre>
+</div><div class="pPreformatted"><pre><br><br></pre></div>
+</blockquote> 
+    <hr noshade="noshade">
+<p>
+<!--footer_buttons.tmpl_START-->
+<!--SKIP_START-->
+<a href="http://www.cisco.com/univercd/home/home.htm"><img src="vlans_files/home.gif" alt="home" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/index.htm"><img src="vlans_files/toc.gif" alt="toc" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/vtp.htm"><img src="vlans_files/prev.gif" alt="prev" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/product/lan/cat6000/sw_5_4/config/e_trunk.htm"><img src="vlans_files/next.gif" alt="next" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/td/doc/cisintwk/ita/index.htm"><img src="vlans_files/gloss.gif" alt="glossary" border="0" height="20" width="63"></a><a href="http://www.cisco.com/feedback"><img src="vlans_files/feed.gif" alt="feedback" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/home/search.htm"><img src="vlans_files/search.gif" alt="search" border="0" height="20" width="63"></a><a href="http://www.cisco.com/univercd/cc/lib/help.htm"><img src="vlans_files/help.gif" alt="help" border="0" height="20" width="63"></a>
+<!--SKIP_END-->
+<br>
+<!--footer_buttons.tmpl_END-->
+</p><p class="pB1_Body1">
+Posted: Tue Mar 29 19:12:38 PST 2005
+<br>All contents are Copyright © 1992--2005 Cisco Systems, Inc. All rights reserved. <br> <a href="http://www.cisco.com/public/copyright.html">Important Notices</a> and <a href="http://www.cisco.com/public/privacy.html">Privacy Statement</a>.
+</p><p>
+</p></body></html>

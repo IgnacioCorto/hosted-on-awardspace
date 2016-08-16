@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Ignacio: PlayDotA.com Item Bookmarklet</title>
+</head>
+
+<body>
+
+<a href="javascript:
+(function(){
+  var js_id='com_cortorreal_dotahelper';
+  var js_src='http://luis3ignacio.awardspace.com/codes/javascript/dota/alt_guide_tooltip.js?'+(new Date().getTime());
+  $$('#'+js_id).each(function(e,i){e.remove();});
+  $$('body')[0].insert(new Element('script', {id:js_id, src: js_src}) );
+  console.log('script loaded');
+})()
+">PlayDotA.com Item Bookmarklet</a> &nbsp; &larr; (add this link to your bookmarks)
+
+<p>Drag the <b>link above</b> to your bookmarks' toolbar, and go to any of the <b>links below</b>:</p>
+<ul>
+<li><a target="_blank" href="http://www.playdota.com/guides/vals-guide-to-every-hero">The Alt-Tab Guide to Every Hero</a></li>
+<li><a target="_blank" href="http://www.playdota.com/items">DotA Items and Recipes</a></li>
+</ul>
+
+<p>Instructions:</p>
+
+<ol>
+<li>Choose an hero, or go to Items/Recipes page</li>
+<li>Click on your bookmarked link. Wait an alert saying 'loaded'.</li>
+<li>Click on any item. It should appear a red box with extra information about thet item.</li>
+</ol>
+
+<p><b>NOTE:</b> Some item thumbnails don't have an ID correlation. If an item is not working, <a href="http://cortorreal.com">send me a message</a> with the URL of the item thumbnail.</p>
+
+</body>
+</html>

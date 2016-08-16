@@ -1,0 +1,29 @@
+# SEE: http://jan.kneschke.de/projects/mysql/order-by-rand/
+
+#STEPS:
+# (1) a random number based on total rows
+# (2) join that number with the table
+# NOTE: the best solution is to maintain a sequential record
+
+SELECT name
+  FROM random JOIN
+       (SELECT CEIL(RAND() *
+                    (SELECT MAX(id)
+                       FROM random)) AS id
+        ) AS r2
+       USING (id);
+
+
+# Solving holes with  '>='  (useful for just one record)
+
+SELECT name
+  FROM random AS r1 JOIN
+       (SELECT (RAND() *
+                     (SELECT MAX(id)
+                        FROM random)) AS id)
+        AS r2
+ WHERE r1.id >= r2.id
+ ORDER BY r1.id ASC
+ LIMIT 1;
+ 
+ 

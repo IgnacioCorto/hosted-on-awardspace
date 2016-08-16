@@ -1,0 +1,285 @@
+std_lib_facilities.h
+http://www.stroustrup.com/Programming/
+
+Dev-C++ with Mingw/GCC
+http://www.bloodshed.net/dev/devcpp.html
+
+##################################################
+
+g++ file.cpp -Wall
+g++ -Wall hello.cpp -o hello
+
+g++ my.cpp -c      # obj  [Escox] pre asm cmp out lng
+g++ use.cpp my.o   # multiple lines
+g++ *.cpp          # THE KILLER FOR INCLUDES
+
+
+7+30
+75: hello world
+188: comments
+201-282: calculator nightmare
+--280-310--
+
+------------------------------
+hello,variables,types,operators,
+input,output,conditions,iterations,
+arrays,function,includes,libraries,
+------------------------------
+
+bool, char,int,double,string
+cout<<var; cin>>var;
+
+Ctrl+Z  -or-  Ctrl+D
+while(cin>>var){...}
+
+strlen("ignacio");
+string.size();
+string.length();
+
+
+const double pi = 3.14159;
+double df = 9.0/5*dc+32; //fahrenheit
+{int a=1;}  //a is block-local
+if,switch,while,for  //switch: int or char
+int squared(int x) { return x*x; }
+
+vector<double> v(6,-1.2);
+v[5]=8.0;
+v.push_back(2.7);
+sort( v.begin(), v.end() );
+v.size()
+
+compile,link-time, logic
+error("non-positive area");
+try{ error("hey june"); }catch(exception& e){ cout<<e.what()<<endl; }
+ > ...
+ > out_of_range_error
+ > runtime_error
+if(cin) {good} else {wrong}
+narrow_cast<int>(2.9); //narrowing error
+pre/post conditions
+
+
+###########
+## CLASS ##
+###########
+
+class Token {
+   public:
+      char kind;
+      double value;
+      Token(char ch)
+         :kind(ch), value(0) {}
+      Token(char ch, double val)
+         :kind(ch), value(val) {}
+   private:
+      //and protect, I believe
+};  //semicolon
+
+Token get_token();
+vector<Token> tok;
+
+Token t1;
+Token t2 = t1;
+
+
+class Token_stream{
+  public:
+    Token_stream();
+    Token get();
+    void putback(Token t);
+  private:
+    bool full;
+    Token buffer;
+}; //Remember!!
+
+Token_stream::Token_stream()  //outer constructor
+   :full(false), buffer(0) {}
+
+void Token_stream::putback(Token t) { buffer=t; full=true; } 
+
+
+####################
+## C++ TECH SPECS ##
+####################
+
+compile=valid references;  link=valid program;
+extern int x=1;  //seems global
+declarations ; definitions ;
+
+void print(const vector<double>& v) { ... }  //val const ref
+int& r = i ;  //type& var=other_var;
+
+int f(int);   //valid function declaration
+double x(y);  //valid variable initialization
+ff( int(3.14) );   //explicit truncate
+
+double expression(Token_stream& ts){...}  //byRef
+v[++i] = ++i + ++i ;  //undefined order
+
+0 is GLOBAL's default
+GLOBALS: where's modified? which init: cpp1 or 2?
+extern y=x+3; //complicated global
+
+const Date& default_date() {  //return const ref
+   //static is initialized only once. why const?
+   static const Date dd(1970,1,1); 
+   return dd;
+}
+
+namespace TextLib {
+   class Text {/*.../*};
+   struct Function : Shape {/*.../*};
+   int gui_main() {/*.../*};
+}
+
+std::cout
+using std::cout;
+using namespace std;
+
+
+##### CLASSES PART 2 #####
+
+a function is a type!!
+struct X {...};  //all members public!
+
+Date last(2000,12,31);         //colloquial
+Date xmas = Date(1976,12,24);  //verbose
+
+public: class Invalid();  //e.what()?
+private: bool check;
+if(!check()) throw Invalid();
+catch(Date::Invalid){error("Invalid Date!");}
+
+enum Month { jan=1,feb,mar, ... dec };  //none=0
+//defined inside classes, preferable
+Mont m = aug;
+Month mm = Month(7);  //unchecked
+int n = mm;  //narrow cast
+
+
+//OPERATOR OVERLOAD:  'byVal' -vs- byRef&
+
+	Month operator++(Month& m) {
+	  return (m==Dec)?Jan:Month(m+1); }
+
+	ostream& operator<<(ostream& os,Month m) {
+	  return os << month_tbl[m];
+  
+  
+int operator+(int,int);  //overload forbidden
+//you can prohibit copy operations!
+  
+Minimal & Complete   //simple, but not simpler
+
+//"BEST is enemy of GOOD" -Voltaire-
+//feature creep, over-optimization
+//Good Enough > Perfect
+
+					 
+Date me(1982,Month::aug,30);
+
+NameSpace.h -> extern ... -> NameSpace.cpp
+#ifndef _NAME_SPACE_GUARD
+#define _NAME_SPACE_GUARD
+#endif
+g++ *.cpp
+
+header files can have declarations, definitions, and more headers
+headers should only include headers, as Java Interfaces do
+WINDOWS TXT: \r\n
+
+NOTE: practice ERRORS
+250/280 - calc
+293/323 - class
+333/363 - date
+
+
+###########
+### I/O ###
+###########
+
+ifstream isf(filename.c_str(), ios_base::in);
+if(!isf) error("can't open ", filename);
+
+ofstream osf(filename_out.c_str());
+if(!osf) error("can't open ", filename_out);
+
+fstream fs;
+fs.open(elfuerte.c_str(), ios_base::in);
+if(!fs) error("can't open ", elfuerte);
+
+.fail() .bad()  .eof() .good() 
+
+isf.exceptions( isf.exceptions() | ios_base::badbit );
+//isf.clear(ios_base::badbit);
+
+&ostream& operator<<(ostream& os, const Class& c1) 
+	{ /*output c1 members*/ }
+&istream& operator>>(istream& os, const Class& c1) {...}
+	{ /*construct c1 from cin*/ }
+operator<<(cout,c1);  //cout<<c1;
+
+
+if(cin.fail())(cin.clear();cin>>charvar;}
+
+map<string,int>
+
+---ch11---
+
+cout << showbase << 123 << ", "
+	 << hex << 123 << ", "
+	 << oct << 123 << endl ;
+cout << noshowbase << dec << 123 << endl;
+
+cin >> a >> hex >> b >> oct >> c ;  //1234 4d2 2322
+cout << a << '\t' << b << '\t' << c << '\t' << endl;
+
+cin.unsetf(ios::dec);  //to interpret 
+cin.unsetf(ios::oct);  //02322
+cin.unsetf(ios::hex);  //and 0x4d2
+
+
+double d1 = 1234.56789;
+cout << d1 << ", "
+	 << fixed << d1 << ", "
+	 << scientific << d1  << ", "
+	 << general<< d1 << endl ;
+
+	 
+double d1 = 1234.56789;
+cout << setprecision(1) << d1 << ", "  //including point (1e3)
+	 << fixed << d1 << ", "            //after point
+	 << scientific << d1  << ", "      //after point
+	 << setprecision(6) << general<< d1 << endl ; //including point
+
+fstream ... ios_base:: [app|ate|trunc|binary] 
+ofstream ost("name",ios_base::app);  //APPend, AT End
+
+ofstream outbin1("out_bin.txt",ios_base::binary);
+outbin1.write(as_bytes(a),sizeof(int)); //and read too
+
+fstream fs(rndfile1.c_str());  //,ios_base::out
+fs.seekg(0);
+fs.seekp(0);
+
+istringstream is("10 20 30");
+is>>n;
+
+ostringstream os;
+os<<"hi";
+os.str().c_str();
+
+getline(cin,fullname);
+cin.get(ch); isspace(ch); isalpha(ch); isdigit(ch); 
+
+
+
+---------
+current: --340/370--
+
+
+_______________________________________________________________
+error: expected `,' or `;' before '<<' token
+error: ambiguous overload for 'operator==' in 'num3 == num1'
+

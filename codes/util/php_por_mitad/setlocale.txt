@@ -1,0 +1,6 @@
+$date = "2008-30-08";
+setlocale(LC_TIME,'es_DO');
+$ts = strtotime("2008-08-30");
+$date_long = strftime("%A %d de %B, %Y",$ts);
+
+echo  $date_long;

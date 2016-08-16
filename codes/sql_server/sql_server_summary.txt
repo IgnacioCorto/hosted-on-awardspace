@@ -1,0 +1,18 @@
+-- SHOW ALL TABLES 
+   select * FROM information_schema.tables ;
+   
+-- DESCRIBE TABLE
+   exec sp_columns vw_aspnet_Profiles
+   
+-- TYPE JUGGLING
+   CONVERT( VARCHAR(255) , Campo1 ) 
+   CAST( Campo2 AS INTEGER )
+   
+-- MYSQL DATE FORMAT
+   CONVERT ( VARCHAR(255) , Campo1  , 120 )
+
+   
+Mixed Mode Autentication
+Surface Area Configuration -> TCP/IP Connections
+\SqlServer\90\sqlbrowser
+\SqlServer\MSSQL.1\sqlserver

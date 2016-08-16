@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<script src="swfobject/swfobject.js" type="text/javascript"></script>
+<script type="text/javascript">
+function gotoFrame(x){
+	document.getElementById("as3_js").setFlashFrame(x);
+}
+</script>
+
+</head>
+
+<body>
+
+<div>
+Frames: 
+<a href="javascript:void(0);" onclick="gotoFrame(10);">10</a>
+<a href="javascript:void(0);" onclick="gotoFrame(20);">20</a>
+<a href="javascript:void(0);" onclick="gotoFrame(30);">30</a>
+<a href="javascript:void(0);" onclick="gotoFrame(40);">40</a>
+</div>
+<div id="swfholder"></div>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+var flashvars = {};
+var params = {};
+var attributes = {};
+attributes.id = "as3_js";
+//attributes.name = "as3_js";
+swfobject.embedSWF("stops.swf", "swfholder", "450", "450", "9.0.0", false, flashvars, params, attributes);
+
+
+setTimeout(function(){ 
+	console.log(document.getElementById("as3_js"));
+	
+	var flash = document.getElementById("as3_js");
+	flash.setFlashFrame(10);
+	//alert('done');
+}, 2000);
+
+</script>

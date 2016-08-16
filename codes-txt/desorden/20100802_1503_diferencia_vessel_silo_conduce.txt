@@ -1,0 +1,54 @@
+
+----------------
+
+stowage tiene los totales
+vessel tiene los clientes
+
+conduce tiene los pequeños montos
+ordenes tienen los grandes montos
+
+
+diferencia del vessel_stowage
+ - incluye clientes y otros silos
+resultado de ordenes
+ - tambien para confirmar
+ - restante de ordenes debe dar la diferencia
+suma de conduces a silos
+ - THIS IS IT!
+ - la diferencia se usa para confirmar
+
+
+mismo origen: 2,1         (barco,vessel)
+mismo tipo de destino: 1  (silo)
+diferentes productos,     (yc,sbm)
+diferentes silos          (algradosa,tegra)
+
+
+silo algradosa, silo tegra, silo adm,
+los silos tienen diversos productos,
+debo hacer un vessel con los 4 productos,
+y un silo con los 4
+pero, que tal si el producto no se ha recibido en deposito?
+el conduce esta ahi, pero no se ha recibido en conduce.
+quiza tomar una referencia de los valores.
+
+----------------
+
+un barco envia a varios silos
+se resume lo que envio a cada silo (productos en silo)
+
+Por Ejemplo:
+
+silo 1:
+ - soya:  10  [5]
+ - maiz:  20  [15]
+ - trigo: 30  [25]
+
+silo 2:
+ - soya:  44  [3]
+ - maiz:  55  [13]
+ - trigo: 66  [23]
+          
+tal Cantidad de Producto en tal Silo es de tal Cliente
+
+

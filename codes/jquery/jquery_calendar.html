@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.mycalendar').datepicker({
+		changeMonth:true,
+		changeYear:true,
+		numberOfMonths: [1,1], //[4,3]
+		dateFormat:'yy-mm-dd',  //main one
+		altFormat:'yy-mm-dd',
+		altField:'#myfield',
+		disabled:false,
+		showButtonPanel: false,
+		minDate:new Date(2012, 5-1, 1),
+		maxDate:new Date(2012, 11-1, 30),
+		
+		prevText: "&lt;antes",
+		currentText: "!",
+		nextText: "despues&gt;",
+		//navigationAsDateFormat: true,
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		dayNamesMin:['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
+		dayNamesShort:['Dom','Lun','Mar','Mie','Jue','Vie','Sab'],
+		dayNames:['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+		
+		
+		beforeShow: function(input,inst){
+			$('#ui-datepicker-div').addClass("my_custom_class");  //add a class to the datepicker div
+			
+			console.log('shown');
+
+			var year = inst.getDate().getFullYear();
+			var month = inst.getDate().getMonth()+1;
+			$(".upcoming-date").parents('.view-evento .views-row').hide();
+			$(".upcoming-date[data-ymd^="+year+"-"+month+"]").parents('.view-display-id-pag_eventos .views-row').show();
+			$('.myevents').prepend('<div> Fecha: '+year+'-'+month+'</div>');
+			},
+		
+		beforeShowDay: function(date){
+			var output = [false,"ignclass","tooltip"];
+			
+			var year = date.getFullYear();
+			var month = date.getMonth()+1;
+			var day = date.getDate();
+			var datestring = year+"-"+month+"-"+day
+			var visibility = $(".upcoming-date[data-ymd="+datestring+"]").parents('.view-display-id-pag_eventos .views-row:visible').size();
+			
+			//console.log( datestring, visibility );
+
+			if( visibility>0 ) {
+				output[1] = "hayevento";
+				$(".upcoming-date[data-ymd="+datestring+"]").parents('.view-display-id-pag_eventos .views-row').show();
+			}
+			
+			return output;
+			},
+	
+		onChangeMonthYear: function(year,month,instance){
+			showCurrentMonth(year, month);
+			}
+	});
+	
+	function showCurrentMonth(year, month){
+		$(".upcoming-date").parents('.view-evento .views-row').hide();
+		$(".upcoming-date[data-ymd^="+year+"-"+month+"]").parents('.view-display-id-pag_eventos .views-row').show();
+		$('.myevents').prepend('<div> Fecha: '+year+'-'+month+'</div>');
+	}
+	
+	var hoy = new Date();
+	showCurrentMonth( hoy.getFullYear(), hoy.getMonth()+1 );
+});
+</script>
+<style>
+.hayevento { background:green; }
+.ui-datepicker-prev, .ui-datepicker-next{border:1px solid red;}
+.views-row { border:1px solid gray; }
+</style>
+</head>
+
+<body>
+<p>Please look: <a href="http://docs.jquery.com/UI/API/1.8/Datepicker#theming" target="_blank">datepicker theming guide</a></p>
+<div class="mycalendar"></div>
+<input id="myfield" />
+
+<div class="view view-evento view-id-evento view-display-id-pag_eventos view-dom-id-b9fe57acd7d3b0d9b8884ba45621a9ed">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-5-28">
+<span class="day">28</span>
+<span class="month">Mayo</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-05-27T20:00:00-04:00">8:00PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Programa especial</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p>Sintoniza nuestro programa especial de Descubre La Vega, Orgullo de mi tierra y conoce nuevas razones para sentir el Orgullo de cada rincón de nuestra tierra. Sintoniza Canales 2, 3, 7, 11, 13, 27, 30, 38, 39, 47. Será retransmitido en Colorvisión Canal 9 a las 10:30 p.m. y CDN Canal 37 a las 11:00 p.m.</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-5-30">
+<span class="day">30</span>
+<span class="month">Mayo</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-05-30T18:30:00-04:00">6:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Los aborígenes en La Vega</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p>Los aborígenes en La Vega. Por José Guerrero. <strong>Librería Cuesta 27 febrero</strong></p>
+</div>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-5-31">
+<span class="day">31</span>
+<span class="month">Mayo</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-05-31T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Wandy Robles</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p>Supermercados Nacional Lope de Vega</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-4 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-2">
+<span class="day">02</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-02T11:00:00-04:00">11:00AM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Paisaje tridimensional de la Provincia de La Vega.</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>LIBRERIA CUESTA</strong><br>
+	Taller: Paisaje tridimensional de la Provincia de La Vega.<br>
+	Por Evelyn Lima. Area infantil de Librería Cuesta.&nbsp;</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-5 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-5">
+<span class="day">05</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-05T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Jacqueline Henríquez </span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Tiradentes</strong><br>
+	Chef Jacqueline Henríquez&nbsp;</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-6 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-6">
+<span class="day">06</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-06T18:00:00-04:00">6:00PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Colegio Alegría, Constanza</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p>Constanza Valle encantando del Caribe. Por Juan M. Tactuk (Jhonny)&nbsp;</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-7 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-6">
+<span class="day">06</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-06T18:30:00-04:00">6:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">La Vega vieja</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>LIBRERIA CUESTA</strong><br>
+	La Vega vieja. Por&nbsp; Francisco Torres Petitón</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-8 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-9">
+<span class="day">09</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-09T11:00:00-04:00">11:00AM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Jacqueline  Henríquez</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Santiago&nbsp;</strong><br>
+	Chef Jacqueline &nbsp;Henríquez&nbsp;</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-9 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-9">
+<span class="day">09</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-09T11:00:00-04:00">11:00AM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Vamos a colorear imágenes de la reserva científica de ébano verde</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>LIBRERIA CUESTA</strong><br>
+Taller: Vamos a colorear imágenes de la reserva científica de ébano verde.<br>
+Por la Tía Jenny.&nbsp; Area infantil de Librería Cuesta.</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-10 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-12">
+<span class="day">12</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-12T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Jacqueline  Henríquez</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Millón&nbsp;</strong><br>
+	Chef Jacqueline &nbsp;Henríquez</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-11 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-12">
+<span class="day">12</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-12T19:00:00-04:00">7:00PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Origen y Desarrollo Histórico de Jarabacoa</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Hotel Pinar Dorado, Jarabacoa</strong><br>
+	Origen y Desarrollo Histórico de Jarabacoa. Por&nbsp; Rafael Herrera.</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-12 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-13">
+<span class="day">13</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-13T18:30:00-04:00">6:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Geografía de La Vega</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>LIBRERIA CUESTA</strong><br>
+	Geografía de La Vega, Bolívar Troncoso</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-13 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-14">
+<span class="day">14</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-14T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Jacqueline Henríquez</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Arroyo Hondo&nbsp;</strong><br>
+	Chef Jacqueline Henríquez&nbsp;</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-14 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-16">
+<span class="day">16</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-16T11:00:00-04:00">11:00AM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Taller: Tarjeta típica de la provincia de la Vega</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p>Taller: Tarjeta típica de la provincia de la Vega. Por la Tía Jenny.&nbsp; Area infantil de <strong>Librería Cuesta.</strong></p>
+</div>  </div>  </div>
+  <div class="views-row views-row-15 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-19">
+<span class="day">19</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-19T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Jacqueline Henríquez</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Independencia&nbsp;</strong><br>
+	Chef Jacqueline Henríquez</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-16 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-20">
+<span class="day">20</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-20T18:30:00-04:00">6:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Origen y Desarrollo Histórico de Jarabacoa</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Casa Cuesta</strong><br>
+	Origen y Desarrollo Histórico de Jarabacoa. Por&nbsp; Rafael Herrera.</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-17 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-26">
+<span class="day">26</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-26T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Wandy Robles</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Charles De Gaulle&nbsp;</strong><br>
+	Chef Wandy Robles</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-18 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-28">
+<span class="day">28</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-28T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Wandy Robles</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Millón&nbsp;</strong><br>
+	Chef Wandy Robles</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-19 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-6-29">
+<span class="day">29</span>
+<span class="month">Jun</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-06-29T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Wandy Robles</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Arroyo Hondo&nbsp;</strong><br>
+	Chef Wandy Robles</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-20 views-row-even">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-7-3">
+<span class="day">03</span>
+<span class="month">Jul</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-07-03T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Wandy Robles</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional 27 de Febrero&nbsp;</strong><br>
+	Chef Wandy Robles</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-21 views-row-odd">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-7-5">
+<span class="day">05</span>
+<span class="month">Jul</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-07-05T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Jacqueline Henríquez</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Lope de Vega&nbsp;</strong><br>
+	Chef Jacqueline Henríquez</p>
+</div>  </div>  </div>
+  <div class="views-row views-row-22 views-row-even views-row-last">
+      
+  <div class="views-field views-field-field-date">        <div class="field-content"><div class="upcoming-date" data-ymd="2012-7-6">
+<span class="day">06</span>
+<span class="month">Jul</span>
+</div>
+</div>  </div>  
+  <div class="views-field views-field-field-date-1">        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2012-07-06T17:30:00-04:00">5:30PM</span></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content">Chef Wandy Robles</span>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><p><strong>Nacional Santiago&nbsp;</strong><br>
+	Chef Wandy Robles</p>
+</div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>
+
+
+<div class="myevents"></div>
+</body>
+</html>

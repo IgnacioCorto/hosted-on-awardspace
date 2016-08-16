@@ -1,0 +1,164 @@
+ - distractions * infinity
+ - hey!! oye!! mira!!
+ - achieve -vs- sacrifice
+ - anxiety and surrender
+ - respect the itinerary, the same way your respect:
+   your parents, relatives, friends, work, wife, children
+
+================================
+ 3 any order -  n!
+ 2/3 in group -  n!/r!
+ 2/3 any order - n!/(n-r)!    --> [combinations]
+ 3 any setup -  2^8 -> binToDec
+================================
+
+3/1, Rourke  Bosnia
+
+20100906.1116:
+why can't I be workaholic?
+ - you distract yourself with your thoughts
+why can't I plan?
+why all my plans have drawbacks?
+ - you are hunting perfection, and that doesn't exist
+why can't I withstand eternal change?
+ - you fear to become obsolete
+why can't I be single-headed?
+why do I fear to become single-headed?
+ - you should add your own improvement to your itinerary
+why is difficult to start?
+why do I find that way as a too long one?
+why can't I start?
+why do I keep repeating the same questions?
+why do I don't want to do anything?
+why do I prefer comfort, even after I know I'll achieve nothing with it?
+ - because happiness is an illusion. will your goals make you happy?
+ - make others "happy" by surrendering yours!
+why my plans are not complete?
+ - you don't need them complete. you need them flexible and working.
+why can't I elaborate a flexible plan ??????????   <--- 
+why "just do it" is not enough to move me?
+why my fear to fail stops me?
+why don't I want to lose, even after I know to lose is an eternal possibility?
+ - don't you want to suffer? that's a too childish and naive reaction from you.
+ - "love suffering", "surrender"
+why don't I art, if there are many things I want to keep and achieve?
+why do I need a reason or a push to make me do what I must do?
+ - tunnels, elevations, subways needed destruction, as civilization needs wars
+why do I need the greatest and ultimate reason to produce art?
+why does it make me feel tired, frightened, impotent, incapable?
+ - again, you need it flexible and working, not perfect.
+ - a working one is easier than a flexible one.
+ - what you condemn and criticize today, you will do tomorrow.
+why do I write all this $#!% instead of coding?
+ - compare code with nothing, and compare it with everything.
+ - you bother your self too much
+ - there are many arts to be done, enough to spoil your "happymess"
+ - there are tons, milliards of, a lot of pending art
+why can't I art?!
+ - you only beg, but you can't contruct anything! if you can, just do it!  <---
+why don't I want to construct without a plan?
+why don't I want to create a mess?
+why grep and find/replace are not enough for me?
+ - flexible for everything, accept everything, adapt to everything,
+ - raw material, clay, wood, stone,... sculpture
+ - you plumb pieces, or create them.
+
+Just do it! Why? What does it? And?
+
+20100907.0930:
+why do I hate change? WHY DO I HATE CHANGE?!!!!!!
+why do I fear change?
+why don't I want change?
+ - insecurity, lostness. life's taste's loss.
+ - everyday you learn something new ... and forget something  (wandy)
+ - Metathesiophobia: unconscious protective mechanism
+why "optimists" are too simplistic?
+ - it's a hard work. someone has to do it. that's why we get paid.
+ - it can be done. all is possible.
+why there are clients I could say "sorry, but I can't do that"?
+why does my idea get easily understood when I put myself as the example?
+
+The ultimate method to overcome pain
+ (1) Don't have intention to overcome pain.
+ (2) Don't fear pain emotionally.
+ (3) Accept pain as it is.
+ (4) Just endure pain at the present moment. 
+
+
+20100908.1140: "pleasure of randomness"
+ - you are a device that its goal is to make decisions.
+why don't I want to forget the joy of randomness?
+why do I want to teach the joy of randomness to others?
+ - because any possible improvement is born from random explorations
+why do I think that making decisions and joy of randomness are related
+ - making decisions is joy of randomness at its best!
+why do I feel worried again?
+ - randomness of goals. randomness of what to do, randomness of results.
+ - even inputs can be random! your role in history will be defined by the amount
+   of acceptance that results of your decisions have (not how good or bad)
+
+
+#1: Of all bad things that happen in both extremes of our actual system, they'll
+    praise the one that unites the most of people, and bury the other ones.
+#2: Your role in history will be defined by the amount of acceptance
+    that results of your decisions have, not how good or bad they were.
+#3: How to test if an alternative is good? Who watches the Watchmen?
+    How can people recognize the best alternative?
+    How can people defeat those crazy materialistic bosses?
+    Why should we all pay for corruption of bosses?
+     - you are corrupt too. and pay for service from corrupts.
+    But her actions made me this way. She was corrupted too...
+     - you could corrupt her
+    Corrupted by me? She believed me not. 
+    But normally people are not confident of myself.
+#4: I build up and increase my sadness until my guilt complex appears.
+    birth, ill, pain, age, death.
+     - people know you are creative, you don't create golds, but create many
+       bronzes and coopers.
+    stop that silly feeling of pride.
+     - that's what YOU think THEY think.
+#5: Ok. All those objections, problems, errors, hindrances, obstacles that you
+    mention are true, but, even though they are true, you still can do something
+    that can solve that problem. We only want beg you to add "little tweaks"
+    after you have done it.
+#6: yes, randomness, e+motion, sell, task,
+    That's our task. That's what we get paid for. We do it, change it, and
+    tweak it as you like, and recieve the blame for it if it doesn't work as
+    expected. And still we need to be happy. Einsten Miracle Quote.
+    Do you think we should simply ignore that bad side? Why don't we celebrate
+    when somebody dies? or when diseased? or crippled? Or better: don't think
+    about it at all. Show indifference to your friends' suffering, because it's
+    bad and we should be in good mood forever, right? No! because they will
+    reduce their estimation towards you. Challenges, Families, Relationship,
+    Friends, ... the silly "That's another thing" answer. I hate it. I believe
+    in Universal Law. Law should be applied to every[thing|one|where]. Then,
+    What would my penalty be?
+
+_________________
+what i criticize in others, i will do it tomorrow
+1) what i criticize in me, others will do tomorrow
+1) what i criticize in me, I won't do tomorrow
+_________________
+What java import/namespaces has to do with "code as prose"?
+To create a readable code with either linear or navigable structure.
+The problem is our human volatile memory for multiple variables.
+Math, pencil, paper, and "dictionary" will be needed.
+_________________
+What shell commands, actions, and params have to do with my workaholic wish?
+You need to keep THE ESSENCE in your mind, forever.
+Reference Links and Search Engine for program codes.
+_________________
+What does clients wanting a prototype working version
+before the main one have to do with my needed push to program?
+ - Because that's what clients need to see.
+It's slow to create!
+ - but you are losing time
+And that's what I don't want to lose! $#!%, help!
+_________________
+They don't allow tabs, but source code of their libraries have tons of tabs.
+They don't want the future generations to commit the same mistakes, but they
+recomend newbies to look at library source code to learn coding techniques.
+It's like when a killer's son is forbidden to kill.
+
+
+flexible padron check trans-credit

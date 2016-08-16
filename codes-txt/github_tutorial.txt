@@ -1,0 +1,36 @@
+git config --global user.name "Ignacio Cortorreal"
+git config --global user.email "nombre@dominio.tld"
+git config --global credential.helper 'cache --timeout=3600'
+
+git init
+git add ignacio1.txt
+git commit -m 'primer test commit'
+
+git pull https://github.com/IgnacioCorto/spawningcamping-ninja.git
+git remote add original https://github.com/IgnacioCorto/spawningcamping-ninja.git
+git push original master
+
+
+### Holy Trinity ### 
+
+git add ignacio1.txt
+git commit -m 'explanation of the commit'
+git push original master
+
+
+### SSH KEYS + SSH REPOSITORIES ###
+
+ssh-keygen -t rsa -C "nombre@dominio.tld"
+ssh -T git@github.com
+
+git pull git@github.com:IgnacioCorto/spawningcamping-ninja.git
+git remote add origssh git@github.com:IgnacioCorto/spawningcamping-ninja.git
+
+
+### OS X KeyChain ###
+
+git credential-osxkeychain
+curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+chmod u+x git-credential-osxkeychain
+sudo mv git-credential-osxkeychain `dirname \`which git\``
+git config --global credential.helper osxkeychain

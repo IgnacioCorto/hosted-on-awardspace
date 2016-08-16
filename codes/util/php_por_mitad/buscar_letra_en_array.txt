@@ -1,0 +1,7 @@
+	if($porLetra) {  /* PARA BUSCAR {$porLetra} en {$lista} */
+		for($ii = 0; $ii < $result_count; $ii++) { 
+			if( strtoupper( substr($lista[$ii]['u']['user'],0,1) ) == $porLetra ) {
+				$inicio_lista = $ii 
+			}
+		}
+	}

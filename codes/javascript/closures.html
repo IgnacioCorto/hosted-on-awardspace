@@ -1,0 +1,14 @@
+<p>'si' muestra '2', pero los demas '1'</p>
+<a id="si">si</a> |
+<a id="no">no</a> |
+<a id="eh">eh</a>
+<script>
+(function(l){
+	for(i=0;i<l.length;i++) l[i].href='javascript:void(0);'; 
+})(document.getElementsByTagName('a'));
+var a = 1;
+document.getElementById('si').onclick = function(){ var b=a; alert(b); };
+document.getElementById('no').onclick = function(){ var b=a; return function(){alert(b);} }();
+document.getElementById('eh').onclick = function(b){ return function(){alert(b);} }(a);
+a = 2;
+</script>

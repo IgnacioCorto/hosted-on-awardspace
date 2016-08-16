@@ -1,0 +1,39 @@
+-- PREVIOUS --
+SELECT * FROM image
+WHERE IsActive
+AND Status=2
+AND NOT IsPrivate
+AND AlbumID={$album_id}
+AND ImageID<{$current_image_id}
+ORDER BY ImageID DESC
+LIMIT 1
+
+
+-- NEXT --
+SELECT * FROM image
+WHERE IsActive
+AND Status=2
+AND NOT IsPrivate
+AND AlbumID={$album_id}
+AND ImageID>{$current_image_id}
+ORDER BY ImageID
+LIMIT 1
+
+
+-- COUNT --
+SELECT count(Id) FROM image
+WHERE IsActive
+AND Status=2
+AND AlbumID={$album_id}
+LIMIT 1
+
+
+-- PAGES --
+$perpage = 2;
+$total_pages = 	ceil($total/$perpage);
+
+$page = 1;
+if(isset($_GET['page'])) $page = intval($_GET['page']);
+if($page<1 || $page>$total_pages) $page = 1;
+
+$start_page = ($page-1)*$perpage;

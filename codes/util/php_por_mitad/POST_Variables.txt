@@ -1,0 +1,17 @@
+foreach($_POST as $key=>$value) {
+    // echo "\${$key} = "; // EMPTY POPULATION
+
+    // echo "\${$key} = \$_SESSION['post']['$key']; <br /> "; // POPULATE FORM
+    // echo "\${$key} = \$_SESSION['${$value} <br />";  // POPULATE FORM
+
+    // echo "\${$key} = \$_POST['{$key}'] ; <br />";   // QUERY VARIABLES
+    // echo "{$key} = '{\${$key}}' , <br />";   // DATABASE QUERY
+
+    // --> DATABASE --> SESSION
+    // echo "\$_SESSION['1st_post']['$key'] = \$line['$key'] ; <br />";
+
+}
+
+
+
+<?php echo 'ValorSelect'==$LaVariable?'selected="selected"':''; ?>

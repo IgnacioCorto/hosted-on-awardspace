@@ -1,0 +1,8 @@
+/* CSS File */
+
+.any_selector_you_choose {
+    border:2px solid red;
+    width:130px;
+    height:107px;
+    background:url(../images/republica_badge.jpg)
+}

@@ -1,0 +1,18 @@
+// IFRAME Functions 
+
+	parent.framename.location.reload();
+
+//Classic Access
+
+   document.forms['form01'].elements['field01'].value
+
+   document.form01.field01.value
+
+   document.getElementById('Field_ID').value
+
+//Multiple Select Access
+
+   var state_op = doc.form.elements["state"];
+   var ch = doc.options[doc.selectedIndex].value; 
+   
+

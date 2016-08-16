@@ -1,0 +1,4 @@
+
+echo '----' . mb_detect_encoding($descripcion) . '----' ;
+
+echo nl2br( mb_convert_encoding($descripcion,'ISO-8859-1','UTF-8') );

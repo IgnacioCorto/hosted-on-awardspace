@@ -1,0 +1,3 @@
+interface ObserverInterface {
+    void updateIt();
+}

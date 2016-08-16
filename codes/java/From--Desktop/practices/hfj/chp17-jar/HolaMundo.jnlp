@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf=8" ?>
+
+<jnlp spec="0.2 1.0"
+      codebase="http://127.0.0.1/php-test/java"
+      href="HolaMundo.jnlp">
+
+    <information>
+        <title>Hola Mundo App</title>
+        <vendor>Ignacio Cortorreal</vendor>
+        <homepage href="index.html" />
+        <description>Sere Rico, Millonario y Poderoso</description>
+        <icon href="HolaMundo.gif"></>
+        <offline-allowed />
+    </information>
+
+    <resources>
+        <j2se version="1.3+" />
+        <jar href="app1.jar" />
+    </resources>
+
+    <application-desc main-class="com.HolaMundo" />
+
+</jnlp>

@@ -1,0 +1,131 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style>
+.holder { position:relative; width:500px; height: 100px; margin:0 0 15px; border:1px solid blue; padding:10px; }
+.clicker { border:1px solid black; width:100px; height:100%; float:left; margin:0 15px 0 0;}
+.replay {border:1px solid black; padding:10px;font: 11px/11px Arial;}
+.cursor {position:absolute; z-index:10; left:-10px; top:-10px; width:10px; height:10px; border:2px solid red; line-height:10px; text-align:center;}
+</style>
+
+
+<div class="holder">
+  <div class="clicker" clicks="0"></div>
+  <div class="clicker" clicks="0"></div>
+  <div class="clicker" clicks="0"></div>
+  <div class="cursor">+</div>
+</div>
+<p>
+Mueve el mouse dentro del recuadro azul, luego haz click en el link de 'Repetir'.<br />
+<i>NOTA: (Aun falta que repita los clicks a los cuadros para el cambio de color</i>
+</p>
+<p>
+| <a href="javascript:void(0);" class="button">Repetir</a> | 
+<a href="javascript:void(0);"  class="btn_clear">Limpiar</a> | 
+</p>
+<div class="replay" lx="0" ly="0" ts="0"></div>
+
+<script>
+$(function(){
+
+	$('.clicker').click(function(){
+		var colors = ['red','green','blue','gray','cyan','magenta','yellow','black'];
+		var size = colors.length;
+
+		var clicks = Number($(this).attr('clicks'));
+		var ic = clicks%size;
+		
+		$(this).css('background',colors[ic]);
+		
+		$(this).attr('clicks',++clicks);
+	});
+	
+	
+	$('.holder').mousemove(function(e){
+		var obj = $('.replay').eq(0);
+		var ox=Number(obj.attr('lx'));
+		var oy=Number(obj.attr('ly'));
+		var ot=Number(obj.attr('ts'));
+		console.log(ox,oy);
+		
+		var nx=ox-e.pageX;
+		var ny=oy-e.pageY;
+		var nt=ot-e.timeStamp;
+		
+		obj.attr('lx',e.pageX);
+		obj.attr('ly',e.pageY);
+		obj.attr('ts',e.timeStamp);
+		
+		$('.replay').append("("+nx+", "+ny+", "+nt+") ");
+	});
+
+
+	$('.button').click(function(e){
+		var str = $('.replay').html();
+		var patt=/\((\-?\d+), (\-?\d+), \-?(\d+)\)/g;
+		
+		var mcursor = $('.cursor').eq(0);
+		mcursor.css({left:'0px',top:'0px'}).show();
+
+		var ox=mcursor.position().left;
+		var oy=mcursor.position().top;
+
+		var data=patt.exec(str);
+
+		function doTimeouts(){
+			if(data==null) {
+				mcursor.css({left:'0px',top:'0px'}).hide();
+				return;
+			}
+		
+			var nx=ox-Number(data[1]);
+			var ny=oy-Number(data[2]);
+			
+			var tts=Number(data[3]);
+			var to= tts>600000?0:tts;
+
+			console.log('old pos',ox,oy,data[3]);
+
+			ox=nx;
+			oy=ny;
+			
+			//17 = cursor's size + holder's padding
+			mcursor.css({left:(nx-17)+'px',top:(ny-17)+'px'});
+			
+			data=patt.exec(str);
+			setTimeout(doTimeouts,to);
+		}
+		doTimeouts();
+
+		
+		/*var iid = setInterval(function(){
+			var data=patt.exec(str);
+			if(data==null) {
+				mcursor.css({left:'0px',top:'0px'}).hide();
+				clearInterval(iid);
+				return;
+			}
+			
+			console.log('old pos',ox,oy,data[3]);
+			
+			var nx=ox-Number(data[1]);
+			var ny=oy-Number(data[2]);
+
+			ox=nx;
+			oy=ny;
+
+			mcursor.css({left:nx+'px',top:ny+'px'});
+		},100);*/
+	
+	});
+
+
+	$('.btn_clear').click(function(e){
+		$('.replay')
+			.empty()
+			.attr('lx',0)
+			.attr('ly',0)
+			.attr('ts',0)
+			;
+	});
+	
+});
+</script>  

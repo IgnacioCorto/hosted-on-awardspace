@@ -1,0 +1,16 @@
+
+- Body OnLoad VS. DomReady VS. Internet Exploter
+
+- use the "prototype" property to use "real inheritance"
+
+- YOU CANT KNOW WHICH EVENTS ARE BINDED TO A HTML DOM ELEMENT
+
+- JavaScript libraries which explodes CSS
+
+- cross-browsing  keyCode, or add/remove Select item
+
+- binding events or restoring with a global reference
+
+- name/id combo with WORD CHARACTERS! (no brackets, please)
+
+- Number as a String:  Number(int)  or  (int*1)

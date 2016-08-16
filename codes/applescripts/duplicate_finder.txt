@@ -1,0 +1,11 @@
+-- http://hints.macworld.com/article.php?story=20080108144434753
+
+try
+  tell application "Finder"
+    activate
+    set this_folder to (the target of the front window) as alias
+    set {x1, y1} to position of front window
+    make new Finder window to this_folder
+    set position of front window to {(x1 + 50), (y1 + 150)} --This offsets the new window more than the average Finder tiling does
+  end tell
+end try

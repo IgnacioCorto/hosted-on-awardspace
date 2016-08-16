@@ -1,0 +1,28 @@
+<script language="javascript">
+  newWindow = window.open('','newWindow')
+  newWindow.document.write(document.forms[0].elements.length+"<br /> <br />");
+
+ newWindow.document.write('<table>');
+ 
+  for(ii=0; ii<document.forms[0].elements.length; ii++)
+   {
+    ctrlType = document.forms[0].elements[ii].type;
+
+    if (ctrlType == "select-one"  )  ctrlType="select:" ;
+    else if(ctrlType == "checkbox")  ctrlType+=":" ;
+    else if(ctrlType == "radio"   )  ctrlType+="button:" ;
+    else ctrlType="" ;
+
+    newWindow.document.write
+	     (
+		  '<tr><td> {txt_' +
+		  document.forms[0].elements[ii].name + 
+		  '} </td><td>' +
+		  "{" + ctrlType + document.forms[0].elements[ii].name + "} <br />" +
+		  '</td></tr>'
+		  );
+   }
+
+ newWindow.document.write('</table>');
+
+</script>

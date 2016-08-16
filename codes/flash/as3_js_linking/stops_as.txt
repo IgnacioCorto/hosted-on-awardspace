@@ -1,0 +1,28 @@
+/*
+************************************************
+import flash.external.ExternalInterface;
+ExternalInterface.call("compartir", "facebook");
+************************************************
+*/
+
+import flash.external.ExternalInterface;
+
+var stopAt:int = 1;
+ExternalInterface.addCallback("setFlashFrame", setFrame);
+function setFrame(iValue:int):void { stopAt = iValue; }
+
+ExternalInterface.call("queLoco", "Programando con AS3");
+
+addEventListener(Event.ENTER_FRAME,eventFunction);
+function eventFunction(event:Event) {
+	doAnimation();
+}
+
+function doAnimation():void{
+	if(currentFrame==stopAt) stop();
+	else play();
+	//trace("Do Something"+currentFrame);
+}
+doAnimation();
+
+

@@ -1,0 +1,41 @@
+<script type="text/javascript">
+
+//############ ON <HEAD> ##############
+
+var xmlDoc;
+function loadXML(url)
+{
+// code for IE
+if (window.ActiveXObject)
+  {
+  xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+  xmlDoc.async=false;
+  xmlDoc.load(url);
+  getmessage();
+  }
+// code for Mozilla, Firefox, Opera, etc.
+else if (document.implementation &&
+document.implementation.createDocument)
+  {
+  xmlDoc=document.implementation.createDocument("","",null);
+  xmlDoc.load(url);
+  xmlDoc.onload=getmessage;
+  }
+else
+  {
+  alert('Your browser cannot handle this script');
+  }
+}
+
+//############ CODIGO ##############
+
+function getmessage()
+{
+document.getElementById("mensaje").innerHTML=
+xmlDoc.getElementsByTagName("empleado")[0].childNodes[0].nodeValue;
+}
+
+// ############ LLAMADA A LA FUNCION ##############
+
+loadXML("comunique.xml");
+</script>

@@ -1,0 +1,39 @@
+<!--
+By using this Dummy Row technique, table layouts can get a semi-cross-browsing look.
+The dummy row holds the widths of the cells that would exist if there were no colspan.
+The old tag "bordercolor" works really nice with "border-collapse"
+The dirty hack is to remove vertical padding from the dummy cells.
+-->
+
+<style>
+.dummy_row, .dummy_row * { font-size:0; border:none; visibility:hidden; padding:0 10px; }
+.receipt { border-collapse:collapse; }
+</style>
+
+
+<table class="receipt" bordercolor="#000" border="1" width="600" cellpadding="10" cellspacing="0" >
+
+	<tr class="dummy_row">
+		<td width="100"></td>
+		<td width="200"></td>
+		<td width="200"></td>
+		<td width="100"></td>
+	</tr>
+
+	<tr class="dummy_row">
+		<td colspan="3"></td>
+		<td></td>
+	</tr>
+
+	<tr class="dummy_row">
+		<td></td>
+		<td colspan="2"></td>
+		<td></td>
+	</tr>
+
+	<tr class="dummy_row">
+		<td></td>
+		<td colspan="3"></td>
+	</tr>
+
+</td>

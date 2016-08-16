@@ -1,0 +1,159 @@
+ - C0mm0n 4bstr4ct Cl4ss f0r 4ll c0mp0n3nts
+      4 c0mm0n 0bj3ct!!   R00m, W4ll 4nd D00r 4r3 M4pSit3
+	  
+- 3nc4psul4t3 > Int3rf4c3 > D3l3g4t3 >
+- SWITCH VS. 0V3RRID3 !! 
+- Fl3xibility Vs. C0mpl3xity
+- ***Ch4ng3 4t run-tim3***
+- Pr0t0typ3 > R3quir3m3nts > 3XP4NSI0N > r3us3 > c0ns0lid4ti0n
+- 431: 4ll P4tt3rns Di4gr4m
+
+94: ### CR34TI0N4L P4TT3RNS ###   [p95]
+
+99: 4bsF4ct0ry:  m4ny l00k-4nd-f33l f0r 4LL widg3ts  [p101]
+    3n3mi3s: 4dding n3w pr0ducts, 4cc3ssing subcl4ss 0p3r4ti0ns
+    Fri3nds: Singl3t0n, Pr0t0typ3,
+	    1) M4z3G4m3->Cr34t3M4z3(Int3rf4c3F4ct0ry)
+		2) Int3rf4c3F4ct0ry->Cr34t3Int3rf4c3Butt0n()
+		
+110: Build3r: r34d, p4rs3 0r tr4nsl4t3 4 RTF D0cum3nt  [p112]
+     R34d3r h4s 4 C0nv3rt3rInt3rf4c3, 4nd its C0ncr3t3 cl4ss "R3TURNS" 4 P4rs3d Pr0duct
+	    1) M4z3G4m3->Cr34t3C0mpl3xM4z3(Int3rf4c3 Build3r)
+		2) g4m3.cr34t3M4z3(build3r){build3r.d0R00m().d0D00r().d0W4ll();}
+		3) m4z3->cr34t3M4z3(build3r);  m4z3=build3r.g3tM4z3();  t0t4l=build3r.g3tT0t4l();
+
+121: F4ct0ry: 4pps/D0cs fr4m3w0rks?  [p122]    105..115..130
+     Sup3rCl4ss pr0vid3s impl3m3nt4ti0ns. 3xt3nsi0ns 0v3rrid3 0p3r4ti0ns.
+	 B0mb3dG4m3 3xt3nds  N0rm4lG4m3F4ct0ry //0v3rrid3 s0m3 0p3r4ti0ns
+	 Fri3nds: t3mpl4t3, 4bsF4ct0ry
+        1) cr34t0r.cr34t3(Pr0ductID); 0r  Int3rf4c34pp.cr34t3(Int3rf4c3D0c)
+		2) C++ T3mpl4t3s 0r J4v4 G3n3rics
+		3) 0v3rrid3: W4ll* m4k3W4ll() { r3turn B0mb3rW4ll; }
+		
+133: Pr0t0typ3: 4 music 3dit0r   [p135]    105..130..140
+     *** Im4gin3 4 Dr0pD0wn which c4n cr34t3 4 N3w Circl3, Squ4r3 0r Tri4ngl3
+	 *** y0u c4n cr34t3 4 m3th0d f0r 34ch 0n3, 0r ch00s3+cl0n3 4n 3xisting 0n3.
+	 *** 4bsF4ct0ry: cl4ss M4z3F4c ... B0mbF4c 3xt3nds M4z3F4c ... g4m3.g3t(B0mbF4c)
+     *** Pr0t0typ3: Pr0t0F 3xt M4z3F ... Pr0t0F(b1) ... g4m3.g3t(Pr0t0(b2))
+	 *** Pr0t0typ3F4ct0ry d3l3g4t3s m3th0ds t0w4rds P4r4m3t3rs fr0m C0nstruct0rs
+     Pr0t0Sup3r h4s c0nst m3th0ds, 4nd c0nstruct0r g3ts p4r4m3t3rs
+	 34ch m4z3 n33ds 4 "3xt3nds Pr0t0F4ct"
+	 Fri3nds: 4bsF4ct0ry, C0mp0sit3, D3c0r4t0r
+     3n3mi3s: impl3m3nt Cl0n3(), m4yb3 n33ds 4 M4n4g3r()
+	    1) Pr0t0typ3F4ct0ry
+		2) Pr0t0F4ct b0mb3r(m4z3, b0mbW4ll, b0mbR00m, d00r);
+		3) g4m3.cr34t3M4z3(b0mb3r);
+		4) 4v0ids subcl4ssing? Gr4phT00l.w0rk() -> Gr4ph.cl0n3()
+		
+144: Singl3t0n: m4ny print3rs, 0n3 sp00l3r  [p145]
+      1)priv4t3 st4tic inst4nc3; 2)pr0t3ct3d c0nstruct0r;  3)public g3tt3r
+	  Fri3nds: 4bsF4ct0ry, Build3r, Pr0t0typ3
+	  3n3mi3s: m0difying g3tt3r with 34ch n3w Singl3t0n SubCl4ss
+
+155: ### STRUCTUR4L P4TT3RNS ###
+
+157: 4d4pt3r/Wr4pp3r  [p159,169]
+
+171: Bridg3/B0dy/H4ndl3: cr0ss-pl4tf0rm [p174]
+     N3xt st3p 4ft3r 4bsF4ct0ry, is 4 Impl3m3nt4ti0n C0mp0siti0n
+     Wind0w4pp d3l3g4t3s t0 4 Wind0wImpl
+
+183: C0mp0sit3: tr33   [p185]
+     Tr33-lik3 structur3: 4dd, r3m0v3, g3t, f0r34ch
+
+199: D3c0r4t0r: 3xt3nsi0n by c0mp0siti0n   [p198]
+     4dding n3w ch4r4ct3ristics.
+	 cl4ss D3c0r4t0r 3xt3nds C0mp0n3nt 
+	 c0nstruct0r D3c0r4t0r(C0mp0n3nt)
+	 
+208: F4c4d3: 4n int3rf4c3 f0r gr0ups 0f 0bj3cts  [p210]
+     Int3rf4c3 f0r m4ny j0bs fr0m m4ny cl4ss3s
+
+218: Flyw3ight: 0n3 0bj3ct f0r 34ch ch4r4ct3r in 4 d0cum3nt?  [p221]
+
+     h0w d03s it s4v3 sp4c3? by r3using s4m3 0bj3ct
+	 h0w d03s it r3us3 4n 0bj3ct? by s0m3thing lik3 4 f4ct0ry+singl3t0n
+	 h0w d03s it kn0w which cl4ss t0 r3st0r3? 4 p00l 0f flyw3ights
+	 h0w d03s c0nt3xt w0rks? 4ll glyph 0p3r4ti0ns upd4t3 C0nt3xt
+	 h0w d03s it 4ssign 4 f0nt typ3? wh3n glyph s4y "s3tF0nt"
+	 h0w d03s it kn0w which is 4ctu4l c0nt3xt? s3l3ct+tr4v3rs4l??
+	 h0w d03s it ins3rt glyphs in sp3cific pl4c3s? 4rr4y 0f str_l3n
+     did h3 f0rg3t t0 4dd 4 "Ch00s3C0nt3xt()" 0r "FindC0nt3xt()" ?
+	 
+     intrinsic:ch4r4ct3r;  3xtrinsic:f0nt,c00rdin4t3s;
+     Fri3nds: c0mp0sit3, st4t3, str4t3gy
+	 4 BTR33 USING SUM 0F STRING L3NGTHS T0 4CC3SS F0NT F4C3S [p227] !!!!!!
+
+233: Pr0xy/3mb4ss0r: 0p3ning d0cum3nts with bigg3st im4g3s   [p235]
+     This d03sn't f0rw4rd r3qu3st until it is 4v4il4bl3
+	 Fri3nds: 4d4pt3r, d3c0r4t0r
+	 
+
+249: ### B3H4VI0R4L P4TT3RNS ### 
+
+251: Ch4in 0f R3sp0nsibility: h3lp butt0ns   [p253]
+     3xc3pti0ns? h4ndl3 0r thr0w?
+	 H3lp > 4pplic4ti0n > Di4l0g > Butt0n > H3lpR3qu3st
+	 Fri3nds: c0mp0sit3
+	 
+263: C0mm4nd: c0mm0n cl4ss f0r 4ll typ3 0f r3qu3sts [p266]
+     Y0u c4n impl3m3nt und0/r3d0
+	 
+274: Int3rpr3t3r: s0m3thing lik3 R3g3xp  [p277]
+     274-275 (4 Int3r3sting Figur3s 4b0ut p4rsing) 
+	 283: C++ Int3rpr3t3r 3x4mpl3
+	 4 C0nt3xt 0bj3ct t0 st0r3/r3tri3v3 v4ri4bl3s
+	 Fri3nds: C0mp0sit3, Flyw3ight, It3r4t0r, Visit0r
+	 
+289: It3r4t0r: g3n3r4l w4y t0 4cc3ss lists  [p291]
+     first,n3xt,d0n3,curr3nt
+	 Fri3nds: c0mp0sit3, f4ct0ry, m3m3nt0
+	 
+305: M3di4t0r: dyn4mic 4nd d3p3nd4nt f0rm 3l3m3nts!! [p309]
+     M3di4t0r is th3 Chi3f. Widg3ts c4n 4dvic3 him
+     M3di4t0r c00rdin4t3s 4ll m3mb3rs. 0bs3rv3r inf0rms 0nly.
+	 Widg3t h4s 4 Dir3ct0r ... _dir3ct0r.Widg3tCh4ng3d(thisWidg3t)
+	 Fri3nds: F4c4d3 + 0bs3rv3r
+	 
+316: M3m3nt0: und0 m0dific4ti0ns 0f 4n 0bj3ct   [p318]
+     0rigin4t0r.Cr34t3/S3tM3m3nt0  >  M3m3nt0.G3t/S3tSt4t3
+	 St4t3 4nd/0r S3ri4liz3??
+	 Fri3nds: C0mm4nd, It3r4t0r
+
+							??? m3m3nt0 316 st0n3_c0ld l4pt0p_n0is3 b4ldn3ss
+							!!! m3m3nt0 is 0n p4g3 316, st0n3_c0ld numb3r,
+								h3 is in b4ldn3ss 4s m3, 
+								I think l4pt0p_n0is3 is c0ntributing m0r3 t0 min3.
+								 
+325: 0bs3rv3r: m0d3l upd4t3s, vi3ws t00!! [p328]
+     subj3ct:  4tt4ch, d3t4ch, n0tify;  
+	 0bs3rv3r: upd4t3, subj3ct->g3tSt4t3
+	 Fri3nds: M3di4t0r, Singl3t0n
+  
+338: St4t3:  TCP St4tus   [p339]
+     0bj3ct h4s 0bj3ctSt4t3s
+	 this is C0mp0siti0n + D3l3g4ti0n
+	 Frin3ds: Flyw3ight, Singl3t0n
+	 
+349: Str4t3gy: typ3s 0f C0mp0siti0n [p351]
+     0bj3ct c4n r3pl4c3 it 4lg0rithms
+	 Fri3nds: Flyw3ight
+
+360: T3mpl4t3: 0p3nD0cum3nt wh0l3 pr0c3ss   [p362]  //Z4ngi3f
+     Y0u c4n 3xt3nd  v0id (pr0cc3ss) 0r b00l34n (c0nditi0n4l) m3th0ds
+	 Fri3nds: F4ct0ry, Str4t3gy
+	 
+366: Visit0r:  sp3ll, synt4x 4nd s3m4ntic ch3ck3r  [p369]
+     glyph.ch3ck(sp3ll) 0r  sp3ll.ch3ck(glyph) ?? I think it's th3 first
+	 3l3m3nt.4cc3pt(visit0r)
+	 Fri3nds: C0mp0sit3, Int3rpr3t3r
+	 
+	 
+	
+	 
+
+
+
+
+
+		

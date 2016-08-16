@@ -1,0 +1,16 @@
+<script type="text/javascript">
+
+window.addEvent('domready',function(){
+
+	
+	/* OBJETO 'AJAX' */
+
+	var myAjax = new Ajax( '/comentarioProductos/view/'+ dise+ "/"+ page2, {
+		onRequest:function(){  /* LOADER */ },
+		update: 'RECIPIENTE',
+		evalScripts:true
+	});
+	
+	myAjax.request();
+});
+</script>

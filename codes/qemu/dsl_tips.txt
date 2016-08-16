@@ -1,0 +1,24 @@
+dsl-4.4.10.iso
+
+harddisk
+
+D:\ignacio\software\dsl\qemu
+
+qemu -L . -hda harddisk -cdrom ..\\..\\dsl-4.4.10.iso -m 256 -boot d
+
+su
+apt-get -f install
+apt-get clean all
+apt-get update
+apt-get install kdenlive
+
+
+punti hit
+ - anger/conversation/evassion
+deladeath hit
+ - time/protection/excuse/
+guyver
+ - money,look, ¿god?, benefit for the ocassion
+ 
+kids that grows up with phantasies
+will blame us later for wasting their time

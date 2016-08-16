@@ -1,0 +1,13 @@
+var text = "25 -- 44 ++ 91 == 42 * 5";
+var pattern = "\\d+";
+var regexpobj  = new RegExp(pattern,'gi');
+var count = 0;
+while(regexpobj.test(text)) count++;
+alert(count);
+
+
+//regexpobj.test(text)   returns   true or false
+//regexpobj.exec(text)   returns   'string' or null
+
+
+//REPLACING:  return v.replace(/(\s)(\w+)(\s)/, '$1<span>$2</span>$3');

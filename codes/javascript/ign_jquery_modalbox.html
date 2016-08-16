@@ -1,0 +1,58 @@
+<style>
+.ListaDeDirecciones {
+    border: 2px solid black;
+    display:none;
+    position:absolute;
+    background: #FFEFEF;
+    width:360px;
+    left:100%;
+    top:0;
+}
+
+.ListaDeDirecciones .cerrarVentana {
+    float: right;
+
+}
+</style>
+
+
+
+<script type="text/javascript" src="/banco_leon/webform/jquery.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    $('.mostrarDirecciones').click(function(e){
+        var d = $('.ListaDeDirecciones') ;
+        var medio = e.pageX - d.width()/2;
+        var xpos = medio<0 ? '0px' : medio+'px' ;
+        var ypos = (e.pageY + 16) + 'px' ;
+        
+        d.css({ display:'block', left:xpos , top:ypos });
+    })
+
+    $('.ListaDeDirecciones .cerrarVentana').click(function(e){
+        $(this).parent().css('display','none');
+    })
+    
+})
+</script>
+
+
+
+<div class="ListaDeDirecciones" />
+
+	<a href="javascript:void(0);" class="cerrarVentana">Cerrar Ventana</a>
+
+	<b>Una Lista Simple</b> <br />
+
+	<ul> 
+	<li>asdf</li>
+	<li>jkl;</li>
+	<li>abcd</li>
+	<li>wxyz</li>
+	<li>1234</li>
+	</ul>
+
+</div>
+
+

@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+  <title>21 things I learned about CakePHP - Avatar Financial Group</title>
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/posts/rss/" />
+  
+  <link rel="stylesheet" type="text/css" href="/css/default.css" />  
+  
+  <link rel="stylesheet" type="text/css" href="/css/cake_learned.css" />
+  
+  <link rel="stylesheet" type="text/css" href="/css/static.css" />
+    
+    
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  
+    <meta name="robots" content="noydir,noodp" />
+    
+  
+  
+  <meta name="verify-v1" content="bJwq4+c8lTQxiIiJH6jhJFd9mvTYW4WNquAQT7TlOtQ=" /> 
+  
+    
+  <script type="text/javascript" src="/js/default.js"></script>
+  
+      
+</head>
+
+<body>
+ 
+<div id="container">
+  <div id="content"> 
+  
+  
+
+
+
+<div id="cake">
+
+  <h1><span>21 things I learned about CakePHP</span></h1>
+  
+  <div class="clearfix">
+  
+    <div id="static_with_sidebar">
+       
+       <h2>What's Cake?</h2>
+       <p>
+         <a href="http://www.cakephp.org">Cake</a> is a rapid development framework for PHP which uses commonly known design patterns like ActiveRecord, Association Data Mapping, Front Controller and MVC.
+         CakePHP is basically the PHP equivalent of Ruby on Rails.
+       </p>
+
+       <h2>What should I read first?</h2>
+       <p>
+         If you are new to CakePHP, I highly recommend reading through the <a href="http://manual.cakephp.org/">CakePHP manual</a> and the <a href="http://manual.cakephp.org/chapter/20">15 minute blog tutorial</a> in addition to the items listed here.  
+         There are a ton of tutorials in the <a href="http://wiki.cakephp.org/">wiki</a>, too.
+       </p>
+       
+       <h2>Why the list?</h2>
+
+       <p>
+         CakePHP is very new, so documentation beyond the basics is a bit sparse in areas.
+         I built this website entirely using CakePHP and took notes along the way to share with others. 
+         While some of these items can be found in obvious places like the manual, others required a bit of elbow grease to figure out.
+         My name is Matt Inman and your feedback is welcome, feel free to email <script language="javascript" type="text/javascript"> write_email('matt','me'); </script> with questions or comments.
+       </p>
+    
+    </div>
+    
+      
+  
+  <div id="sidebar">
+  
+    
+    <strong>Avatar Financial</strong>
+    
+    <ul class="arrow">
+
+       
+            
+              
+        <li><a href="/posts/">Avatar's Blog</a></li>
+        
+            
+            
+              
+        <li><a href="/glossary">Financial Term Glossary</a></li>
+        
+            
+            
+              
+        <li><a href="/articles/">Articles</a></li>
+        
+            
+            
+              
+        <li><a href="/pages/external_resources/">Online Resources</a></li>
+        
+            
+            
+    </ul>
+    
+  </div>   </div>
+
+    
+    
+   <div id="static">
+    
+     <ul class="arrow">
+      
+          <li>
+          
+              <h2>Easily creating static pages</h2>
+              
+              <p>
+                I needed to create several pages that didn't use any models and contained static data inside the default layout. 
+                My first thought was to create a controller for these pages and define an action for each static page I needed.
+                However, this solution seemed tedious and would make it difficult to quickly add new pages.
+                Enter the pages controller - simply create a view inside the views/pages/ folder and it'll automatically be rendered in /pages.
+                For example, if I created /views/pages/matt.thtml it would be accessible via http://www.example.com/pages/matt 
+              </p>
+            
+          </li>
+        
+          <li>
+
+          
+              <h2>Static pages - Adjusting the page title </h2>
+              
+              <p>
+                If you're using the pages controller and you need to change the page title, add the following to your view:
+                <br />
+                <code>&lt;? $this-&gt;pageTitle = 'Title of your page.'; ?&gt;</code>
+              </p>
+            
+          </li>
+          
+          <li>
+
+          
+              <h2>Static pages - Adjusting other data sent to the layout</h2>
+              
+              <p>If you need to send data to the layout (such as a variable indicating what section to highlight on the nav bar), add this to your view:</p>
+              
+              <code>&lt;? $this-&gt;_viewVars['somedata'] = array('some','data'); ?&gt;</code>
+              
+              <p>That array should then be accessible as $somedata inside your layout. </p>
+            
+          </li>
+          
+          <li>
+
+          
+              <h2>Creating a simple admin center</h2>
+              <p>
+                If you need to create an administrative back-end for your CakePHP site and would like all the actions with administrative capabilities to exist under a specific folder, open up config/core.php and uncomment: 
+                <br />define('CAKE_ADMIN', 'admin');<br /><br />This will then make all actions that are prefixed with &quot;admin_&quot;
+                to be accessible via: <br />/admin/yourcontroller/youraction.
+                For instance, if I created an action in my posts controller called &quot;admin_add,&quot;
+                I would access this via: www.example.com/admin/posts/add<br />
+
+                From there I could simply password the admin folder to prohibit unwanted users from adding posts.
+              </p>
+
+            
+          </li>
+          
+          <li>
+          
+              <h2>Viewing the SQL queries that are running behind the scenes</h2>
+              
+              <p>
+    
+                You can easily see the SQL queries that CakePHP is running by adjusting the DEBUG constant in config/core.php.
+                0 is production, 1 is development, 2 is full debug with SQL, and 3 is full debug with SQL and dump of the current object.
+                I typically have debug set at 2, which renders a table at the bottom of the page that contains SQL debug information.
+              
+                <br /><br />
+                
+                If rendering a table at the bottom of your site is constantly breaking your layout during development (especially if you're making AJAX calls and you're getting SQL inside your pages, not just the bottom), you can easily style this table to be hidden by adding this to your CSS:
+                <br /><br />
+
+                <code>
+                #cakeSqlLog {  display: none; }
+                </code>
+                <br /><br />
+                This will allow you to view debug information in the HTML source code without your layout getting mangled, just don't forget to set debug back to 0 when your site goes live.
+                
+              </p>
+            
+          </li>
+          
+          <li>
+          
+              <h2>Multiple sources of documentation</h2>
+
+              
+              <p>
+                Don't just rely on the <a href="http://manual.cakephp.org/">manual</a>.
+                The <a href="http://wiki.cakephp.org/">wiki </a>and the <a href="http://api.cakephp.org/">API</a> are invaluable sources of information.
+                The <a href="http://wiki.cakephp.org/tutorials">tutorials</a> in the wiki are especially useful, and
+                the API may be daunting at first, but you'll quickly find the information in there is crucial to building a site with CakePHP.
+              </p>
+            
+          </li>
+
+          
+          <li>
+          
+              <h2>Using bake.php</h2>
+              
+              <p>
+    
+                Bake is a command line PHP script that will automagically generate a model, controller, and views based on the design of your database.
+                I highly recommend using <a href="http://wiki.cakephp.org/tutorials:scaffolding_a_blog">scaffolding</a> to get a prototype going of a table that may change a lot in the beginning.
+                If you're fairly certain the data is not subject to any drastic change, I recommend using bake instead.
+                With bake all the files are generated and written to disk and you can make modifications from there.
+                It saves a lot of time doing the repetitive tasks such as creating associations, views,
+                and the basic CRUD controller operations.
+                <br /><br />Using bake is really easy.
+                Once you have a table(s) in your database created, change directories to the /cake/scripts/ folder and run:
+                <br /><code>php bake.php</code> 
+                <br /><br />If you choose to bake interactively it'll walk you through the steps required to create your model, controller, and views.
+                Once everything has been baked I usually go through all the generated code and make custom modifications as needed.
+              </p>
+
+            
+          </li>
+          
+          <li>
+          
+              <h2>Mind permissions when moving cake around</h2>
+              
+              <p>
+    
+                 When I changed from the development server to the live server I tarred up my entire cake directory and scp'd it to the new server.
+                 Immediately I started having an issue where any time the debug level was set to 0 (production mode), data would not be returned for certain database calls.
+                 This was a bit of a catch 22 since I needed to view debug information to troubleshoot the problem. 
+                 <br />Someone in #cakephp kindly pointed out that permissions on the /app/tmp folder need to be writeable by apache.  I changed the permissions to 777 and the issue went away. 
+                 
+              </p>
+            
+          </li>
+          
+          <li>
+
+          
+              <h2>Complex model validation</h2>
+              
+              <p>
+                I needed to validate beyond just checking to make sure a field wasn't empty or it matched a regular expression. 
+                In particular, I needed a way to verify that the email address users registered with was unique. 
+                In the wiki I found this gem: <a href="http://wiki.cakephp.org/tutorials:advanced_validation">this advanced validation tutorial</a>, which covers some advanced methods of validation that were very useful.
+              </p>
+            
+          </li>
+          
+          <li>
+          
+              <h2>Logging errors</h2>
+
+              
+              <p>
+                <code>$this-&gt;log('Something broke'); </code><br />This will log your error to /tmp/logs/
+                (I initially made the mistake of thinking it would log it to the apache error log)
+              </p>
+            
+          </li>
+          
+          <li>
+          
+              <h2>Creating a controller that uses other models</h2>
+              
+              <p>
+                Suppose you have a controller that needs data from a bunch of different models, simply add this to the top of your controller: <br /><br /><code>class yourController extends AppController <br />{<br />
+
+                var $uses = array('Post','User'); <br /> } </code>
+                <br /><br />This controller would then have access to both the Post and the User model.
+              </p>
+            
+          </li>
+          
+          <li>
+          
+              <h2>Creating a model for a table that doesn't actually exist in the database</h2>
+              
+              <p>
+
+                
+                I needed a way to create a model and controller without actually having an associated table in the database.  I particularly wanted to make use of the $validate array so I could easily validate my fields and keep the validation logic in the model.  CakePHP will throw an error if you create a model for a table that doesn't exist. 
+                Adding this to the model fixed the problem:
+                
+                <br /><code>var $useTable = false;</code>
+                <br /><br />
+                You can use this to change tables names as well. 
+                <br /><code>var $useTable = 'some_table';</code>
+              </p>
+            
+          </li>
+          
+          <li>
+          
+              <h2>Call exit() after redirecting</h2>
+
+              
+              <p>
+                This should be no surprise to anyone who has done any serious web development in the past, but make sure you call exit()
+                after running <code>$this-&gt;redirect()</code> if there's code afterward that you don't want to run.
+                I've always done this in the past, but I made the assumption that <code>$this-&gt;redirect()</code> would make an exit call for me (which it didn't). 
+              </p>
+            
+          </li>
+          
+          <li>
+
+          
+              <h2>Advanced model functions</h2>
+              
+              Unless you delve in to the API, there are some very useful model functions at your disposal you might not know exist.
+              I highly recommend reading over the <a href="http://api.cakephp.org/class_model.html">Model Class Reference</a> at least once.
+              Here's a few key functions I wasn't aware of that I found to be very useful:
+              <ul>
+                <li><a href="http://api.cakephp.org/class_model.html#e8844b859626edc554946480046e395f">generateList()</a>
+                     - I use this function primarily to populate select boxes with data from associated tables</li>
+                <li><a href="http://api.cakephp.org/class_model.html#6489e2300b9002286e49d48f51004332">query()</a> 
+                     - Sometimes you just need to write your own SQL</li>
+
+                <li><a href="http://api.cakephp.org/class_model.html#0978aba07f5d196079d7518a99bcfa86">findCount()</a> 
+                    - Returns number of rows matching given SQL condition</li>
+                <li><a href="http://api.cakephp.org/class_model.html#1bc86347df904da22e555b1f9aa78970">hasAny()</a>
+                    - Returns true if a record that meets the given conditions exists.</li>
+              </ul>
+              Again, I highly recommend reading over the entire <a href="http://api.cakephp.org/class_model.html">model class reference</a>, you'll be surprised at what you learn.
+              
+          </li>
+
+          
+          <li>
+          
+              <h2>Inserting multiple rows in succession</h2>
+              
+              <p>
+    
+                I had a situation where I needed to iterate through a list of items and insert new rows for each.
+                I quickly discovered that if you insert an item and then immediately insert another, the item that is inserted next doesn't insert at all.
+                Instead the previously inserted row was being updated. 
+                For example: 
+                <br /><br />
+                <code>
+                $items = array('Item 1','Item 2','Item 3'); 
+                <br />
+                foreach ($items as $item) {
+                <br />
+
+                &nbsp;&nbsp;$this-&gt;Post-&gt;save(array('Post' =&gt; array('title' =&gt; $item))); 
+                <br />
+                }</code>
+                <br /><br />
+                This code will result in a single entry in the posts table:
+                &quot;item 3.&quot;
+
+                
+                CakePHP inserted &quot;item 1&quot;, but then updates it to become &quot;item 2,&quot; then &quot;item 3&quot; because $this-&gt;Post-&gt;id gets the value of the last inserted ID.
+                Normally this functionality is very useful, but in this particular instance it was not.
+                
+                I found was to setting <code>$this-&gt;Post-&gt;id = false</code> after each insert solved the problem.
+                
+                <br /><br />
+
+                <strong>Update:</strong>
+                 Someone emailed me and apparently the proper way of doing this is to call create() to initialize the model and then set/save your new data.
+    
+              </p>
+            
+          </li>
+          
+          <li>
+          
+              <h2>Inserting logic before or after controller functions</h2>
+              
+              <p>
+              
+                Suppose you needed an array of colors to be available to every view rendered by your controller but you don't want to have to define this data in every action.
+                Using the beforeRender() callback will allow you to do this: <br /><br /><code>function beforeRender() {<br />
+
+                &nbsp;&nbsp;$this-&gt;set('colors',array('red','blue','green'); <br />}</code><br /><br />This would make $colors accessible in every view rendered by that controller. <a href="http://api.cakephp.org/class_controller.html#f556912271b8d7b4b34da2db8d9482ee">beforeRender()</a>
+                is called after the controller logic and just before a view is rendered.
+                <br />There's also <a href="http://api.cakephp.org/class_controller.html#e756a803e378b692480ba0ab107c9bee">beforeFilter()</a> and <a href="http://api.cakephp.org/class_controller.html#2413935136814586d9993b831639ee43">afterFilter()</a>, which are called before and after every controller action.  
+                For more information, read up on callbacks in the <a href="http://manual.cakephp.org/chapter/models">models section</a> of the manual.
+              </p>
+
+            
+          </li>
+          
+          <li>
+          
+              <h2>Adding a <acronym title="What You See Is What You Get">WYSIWYG</acronym> editor to CakePHP</h2>
+              
+              <p>
+                I found <a href="http://wiki.cakephp.org/tutorials:tinymce_with_cake">this great tutorial</a> on getting TinyMCE set up with CakePHP.
+                Basically you just link the tiny_mce .js file to your page and then add a small bit of init code to every page that you want textareas to be converted into TinyMCE editors.
+              </p>
+
+            
+          </li>
+          
+          <li>
+          
+              <h2>Writing your own SQL for HABTM relationships</h2>
+              
+              <p>
+    
+                I had an issue with trying to create a HABTM (has-and-belongs-to-many) relationship where I needed to specify my own SQL statement.
+                According to the docs (at the time of this writing) you should set finderSql in your model, but according to the cakePHP source you should set 
+                
+                <strong>finderQuery</strong> instead.
+                It's just a foul-up in the docs, but I figured it'd be worth noting to save others from having to figure it out for themselves.
+                Trac ticket here: <a href="https://trac.cakephp.org/ticket/1217">https://trac.cakephp.org/ticket/1217</a>
+    
+              </p>
+
+            
+          </li>
+      
+          <li>
+          
+              <h2>Sending email</h2>
+              
+              <p>
+                I found two tutorials in the wiki:
+                <a href="http://wiki.cakephp.org/tutorials:sending_email">Sending email</a> and <a href="http://wiki.cakephp.org/tutorials:sending_email_with_phpmailer">Sending email with PHPMailer</a>
+                <br />I highly recommend the latter of the two, sending emails with PHPMailer is more secure and there's less of a headache because you don't have to deal with constructing the mail headers yourself.
+              </p>
+
+            
+          </li>
+          
+          <li>
+          
+              <h2>Customizing HTML generated by the Helper</h2>
+              
+              <p>
+    
+                I needed to change the default <code>&lt;option&gt;</code> generated when I called <code>$html-&gt;selectTag()</code> to say something like &quot;Please Select&quot; rather than an empty space (default).
+                
+                 I also wanted radio buttons to have labels so the user doesn't have to click exactly on the radio button itself but can instead click anywhere on the text associated with it.
+                 <br /><br />
+
+                 Create the file /app/config/tags.ini.php and add the following:<br />
+                 
+                 <code>; Tag template for a input type='radio' tag.<br />radio = &quot;&lt;input type=&quot;radio&quot; name=&quot;data[%s][%s]&quot; id=&quot;%s&quot; %s /&gt;&lt;label for=&quot;%3$s&quot;&gt;%s&lt;/label&gt;&quot;<br /><br />; Tag template for an empty select option tag.<br />selectempty = &quot;&lt;option value=&quot;&quot; %s&gt;-- Please Select --&lt;/option&gt;&quot;</code>
+
+                 <br /><br />
+                 You can get a full list of available tags in /cake/config/tags.ini.php.
+                 I wouldn't recommend modifying that file, however, because you could lose your changes when you upgrade CakePHP.
+                 
+              </p>
+            
+          </li>
+          
+          <li>
+          
+              <h2>Creating a custom 404 error page</h2>
+              
+              <p>
+                If you need to change the page that users see when a document is not found, create:<br />
+
+                /app/views/errors/error404.thtml
+              </p>
+            
+          </li>
+          
+      </ul>
+      
+      
+      <h3>About this Article</h3>
+      <address>
+        This document was last modified on September 14, 2006 and was written by 
+        <script language="javascript" type="text/javascript"> write_email('matt','Matt Inman'); </script>
+        <br />
+
+        Avatar Financial Group is a hard money lender based in Seattle, WA.  
+      </address>
+      
+  </div>
+  
+</div>  
+  
+  </div>
+  
+</div>
+
+
+<!-- IndexTools SSL Code v3.01 - All rights reserved -->
+  
+<script language="javascript1.1" type="text/javascript" src="/indextools_ssl.js"></script><noscript>
+<img src="https://secure.indextools.com/p.pl?a=10001348582939&amp;js=no" width="1" height="1" alt="" /></noscript><!--//-->
+
+<!-- End of IndexTools Code -->
+
+
+
+</body>
+
+</html> 

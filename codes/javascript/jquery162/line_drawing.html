@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+.aPixel { 
+	position:absolute;
+	width:10px;
+	height:10px;
+	border:1px solid red;
+	background:red;
+}
+</style>
+<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+
+<script type="text/javascript">
+
+function line(x0, y0, x1, y1){
+   dx = Math.abs(x1-x0);
+   dy = Math.abs(y1-y0);
+   if (x0 < x1) sx = 1; else sx = -1;
+   if (y0 < y1) sy = 1; else sy = -1;
+   err = dx-dy;
+ 
+   for(;;) {
+     setPixel(x0,y0);
+     if(x0 == x1 && y0 == y1) break;
+     e2 = 2*err;
+     if (e2 > -dy) {
+       err = err - dy;
+       x0 = x0 + sx;
+	 }
+     if (e2 <  dx) { 
+       err = err + dx;
+       y0 = y0 + sy;
+	 }
+   };
+}
+
+counter=0;
+function setPixel(x,y){
+	$('<div></div>')
+		.addClass('aPixel')
+		.css({ left:(x*10)+"px" , top:(y*10)+"px" })
+		.html('&hellip;')
+		.appendTo('body');
+		
+	/*
+	var divTag = document.createElement("div");
+	divTag.id = "div"+counter++;
+	divTag.setAttribute("title","a pixel");
+	divTag.style.left = (x*10)+"px";
+	divTag.style.top = (y*10)+"px";
+	divTag.className ="aPixel";
+	divTag.innerHTML = "&hellip;";
+	document.body.appendChild(divTag);
+	*/
+}
+
+$(function(){
+	setPixel(10,10);
+	$('body,html').click(function(e){
+		x = parseInt(e.pageX / 10);
+		y = parseInt(e.pageY / 10);
+		//alert('here: '+x+','+y);
+		line(0,0,x,y);
+	})
+	.dblclick(function(e){
+		$('body').empty();
+	});
+});
+</script>
+</head>
+
+<body></body>
+</html>

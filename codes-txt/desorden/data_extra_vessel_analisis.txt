@@ -1,0 +1,58 @@
+20100702.1726
+
+feelings   fantasy/reality
+motivation
+love
+courage
+passion
+prediction
+
+priori: ponle un link al lado
+
+problema: necesito crear un extra vessel,
+pero necesito crear un momento en donde se afirme
+que es a crear la copia de vessel nueva.
+
+colaterales: siguen estando los problemas de los permisos,injection,phishing
+(freno priori -carta-)
+
+pregunta: en que parte del proceso voy a agregar lo de copiar vessel?
+
+proceso actual: el proceso comienza con el con el vessel, luego
+se crea el stowage...
+
+(priori)
+colateral: la lista de los clientes con el dropdown dinamico
+
+proceso actual: ... cuando el stowage ... (pensando en este metodo de organizacion)
+... se llena, si hay diferencia entre el vessel y el stowage no lo deja pasar
+asi que es necesario volver a atras para editarlo.
+
+y cual es el problema? que hay que identificar si es a llegarlo.
+-carta- es decir, identificar si esta correcto el vessel anterior. 
+chequear si corresponde al pedido
+
+idea: agrega un dato backend -carta previa- 
+agregar un dato de session? o un campo? o un status?
+
+me gusta el estado, la idea del estado.
+
+ - el hecho de no saber de todo a veces me molesta
+ - nadie sabe todo, pero se puede descubrir todo
+ - zah! predecir el futuro! ajedrez? internet movil? esto -carta- no me ayuda
+ - si no te ayuda, para que jodes tanto?
+ - passion... como sea, hay que trabajar
+ - exitado por tu analisis? quieres estudiarlo? te ayudara en algo?
+ - quiza a conocer mis debilidades
+ - zah! quiza? 
+ - as;dlfje;ljfaslkclaufallkej;ljfljulsa ufe !!!!!!!
+ - se necesita liberar la mente, purgar y escribir cosas sin sentido 
+   o sin orden logico, para que asi la mente quiera buscar -carta-
+   o trabajar en orden!!!
+   pero deja ese desorden asi mismo. el hecho de verlo y saber que esta en
+   desorden te motivara a querer hacer orden, desquitate. pon orden en todo
+   menos en esta escritura en desorden. lo normal es que escribas sin pensar
+   en lo que escribes, solo siguiendo el flujo de tus pensamientos
+ - ok. lo pondre en prueba, sin embargo necesito crear algo para hacer estas
+   locuras. un portal para escribir txt
+  

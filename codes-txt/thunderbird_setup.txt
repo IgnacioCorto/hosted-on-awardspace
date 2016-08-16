@@ -1,0 +1,45 @@
+===[ThunderBird Setup]===
+
+
+Account Setup:
+--------------
+	- Tools -> Account Settings -> Add Account
+
+Minimize To Tray: 
+-----------------
+	- Search for: Minimize To Tray for Thunderbird
+	- Download the plugin
+	- Tools -> Extensions -> drop file here
+
+Signature:
+----------
+	- Tools -> Account Settings
+	   -> user@domain -> Attach this Signature
+   
+Reply Above Quote:
+------------------
+	- Tools -> Account Settings
+	   -> user@domain -> Manage Identities -> user@domain -> Edit
+	   -> Composition & Address -> (Message and Signature Above The Quote)
+
+	2.x Signature Bug:
+	------------------
+    - Tools -> Options -> Advanced -> General Tab -> Config Editor
+	- Type "mail.identity.id" -> check if "id1" is "user@domain"
+	- Set "mail.identity.id1.sig_bottom" to FALSE
+
+Thunderbird Dictionaries: 
+-------------------------
+	- Search for: Localized Dictionaries for Mozilla Thunderbird
+	- Download the dictionary of choice
+	- Tools -> Extensions -> drop file here
+	- Tools -> Options -> Composition -> Download or Choose one
+	
+Plain Text & HTML:
+------------------
+	- Tools -> Options -> Composition -> Send Options 
+	   -> Send message in plain text and HTML
+	
+	
+	   
+		

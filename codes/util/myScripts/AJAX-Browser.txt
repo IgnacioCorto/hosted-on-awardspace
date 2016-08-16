@@ -1,0 +1,55 @@
+
+<script type="text/javascript">
+
+//############ ON <BODY> ##############
+
+function ajaxFunction()
+  {
+  var xmlHttp;
+  try
+    {
+    // Firefox, Opera 8.0+, Safari
+    xmlHttp=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    // Internet Explorer
+    try
+      {
+      xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+    catch (e)
+      {
+      try
+        {
+        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      catch (e)
+        {
+        alert("Your browser does not support AJAX!");
+        return false;
+        }
+      }
+    }
+    xmlHttp.onreadystatechange=function()
+      {
+      if(xmlHttp.readyState==4)
+        {
+
+        // ############ CODIGO ##############
+
+        document.getElementById("mensaje").innerHTML = xmlHttp.responseText;
+        }
+      }
+
+    // ############ URL ##############
+
+    xmlHttp.open("GET","ajax-test.php",true);
+    xmlHttp.send(null);
+  }
+
+ // ############ LLAMADA A LA FUNCION ##############
+
+ ajaxFunction();
+
+</script>

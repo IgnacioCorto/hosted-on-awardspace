@@ -1,0 +1,48 @@
+
+' Adding a "User Defined Function":
+' Alt+F11/Insert/Module/[paste function]
+
+' Comment a block of code:
+' Alt+F11/View/Toolbars/Customise/Edit -or- add Edit Toolbar
+
+' EVENTS: Workbook_Open
+
+
+Function UserName() As String
+'   Returns the name of the logged-in user
+   Dim Buffer As String * 100
+   Dim BuffLen As Long
+   BuffLen = 100
+   'GetUserName Buffer, BuffLen
+   UserName = Environ("Username") 'Left(Buffer, BuffLen - 1)
+End Function
+
+
+Function Fuerte() As Integer
+'   Returns the number Fuerte
+   Fuerte = 666
+End Function
+
+
+Function DT()
+   fname = ActiveWorkbook.FullName
+   fdt = FileDateTime(fname)
+   DT = FormatDateTime(fdt, vbGeneralDate)
+End Function
+
+
+Sub proFirst()
+        Range("A1").Value = 34
+        Range("A2").Value = 66
+        Range("A3").Formula = "=A1+A2"
+        Range("A1").Select
+        Range("C1").Value = 34
+        Range("C3").Value = Application.UserName
+        Range("C4").Value = Environ("Username")
+        Range("C5").Value = Environ("ComputerName")
+        Range("C6").Value = CVErr(xlErrValue)
+        Range("C7").Value = DT()
+End Sub
+
+
+

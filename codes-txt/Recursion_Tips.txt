@@ -1,0 +1,14 @@
+
+A recursion needs 3 parameters:
+
+
+    1) Record that will be retrieved
+    2) Level of Depth
+    3) Data related to the Parent recursion
+
+
+A recursion always has a " recursion condition"
+
+
+    if( count($array)>0 ) 
+        callRecursion( $level,$id,$url ); 

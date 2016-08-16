@@ -1,0 +1,93 @@
+20100719.1537:
+needs are more powerful than love
+just being necessary should be enough
+smash ALL your dreams to make ONLY ONE to come true
+
+
+parallelism examples,sleeplessness  
+ - things at a time: one -vs- many
+ - overthink -vs- mess
+ - nothing -vs- too much
+ - tired -vs- sleepy+lazy
+ - beauty -vs- functional
+
+
+CHATURANGA:
+   random: piece to move
+   choice: where to move
+   luck: dice+mistakes
+CHESS:
+   random: opponent's move
+   choice: my move
+   luck: mistakes
+
+
+PROBLEMS:
+   list of pending things
+    - start with verbs. is good.
+   where to begin
+    - prototype: ugly,simple,small,working,
+   ideas and structures
+    - EVERYTHING CAN BE IMPROVED
+   ways of improvement
+    - port it (D&C), describe it (OOA&D),
+    - recognize constants: types,"abc",123
+   distractions
+    - sorry+busy
+    - anxiety=stupidity  (prototype)
+   *IT NEVER ENDS*
+
+
+PROGRAMMING QUESTIONS:
+   accept post variables? check post variables?
+    - you will always check post variables:
+    - user,permission,status,sanitize,validate
+   is safe to use post variables as flags to run commands?
+    - users can send any amount of post variables they want
+    + apache can blocks big requests
+    - they can send rare variables, rare values, and a valid flag or command
+    - the only data inputs are: url/get/post/cookie/etc
+
+
+-----
+I: what about psycho/physio needs?
+    -cleansing
+    -party
+    -women
+    -play games
+    -sleep
+U: you are an egoist! and a lazy man
+I: lazy by nature. that phrase won't help. that is a mistake.
+   do you think...
+U: yes!
+I: to be aware of my limitations? I can't tame them
+U: that's your choice
+I: my choice? you are like Parcher,Charles,Marcee,
+U: what is your choice then?
+I: you don't help! you keep me in undecision! and probably,
+   you even blame me for every small or big mistake of mine.
+U: so?
+I: see? still no answer from you! maybe I must ignore you.
+U: are you hiding from me in you work?
+I: now you bring differences and errors of my work and try to make me
+   compare it to other "so better" work of big companies.
+   IF YOU WON'T HELP ME, THEN LET ME THINK ALONE!
+U: I do whatever I want.
+I: ok. me too.
+-------
+I: only one dream? what about paralellism?
+U: parallelism examples,sleeplessness 
+-------
+I: when I see a list, I FocUs easily.
+   1) what i must do, and a short description
+   2) where,when, type, tracert...
+U: yeah, but not now. Use a plain txt
+I: you treat me bad  :'(
+-------
+I: even after I decided that I lose cycles and time by writing this, I feel
+   these writings either do or will help with my problems
+-------
+I: it never ends
+U: where the beginning was, the end will be
+I: but someone will re-start it at his own way
+

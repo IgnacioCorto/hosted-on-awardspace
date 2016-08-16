@@ -1,0 +1,41 @@
+
+##### Simple Rules #####
+
+
+var $validate = array(
+    'fieldName1' => array(
+        'rule' => 'ruleName', // or: array('ruleName', 'param1', 'param2' ...)
+        'required' => true,
+        'allowEmpty' => false,
+        'on' => 'create', // or: 'update'
+        'message' => 'Your Error Message'
+    )
+);
+
+
+
+##### Multiple Rules #####
+
+
+var $validate = array(
+    'login' => array(
+        'alphanumeric' => array(
+            'rule' => 'alphaNumeric',  
+            'message' => 'Only alphabets and numbers allowed',
+            'last' => true
+         ),
+        'minlength' => array(
+            'rule' => array('minLength', '8'),  
+            'message' => 'Minimum length of 8 characters'
+        ),  
+    )
+);
+
+
+
+##### Validation from the Controller #####
+
+
+$this->ModelName->set( $this->data );
+$this->ModelName->validates()                ### returns: true || false
+$errors = $this->ModelName->invalidFields(); ### contains validationErrors array

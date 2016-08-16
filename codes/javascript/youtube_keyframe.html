@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<style>
+.wrapper { border:3px solid blue; width:700px; height:460px; position:relative; }
+
+.wrapper .mover {
+	position:absolute;
+	left:0px; top:0px;
+	width:50px; height:50px;
+	background:red;
+	
+	-webkit-transition: all 2s;
+}
+
+.wrapper .mover {
+	/*left:150px; top:150px;
+	background:blue;
+	-webkit-transition: all 2s;*/
+	-webkit-animation: myfirst 4s infinite;
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+0%   {left:0px; top:0px;}
+25%  {left:600px; top:0px;}
+50%  {left:600px; top:360px;}
+75%  {left:0px; top:360px;}
+100%  {left:0px; top:0px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<p>Ademas de usar <strong>@-webkit-keyframes</strong> para <strong>WebKit</strong>, también hago un <strong>console.log</strong> del <strong>JSON API</strong> de <strong>YouTube</strong></p>
+<p>feed &hellip; entry &hellip; media$group &hellip; media$thumbnail &hellip; 
+<a href="https://developers.google.com/youtube/2.0/developers_guide_json">YouTube JSON</a> |
+<a href="https://developers.google.com/youtube/articles/view_youtube_jsonc_responses">JSON-C Responses</a></p>
+
+<p>
+<strong>Thumbnail:</strong> OBJECT.feed.entry[0]['media$group']['media$thumbnail'][0].url <br />
+<strong>ID:</strong> OBJECT.feed.entry[0].id.['$t']  //URL_BASED <br />
+<strong>Title:</strong> OBJECT.feed.entry[0].title.['$t'] //TITLE <br />
+<strong>Description:</strong> OBJECT.feed.entry[0]['media$group']['media$description']['$t']
+</p>
+
+<p>
+<strong>Per Page:</strong> OBJECT.feed.['openSearch$itemsPerPage']['$t'] <br />
+<strong>Start:</strong> OBJECT.feed.['openSearch$startIndex']['$t'] <br />
+<strong>Total:</strong> OBJECT.feed.['openSearch$totalResults']['$t']
+</p>
+
+
+<div class="wrapper">
+    <div class="mover">
+    </div>
+</div>
+
+<script type="text/javascript" src="http://gdata.youtube.com/feeds/api/users/luis3ignacio/uploads?alt=json&max-results=1&callback=console.log"></script>
+</body>
+</html>

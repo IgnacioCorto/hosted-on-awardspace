@@ -1,0 +1,40 @@
+
+
+// TinyMCE Standard Configuration
+
+
+<script language="javascript" type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script >
+
+
+// COLLECTIVE
+
+tinyMCE.init({                   // ALSO:  tinymce.EditorManager.init
+   theme : "advanced" ,
+   mode : "textareas" , 
+   width: '500px'  
+
+   theme_advanced_styles : "Verde=green ; Rojo=red "
+});
+
+
+// INDIVIDUAL
+
+tinyMCE.init({
+	mode : "exact" ,
+	elements : "descripcion_en, descripcion" ,
+	width : '500px'
+});
+
+
+
+
+// TinyMCE JS Manipulation
+
+
+var ed = tinyMCE.get('editor1');
+
+ed.setProgressState(1); // Show progress
+ed.setProgressState(0); // Hide progress
+
+ed.setContent('HTML content.');
+ed.getContent()

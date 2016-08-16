@@ -1,0 +1,14 @@
+UPDATE cuenta SET saldo=saldo-100 WHERE id=1
+
+CREATE UNIQUE INDEX codigo USING BTREE ON tabla(campo2,campo2)
+
+#Use Errors from MySQL in HTML Form Validations? The best way!
+
+#For updates, use: 1)timestamps; 2)checksums; 3)counters 4)flags;
+#Update only the changed data (e.g. only one field out of ten)
+
+#LOCK TABLE ... READ pueden leer, pero no escribir
+#LOCK TABLE ... WRITE ni leer ni escribir
+
+#Incrementing +1 to the higher value, and inserting it
+INSERT INTO race_condition(entero) (SELECT max(entero)+1 FROM race_condition LIMIT 1);

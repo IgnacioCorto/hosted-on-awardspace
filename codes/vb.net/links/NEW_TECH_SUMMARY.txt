@@ -1,0 +1,32 @@
+// Get/Set Attributes for Web
+States: [ViewState|Application|Session]("key") = New Value("data")
+
+
+[MyProject] -> Properties -> Web -> Specific Port
+
+
+SQL SERVER CONNECTION:
+======================
+Dim conn As New SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("DataAccessLayer.My.MySettings.GlobalSSConnectionString").ToString())
+Dim cmd  As New SqlCommand("SELECT ... FROM ...", conn)
+
+conn.Open()
+
+   ehId = selectMaxCommand.ExecuteScalar
+
+conn.Close()
+
+
+
+
+AJAX Extensions:
+================
+ScriptManager -> UpdatePanel -> Timer | UpdateProgress
+
+
+Accessing Buttons:
+==================
+DOES NOT NEED "NEW" STATEMENT IN THE:   -- Declare + Initialization + Assignation
+   Dim rbl As RadioButtonList = TryCast(Me.FindControl("rbl1"), RadioButtonList)
+
+

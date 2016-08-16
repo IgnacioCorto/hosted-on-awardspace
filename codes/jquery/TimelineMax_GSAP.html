@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<style type="text/css">
+/*tocss*/
+.controls { position:fixed; right:0; top:0; padding:15px; width:300px; background:rgba(64,64,64,0.7); }
+.controls a { color:white; }
+
+.red { position:absolute; left:120px; top:40px; width:50px; height:50px; background:red; }
+.blue { position:absolute; left:180px; top:40px; width:50px; height:50px; background:blue; }
+.green { position:absolute; left:150px; top:120px; width:50px; height:100px; background:green; }
+.yellow { padding:18px; margin:5px; border:1px solid black; top:120px; background:yellow; }
+
+.border { position:absolute; left: 45px; top: 270px; width:550px; height:50px; border:1px solid black; }
+.box { position:absolute; left:5px; top:5px; width:40px; height:40px; background:black; }
+</style>
+
+</head>
+
+<body>
+
+
+
+
+
+<div class="controls">
+<div id="slider1"></div>
+<input type="submit" value="red" id="button1" />
+<input type="submit" value="none" id="button2" />
+<input type="submit" value="blue" id="button3" /><br />
+<input type="submit" value="green" id="button4" />
+<input type="submit" value="black" id="button5" />
+
+<p>
+<a href="http://greensock.com/get-started-js" target="_blank">Getting Started</a><br />
+<a href="http://greensock.com/docs/#/HTML5/GSAP/TweenLite/TweenLite/" target="_blank">Properties</a><br />
+<a href="http://greensock.com/docs/#/HTML5/GSAP/Plugins/CSSPlugin/" target="_blank">CSSPlugin</a><br />
+<a href="" target="_blank"></a><br />
+
+<a href="http://cdnjs.com/libraries/gsap" target="_blank">CDN GSAP</a><br />
+
+
+</p>
+</div>
+
+<!-- tohtml -->
+
+<div class="red"></div>
+<div class="blue"></div>
+
+<div class="green">
+<div class="yellow"></div>
+</div>
+
+<div class="border">
+<div class="box"></div>
+</div>
+
+
+
+Content of the document......
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/plugins/BezierPlugin.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/TweenMax.min.js"/></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript">
+jQuery(function(){
+    var tl, tl2, tl3, tl4, mySlider;
+
+    jQuery('#button1').button().click(function(){
+        tl.tweenTo('red');
+    });
+    jQuery('#button2').button().click(function(){
+        tl.tweenTo('none');
+    });
+    jQuery('#button3').button().click(function(){
+        tl.tweenTo('blue');
+    });
+    
+    
+    jQuery('#button4').button().toggle(
+        function(){ tl2.play(); tl3.play(); },
+        function(){ tl2.pause(); tl3.pause(); }
+    );
+    jQuery('#button5').button().click(function(){
+        tl4.restart();
+    });
+    
+    
+    
+    mySlider = jQuery('#slider1').slider({
+        range: false,
+        min: 0,
+        max: 100,
+        step:.1,
+        slide: function ( event, ui ) {
+            tl.pause();
+            tl.progress( ui.value/100 );
+        }
+    });
+    
+    function updateSlider(){
+        mySlider.slider("value", tl.progress()*100); 
+        //console.log( Math.round(tl.progress()*10000)/100,  tl.totalTime());
+        /*
+        if(tl.totalProgress()==2) tl.reverse(); 
+        if(tl.totalProgress()==0) tl.play(); 
+        if(tl.totalProgress()==1) tl.pause();
+        /**/
+    }
+    function completeReverse(){
+        /*
+        console.log("called", tl.totalProgress());
+        if(tl.reversed()) tl.play();
+        else tl.reverse();
+        tl.pause();
+        /**/
+    }
+    
+    
+    tl = new TimelineMax({repeat:0, repeatDelay:0, yoyo:true,
+                            onUpdate:updateSlider, onComplete:completeReverse});
+    tl.pause();
+    tl.from('.red', 1, {left:'-=100px', ease:Power0.easeInOut}); 
+    tl.to('.blue', 1, {left:'+=100px', ease:Power0.easeInOut}); 
+    tl.timeScale(3);
+    
+    tl.addLabel('red', 0);
+    tl.addLabel('none', 1);
+    tl.addLabel('blue', 2);
+    tl.seek('none');
+    
+    
+    
+    tl2 = new TimelineMax({repeat:-1, repeatDelay:0, yoyo:true, paused:true});
+    tl2.fromTo('.green', 0.5, {rotation:'-45deg'}, {rotation:'+45deg', ease:Linear.easeNone}); 
+    
+    tl3 = new TimelineMax({repeat:-1, repeatDelay:0, yoyo:false, paused:true});
+    tl3.to('.yellow', 0.5, {rotation:'360deg', ease:Linear.easeNone}); 
+    
+    
+    tl4 = new TimelineMax({repeat:0, repeatDelay:0, yoyo:false, paused:true});
+    /*
+    tl4.to('.box', .7, {left:'+=200', ease:Back.easeIn}); 
+    tl4.to('.box', .7, {left:'+=200', ease:Elastic.easeOut}); 
+    tl4.to('.box', 1, {timeScale:10},0); 
+    /**/
+    
+     //tl4.to('.box', .7, {bezier:[{left:'-100px'},{left:'500px'},{left:'400px'}], ease:Power1.easeInOut}); 
+     tl4.set('.box',{top:'-=200px'}).to('.box', .7, {bezier:{curviness:1.25, values:[{x:100, y:250}, {x:300, y:0}, {x:500, y:400}], autoRotate:true}, ease:Power1.easeInOut}); 
+    
+    
+    
+    /*
+    CustomEase.create("myCustomEase", [{s:0,cp:-0.425,e:-0.264},{s:-0.264,cp:-0.103,e:0.644},{s:0.644,cp:1.391,e:0.956},{s:0.956,cp:0.521,e:0.908},{s:0.908,cp:1.295,e:1}]);
+    */
+    
+    
+    /* tojs */    
+});
+
+</script>
+
+</body>
+</html>
+
+

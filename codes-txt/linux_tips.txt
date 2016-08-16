@@ -1,0 +1,38 @@
+
+####[ YouTube Download ]####
+wget http://www.youtube.com/watch?v=O7W0DMAx8FY -qO- | sed 's/\\u0026/\&/g' | sed -n "/fmt_url_map/{s/[\'\"\|]/\n/g;p}" | sed -n '/^fmt_url_map/,/videoplayback/p' | sed -e :a -e '$q;N;5,$D;ba' | tr -d '\n' | sed -e 's/\(.*\),\(.\)\{1,3\}/\1/' | wget -i - -O surprise.flv
+
+
+####[ CronTab ]####
+#  min    hour   monthday   month   weekday
+#  0-59   0-23   1-31        1-12    0-6 (Sunday=0)
+
+
+## each 2 minutes, feb & apr, every hour, monthday, and weekday
+*/2 * * 2,4 * rm /home/someuser/tmp/* > /home/someuser/cronlogs/clean_tmp_dir.log
+
+
+###[ If - Numeric Eval ]###
+
+if [ `free -m | grep "/cache" | cut -c35-41` -gt 1000 ] ; then free -m ; fi ;
+
+if [ `cat asterisk_out | grep -v "IRQ" | grep -v " OK " | cut -c25-26 | tail -n 1` ]; then echo "One line is not OK"; fi ;
+
+/* Bckup */  tar -cZf /var/my-backup.tgz /home/me/
+/*  if   */  let a=10; if [ $a == 10 ]; then  echo hey; fi;
+/*  for  */  for a in `seq 1 10`; do echo $a; echo -; done;
+/* until */  let a=10; until [ $a == 0 ]; do echo a=$a; let a-=1; done;
+/* f(x)  */  function e { local a=1; echo konnichi wa, $1, $a; }
+/* list  */  compgen -A function    #defined function list
+
+
+###[ Installing Software ]###
+dselect install g++
+aptitude install build-essential
+apt-get install PACKAGE-NAME -o DPkg::options::="--force-overwrite"
+apt-get install PACKAGE-NAME -o DPkg::options::="--force-all"
+
+/etc/apt/sources.list:
+   deb http://http.us.debian.org/debian stable main contrib non-free
+   deb-src http://http.us.debian.org/debian stable main contrib non-free
+

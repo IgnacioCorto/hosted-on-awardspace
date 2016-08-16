@@ -1,0 +1,18 @@
+ArrayList: [Cortorreal, De La Cruz, Ignacio, Luis]   //Normal ASYNC Array
+Vector: [Cortorreal, De La Cruz, Ignacio, Luis]   //If SYNC Array is needed
+LinkedList: [Luis, Ignacio, Cortorreal, De La Cruz]   //Rapid Insertion/Deletion
+
+TreeSet: [W, X, Y, Z]   //Sorterd without duplicates
+HashSet: [D, E, F, A, B, C]   //Rapid Search without duplicates
+LinkedHashSet: [F, D, A, B, C, E]   //Same order without duplicates
+
+HashMap: {1=D, 2=C, 3=A, 4=B}   // Key/Value pairs. Sort by Key. UNSYNC
+TreeMap: {1=D, 2=C, 3=A, 4=B}   // Key/Value pairs. Navigable. 
+Hashtable: {4=B, 3=A, 2=C, 1=D}   // Key/Value pairs. Reverse. SYNC. 
+LinkedHashMap: {4=B, 3=A, 1=D, 2=C}   // Key/Value pairs. Sort by Entry. 
+
+PriorityQueue: [A, B, C] ; peek=A ; poll=A ; remove=B ; status=[C] ;    // Implements Queue
+Stack: [A, B, C, D] ; peek=D ; pop=D ; pop=C ; status=[A, B] ;    // Implements Stack
+
+
+Vector & Hashtable : Prehistoric Java

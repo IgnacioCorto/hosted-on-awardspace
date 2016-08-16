@@ -1,0 +1,19 @@
+<script language="javascript">
+  newWindow = window.open('','newWindow')
+  newWindow.document.write(document.forms[0].elements.length+"<br /> <br />");
+
+  for(ii=0; ii<document.forms[0].elements.length; ii++)
+   {
+    ctrlType = document.forms[0].elements[ii].type;
+
+    if (ctrlType == "select-one"  )  ctrlType="select:" ;
+    else if(ctrlType == "checkbox")  ctrlType+=":" ;
+    else if(ctrlType == "radio"   )  ctrlType+="button:" ;
+    else ctrlType="" ;
+
+    newWindow.document.write
+	     ( "{" + ctrlType + document.forms[0].elements[ii].name + "} <br />");
+   }
+
+
+</script>

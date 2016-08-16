@@ -1,0 +1,223 @@
+package com.rim.samples.userinterface;      // RIM Examples
+
+import net.rim.device.api.ui.*;
+import net.rim.device.api.ui.component.*;   // More Fields
+import net.rim.device.api.ui.container.*;
+import net.rim.device.api.system.Bitmap;    // New Kid On The Block!!
+import net.rim.device.api.i18n.*;           // Localizing
+
+import net.rim.device.api.system.*;         // Used for Persistence
+import net.rim.device.api.util.*;
+import java.util.*;
+
+import javax.microedition.media.*;
+import javax.microedition.media.control.*;  // Media Players
+import java.io.InputStream;               
+
+
+SKELETONS: HelloWorld.java, SalutationScreen.java,
+
+
+/////// HELLO WORLD PROGRAM ///////
+File > New > Project > Blackberry > Blackberry Project  // add Package & Class
+
+
+//Hello extends net.rim.device.api.ui.UiApplication
+instance.enterEventDispatcher();     //at main, UiApplication
+pushScreen(new SalutationScreen());  //at constructor, this(UiApplication)
+
+//Saludation extends MainScreen
+public Saludation()
+  super();  // NOTE THIS IS NEED FOR MainStreen
+  LabelField("Hello World Title");
+  RichTextField("Hello World!");
+  MainScreen
+    .setTitle(labelField)
+    .add(richTextField)
+
+public boolean onClose()
+  Dialog.alert("Bye World!");    
+  System.exit(0);
+
+
+/////// GRAPHICAL USER INTERFACE (GUI) ///////
+
+
+// CHECK: import net.rim.device.api.ui.component.*
+
+VerticalFieldManager
+  .add(new HorizontalFieldManager());
+HorizontalFieldManager
+  .add(new SeparatorField());  // in vertical too
+Bitmap
+  .getBitmapResource("canada.png");
+BitmapField
+  .setBitmap(_bitmap);
+BasicEditField("caption: ", _value);
+  .setText(_canadaCapital);
+  .getText()
+ButtonField("USA");
+  .setChangeListener(listenerUS);   // class Field
+  
+//LabelField.ELLIPSIS | LabelField.USE_ALL_WIDTH
+
+FieldChangeListener listenerCanada = new FieldChangeListener() {
+   public void fieldChanged(Field field, int context) {
+      _bitmap.setBitmap(_canadaImage);
+      _input.setText(_canadaCapital);
+      displayed = 0; } };
+
+protected void makeMenu(Menu menu, int instance) {
+   menu.add(_changeCapital);
+   menu.add(_close); }
+
+private MenuItem _close = new MenuItem("Close", 110, 10) {
+   public void run() {
+     onClose(); } };
+
+
+/////// LOCALIZING ///////
+
+
+//CREATE: LangFile.rrh, LangFile.rrc, LangFile_es.rrc  // _fr , _uk
+//Look how 'implements' matchs filename:
+//class MyScreen extends MainScreen implements LangFileResource { }
+  private static ResourceBundle _res = ResourceBundle.getBundle(BUNDLE_ID, BUNDLE_NAME);
+  _res.getString(FIELD_TITLE)
+  Locale.setDefault(Locale.get(Locale.LOCALE_en, null));  // _fr  _es
+private void refresh() {/*REFRESH ALL FIELDS, AFTER CHANGING LOCALE*/}
+//TEST: country list, numbers, dates, currencies
+
+
+/////// PERSISTENCE ///////       //NOTE: Your application must be signed!!
+
+
+AutoTextEditField
+new EditField("Phone Number: ", "", Integer.MAX_VALUE, BasicEditField.FILTER_PHONE);
+Dialog.inform("Success!");
+
+Vector _data = new Vector(4);
+    .capacity()
+    .addElement(new String(""))
+    .elementAt(id)  // e.g: (String) cast
+    .setElementAt(value, id)
+private static final class StoreInfo implements Persistable  //"Serializable"
+
+PersistentObject _store;  //PERSISTENCE OBJECT
+    .setContents()
+    .commit()
+    .getContents()
+static {
+    //STORE NEEDS AN UNIQUE_KEY
+    store = PersistentStore.getPersistentObject(0xdec6a67096f833cL);   // THE CREAM!!
+    synchronized (store) {
+            if (store.getContents() == null) {
+                    store.setContents(new Vector());
+                    store.commit();
+            }
+    }
+    _data = new Vector();
+    _data = (Vector) store.getContents();
+}
+
+//STORE DATA
+StoreInfo _info = new StoreInfo();
+_info.setElement(StoreInfo.SPECIALTY, specialtyfield.getText());  //inner vector
+_data.addElement(info);   //vector
+
+synchronized (_store) {
+    _store.setContents(_data);
+    _store.commit();
+}
+
+//RETRIEVE DATA
+synchronized (_store) {   
+    _data = (Vector) store.getContents();
+    if (!_data.isEmpty()) {
+        StoreInfo info = (StoreInfo) _data.lastElement();
+        specialtyfield.setText(info.getElement(StoreInfo.SPECIALTY));
+    }
+}
+
+//TESTS: iterate all records; store images, arrays, etc;
+
+
+/////// MEDIA PLAYERS ///////
+
+
+MEDIA: javax.microedition.media.Manager
+GUI:   net.rim.device.api.ui.Manager
+
+public static String[] getSupportedProtocols(String content_type);
+public static String[] getSupportedContentTypes(String protocol);
+public Player myPlayer;
+public VolumeControl vc;
+public VideoControl vc;
+
+try {
+    Manager.playTone(ToneControl.C4, miliDuration, volumePercent);
+} catch (MediaException e) { }
+
+//audio/x-wav, audio/mpeg, audio/midi
+
+
+//AUDIO PLAYER
+try {
+    InputStream is = getClass().getResourceAsStream("/Crawling.mid");
+    Dialog.alert(is.toString());
+    myPlayer = Manager.createPlayer(is, "audio/midi");
+    myPlayer.addPlayerListener(this);
+    myPlayer.realize();
+    myPlayer.prefetch();
+    vc = (VolumeControl) myPlayer.getControl("VolumeControl");
+    vc.setLevel(150);
+    myPlayer.start();
+} catch (Exception e) {
+    Dialog.alert(e.toString());
+}
+
+//VIDEO PLAYER
+try {
+    //InputStream is = getClass().getResourceAsStream("/Cat_Vs_Snake.3gp");
+    //player = Manager.createPlayer(is, "video/3gp");
+    player = Manager.createPlayer("file:///SDCard/Cat_Vs_Snake.3gp");
+    
+    player.realize();
+    vc = (VideoControl) player.getControl("VideoControl");
+
+    vc.initDisplayMode(VideoControl.USE_DIRECT_VIDEO, this);
+    GUIControl gc;
+    if ((gc = (GUIControl) player.getControl("GUIControl")) != null) {
+        add((Field) gc.initDisplayMode(GUIControl.USE_GUI_PRIMITIVE,
+            null));
+    }
+    vc.setDisplayLocation(0, 0);
+    vc.setDisplaySize(320, 240);
+    vc.setVisible(true);
+    player.start();
+} catch (Exception e) {
+    Dialog.alert(e.toString());
+    e.printStackTrace();
+}
+
+//Override Screen.close()
+public void close() {
+    try {
+        myPlayer.removePlayerListener(this);
+        myPlayer.stop();
+        myPlayer.deallocate();
+        myPlayer.close();
+        myPlayer = null;
+    } catch (Exception e) {
+        Dialog.alert(e.toString());
+    }
+    super.close();   // <--- YOU CAN USE THIS
+}
+
+
+################################################################################
+################################################################################
+
+net.rim.device.api.database
+if(.COD > 200k) .COD = .ZIP
+Icon: 64x64

@@ -1,0 +1,29 @@
+if(typeof Crunch==='undefined'){
+	(function(){
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = 'https://cdnjs.cloudflare.com/ajax/libs/crunch/1.1.0/crunch.min.js';
+		document.body.appendChild(script);
+		console.log('Crunch is now loaded.');
+	})();
+} else {
+	console.log('Crunch loaded previously');
+}
+
+var crunch = Crunch();
+var n1 = crunch.parse("123456789123456789");
+var n2 = crunch.parse("987654321987654321");
+var rst = crunch.add(n1,n2); 
+
+b = '8402460647454343013991724296683645813878835482783375467106767223';
+e = '11956973547939062635208158928509826415989602609882402230242024108879360330590498850395321543164041177122183343338560214468796197';
+m = '29106898561073353819636473462067189888637036393875758395951358098078031957506995463402918245074073899094965774232774085010717449';
+
+bp = crunch.nextPrime( crunch.parse(b) );
+ep = crunch.nextPrime( crunch.parse(e) );
+mp = crunch.nextPrime( crunch.parse(m) );
+rstp = crunch.exp(bp,ep,mp); 
+
+console.log('big sum:', crunch.stringify(rst));
+console.log('next prime:', crunch.stringify(bp) );
+console.log('mod_exp:', crunch.stringify(rstp));

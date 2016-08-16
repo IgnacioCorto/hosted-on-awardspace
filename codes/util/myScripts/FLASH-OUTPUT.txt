@@ -1,0 +1,69 @@
+
+function outPutOeTags(flashFile, str, id, w, h, scale, salign) {
+
+/*
+	outPutOeTags (
+		'flash/parthenon_homepage.swf',
+		'mainImage=images/model.jpg',
+		'parthenon_homepage2',
+		'950',
+		'666',
+		'',
+		''
+	);
+
+<noscript>
+   Tu Navegador no soporta *SCRIPTS*
+</noscript>
+
+*/
+		//alert("here");
+		var width=w;
+		var height=h;
+		if (scale!=''){
+			scale1='<param name="scale" value="'+scale+'" />';
+			scale2='scale="'+scale+'"';
+		}
+		else {
+			scale1='';
+			scale2='';
+		}
+		if (salign!=''){
+			salign1='<param name="salign" value="'+salign+'" />';
+			salign2=' salign="'+salign+'"';
+		}
+		else {
+			salign1='';
+			salign2='';
+		}		
+	
+	    var oeTags = '<OBJECT CLASSID="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"'
+	    + 'WIDTH="'+width+'" HEIGHT="'+height+'"'
+	    + 'CODEBASE="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" '
+		+ 'id="'+id+'" align="middle">'
+	    + '<PARAM NAME="MOVIE" VALUE="'+flashFile+'">'
+		+ '<PARAM NAME="FlashVars" VALUE="'+str+'">'
+		+ '<param name="allowScriptAccess" value="sameDomain" />'
+	    + '<PARAM NAME="QUALITY" VALUE="high">'
+		+ '<param name="bgcolor" value="#ffffff" />'
+		+ '<param name="wmode" value="transparent" />'
+		+ scale1
+		+ salign1
+	    + '<EMBED SRC="'+flashFile+'"'
+		+ 'FlashVars="'+str+'"'
+	    + 'WIDTH="'+width+'" HEIGHT="'+height+'"'
+	    + 'QUALITY="high"'
+		+ 'bgcolor="#ffffff"'
+		+ 'name="'+id+'"'
+		+ 'align="middle"'
+		+ 'allowScriptAccess="sameDomain"'
+		+ 'wmode="transparent"'
+	    + 'TYPE="application/x-shockwave-flash"'
+	    + 'pluginspage="http://www.macromedia.com/go/getflashplayer"'
+		+ scale2
+		+ salign2
+	    + '</EMBED>'
+	    + '</OBJECT>';
+		
+	    document.write(oeTags);   // embed the flash movie
+	}

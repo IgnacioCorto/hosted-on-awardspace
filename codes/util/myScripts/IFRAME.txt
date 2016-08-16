@@ -1,0 +1,4 @@
+<script type="text/javascript">function GalScrollDown() {window.frames["gal"].scrollTo(0,100) }</script>
+<iframe style=" "
+onLoad="GalScrollDown()" name="gal" height="450" width="500" src="gal-14abr07/index.htm" scrolling="no" frameborder="0">
+</iframe>

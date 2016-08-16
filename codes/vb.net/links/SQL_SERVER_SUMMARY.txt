@@ -1,0 +1,10 @@
+CREATE PROCEDURE agregarAmigo
+	@nombre   varchar(100) , 
+	@apellido varchar(100) , 
+	@telefono varchar(100)
+AS
+BEGIN
+	INSERT INTO ignAmigos (nombre,apellido)
+	VALUES (@nombre,@apellido) 
+END
+GO

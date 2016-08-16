@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<h3>Results:</h3>
+<div id="results"></div>
+
+</body>
+</html>
+
+<script>
+/*
+
+var rst = document.getElementByID('resultado'); 
+var fld = document.getElementsByName('campos');
+var h3  = document.getElementsByTagName('h3');
+//getElementsByTagNameNS('namespace','name') // getElementsByClassName('name')
+
+var p1   = document.createElement("p");
+var p1_t = document.createTextNode("This is new.");
+p1.appendChild(p1_t);
+//you can MOVE and DISPLACE elements
+
+parent.insertBefore(new_object, old_object);
+parent.removeChild(old_object);
+parent.replaceChild(new_object, old_object);
+
+//traversing...
+document.getElementById('results').parentNode.previousSibling.nextSibling.firstChild.lastChild.hasChildNodes()
+	.childNodes.item(n)
+	.childNodes.length
+*/
+
+var
+	p1 =
+	p1_t =
+	p2 =
+	p2_t =
+	p3 =
+	p3_t =
+	p4 =
+	p4_t = null;
+
+var counter = 0;
+
+var rst = document.getElementById('results')
+
+var func_list = [
+function(){
+	p1=document.createElement("p");
+	p1_t=document.createTextNode("This is new 1.");
+	p1.appendChild(p1_t);
+	rst.appendChild(p1);
+},
+
+function(){
+	p2=document.createElement("p");
+	p2_t=document.createTextNode("This is new 2.");
+	p2.appendChild(p2_t);
+	rst.insertBefore(p2, p1);
+},
+
+function(){
+	p3=document.createElement("p");
+	p3_t=document.createTextNode("This is new 3.");
+	p3.appendChild(p3_t);
+	rst.insertBefore(p3, p2);
+},
+
+function(){
+	rst.removeChild(p2);
+},
+
+function(){
+	p4=document.createElement("p");
+	p4_t=document.createTextNode("This is new 4.");
+	p4.appendChild(p4_t);
+	rst.replaceChild(p4, p1);
+}];
+
+setInterval( function(){ if(counter<func_list.length) func_list[counter++](); }, 1000 ); 
+
+</script>

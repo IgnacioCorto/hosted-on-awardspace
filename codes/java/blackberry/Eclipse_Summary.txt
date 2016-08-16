@@ -1,0 +1,28 @@
+YOU CANNOT MAKE METHODS MORE PRIVATE!
+static, super/this, anonymous/inner, protected/default,
+listeners/threads, try/catch, 
+{instance intializar}, static{},synchronized{},
+trasient,strictfp,volatile,
+
+INSTANCE: synchronized (this) {}
+STATIC:   synchronized(MyClass.class) {} 
+===================================================
+
+New BB Project + New Package
+Windows > Preferences > Java > Installed JREs > BB JRE 5.0
+Run Configurations > name,project,8520,debugging,backlight,LCD only
+
+Compile/Run/Debug:
+  Ctrl+11: Run      //F11 Debug
+
+Navigation:
+
+Refactoring:
+   Alt+Shift+S:   Source Menu (constructors/getters/setters/etc...)
+   Ctrl+Shift+F:  Format/Indent Code
+   Alt+Shift+R:   Rename a member
+   Alt+Shift+L:   create a Local Variable with the selected expression
+   Alt+Shift+M:   create a Private Method with the selected code
+   
+
+

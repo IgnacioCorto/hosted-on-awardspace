@@ -1,0 +1,17 @@
+10+15=53
+
+
+Project -> Build Automatically
+rt.jar -> Java Source Attachment -> src.zip
+Window -> Show View -> ...
+Tasks -> // TODO
+Windows -> Preferences:
+ ... Java -> Editor -> Typing
+ ... Java -> Editor -> Content Assist -> Auto-Activation
+ ... Java -> Editor -> Templates (Page 146)
+ ... Java -> Code Style -> Code Formatter (Page 158)
+
+Surround with -> try/catch Block
+Source -> Externalize Strings  (Page 180 - i18n)
+
+188 - Refactoring (ParamPreviewProblem)

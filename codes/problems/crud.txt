@@ -1,0 +1,12 @@
+**NOTES** each one should do query checks 
+before storing something
+
+CREATE:
+  validate, 
+RETRIEVE:
+  details_view, fill_fields
+UPDATE:
+  validate, like create
+  if(post){load_post} else{load_record}
+DELETE:
+  r u sure?
